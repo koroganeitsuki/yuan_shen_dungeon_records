@@ -1,6 +1,41 @@
 // 通关记录数据
 const Records = [
         {
+            id: 144,
+            player: 'JX67',
+            mainc: '温迪',
+            team: [
+                {
+                        character: '温迪',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '珐露珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 114,
+            boss: '历经百战的暝视龙 · 霜雪苛念',
+            gold: 1,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1CBqyBREsV/',
+            status: 'approved',
+            submitTime: '2025/12/21 5:26:0'
+        },
+        {
             id: 142,
             player: '测试玩家',
             mainc: '钟离',
@@ -66,7 +101,7 @@ const Records = [
             gold: 1,
             constgold: 0,
             notes: '3星武器',
-            video: 'www.bilibili.com/video/BV1CLhmziEsF',
+            video: 'https://www.bilibili.com/video/BV1CLhmziEsF',
             status: 'approved',
             submitTime: '2025/8/28 21:34:00'
         },
@@ -3597,7 +3632,7 @@ const Records = [
             constgold: 0,
             notes: '测试备注2',
             video: 'https://www.bilibili.com/video/BV1234567890',
-            status: 'pending',
+            status: 'denied',
             submitTime: '2025/11/15 10:30:00'
         },
         {
@@ -4281,12 +4316,12 @@ const Records = [
                         weapon: 1
                     }
             ],
-            time: 0,
+            time: 119,
             boss: '霜夜巡天灵主 · 惊恨憎愤',
             gold: 5,
             constgold: 5,
             notes: '100级断浪雷神，餐叉夏，天空班，天空九条',
-            video: 'www.bilibili.com/video/BV1kU2MByEHh/',
+            video: 'https:/www.bilibili.com/video/BV1kU2MByEHh/',
             status: 'approved',
             submitTime: '2025/11/7 15:46:0'
         },
@@ -4876,24 +4911,74 @@ const Records = [
             submitTime: '2025/11/12 12:9:0'
         },
         {
-            id: 141,
-            player: 'epcdiy',
+            id: 147,
+            player: '阿源_wuii_',
+            mainc: '菲林斯',
+            team: [
+                {
+                        character: '菲林斯',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '爱诺',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '实验性场力发生装置 · 极端势能',
+            gold: 2,
+            constgold: 3,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1Jxq1BXEnT/',
+            status: 'approved',
+            submitTime: '2025-12-21T12:27'
+        },
+        {
+            id: 148,
+            player: 'iambirb',
             mainc: '玛薇卡',
             team: [
                 {
                         character: '玛薇卡',
                         constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '欧洛伦',
+                        constellation: 6,
+                        weapon: 1
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
                         weapon: 0
                     }
             ],
-            time: 12,
-            boss: '历经百战的霜役人 · 涉血芒锋',
+            time: 119,
+            boss: '深罪浸礼者 · 肃烈狂音',
             gold: 2,
             constgold: 1,
             notes: '',
-            video: 'www.bilibili.com/video/BV1rZCxBDE4B/',
+            video: 'www.bilibili.com/video/BV1FpBbByEfh/',
             status: 'pending',
-            submitTime: '2025-11-13T17:50'
+            submitTime: '2025-12-23T03:32'
         }
     ];
 

@@ -392,7 +392,8 @@ app.post('/api/submit-record', (req, res) => {
         // 验证必要字段
         const requiredFields = ['player', 'mainc', 'team', 'time', 'boss', 'gold', 'constgold', 'video', 'submitTime'];
         for (const field of requiredFields) {
-            if (!recordData[field]) {
+            // 检查字段是否真的不存在，而不是检查值是否为falsy（允许0值）
+            if (typeof recordData[field] === 'undefined' || recordData[field] === null) {
                 log(`验证失败: 缺少必要字段 ${field}`);
                 return res.status(400).json({ success: false, message: `缺少必要字段: ${field}` });
             }

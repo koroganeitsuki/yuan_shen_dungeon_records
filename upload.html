@@ -780,7 +780,7 @@
                         <button type="submit" class="btn-genshin">
                             <i class="fa fa-upload mr-2"></i>提交通关记录
                         </button>
-                        <p class="text-sm text-gray-400 mt-2">提交后需等待管理员审核</p>
+                        <p class="text-sm text-gray-400 mt-2">提交后可在排行榜待审核记录中查看</p>
                     </div>
                 </form>
             </div>
@@ -1517,9 +1517,20 @@
             const fetchVideoInfoBtn = document.getElementById('fetch-video-info');
             const videoInfoStatus = document.getElementById('video-info-status');
             
+            // 添加请求节流机制
+        let lastRequestTime = 0;
+        const THROTTLE_DELAY = 1000; // 1秒节流延迟
+        let isRequesting = false; // 请求状态标记
+            
             if (videoLinkInput && fetchVideoInfoBtn && videoInfoStatus) {
                 // 点击获取信息按钮
                 fetchVideoInfoBtn.addEventListener('click', function() {
+                    // 添加节流检查
+                    const now = Date.now();
+                    if (now - lastRequestTime < THROTTLE_DELAY) {
+                        showVideoStatus(`请求过于频繁，请等待 ${Math.ceil((THROTTLE_DELAY - (now - lastRequestTime)) / 1000)} 秒后再试`, 'error');
+                        return;
+                    }
                     fetchVideoInfo();
                 });
                 
@@ -1527,6 +1538,11 @@
                 videoLinkInput.addEventListener('blur', function() {
                     // 只有当输入框有值且没有显示错误时才尝试获取信息
                     if (videoLinkInput.value.trim() && !videoLinkInput.parentElement.parentElement.classList.contains('error')) {
+                        // 添加节流检查
+                        const now = Date.now();
+                        if (now - lastRequestTime < THROTTLE_DELAY) {
+                            return; // 静默节流，不显示错误提示
+                        }
                         fetchVideoInfo();
                     }
                 });
@@ -1534,21 +1550,50 @@
             
             // 获取视频信息
             function fetchVideoInfo() {
+                // 如果已经在请求中，直接返回
+                if (isRequesting) {
+                    return;
+                }
+                
                 const videoLink = videoLinkInput.value.trim();
                 
+                // 先进行所有前置条件检查
                 if (!videoLink) {
                     showVideoStatus('请输入视频链接', 'error');
                     return;
                 }
                 
-                // 从链接中提取BV号
+                // 检查链接是否为B站链接
+                if (!videoLink.includes('bilibili.com') && !videoLink.includes('b23.tv')) {
+                    showVideoStatus('请输入B站视频链接', 'error');
+                    return;
+                }
+                
+                // 从链接中提取BV号，支持多种B站链接格式
                 const bvMatch = videoLink.match(/(BV[0-9a-zA-Z]+)/);
                 if (!bvMatch) {
-                    showVideoStatus('未找到BV号，请输入有效的B站视频链接', 'error');
+                    // 尝试从AV号提取
+                    const avMatch = videoLink.match(/(av|AV)(\d+)/);
+                    if (avMatch) {
+                        showVideoStatus('暂不支持AV号链接，请先转换为BV号', 'error');
+                    } else {
+                        showVideoStatus('未找到BV号，请输入有效的B站视频链接', 'error');
+                    }
                     return;
                 }
                 
                 const bv = bvMatch[1];
+                
+                // 所有检查通过后，再更新请求状态和禁用按钮
+                isRequesting = true;
+                // 禁用获取按钮
+                if (fetchVideoInfoBtn) {
+                    fetchVideoInfoBtn.disabled = true;
+                    fetchVideoInfoBtn.textContent = '获取中...';
+                }
+                
+                // 更新最后请求时间
+                lastRequestTime = Date.now();
                 showVideoStatus('正在获取视频信息...', 'info');
                 
                 // 使用B站API获取视频信息
@@ -1557,27 +1602,51 @@
                 // 使用CORS代理绕过跨域限制
                 const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`;
                 
-                fetch(proxyUrl)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error(`HTTP错误! 状态码: ${response.status}`);
-                        }
-                        return response.json();
-                    })
-                    .then(proxyData => {
-                        // 解析代理返回的数据
-                        if (!proxyData || !proxyData.contents) {
-                            throw new Error('代理返回数据格式错误');
-                        }
-                        
-                        const data = JSON.parse(proxyData.contents);
-                        
-                        if (data.code !== 0) {
-                            throw new Error(`API错误: ${data.message || '未知错误'}`);
-                        }
-                        
-                        const videoData = data.data;
-                        
+                // 最大重试次数和重试延迟
+                const MAX_RETRIES = 3;
+                let retryCount = 0;
+                
+                // 重试函数
+                function fetchWithRetry() {
+                    return fetch(proxyUrl)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`HTTP错误! 状态码: ${response.status}`);
+                            }
+                            return response.json();
+                        })
+                        .then(proxyData => {
+                            // 解析代理返回的数据
+                            if (!proxyData || !proxyData.contents) {
+                                throw new Error('代理返回数据格式错误');
+                            }
+                            
+                            const data = JSON.parse(proxyData.contents);
+                            
+                            if (data.code !== 0) {
+                                throw new Error(`API错误: ${data.message || '未知错误'}`);
+                            }
+                            
+                            return data.data;
+                        })
+                        .catch(error => {
+                            retryCount++;
+                            if (retryCount <= MAX_RETRIES) {
+                                // 显示重试信息
+                                showVideoStatus(`获取失败，正在重试 (${retryCount}/${MAX_RETRIES})...`, 'info');
+                                // 指数退避重试
+                                const delay = Math.pow(2, retryCount - 1) * 1000;
+                                return new Promise(resolve => setTimeout(resolve, delay))
+                                    .then(fetchWithRetry);
+                            }
+                            // 重试次数耗尽，抛出最终错误
+                            throw error;
+                        });
+                }
+                
+                // 开始请求
+                fetchWithRetry()
+                    .then(videoData => {
                         // 自动填充信息（如果用户未填写）
                         const playerNameInput = document.getElementById('player-name');
                         const submitTimeInput = document.getElementById('submit-time');
@@ -1620,7 +1689,15 @@
                     })
                     .catch(error => {
                         console.error('获取视频信息失败:', error);
-                        showVideoStatus(`获取视频信息失败: ${error.message}`, 'error');
+                        showVideoStatus(`获取视频信息失败: ${error.message} (已重试${MAX_RETRIES}次)`, 'error');
+                    })
+                    .finally(() => {
+                        // 无论成功还是失败，都恢复按钮状态
+                        isRequesting = false;
+                        if (fetchVideoInfoBtn) {
+                            fetchVideoInfoBtn.disabled = false;
+                            fetchVideoInfoBtn.textContent = '获取视频信息';
+                        }
                     });
             }
             
