@@ -160,9 +160,9 @@ const DataStore = {
         { id: 'herra_frost', name: '霜夜巡天灵主 · 惊恨憎愤', avatar: access + 'monster/UI_MonsterIcon_HerraFrost.png', element: '物理' },
         { id: 'sigurd', name: '历经百战的执灯人 · 哀恸回响', avatar: access + 'monster/UI_MonsterIcon_WildHunt_Male_Sigurd.png', element: '冰' },
         { id: 'fatuus_ice', name: '历经百战的霜役人 · 涉血芒锋', avatar: access + 'monster/UI_MonsterIcon_Fatuus_Escadron_Ice.png', element: '冰' },
-      { id: 'Archdeacon', name: '深罪浸礼者 · 肃烈狂音', avatar: access + 'UI_Img_LeyLineChallenge_Archdeacon.png', element: '雷' },
-      { id: 'Shamansaurus', name: '历经百战的暝视龙 · 霜雪苛念', avatar: access + 'UI_Img_LeyLineChallenge_Natsaurus_Shamansaurus_Normal.png', element: '冰' },
-      { id: 'Gravitas', name: '实验性场力发生装置 · 极端势能', avatar: access + 'UI_Img_LeyLineChallenge_Gravitas.png', element: '岩' }
+      { id: 'Archdeacon', name: '深罪浸礼者 · 肃烈狂音', avatar: access + 'monster/ib.png', element: '雷' },
+      { id: 'Shamansaurus', name: '历经百战的暝视龙 · 霜雪苛念', avatar: access + 'monster/UI_MonsterIcon_Natsaurus_Shamansaurus_Normal.png', element: '冰' },
+      { id: 'Gravitas', name: '实验性场力发生装置 · 极端势能', avatar: access + 'monster/UI_MonsterIcon_MachinaIustitia_Gravitas.png', element: '岩' }
     
     ],
     
