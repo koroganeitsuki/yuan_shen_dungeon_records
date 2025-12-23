@@ -1,0 +1,1935 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原神幽境危战难度六通关记录 - 管理员后台</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 自定义Tailwind配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7928ca',
+                        secondary: '#ff0080',
+                        accent: '#ffdd40',
+                        dark: '#121212',
+                        light: '#f5f5f5',
+                        'genshin-purple': '#7928ca',
+                        'genshin-blue': '#3b82f6',
+                        'genshin-pink': '#ec4899',
+                        'genshin-yellow': '#fbbf24',
+                        'genshin-green': '#10b981',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .bg-blur {
+                backdrop-filter: blur(8px);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+        }
+    </style>
+    <style>
+        body {
+            background-image: url('https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/63077402d81440cd9f3f929a9fbec07a~tplv-a9rns2rl98-image.image?rcl=20251114110409A703315B4719A1DFEFB3&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1765681489&x-signature=DsizreiLrwBlBxwWrC%2BqFovfoZ0%3D');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ffdd40;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .character-avatar {
+            position: relative;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #fff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        .constellation {
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            background-color: #ffdd40;
+            color: #121212;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+            border: 2px solid #fff;
+        }
+        
+        .weapon {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #3b82f6;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+            border: 2px solid #fff;
+        }
+        
+        .record-card {
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .record-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 221, 64, 0.5);
+        }
+        
+        .btn-genshin {
+            background: linear-gradient(135deg, #7928ca, #ff0080);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .btn-genshin:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background: linear-gradient(135deg, #ff0080, #7928ca);
+        }
+        
+        .btn-genshin:active {
+            transform: translateY(0);
+        }
+        
+        .btn-genshin-secondary {
+            background: linear-gradient(135deg, #3b82f6, #10b981);
+        }
+        
+        .btn-genshin-secondary:hover {
+            background: linear-gradient(135deg, #10b981, #3b82f6);
+        }
+        
+        .btn-genshin-danger {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+        
+        .btn-genshin-danger:hover {
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+        }
+        
+        .btn-genshin-warning {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+        
+        .btn-genshin-warning:hover {
+            background: linear-gradient(135deg, #d97706, #f59e0b);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #7928ca, #ff0080);
+            border-radius: 3px;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+        }
+        
+        .tab-container {
+            margin-bottom: 2rem;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.5rem;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .tab.active {
+            border-bottom-color: #ffdd40;
+            color: #ffdd40;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: rgba(18, 18, 18, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 800px;
+            width: 90%;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffdd40;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            color: #e5e7eb;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            color: #ffdd40;
+        }
+        
+        .modal-body {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-input {
+            background: rgba(18, 18, 18, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            color: white;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #ffdd40;
+            box-shadow: 0 0 0 3px rgba(255, 221, 64, 0.3);
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #e5e7eb;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(16, 185, 129, 0.2);
+            border-radius: 50%;
+            border: 2px solid #10b981;
+        }
+        
+        .success-icon i {
+            font-size: 2rem;
+            color: #10b981;
+        }
+        
+        .confirmation-modal .modal-content {
+            max-width: 400px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+        
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .status-pending {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+        
+        .status-approved {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        .status-rejected {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: rgba(18, 18, 18, 0.95);
+                backdrop-filter: blur(10px);
+                z-index: 50;
+                transition: right 0.3s ease;
+                padding: 2rem;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block !important;
+                z-index: 60;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body class="text-light">
+    <!-- 导航栏 -->
+    <nav class="bg-dark bg-opacity-80 backdrop-blur-md fixed w-full z-40 border-b border-gray-800">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <img src="https://bbs-static.miyoushe.com/static/2025/06/16/46c0ca54ffaa4664f05efe7932d0bdfb_4298836572782376517.png?x-oss-process=image/resize,s_150/quality,q_80/auto-orient,0/interlace,1/format,jpg" alt="Logo" class="w-10 h-10 rounded-full">
+                    <span class="text-xl font-bold text-genshin-yellow">原神幽境危战</span>
+                </div>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-white hover:text-genshin-yellow">首页</a>
+                    <a href="ranking.html" class="nav-link text-white hover:text-genshin-yellow">排行榜</a>
+                    <a href="upload.html" class="nav-link text-white hover:text-genshin-yellow">上传记录</a>
+                    <a href="login.html" class="nav-link active text-genshin-yellow">管理员入口</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white focus:outline-none">
+                        <i class="fa fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div id="mobile-menu" class="nav-menu md:hidden hidden">
+                <div class="flex justify-end mb-8">
+                    <button id="close-menu-btn" class="text-white focus:outline-none">
+                        <i class="fa fa-times text-2xl"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col space-y-6">
+                    <a href="index.html" class="text-white hover:text-genshin-yellow text-xl">首页</a>
+                    <a href="ranking.html" class="text-white hover:text-genshin-yellow text-xl">排行榜</a>
+                    <a href="upload.html" class="text-white hover:text-genshin-yellow text-xl">上传记录</a>
+                    <a href="login.html" class="text-genshin-yellow text-xl">管理员入口</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="pt-24 pb-8">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-5xl font-bold text-center text-shadow-lg">管理员后台</h1>
+            <p class="text-center text-gray-300 mt-4">管理幽境危战难度六通关记录</p>
+        </div>
+    </header>
+
+    <!-- 管理员内容 -->
+    <section class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="glass-card max-w-6xl mx-auto">
+                <!-- 管理员信息 -->
+                <div class="flex justify-between items-center mb-8">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-genshin-purple flex items-center justify-center mr-3">
+                            <i class="fa fa-user text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">管理员</h3>
+                            <p class="text-sm text-gray-400">拥有审核、修改和删除记录的权限</p>
+                        </div>
+                    </div>
+                    <button id="logout-btn" class="btn-genshin-danger">
+                        <i class="fa fa-sign-out mr-2"></i>退出登录
+                    </button>
+                </div>
+                
+                <!-- 统计卡片 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="record-card p-4">
+                        <h3 class="text-gray-400 text-sm">待审核记录</h3>
+                        <p class="text-2xl font-bold text-genshin-yellow mt-1" id="pending-count">0</p>
+                    </div>
+                    <div class="record-card p-4">
+                        <h3 class="text-gray-400 text-sm">已通过记录</h3>
+                        <p class="text-2xl font-bold text-genshin-green mt-1" id="approved-count">0</p>
+                    </div>
+                    <div class="record-card p-4">
+                        <h3 class="text-gray-400 text-sm">已驳回记录</h3>
+                        <p class="text-2xl font-bold text-genshin-pink mt-1" id="rejected-count">0</p>
+                    </div>
+                    <div class="record-card p-4">
+                        <h3 class="text-gray-400 text-sm">总记录数</h3>
+                        <p class="text-2xl font-bold text-genshin-blue mt-1" id="total-count">0</p>
+                    </div>
+                </div>
+                
+                <!-- 标签页 -->
+                <div class="tab-container">
+                    <div class="tabs">
+                        <div class="tab active" data-tab="pending">待审核记录</div>
+                        <div class="tab" data-tab="approved">已通过记录</div>
+                        <div class="tab" data-tab="rejected">已驳回记录</div>
+                    </div>
+                    
+                    <!-- 待审核记录 -->
+                    <div class="tab-content active" id="pending-content">
+                        <div class="table-container">
+                            <table class="min-w-full divide-y divide-gray-700">
+                                <thead>
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">ID</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">玩家</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">主C</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">通关时间</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">BOSS</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">五星数</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">常驻金</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">状态</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">提交时间</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-dark bg-opacity-50 divide-y divide-gray-700" id="pending-table-body">
+                                    <!-- 待审核记录将通过JavaScript动态生成 -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-6 text-center" id="pending-empty-message">
+                            <p class="text-gray-400">暂无待审核记录</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 已通过记录 -->
+                    <div class="tab-content" id="approved-content">
+                        <div class="table-container">
+                            <table class="min-w-full divide-y divide-gray-700">
+                                <thead>
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">ID</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">玩家</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">主C</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">通关时间</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">BOSS</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">五星数</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">常驻金</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">状态</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">提交时间</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-dark bg-opacity-50 divide-y divide-gray-700" id="approved-table-body">
+                                    <!-- 已通过记录将通过JavaScript动态生成 -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-6 text-center" id="approved-empty-message">
+                            <p class="text-gray-400">暂无已通过记录</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 已驳回记录 -->
+                    <div class="tab-content" id="rejected-content">
+                        <div class="table-container">
+                            <table class="min-w-full divide-y divide-gray-700">
+                                <thead>
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">ID</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">玩家</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">主C</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">通关时间</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">BOSS</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">五星数</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">常驻金</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">状态</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">提交时间</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-dark bg-opacity-50 divide-y divide-gray-700" id="rejected-table-body">
+                                    <!-- 已驳回记录将通过JavaScript动态生成 -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-6 text-center" id="rejected-empty-message">
+                            <p class="text-gray-400">暂无已驳回记录</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 查看记录模态框 -->
+    <div id="view-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">查看通关记录</h3>
+                <button id="close-view-modal" class="modal-close">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <div class="form-group">
+                            <label class="form-label">记录ID</label>
+                            <p id="view-id" class="bg-dark bg-opacity-50 p-3 rounded-md"></p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">玩家昵称</label>
+                            <p id="view-player" class="bg-dark bg-opacity-50 p-3 rounded-md"></p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">通关时间（秒）</label>
+                            <p id="view-time" class="bg-dark bg-opacity-50 p-3 rounded-md"></p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">挑战BOSS</label>
+                            <p id="view-boss" class="bg-dark bg-opacity-50 p-3 rounded-md"></p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">五星数</label>
+                            <p id="view-gold" class="bg-dark bg-opacity-50 p-3 rounded-md"></p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-group">
+                            <label class="form-label">队伍配置</label>
+                            <div id="view-team" class="bg-dark bg-opacity-50 p-3 rounded-md grid grid-cols-4 gap-2">
+                                <!-- 队伍配置将通过JavaScript动态生成 -->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">备注</label>
+                            <p id="view-notes" class="bg-dark bg-opacity-50 p-3 rounded-md"></p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">视频链接</label>
+                            <p id="view-video" class="bg-dark bg-opacity-50 p-3 rounded-md"></p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">状态</label>
+                            <p id="view-status" class="bg-dark bg-opacity-50 p-3 rounded-md"></p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">提交时间</label>
+                            <p id="view-submit-time" class="bg-dark bg-opacity-50 p-3 rounded-md"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 修改记录模态框 -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">修改通关记录</h3>
+                <button id="close-edit-modal" class="modal-close">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="edit-form">
+                    <input type="hidden" id="edit-id">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <div class="form-group">
+                                <label for="edit-player" class="form-label">玩家昵称</label>
+                                <input type="text" id="edit-player" name="edit-player" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-time" class="form-label">通关时间（秒）</label>
+                                <input type="number" id="edit-time" name="edit-time" class="form-input" min="1" max="120" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-boss" class="form-label">挑战BOSS</label>
+                                <select id="edit-boss" name="edit-boss" class="form-input" required>
+                                    <option value="玛薇卡">玛薇卡</option>
+                                    <option value="基尼奇">基尼奇</option>
+                                    <option value="瓦蕾莎">瓦蕾莎</option>
+                                    <option value="仆人">仆人</option>
+                                    <option value="恰斯卡">恰斯卡</option>
+                                    <option value="丝柯克">丝柯克</option>
+                                    <option value="牛顿">牛顿</option>
+                                    <option value="菲林斯">菲林斯</option>
+                                    <option value="胡桃">胡桃</option>
+                                    <option value="那维莱特">那维莱特</option>
+                                    <option value="迪卢克">迪卢克</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-gold" class="form-label">五星数</label>
+                                <input type="number" id="edit-gold" name="edit-gold" class="form-input" min="0" max="12" required>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <label for="edit-mainc" class="form-label">主C</label>
+                                <select id="edit-mainc" name="edit-mainc" class="form-input" required>
+                                    <option value="玛薇卡">玛薇卡</option>
+                                    <option value="基尼奇">基尼奇</option>
+                                    <option value="瓦蕾莎">瓦蕾莎</option>
+                                    <option value="仆人">仆人</option>
+                                    <option value="恰斯卡">恰斯卡</option>
+                                    <option value="丝柯克">丝柯克</option>
+                                    <option value="牛顿">牛顿</option>
+                                    <option value="菲林斯">菲林斯</option>
+                                    <option value="胡桃">胡桃</option>
+                                    <option value="那维莱特">那维莱特</option>
+                                    <option value="迪卢克">迪卢克</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-notes" class="form-label">备注</label>
+                                <textarea id="edit-notes" name="edit-notes" class="form-input" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-video" class="form-label">视频链接</label>
+                                <input type="url" id="edit-video" name="edit-video" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-status" class="form-label">状态</label>
+                                <select id="edit-status" name="edit-status" class="form-input" required>
+                                    <option value="pending">待审核</option>
+                                    <option value="approved">已通过</option>
+                                    <option value="rejected">已驳回</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="action-buttons">
+                <button id="cancel-edit" class="btn-genshin-warning">
+                    <i class="fa fa-times mr-2"></i>取消
+                </button>
+                <button id="save-edit" class="btn-genshin">
+                    <i class="fa fa-save mr-2"></i>保存修改
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 删除确认模态框 -->
+    <div id="delete-modal" class="modal confirmation-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">确认删除</h3>
+                <button id="close-delete-modal" class="modal-close">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <p class="mb-6">确定要删除这条记录吗？此操作无法撤销。</p>
+                <div class="action-buttons justify-center">
+                    <button id="cancel-delete" class="btn-genshin-warning">
+                        <i class="fa fa-times mr-2"></i>取消
+                    </button>
+                    <button id="confirm-delete" class="btn-genshin-danger">
+                        <i class="fa fa-trash mr-2"></i>确认删除
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 审核操作模态框 -->
+    <div id="review-modal" class="modal confirmation-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">审核记录</h3>
+                <button id="close-review-modal" class="modal-close">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-4">请选择审核结果：</p>
+                <div class="action-buttons justify-center">
+                    <button id="reject-record" class="btn-genshin-danger">
+                        <i class="fa fa-times mr-2"></i>驳回
+                    </button>
+                    <button id="approve-record" class="btn-genshin-secondary">
+                        <i class="fa fa-check mr-2"></i>通过
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 操作成功模态框 -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">操作成功</h3>
+                <button id="close-success-modal" class="modal-close">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="success-icon">
+                    <i class="fa fa-check"></i>
+                </div>
+                <p class="text-lg mb-4" id="success-message">操作已成功完成！</p>
+                <button id="success-ok" class="btn-genshin">
+                    <i class="fa fa-check mr-2"></i>确定
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="py-8 bg-dark border-t border-gray-800 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-400">&copy; 2025 原神幽境危战难度六通关记录. 保留所有权利.</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://space.bilibili.com/435511059" target="_blank" class="text-gray-400 hover:text-genshin-yellow">
+                        <i class="fab fa-bilibili text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-4 text-center text-gray-500 text-sm">
+                <p>本网站仅用于记录和分享游戏通关记录，与miHoYo/HoYoverse无关</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 引入数据文件 -->
+    <script src="records.js"></script>
+    <script src="data.js"></script>
+    
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.add('active');
+        });
+        
+        document.getElementById('close-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('active');
+        });
+        
+        // 导航链接点击关闭菜单
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.remove('active');
+            });
+        });
+        
+        // 当前操作的记录ID
+        let currentRecordId = null;
+        
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检查登录状态
+            checkLoginStatus();
+            
+            // 初始化标签页
+            initTabs();
+            
+            // 初始化表格
+            updateTables();
+            
+            // 初始化统计数据
+            updateStats();
+            
+            // 初始化模态框事件
+            initModalEvents();
+            
+            // 初始化按钮事件
+            initButtonEvents();
+            
+            // 初始化下拉框选项
+            initSelectOptions();
+        });
+        
+        // 检查登录状态
+        function checkLoginStatus() {
+            const isLoggedIn = sessionStorage.getItem('adminLoggedIn');
+            
+            if (!isLoggedIn || isLoggedIn !== 'true') {
+                window.location.href = 'login.html';
+            }
+        }
+        
+        // 初始化标签页
+        function initTabs() {
+            const tabs = document.querySelectorAll('.tab');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // 切换标签页
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    document.getElementById(`${tabId}-content`).classList.add('active');
+                });
+            });
+        }
+        
+        // 更新表格
+        function updateTables() {
+            // 获取所有记录
+            const allRecords = DataStore.getAllRecords();
+            
+            // 待审核记录
+            const pendingRecords = allRecords.filter(record => record.status === 'pending');
+            const pendingTableBody = document.getElementById('pending-table-body');
+            pendingTableBody.innerHTML = '';
+            
+            if (pendingRecords.length === 0) {
+                document.getElementById('pending-empty-message').style.display = 'block';
+            } else {
+                document.getElementById('pending-empty-message').style.display = 'none';
+                
+                pendingRecords.forEach(record => {
+                    const row = document.createElement('tr');
+                    row.className = 'hover:bg-gray-800';
+                    
+                    row.innerHTML = `
+                        <td class="px-6 py-4 whitespace-nowrap">${record.id}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.player}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.mainc}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.time}秒</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.boss}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.gold}金</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.constgold || 0}金</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="status-badge status-pending">待审核</span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">${formatDate(record.submitTime)}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex space-x-2">
+                                <button class="view-btn p-2 bg-genshin-blue bg-opacity-20 hover:bg-opacity-30 rounded-md" data-id="${record.id}">
+                                    <i class="fa fa-eye text-genshin-blue"></i>
+                                </button>
+                                <button class="edit-btn p-2 bg-genshin-yellow bg-opacity-20 hover:bg-opacity-30 rounded-md" data-id="${record.id}">
+                                    <i class="fa fa-pencil text-genshin-yellow"></i>
+                                </button>
+                                <button class="review-btn p-2 bg-genshin-purple bg-opacity-20 hover:bg-opacity-30 rounded-md" data-id="${record.id}">
+                                    <i class="fa fa-check-square-o text-genshin-purple"></i>
+                                </button>
+                                <button class="delete-btn p-2 bg-genshin-pink bg-opacity-20 hover:bg-opacity-30 rounded-md" data-id="${record.id}">
+                                    <i class="fa fa-trash text-genshin-pink"></i>
+                                </button>
+                            </div>
+                        </td>
+                    `;
+                    
+                    pendingTableBody.appendChild(row);
+                });
+                
+                // 添加按钮事件
+                document.querySelectorAll('#pending-table-body .view-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        openViewModal(id);
+                    });
+                });
+                
+                document.querySelectorAll('#pending-table-body .edit-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        openEditModal(id);
+                    });
+                });
+                
+                document.querySelectorAll('#pending-table-body .review-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        openReviewModal(id);
+                    });
+                });
+                
+                document.querySelectorAll('#pending-table-body .delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        openDeleteModal(id);
+                    });
+                });
+            }
+            
+            // 已通过记录
+            const approvedRecords = allRecords.filter(record => record.status === 'approved');
+            const approvedTableBody = document.getElementById('approved-table-body');
+            approvedTableBody.innerHTML = '';
+            
+            if (approvedRecords.length === 0) {
+                document.getElementById('approved-empty-message').style.display = 'block';
+            } else {
+                document.getElementById('approved-empty-message').style.display = 'none';
+                
+                approvedRecords.forEach(record => {
+                    const row = document.createElement('tr');
+                    row.className = 'hover:bg-gray-800';
+                    
+                    row.innerHTML = `
+                        <td class="px-6 py-4 whitespace-nowrap">${record.id}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.player}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.mainc}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.time}秒</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.boss}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.gold}金</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.constgold || 0}金</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="status-badge status-approved">已通过</span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">${formatDate(record.submitTime)}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex space-x-2">
+                                <button class="view-btn p-2 bg-genshin-blue bg-opacity-20 hover:bg-opacity-30 rounded-md" data-id="${record.id}">
+                                    <i class="fa fa-eye text-genshin-blue"></i>
+                                </button>
+                                <button class="edit-btn p-2 bg-genshin-yellow bg-opacity-20 hover:bg-opacity-30 rounded-md" data-id="${record.id}">
+                                    <i class="fa fa-pencil text-genshin-yellow"></i>
+                                </button>
+                                <button class="delete-btn p-2 bg-genshin-pink bg-opacity-20 hover:bg-opacity-30 rounded-md" data-id="${record.id}">
+                                    <i class="fa fa-trash text-genshin-pink"></i>
+                                </button>
+                            </div>
+                        </td>
+                    `;
+                    
+                    approvedTableBody.appendChild(row);
+                });
+                
+                // 添加按钮事件
+                document.querySelectorAll('#approved-table-body .view-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        openViewModal(id);
+                    });
+                });
+                
+                document.querySelectorAll('#approved-table-body .edit-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        openEditModal(id);
+                    });
+                });
+                
+                document.querySelectorAll('#approved-table-body .delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        openDeleteModal(id);
+                    });
+                });
+            }
+            
+            // 已驳回记录
+            const rejectedRecords = allRecords.filter(record => record.status === 'rejected');
+            const rejectedTableBody = document.getElementById('rejected-table-body');
+            rejectedTableBody.innerHTML = '';
+            
+            if (rejectedRecords.length === 0) {
+                document.getElementById('rejected-empty-message').style.display = 'block';
+            } else {
+                document.getElementById('rejected-empty-message').style.display = 'none';
+                
+                rejectedRecords.forEach(record => {
+                    const row = document.createElement('tr');
+                    row.className = 'hover:bg-gray-800';
+                    
+                    row.innerHTML = `
+                        <td class="px-6 py-4 whitespace-nowrap">${record.id}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.player}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.mainc}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.time}秒</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.boss}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.gold}金</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.constgold || 0}金</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="status-badge status-rejected">已驳回</span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">${formatDate(record.submitTime)}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex space-x-2">
+                                <button class="view-btn p-2 bg-genshin-blue bg-opacity-20 hover:bg-opacity-30 rounded-md" data-id="${record.id}">
+                                    <i class="fa fa-eye text-genshin-blue"></i>
+                                </button>
+                                <button class="edit-btn p-2 bg-genshin-yellow bg-opacity-20 hover:bg-opacity-30 rounded-md" data-id="${record.id}">
+                                    <i class="fa fa-pencil text-genshin-yellow"></i>
+                                </button>
+                                <button class="delete-btn p-2 bg-genshin-pink bg-opacity-20 hover:bg-opacity-30 rounded-md" data-id="${record.id}">
+                                    <i class="fa fa-trash text-genshin-pink"></i>
+                                </button>
+                            </div>
+                        </td>
+                    `;
+                    
+                    rejectedTableBody.appendChild(row);
+                });
+                
+                // 添加按钮事件
+                document.querySelectorAll('#rejected-table-body .view-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        openViewModal(id);
+                    });
+                });
+                
+                document.querySelectorAll('#rejected-table-body .edit-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        openEditModal(id);
+                    });
+                });
+                
+                document.querySelectorAll('#rejected-table-body .delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        openDeleteModal(id);
+                    });
+                });
+            }
+        }
+        
+        // 更新统计数据
+        function updateStats() {
+            const allRecords = DataStore.getAllRecords();
+            const pendingCount = allRecords.filter(record => record.status === 'pending').length;
+            const approvedCount = allRecords.filter(record => record.status === 'approved').length;
+            const rejectedCount = allRecords.filter(record => record.status === 'rejected').length;
+            const totalCount = allRecords.length;
+            
+            document.getElementById('pending-count').textContent = pendingCount;
+            document.getElementById('approved-count').textContent = approvedCount;
+            document.getElementById('rejected-count').textContent = rejectedCount;
+            document.getElementById('total-count').textContent = totalCount;
+        }
+        
+        // 初始化模态框事件
+        function initModalEvents() {
+            // 查看记录模态框
+            document.getElementById('close-view-modal').addEventListener('click', function() {
+                document.getElementById('view-modal').classList.remove('active');
+            });
+            
+            // 修改记录模态框
+            document.getElementById('close-edit-modal').addEventListener('click', function() {
+                document.getElementById('edit-modal').classList.remove('active');
+            });
+            
+            document.getElementById('cancel-edit').addEventListener('click', function() {
+                document.getElementById('edit-modal').classList.remove('active');
+            });
+            
+            // 删除确认模态框
+            document.getElementById('close-delete-modal').addEventListener('click', function() {
+                document.getElementById('delete-modal').classList.remove('active');
+            });
+            
+            document.getElementById('cancel-delete').addEventListener('click', function() {
+                document.getElementById('delete-modal').classList.remove('active');
+            });
+            
+            // 审核操作模态框
+            document.getElementById('close-review-modal').addEventListener('click', function() {
+                document.getElementById('review-modal').classList.remove('active');
+            });
+            
+            // 操作成功模态框
+            document.getElementById('close-success-modal').addEventListener('click', function() {
+                document.getElementById('success-modal').classList.remove('active');
+            });
+            
+            document.getElementById('success-ok').addEventListener('click', function() {
+                document.getElementById('success-modal').classList.remove('active');
+            });
+        }
+        
+        // 初始化按钮事件
+        function initButtonEvents() {
+            // 退出登录按钮
+            document.getElementById('logout-btn').addEventListener('click', function() {
+                sessionStorage.removeItem('adminLoggedIn');
+                window.location.href = 'login.html';
+            });
+            
+            // 保存修改按钮
+            document.getElementById('save-edit').addEventListener('click', function() {
+                saveEditRecord();
+            });
+            
+            // 确认删除按钮
+            document.getElementById('confirm-delete').addEventListener('click', function() {
+                deleteRecord();
+            });
+            
+            // 审核通过按钮
+            document.getElementById('approve-record').addEventListener('click', function() {
+                reviewRecord('approved');
+            });
+            
+            // 审核驳回按钮
+            document.getElementById('reject-record').addEventListener('click', function() {
+                reviewRecord('rejected');
+            });
+        }
+        
+        // 初始化下拉框选项
+        function initSelectOptions() {
+            // 获取角色列表和BOSS列表
+            const characters = DataStore.getAllCharacters();
+            const bosses = DataStore.getAllBosses();
+            
+            // 填充BOSS下拉框
+            const bossSelect = document.getElementById('edit-boss');
+            bossSelect.innerHTML = '';
+            
+            bosses.forEach(boss => {
+                const option = document.createElement('option');
+                option.value = boss.name;
+                option.textContent = boss.name;
+                bossSelect.appendChild(option);
+            });
+            
+            // 填充主C下拉框
+            const maincSelect = document.getElementById('edit-mainc');
+            maincSelect.innerHTML = '';
+            
+            characters.forEach(char => {
+                const option = document.createElement('option');
+                option.value = char.name;
+                option.textContent = char.name;
+                maincSelect.appendChild(option);
+            });
+        }
+        
+        // 打开查看记录模态框
+        function openViewModal(id) {
+            const record = DataStore.getRecordById(id);
+            
+            if (record) {
+                document.getElementById('view-id').textContent = record.id;
+                document.getElementById('view-player').textContent = record.player;
+                document.getElementById('view-time').textContent = `${record.time}秒`;
+                document.getElementById('view-boss').textContent = record.boss;
+                document.getElementById('view-gold').textContent = `${record.gold}金`;
+                document.getElementById('view-constgold').textContent = `${record.constgold || 0}金`;
+                document.getElementById('view-notes').textContent = record.notes || '无';
+                document.getElementById('view-video').textContent = record.video || '无';
+                
+                // 设置状态
+                let statusText = '';
+                let statusClass = '';
+                
+                switch (record.status) {
+                    case 'pending':
+                        statusText = '待审核';
+                        statusClass = 'status-pending';
+                        break;
+                    case 'approved':
+                        statusText = '已通过';
+                        statusClass = 'status-approved';
+                        break;
+                    case 'rejected':
+                        statusText = '已驳回';
+                        statusClass = 'status-rejected';
+                        break;
+                }
+                
+                document.getElementById('view-status').innerHTML = `<span class="status-badge ${statusClass}">${statusText}</span>`;
+                document.getElementById('view-submit-time').textContent = formatDate(record.submitTime);
+                
+                // 设置队伍配置
+                const teamContainer = document.getElementById('view-team');
+                teamContainer.innerHTML = '';
+                
+                record.team.forEach(member => {
+                    const avatar = getCharacterAvatar(member.character) || 'https://p3-doubao-search-sign.byteimg.com/labis/82fc3b41996f4e5700ead90e74529934~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&x-expires=1778641463&x-signature=qSGoCziYtoHVhIKmA995hB6ZFl4%3D';
+                    
+                    const characterDiv = document.createElement('div');
+                    characterDiv.className = 'character-avatar w-16 h-16 mx-auto';
+                    characterDiv.innerHTML = `
+                        <img src="${avatar}" alt="${member.character}" class="w-full h-full object-cover">
+                        <span class="constellation">${member.constellation}</span>
+                    `;
+                    
+                    teamContainer.appendChild(characterDiv);
+                });
+                
+                document.getElementById('view-modal').classList.add('active');
+            }
+        }
+        
+        // 打开修改记录模态框
+        function openEditModal(id) {
+            const record = DataStore.getRecordById(id);
+            
+            if (record) {
+                currentRecordId = id;
+                
+                document.getElementById('edit-id').value = record.id;
+                document.getElementById('edit-player').value = record.player;
+                document.getElementById('edit-time').value = record.time;
+                document.getElementById('edit-boss').value = record.boss;
+                document.getElementById('edit-gold').value = record.gold;
+                document.getElementById('edit-constgold').value = record.constgold || 0;
+                document.getElementById('edit-mainc').value = record.mainc;
+                document.getElementById('edit-notes').value = record.notes || '';
+                document.getElementById('edit-video').value = record.video || '';
+                document.getElementById('edit-status').value = record.status;
+                
+                document.getElementById('edit-modal').classList.add('active');
+            }
+        }
+        
+        // 打开删除确认模态框
+        function openDeleteModal(id) {
+            currentRecordId = id;
+            document.getElementById('delete-modal').classList.add('active');
+        }
+        
+        // 打开审核操作模态框
+        function openReviewModal(id) {
+            currentRecordId = id;
+            document.getElementById('review-modal').classList.add('active');
+        }
+        
+        // 保存修改记录
+        function saveEditRecord() {
+            const id = parseInt(document.getElementById('edit-id').value);
+            const record = DataStore.getRecordById(id);
+            
+            if (record) {
+                record.player = document.getElementById('edit-player').value;
+                record.time = parseInt(document.getElementById('edit-time').value);
+                record.boss = document.getElementById('edit-boss').value;
+                record.gold = parseInt(document.getElementById('edit-gold').value);
+                record.constgold = parseInt(document.getElementById('edit-constgold').value);
+                record.mainc = document.getElementById('edit-mainc').value;
+                record.notes = document.getElementById('edit-notes').value;
+                record.video = document.getElementById('edit-video').value;
+                record.status = document.getElementById('edit-status').value;
+                
+                // 保存记录
+                DataStore.updateRecord(record);
+                
+                // 更新表格和统计数据
+                updateTables();
+                updateStats();
+                
+                // 关闭模态框
+                document.getElementById('edit-modal').classList.remove('active');
+                
+                // 显示成功消息
+                document.getElementById('success-message').textContent = '记录已成功修改！';
+                document.getElementById('success-modal').classList.add('active');
+            }
+        }
+        
+        // 删除记录
+        function deleteRecord() {
+            const id = currentRecordId;
+            
+            if (DataStore.deleteRecord(id)) {
+                // 更新表格和统计数据
+                updateTables();
+                updateStats();
+                
+                // 关闭模态框
+                document.getElementById('delete-modal').classList.remove('active');
+                
+                // 显示成功消息
+                document.getElementById('success-message').textContent = '记录已成功删除！';
+                document.getElementById('success-modal').classList.add('active');
+            }
+        }
+        
+        // 审核记录
+        function reviewRecord(status) {
+            const id = currentRecordId;
+            const record = DataStore.getRecordById(id);
+            
+            if (record) {
+                record.status = status;
+                
+                // 保存记录
+                DataStore.updateRecord(record);
+                
+                // 更新表格和统计数据
+                updateTables();
+                updateStats();
+                
+                // 关闭模态框
+                document.getElementById('review-modal').classList.remove('active');
+                
+                // 显示成功消息
+                const message = status === 'approved' ? '记录已成功通过审核！' : '记录已成功驳回！';
+                document.getElementById('success-message').textContent = message;
+                document.getElementById('success-modal').classList.add('active');
+            }
+        }
+        
+        // 获取角色头像
+        function getCharacterAvatar(characterName) {
+            const character = DataStore.getCharacterByName(characterName);
+            return character ? character.avatar : null;
+        }
+        
+        // 格式化日期
+        function formatDate(timestamp) {
+            const date = new Date(timestamp);
+            return `${date.getFullYear()}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getDate().toString().padStart(2, '0')} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`;
+        }
+    </script>
+        
+        // 当前操作的记录ID
+        let currentRecordId = null;
+        
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检查登录状态
+            checkLoginStatus();
+            
+            // 初始化标签页
+            initTabs();
+            
+            // 初始化表格
+            updateTables();
+            
+            // 初始化统计数据
+            updateStats();
+            
+            // 初始化模态框事件
+            initModalEvents();
+            
+            // 初始化按钮事件
+            initButtonEvents();
+        });
+        
+        // 检查登录状态
+        function checkLoginStatus() {
+            // 在实际应用中，这里应该检查用户是否已登录
+            // 这里简单模拟，直接通过
+        }
+        
+        // 初始化标签页
+        function initTabs() {
+            const tabs = document.querySelectorAll('.tab');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // 切换标签页
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    document.getElementById(`${tabId}-content`).classList.add('active');
+                });
+            });
+        }
+        
+        // 更新表格
+        function updateTables() {
+            // 待审核记录
+            const pendingRecords = records.filter(record => record.status === 'pending');
+            const pendingTableBody = document.getElementById('pending-table-body');
+            pendingTableBody.innerHTML = '';
+            
+            if (pendingRecords.length === 0) {
+                document.getElementById('pending-empty-message').style.display = 'block';
+            } else {
+                document.getElementById('pending-empty-message').style.display = 'none';
+                
+                pendingRecords.forEach(record => {
+                    const row = document.createElement('tr');
+                    row.className = 'hover:bg-gray-800';
+                    
+                    row.innerHTML = `
+                        <td class="px-6 py-4 whitespace-nowrap">${record.id}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.player}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.mainc}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.time}秒</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.boss}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="status-badge status-pending">待审核</span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">${record.submitTime}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex space-x-2">
+                                <button class="view-btn p-2 bg-genshin-blue bg-opacity-20 hover:bg-opacity-30 rounded-md" data-id="${record.id}">
+                                    <i class="fa fa-eye text-genshin-blue"></i>
+                                </button>
+                                <button class="edit-btn p-2 bg-genshin-yellow bg-opacity-20 hover:bg-opacity-30 rounded-md" data-id="${record.id}">
+                                    <i class="fa fa-pencil text-genshin-yellow"></i>
+                                </button>
+                                <button class="review-btn p-2 bg-genshin-purple bg-opacity-20 hover:bg-opacity-30 rounded-md" data-id="${record.id}">
+                                    <i class="fa fa-check-square-o text-genshin-purple"></i>
+                                </button>
+                                <button class="delete-btn p-2 bg-genshin-pink bg-opacity-20 hover:bg-opacity-30 rounded-md" data-id="${record.id}">
+                                    <i class="fa fa-trash text-genshin-pink"></i>
+                                </button>
+                            </div>
+                        </td>
+                    `;
+                    
+                    pendingTableBody.appendChild(row);
+                });
+                
+                // 添加按钮事件
+                document.querySelectorAll('.pending-table-body .view-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        openViewModal(id);
+                    });
+                });
+                
+                document.querySelectorAll('.pending-table-body .edit-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        openEditModal(id);
+                    });
+                });
+                
+                document.querySelectorAll('.pending-table-body .review-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        openReviewModal(id);
+                    });
+                });
+                
+                document.querySelectorAll('.pending-table-body .delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        openDeleteModal(id);
+                    });
+                });
+            }
+            
+            // 已通过记录
+            const approvedRecords = records.filter(record => record.status === 'approved');
+            const approvedTableBody = document.getElementById('approved-table-body');
+            approvedTableBody.innerHTML = '';
+            
+            if (approvedRecords.length === 0) {
+                document.getElementById('approved-empty-message').style.display = 'block';
+            } else {
+                document.getElementById('approved-empty-message').style.display = 'none';
+                
+                approvedRecords.forEach(record => {
+                    const row = document.createElement('tr');
+                    row.className = 'hover:bg-gray-800';
+                    
+                    row.innerHTML = `
+                        <td class="px-6 py-4 whitespace-nowrap">${record.id}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.player}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.mainc}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.time}秒</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.boss}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="status-badge status-approved">已通过</span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">${record.submitTime}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex space-x-2">
+                                <button class="view-btn p-2 bg-genshin-blue bg-opacity-20 hover:bg-opacity-30 rounded-md" data-id="${record.id}">
+                                    <i class="fa fa-eye text-genshin-blue"></i>
+                                </button>
+                                <button class="edit-btn p-2 bg-genshin-yellow bg-opacity-20 hover:bg-opacity-30 rounded-md" data-id="${record.id}">
+                                    <i class="fa fa-pencil text-genshin-yellow"></i>
+                                </button>
+                                <button class="delete-btn p-2 bg-genshin-pink bg-opacity-20 hover:bg-opacity-30 rounded-md" data-id="${record.id}">
+                                    <i class="fa fa-trash text-genshin-pink"></i>
+                                </button>
+                            </div>
+                        </td>
+                    `;
+                    
+                    approvedTableBody.appendChild(row);
+                });
+                
+                // 添加按钮事件
+                document.querySelectorAll('#approved-table-body .view-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        openViewModal(id);
+                    });
+                });
+                
+                document.querySelectorAll('#approved-table-body .edit-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        openEditModal(id);
+                    });
+                });
+                
+                document.querySelectorAll('#approved-table-body .delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        openDeleteModal(id);
+                    });
+                });
+            }
+            
+            // 已驳回记录
+            const rejectedRecords = records.filter(record => record.status === 'rejected');
+            const rejectedTableBody = document.getElementById('rejected-table-body');
+            rejectedTableBody.innerHTML = '';
+            
+            if (rejectedRecords.length === 0) {
+                document.getElementById('rejected-empty-message').style.display = 'block';
+            } else {
+                document.getElementById('rejected-empty-message').style.display = 'none';
+                
+                rejectedRecords.forEach(record => {
+                    const row = document.createElement('tr');
+                    row.className = 'hover:bg-gray-800';
+                    
+                    row.innerHTML = `
+                        <td class="px-6 py-4 whitespace-nowrap">${record.id}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.player}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.mainc}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.time}秒</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${record.boss}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="status-badge status-rejected">已驳回</span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">${record.submitTime}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex space-x-2">
+                                <button class="view-btn p-2 bg-genshin-blue bg-opacity-20 hover:bg-opacity-30 rounded-md" data-id="${record.id}">
+                                    <i class="fa fa-eye text-genshin-blue"></i>
+                                </button>
+                                <button class="edit-btn p-2 bg-genshin-yellow bg-opacity-20 hover:bg-opacity-30 rounded-md" data-id="${record.id}">
+                                    <i class="fa fa-pencil text-genshin-yellow"></i>
+                                </button>
+                                <button class="delete-btn p-2 bg-genshin-pink bg-opacity-20 hover:bg-opacity-30 rounded-md" data-id="${record.id}">
+                                    <i class="fa fa-trash text-genshin-pink"></i>
+                                </button>
+                            </div>
+                        </td>
+                    `;
+                    
+                    rejectedTableBody.appendChild(row);
+                });
+                
+                // 添加按钮事件
+                document.querySelectorAll('#rejected-table-body .view-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        openViewModal(id);
+                    });
+                });
+                
+                document.querySelectorAll('#rejected-table-body .edit-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        openEditModal(id);
+                    });
+                });
+                
+                document.querySelectorAll('#rejected-table-body .delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        openDeleteModal(id);
+                    });
+                });
+            }
+        }
+        
+        // 更新统计数据
+        function updateStats() {
+            const pendingCount = records.filter(record => record.status === 'pending').length;
+            const approvedCount = records.filter(record => record.status === 'approved').length;
+            const rejectedCount = records.filter(record => record.status === 'rejected').length;
+            const totalCount = records.length;
+            
+            document.getElementById('pending-count').textContent = pendingCount;
+            document.getElementById('approved-count').textContent = approvedCount;
+            document.getElementById('rejected-count').textContent = rejectedCount;
+            document.getElementById('total-count').textContent = totalCount;
+        }
+        
+        // 初始化模态框事件
+        function initModalEvents() {
+            // 查看记录模态框
+            document.getElementById('close-view-modal').addEventListener('click', function() {
+                document.getElementById('view-modal').classList.remove('active');
+            });
+            
+            // 修改记录模态框
+            document.getElementById('close-edit-modal').addEventListener('click', function() {
+                document.getElementById('edit-modal').classList.remove('active');
+            });
+            
+            document.getElementById('cancel-edit').addEventListener('click', function() {
+                document.getElementById('edit-modal').classList.remove('active');
+            });
+            
+            // 删除确认模态框
+            document.getElementById('close-delete-modal').addEventListener('click', function() {
+                document.getElementById('delete-modal').classList.remove('active');
+            });
+            
+            document.getElementById('cancel-delete').addEventListener('click', function() {
+                document.getElementById('delete-modal').classList.remove('active');
+            });
+            
+            // 审核操作模态框
+            document.getElementById('close-review-modal').addEventListener('click', function() {
+                document.getElementById('review-modal').classList.remove('active');
+            });
+            
+            // 操作成功模态框
+            document.getElementById('close-success-modal').addEventListener('click', function() {
+                document.getElementById('success-modal').classList.remove('active');
+            });
+            
+            document.getElementById('success-ok').addEventListener('click', function() {
+                document.getElementById('success-modal').classList.remove('active');
+            });
+        }
+        
+        // 初始化按钮事件
+        function initButtonEvents() {
+            // 退出登录按钮
+            document.getElementById('logout-btn').addEventListener('click', function() {
+                window.location.href = 'login.html';
+            });
+            
+            // 保存修改按钮
+            document.getElementById('save-edit').addEventListener('click', function() {
+                saveEditRecord();
+            });
+            
+            // 确认删除按钮
+            document.getElementById('confirm-delete').addEventListener('click', function() {
+                deleteRecord();
+            });
+            
+            // 审核通过按钮
+            document.getElementById('approve-record').addEventListener('click', function() {
+                reviewRecord('approved');
+            });
+            
+            // 审核驳回按钮
+            document.getElementById('reject-record').addEventListener('click', function() {
+                reviewRecord('rejected');
+            });
+        }
+        
+        // 打开查看记录模态框
+        function openViewModal(id) {
+            const record = records.find(r => r.id === id);
+            
+            if (record) {
+                document.getElementById('view-id').textContent = record.id;
+                document.getElementById('view-player').textContent = record.player;
+                document.getElementById('view-time').textContent = `${record.time}秒`;
+                document.getElementById('view-boss').textContent = record.boss;
+                document.getElementById('view-gold').textContent = `${record.gold}金`;
+                document.getElementById('view-constgold').textContent = `${record.constgold || 0}金`;
+                document.getElementById('view-notes').textContent = record.notes || '无';
+                document.getElementById('view-video').textContent = record.video || '无';
+                
+                // 设置状态
+                let statusText = '';
+                let statusClass = '';
+                
+                switch (record.status) {
+                    case 'pending':
+                        statusText = '待审核';
+                        statusClass = 'status-pending';
+                        break;
+                    case 'approved':
+                        statusText = '已通过';
+                        statusClass = 'status-approved';
+                        break;
+                    case 'rejected':
+                        statusText = '已驳回';
+                        statusClass = 'status-rejected';
+                        break;
+                }
+                
+                document.getElementById('view-status').innerHTML = `<span class="status-badge ${statusClass}">${statusText}</span>`;
+                document.getElementById('view-submit-time').textContent = record.submitTime;
+                
+                // 设置队伍配置
+                const teamContainer = document.getElementById('view-team');
+                teamContainer.innerHTML = '';
+                
+                record.team.forEach(member => {
+                    const avatar = characterAvatars[member.character] || 'https://p3-doubao-search-sign.byteimg.com/labis/82fc3b41996f4e5700ead90e74529934~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&x-expires=1778641463&x-signature=qSGoCziYtoHVhIKmA995hB6ZFl4%3D';
+                    
+                    const characterDiv = document.createElement('div');
+                    characterDiv.className = 'character-avatar w-16 h-16 mx-auto';
+                    characterDiv.innerHTML = `
+                        <img src="${avatar}" alt="${member.character}" class="w-full h-full object-cover">
+                        <span class="constellation">${member.constellation}</span>
+                    `;
+                    
+                    teamContainer.appendChild(characterDiv);
+                });
+                
+                document.getElementById('view-modal').classList.add('active');
+            }
+        }
+        
+        // 打开修改记录模态框
+        function openEditModal(id) {
+            const record = records.find(r => r.id === id);
+            
+            if (record) {
+                currentRecordId = id;
+                
+                document.getElementById('edit-id').value = record.id;
+                document.getElementById('edit-player').value = record.player;
+                document.getElementById('edit-time').value = record.time;
+                document.getElementById('edit-boss').value = record.boss;
+                document.getElementById('edit-gold').value = record.gold;
+                document.getElementById('edit-constgold').value = record.constgold || 0;
+                document.getElementById('edit-mainc').value = record.mainc;
+                document.getElementById('edit-notes').value = record.notes || '';
+                document.getElementById('edit-video').value = record.video || '';
+                document.getElementById('edit-status').value = record.status;
+                
+                document.getElementById('edit-modal').classList.add('active');
+            }
+        }
+        
+        // 打开删除确认模态框
+        function openDeleteModal(id) {
+            currentRecordId = id;
+            document.getElementById('delete-modal').classList.add('active');
+        }
+        
+        // 打开审核操作模态框
+        function openReviewModal(id) {
+            currentRecordId = id;
+            document.getElementById('review-modal').classList.add('active');
+        }
+        
+        // 保存修改记录
+        function saveEditRecord() {
+            const id = parseInt(document.getElementById('edit-id').value);
+            const record = records.find(r => r.id === id);
+            
+            if (record) {
+                record.player = document.getElementById('edit-player').value;
+                record.time = parseInt(document.getElementById('edit-time').value);
+                record.boss = document.getElementById('edit-boss').value;
+                record.gold = parseInt(document.getElementById('edit-gold').value);
+                record.constgold = parseInt(document.getElementById('edit-constgold').value);
+                record.mainc = document.getElementById('edit-mainc').value;
+                record.notes = document.getElementById('edit-notes').value;
+                record.video = document.getElementById('edit-video').value;
+                record.status = document.getElementById('edit-status').value;
+                
+                // 更新表格和统计数据
+                updateTables();
+                updateStats();
+                
+                // 关闭模态框
+                document.getElementById('edit-modal').classList.remove('active');
+                
+                // 显示成功消息
+                document.getElementById('success-message').textContent = '记录已成功修改！';
+                document.getElementById('success-modal').classList.add('active');
+            }
+        }
+        
+        // 删除记录
+        function deleteRecord() {
+            const id = currentRecordId;
+            const index = records.findIndex(r => r.id === id);
+            
+            if (index !== -1) {
+                records.splice(index, 1);
+                
+                // 更新表格和统计数据
+                updateTables();
+                updateStats();
+                
+                // 关闭模态框
+                document.getElementById('delete-modal').classList.remove('active');
+                
+                // 显示成功消息
+                document.getElementById('success-message').textContent = '记录已成功删除！';
+                document.getElementById('success-modal').classList.add('active');
+            }
+        }
+        
+        // 审核记录
+        function reviewRecord(status) {
+            const id = currentRecordId;
+            const record = records.find(r => r.id === id);
+            
+            if (record) {
+                record.status = status;
+                
+                // 更新表格和统计数据
+                updateTables();
+                updateStats();
+                
+                // 关闭模态框
+                document.getElementById('review-modal').classList.remove('active');
+                
+                // 显示成功消息
+                const message = status === 'approved' ? '记录已成功通过审核！' : '记录已成功驳回！';
+                document.getElementById('success-message').textContent = message;
+                document.getElementById('success-modal').classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>

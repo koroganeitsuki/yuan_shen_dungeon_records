@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原神幽境危战难度六 - 通关排行榜</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <!-- 自定义Tailwind配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7928ca',
+                        secondary: '#ff0080',
+                        accent: '#ffdd40',
+                        dark: '#121212',
+                        light: '#f5f5f5',
+                        'genshin-purple': '#7928ca',
+                        'genshin-blue': '#3b82f6',
+                        'genshin-pink': '#ec4899',
+                        'genshin-yellow': '#fbbf24',
+                        'genshin-green': '#10b981',
+                        'genshin-red': '#ef4444',
+                        'genshin-gray': '#6b7280',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            background-color: #121212;
+            color: #f5f5f5;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(121, 40, 202, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 0, 128, 0.1) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+        
+        .bg-gradient-genshin {
+            background: linear-gradient(135deg, #7928ca, #ff0080);
+        }
+        
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card {
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 221, 64, 0.5);
+        }
+        
+        .btn-genshin {
+            background: linear-gradient(135deg, #7928ca, #ff0080);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .btn-genshin:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background: linear-gradient(135deg, #ff0080, #7928ca);
+        }
+        
+        .btn-genshin:active {
+            transform: translateY(0);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: #f5f5f5;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+        }
+        
+        .btn-outline:hover {
+            border-color: #fbbf24;
+            color: #fbbf24;
+        }
+        
+        .input-genshin {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            color: #f5f5f5;
+            transition: all 0.3s ease;
+        }
+        
+        .input-genshin:focus {
+            border-color: #fbbf24;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2);
+        }
+        
+        .select-genshin {
+            background: #1e1e1e;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            color: #ffffff;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ffffff'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1rem;
+            padding-right: 2.5rem;
+        }
+        
+        .select-genshin:focus {
+            border-color: #fbbf24;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2);
+        }
+        
+        .table-genshin {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .table-genshin th {
+            background: rgba(121, 40, 202, 0.2);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: #f5f5f5;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .table-genshin td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .table-genshin tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .table-genshin tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .sortable-header {
+            cursor: pointer;
+            position: relative;
+            padding-right: 1.5rem;
+        }
+        
+        .sortable-header::after {
+            content: '';
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+        }
+        
+        .sortable-header.asc::after {
+            border-bottom: 6px solid #fbbf24;
+        }
+        
+        .sortable-header.desc::after {
+            border-top: 6px solid #fbbf24;
+        }
+        
+        .avatar-sm {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .avatar-md {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .badge-gold {
+            background-color: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+            border: 1px solid rgba(251, 191, 36, 0.4);
+        }
+        
+        .badge-time {
+            background-color: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.4);
+        }
+        
+        .badge-fast {
+            background-color: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+        }
+        
+        .badge-slow {
+            background-color: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+        }
+        
+        .pagination-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .pagination-btn:hover {
+            border-color: #fbbf24;
+            color: #fbbf24;
+        }
+        
+        .pagination-btn.active {
+            background-color: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+            border-color: #fbbf24;
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fbbf24;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .team-avatars {
+            display: flex;
+            gap: -1rem;
+        }
+        
+        .team-avatars .avatar-sm {
+            border: 2px solid #121212;
+        }
+        
+        .team-avatars .avatar-sm:not(:first-child) {
+            margin-left: -1rem;
+        }
+        
+        .stat-card {
+            background: rgba(18, 18, 18, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 221, 64, 0.3);
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 250px;
+            width: 100%;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .responsive-table {
+                overflow-x: auto;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .skeleton {
+            background: linear-gradient(90deg, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+        
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- 导航栏 -->
+    <nav class="bg-dark bg-opacity-80 backdrop-blur-md border-b border-gray-800 sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <img src="https://bbs-static.miyoushe.com/static/2025/06/16/46c0ca54ffaa4664f05efe7932d0bdfb_4298836572782376517.png" alt="原神幽境危战" class="w-8 h-8">
+                        <span class="text-xl font-bold text-genshin-yellow">原神幽境危战</span>
+                    </a>
+                    <span class="text-gray-400 text-sm">难度六通关记录</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-400 hover:text-genshin-yellow transition-colors">首页</a>
+                    <a href="ranking.html" class="text-genshin-yellow font-medium">排行榜</a>
+                    <a href="upload.html" class="text-gray-400 hover:text-genshin-yellow transition-colors">上传记录</a>
+                    <a href="login.html" class="text-gray-400 hover:text-genshin-yellow transition-colors">管理员</a>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-400 hover:text-genshin-yellow">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="md:hidden bg-dark bg-opacity-95 backdrop-blur-md border-b border-gray-800 hidden">
+            <div class="container mx-auto px-4 py-2">
+                <div class="flex flex-col space-y-3 py-3">
+                    <a href="index.html" class="text-gray-400 hover:text-genshin-yellow transition-colors py-2">首页</a>
+                    <a href="ranking.html" class="text-genshin-yellow font-medium py-2">排行榜</a>
+                    <a href="upload.html" class="text-gray-400 hover:text-genshin-yellow transition-colors py-2">上传记录</a>
+                    <a href="login.html" class="text-gray-400 hover:text-genshin-yellow transition-colors py-2">管理员</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- 页面标题 -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-genshin-yellow mb-2 text-shadow">幽境危战难度六 · 通关排行榜</h1>
+            <p class="text-gray-400 max-w-2xl mx-auto">记录玩家们的精彩战斗，分享最优通关策略</p>
+        </div>
+        
+        <!-- 加载状态 -->
+        <div id="loading-container" class="flex flex-col items-center justify-center py-16">
+            <div class="loading mb-4"></div>
+            <p class="text-lg text-gray-400">正在加载数据...</p>
+        </div>
+        
+        <!-- 内容容器 (初始隐藏) -->
+        <div id="content-container" class="hidden">
+            <!-- 统计卡片 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8 stats-grid">
+                <div class="stat-card fade-in">
+                    <div class="text-gray-400 text-sm mb-1">总通关记录</div>
+                    <div class="flex items-end">
+                        <span id="total-records" class="text-3xl font-bold text-genshin-yellow">0</span>
+                        <span class="text-gray-400 ml-1 mb-1">条</span>
+                    </div>
+                    <div class="mt-2 text-xs text-gray-500">数据更新时间: <span id="update-time">2025-11-14</span></div>
+                </div>
+                
+                <div class="stat-card fade-in" style="animation-delay: 0.1s;">
+                    <div class="text-gray-400 text-sm mb-1">参与玩家</div>
+                    <div class="flex items-end">
+                        <span id="total-players" class="text-3xl font-bold text-genshin-blue">0</span>
+                        <span class="text-gray-400 ml-1 mb-1">人</span>
+                    </div>
+                    <div class="mt-2 text-xs text-gray-500">平均每人通关 <span id="avg-records-per-player">0</span> 次</div>
+                </div>
+                
+                <div class="stat-card fade-in" style="animation-delay: 0.2s;">
+                    <div class="text-gray-400 text-sm mb-1">BOSS数量</div>
+                    <div class="flex items-end">
+                        <span id="total-bosses" class="text-3xl font-bold text-genshin-pink">0</span>
+                        <span class="text-gray-400 ml-1 mb-1">个</span>
+                    </div>
+                    <div class="mt-2 text-xs text-gray-500">最难BOSS: <span id="hardest-boss">-</span></div>
+                </div>
+                
+                <div class="stat-card fade-in" style="animation-delay: 0.3s;">
+                    <div class="text-gray-400 text-sm mb-1">平均通关时间</div>
+                    <div class="flex items-end">
+                        <span id="avg-time" class="text-3xl font-bold text-genshin-green">0</span>
+                        <span class="text-gray-400 ml-1 mb-1">秒</span>
+                    </div>
+                    <div class="mt-2 text-xs text-gray-500">最快记录: <span id="fastest-time">-</span> 秒</div>
+                </div>
+            </div>
+            
+            <!-- 筛选和搜索 -->
+            <div class="card p-6 mb-8 fade-in" style="animation-delay: 0.4s;">
+                <h2 class="text-xl font-bold mb-4">筛选条件</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">BOSS</label>
+                        <select id="boss-filter" class="select-genshin w-full">
+                            <option value="all">全部BOSS</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">主C角色</label>
+                        <select id="mainc-filter" class="select-genshin w-full">
+                            <option value="all">全部主C</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">五星数量</label>
+                        <select id="gold-filter" class="select-genshin w-full">
+                            <option value="all">全部</option>
+                            <option value="0">0金</option>
+                            <option value="1">1金</option>
+                            <option value="2">2金</option>
+                            <option value="3">3金</option>
+                            <option value="4">4金</option>
+                            <option value="5">5金</option>
+                            <option value="6+">6金以上</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">通关时间</label>
+                        <select id="time-filter" class="select-genshin w-full">
+                            <option value="all">全部时间</option>
+                            <option value="fast">60秒以下</option>
+                            <option value="slow">60秒以上</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">搜索玩家</label>
+                        <div class="relative">
+                            <input type="text" id="search-input" class="input-genshin w-full pl-9" placeholder="输入玩家名称...">
+                            <i class="fa fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">记录状态</label>
+                        <select id="status-filter" class="select-genshin w-full">
+                            <option value="approved">已审核记录</option>
+                            <option value="all">全部记录</option>
+                            <option value="pending">未审核记录</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="mt-6 flex justify-end">
+                    <button id="reset-filter" class="btn-outline mr-3">
+                        <i class="fa fa-refresh mr-1"></i> 重置
+                    </button>
+                    <button id="apply-filter" class="btn-genshin">
+                        <i class="fa fa-filter mr-1"></i> 应用筛选
+                    </button>
+                </div>
+                <div class="mt-4 text-xs text-gray-500">
+                    <div class="flex items-center justify-center">
+                        <div class="flex items-center mr-6">
+                            <div class="inline-block w-3 h-3 bg-genshin-yellow rounded-full mr-1"></div>
+                            <span>命座等级</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="inline-block w-3 h-3 bg-genshin-blue rounded-full mr-1"></div>
+                            <span>武器精炼等级</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 数据展示区 -->
+            <div class="grid grid-cols-1 gap-8">
+                <!-- 排行榜表格 -->
+                <div class="card p-6 fade-in" style="animation-delay: 0.5s;">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-xl font-bold">通关记录</h2>
+                        <div class="flex items-center">
+                            <span class="text-sm text-gray-400 mr-2">排序方式:</span>
+                            <select id="sort-select" class="select-genshin text-sm py-1">
+                                <option value="time-asc">通关时间 (快→慢)</option>
+                                <option value="time-desc">通关时间 (慢→快)</option>
+                                <option value="gold-desc">五星数量 (多→少)</option>
+                                <option value="gold-asc">五星数量 (少→多)</option>
+                                <option value="date-desc">提交时间 (新→旧)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="responsive-table">
+                        <table class="table-genshin">
+                            <thead>
+                                <tr>
+                                    <th class="w-12">#</th>
+                                    <th class="sortable-header" data-sort="player">玩家</th>
+                                    <th class="sortable-header" data-sort="mainc">主C</th>
+                                    <th>队伍配置</th>
+                                    <th class="sortable-header" data-sort="gold">五星数</th>
+                                    <th class="sortable-header" data-sort="constgold">常驻金</th>
+                                    <th class="sortable-header" data-sort="time">通关时间</th>
+                                    <th class="sortable-header" data-sort="boss">BOSS</th>
+                                    <th>备注</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="records-table-body">
+                                <!-- 表格内容将通过JavaScript动态生成 -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- 分页 -->
+                    <div class="mt-6 flex justify-between items-center">
+                        <div class="text-sm text-gray-400">
+                            显示 <span id="showing-records">0</span> 条记录，共 <span id="filtered-records-count">0</span> 条
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button id="prev-page" class="pagination-btn" disabled>
+                                <i class="fa fa-chevron-left"></i>
+                            </button>
+                            <div id="pagination-buttons" class="flex items-center space-x-1">
+                                <!-- 页码按钮将通过JavaScript动态生成 -->
+                            </div>
+                            <button id="next-page" class="pagination-btn" disabled>
+                                <i class="fa fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 图表和统计 -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- BOSS通关次数分布 -->
+                    <div class="card p-6 fade-in" style="animation-delay: 0.6s;">
+                        <h2 class="text-xl font-bold mb-4">BOSS通关次数</h2>
+                        <div class="chart-container">
+                            <canvas id="boss-chart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- 主C使用率 -->
+                    <div class="card p-6 fade-in" style="animation-delay: 0.7s;">
+                        <h2 class="text-xl font-bold mb-4">主C使用率</h2>
+                        <div class="chart-container">
+                            <canvas id="mainc-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 无数据提示 -->
+        <div id="no-data-container" class="hidden flex flex-col items-center justify-center py-16 text-center">
+            <div class="text-6xl text-gray-700 mb-4">
+                <i class="fa fa-frown-o"></i>
+            </div>
+            <h2 class="text-2xl font-bold mb-2">暂无数据</h2>
+            <p class="text-gray-400 max-w-md mx-auto">当前筛选条件下没有找到通关记录，请尝试调整筛选条件或上传新的记录。</p>
+            <a href="upload.html" class="btn-genshin mt-6">
+                <i class="fa fa-upload mr-1"></i> 上传通关记录
+            </a>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="py-8 bg-dark border-t border-gray-800 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-400">&copy; 2025 原神幽境危战难度六通关记录. 保留所有权利.</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://space.bilibili.com/435511059" target="_blank" class="text-gray-400 hover:text-genshin-yellow">
+                        <i class="fab fa-bilibili text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-4 text-center text-gray-500 text-sm">
+                <p>本网站仅用于记录和分享游戏通关记录，与miHoYo/HoYoverse无关</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 引用数据文件 -->
+    <script src="records.js"></script>
+    <script src="data.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        // 导航链接点击关闭菜单
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+        
+        // 全局变量
+        let currentPage = 1;
+        const recordsPerPage = 10;
+        let allRecords = [];
+        let filteredRecords = [];
+        let sortField = 'time';
+        let sortDirection = 'asc';
+        
+        // 获取角色头像URL
+        function getCharacterAvatarUrl(characterName) {
+            // 在DataStore中查找角色
+            const character = DataStore.characters.find(char => char.name === characterName);
+            return character ? character.avatar : 'https://via.placeholder.com/40';
+        }
+        
+        // 获取BOSS头像URL
+        function getBossAvatarUrl(bossName) {
+            // 在DataStore中查找BOSS
+            const boss = DataStore.bosses.find(b => b.name === bossName);
+            return boss ? boss.avatar : 'https://via.placeholder.com/40';
+        }
+        
+        // 获取元素颜色
+        function getElementColor(elementType) {
+            return DataStore.elementColors[elementType] || '#FFFFFF';
+        }
+        
+        // 获取BOSS颜色
+        function getBossColor(bossName) {
+            const boss = DataStore.bosses.find(b => b.name === bossName);
+            return boss ? getElementColor(boss.element) : '#6b7280';
+        }
+        
+        // 获取角色颜色
+        function getCharacterColor(characterName) {
+            const character = DataStore.characters.find(char => char.name === characterName);
+            return character ? getElementColor(character.element) : '#FFFFFF';
+        }
+        
+        
+        
+        // 根据状态获取记录
+        function getRecordsByStatus(status) {
+            switch (status) {
+                case 'all':
+                    return DataStore.getAllRecords();
+                case 'pending':
+                    return DataStore.getPendingRecords();
+                case 'approved':
+                default:
+                    return DataStore.getApprovedRecords();
+            }
+        }
+        
+        // 初始化页面
+        async function initPage() {
+            try {
+                // 检查DataStore是否已加载
+                if (typeof DataStore === 'undefined') {
+                    throw new Error('DataStore模块未加载');
+                }
+                
+                console.log('DataStore加载成功');
+                console.log('角色数量:', DataStore.characters.length);
+                console.log('BOSS数量:', DataStore.bosses.length);
+                
+                // 根据状态筛选获取记录
+                const statusFilter = document.getElementById('status-filter') ? document.getElementById('status-filter').value : 'approved';
+                allRecords = getRecordsByStatus(statusFilter);
+                filteredRecords = [...allRecords];
+                
+                console.log(`${statusFilter}记录数量:`, allRecords.length);
+                
+                // 更新统计数据
+                updateStatistics();
+                
+                // 动态生成BOSS筛选选项
+                populateBossFilter();
+                
+                // 动态生成主C筛选选项
+                populateMaincFilter();
+                
+                // 检查URL参数是否有BOSS筛选
+                const urlParams = new URLSearchParams(window.location.search);
+                const bossParam = urlParams.get('boss');
+                
+                if (bossParam) {
+                    const decodedBossName = decodeURIComponent(bossParam);
+                    console.log('URL参数中指定的BOSS:', decodedBossName);
+                    
+                    // 检查BOSS是否存在
+                    const bossExists = DataStore.bosses.some(boss => boss.name === decodedBossName);
+                    
+                    if (bossExists) {
+                        // 设置BOSS筛选器
+                        document.getElementById('boss-filter').value = decodedBossName;
+                        
+                        // 应用筛选
+                        applyFilters();
+                        
+                        // 显示筛选成功的提示
+                        showToast(`已筛选 ${decodedBossName} 的通关记录`);
+                    } else {
+                        console.warn('URL参数中的BOSS不存在:', decodedBossName);
+                    }
+                }
+                
+                // 更新表格
+                updateTable();
+                
+                // 初始化图表
+                initCharts();
+                
+                // 显示内容容器，隐藏加载容器
+                document.getElementById('loading-container').classList.add('hidden');
+                document.getElementById('content-container').classList.remove('hidden');
+                
+                // 如果没有数据，显示无数据提示
+                if (allRecords.length === 0) {
+                    document.getElementById('content-container').classList.add('hidden');
+                    document.getElementById('no-data-container').classList.remove('hidden');
+                }
+                
+                // 添加状态筛选变化事件监听器
+                const statusFilterElement = document.getElementById('status-filter');
+                if (statusFilterElement) {
+                    // 移除可能存在的旧监听器
+                    statusFilterElement.removeEventListener('change', handleStatusFilterChange);
+                    // 添加新监听器
+                    statusFilterElement.addEventListener('change', handleStatusFilterChange);
+                }
+                
+            } catch (error) {
+                console.error('初始化页面失败:', error);
+                document.getElementById('loading-container').innerHTML = `
+                    <div class="text-6xl text-genshin-red mb-4">
+                        <i class="fa fa-exclamation-triangle"></i>
+                    </div>
+                    <p class="text-lg text-gray-400 mb-2">数据加载失败</p>
+                    <p class="text-gray-500 max-w-md mx-auto">${error.message}</p>
+                    <button id="retry-btn" class="btn-genshin mt-6">
+                        <i class="fa fa-refresh mr-1"></i> 重试
+                    </button>
+                `;
+                
+                // 添加重试按钮点击事件
+                document.getElementById('retry-btn').addEventListener('click', initPage);
+            }
+        }
+        
+        // 处理状态筛选变化
+        function handleStatusFilterChange() {
+            // 重新加载页面数据
+            initPage();
+        }
+        
+        // 显示提示消息
+        function showToast(message) {
+            // 创建提示元素
+            const toast = document.createElement('div');
+            toast.className = 'fixed top-4 right-4 bg-genshin-yellow text-dark px-4 py-2 rounded-lg shadow-lg z-50 fade-in';
+            toast.textContent = message;
+            
+            // 添加到页面
+            document.body.appendChild(toast);
+            
+            // 3秒后移除
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(-10px)';
+                toast.style.transition = 'opacity 0.3s, transform 0.3s';
+                
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 300);
+            }, 3000);
+        }
+        
+        // 更新统计数据
+        function updateStatistics() {
+            // 总通关记录
+            document.getElementById('total-records').textContent = allRecords.length;
+            
+            // 更新时间
+            const now = new Date();
+            document.getElementById('update-time').textContent = now.toLocaleDateString();
+            
+            // 参与玩家
+            const players = [...new Set(allRecords.map(record => record.player))];
+            document.getElementById('total-players').textContent = players.length;
+            
+            // 平均每人通关次数
+            const avgRecordsPerPlayer = (allRecords.length / players.length).toFixed(1);
+            document.getElementById('avg-records-per-player').textContent = avgRecordsPerPlayer;
+            
+            // BOSS数量
+            document.getElementById('total-bosses').textContent = DataStore.bosses.length;
+            
+            // 最难BOSS（平均通关时间最长的）
+            const bossTimes = {};
+            allRecords.forEach(record => {
+                if (!bossTimes[record.boss]) {
+                    bossTimes[record.boss] = {
+                        total: 0,
+                        count: 0
+                    };
+                }
+                bossTimes[record.boss].total += record.time;
+                bossTimes[record.boss].count += 1;
+            });
+            
+            let hardestBoss = '';
+            let maxAvgTime = 0;
+            
+            for (const boss in bossTimes) {
+                const avgTime = bossTimes[boss].total / bossTimes[boss].count;
+                if (avgTime > maxAvgTime) {
+                    maxAvgTime = avgTime;
+                    hardestBoss = boss;
+                }
+            }
+            
+            document.getElementById('hardest-boss').textContent = hardestBoss || '暂无数据';
+            
+            // 平均通关时间
+            if (allRecords.length > 0) {
+                const totalTime = allRecords.reduce((sum, record) => sum + record.time, 0);
+                const avgTime = Math.round(totalTime / allRecords.length);
+                document.getElementById('avg-time').textContent = avgTime;
+                
+                // 最快记录
+                const fastestRecord = allRecords.reduce((fastest, record) => {
+                    return record.time < fastest.time ? record : fastest;
+                }, allRecords[0]);
+                
+                document.getElementById('fastest-time').textContent = `${fastestRecord.time} (${fastestRecord.player})`;
+            }
+        }
+        
+        // 动态生成BOSS筛选选项
+        function populateBossFilter() {
+            const bossFilter = document.getElementById('boss-filter');
+            
+            // 清空现有选项（保留"全部BOSS"）
+            while (bossFilter.options.length > 1) {
+                bossFilter.remove(1);
+            }
+            
+            // 添加BOSS选项
+            DataStore.bosses.forEach(boss => {
+                const option = document.createElement('option');
+                option.value = boss.name;
+                option.textContent = boss.name;
+                bossFilter.appendChild(option);
+            });
+        }
+        
+        // 动态生成主C筛选选项
+        function populateMaincFilter() {
+            const maincFilter = document.getElementById('mainc-filter');
+            
+            // 清空现有选项（保留"全部主C"）
+            while (maincFilter.options.length > 1) {
+                maincFilter.remove(1);
+            }
+            
+            // 获取所有主C角色
+            const maincCharacters = [...new Set(allRecords.map(record => record.mainc))];
+            
+            // 添加主C选项
+            maincCharacters.forEach(mainc => {
+                const option = document.createElement('option');
+                option.value = mainc;
+                option.textContent = mainc;
+                maincFilter.appendChild(option);
+            });
+        }
+        
+        // 应用筛选
+        function applyFilters() {
+            const bossFilter = document.getElementById('boss-filter').value;
+            const maincFilter = document.getElementById('mainc-filter').value;
+            const goldFilter = document.getElementById('gold-filter').value;
+            const timeFilter = document.getElementById('time-filter').value;
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            
+            filteredRecords = allRecords.filter(record => {
+                // BOSS筛选
+                if (bossFilter !== 'all' && record.boss !== bossFilter) {
+                    return false;
+                }
+                
+                // 主C筛选
+                if (maincFilter !== 'all' && record.mainc !== maincFilter) {
+                    return false;
+                }
+                
+                // 五星数筛选
+                if (goldFilter !== 'all') {
+                    let goldCount = 0;
+                    if (typeof record.gold === 'number') {
+                        goldCount = record.gold;
+                    } else if (record.gold.includes('+')) {
+                        const parts = record.gold.split('+');
+                        goldCount = parts.reduce((sum, part) => {
+                            const num = parseInt(part.replace(/[^\d]/g, '')) || 0;
+                            return sum + num;
+                        }, 0);
+                    } else {
+                        goldCount = parseInt(record.gold.replace(/[^\d]/g, '')) || 0;
+                    }
+                    
+                    if (goldFilter === '6+' && !(goldCount >= 6)) {
+                        return false;
+                    } else if (parseInt(goldFilter) !== goldCount) {
+                        return false;
+                    }
+                }
+                
+                // 时间筛选
+                if (timeFilter !== 'all') {
+                    if (timeFilter === 'fast' && !(record.time < 60)) {
+                        return false;
+                    } else if (timeFilter === 'slow' && !(record.time >= 60)) {
+                        return false;
+                    }
+                }
+                
+                // 搜索筛选
+                if (searchInput && !(
+                    record.player.toLowerCase().includes(searchInput) ||
+                    (record.notes && record.notes.toLowerCase().includes(searchInput))
+                )) {
+                    return false;
+                }
+                
+                return true;
+            });
+            
+            // 重置页码
+            currentPage = 1;
+            
+            // 更新表格
+            updateTable();
+            
+            // 更新图表
+            initCharts();
+            
+            // 如果没有数据，显示无数据提示
+            if (filteredRecords.length === 0) {
+                document.getElementById('content-container').classList.add('hidden');
+                document.getElementById('no-data-container').classList.remove('hidden');
+            } else {
+                document.getElementById('content-container').classList.remove('hidden');
+                document.getElementById('no-data-container').classList.add('hidden');
+            }
+        }
+        
+        // 重置筛选
+        function resetFilters() {
+            document.getElementById('boss-filter').value = 'all';
+            document.getElementById('mainc-filter').value = 'all';
+            document.getElementById('gold-filter').value = 'all';
+            document.getElementById('time-filter').value = 'all';
+            document.getElementById('search-input').value = '';
+            document.getElementById('status-filter').value = 'approved';
+            
+            // 重新加载记录
+            initPage();
+        }
+        
+        // 更新表格
+        function updateTable() {
+            console.log('更新表格 - 当前页码:', currentPage);
+            console.log('筛选后记录数量:', filteredRecords.length);
+            
+            // 排序记录
+            const sortedRecords = sortRecords([...filteredRecords]);
+            
+            // 分页
+            const startIndex = (currentPage - 1) * recordsPerPage;
+            const endIndex = Math.min(startIndex + recordsPerPage, sortedRecords.length);
+            const pageRecords = sortedRecords.slice(startIndex, endIndex);
+            
+            console.log('当前页记录数量:', pageRecords.length);
+            
+            // 更新表格内容
+            const tableBody = document.getElementById('records-table-body');
+            tableBody.innerHTML = '';
+            
+            pageRecords.forEach((record, index) => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-800 fade-in';
+                row.style.animationDelay = `${index * 0.05}s`;
+                
+                // 排名
+                const rankCell = document.createElement('td');
+                rankCell.className = 'text-center';
+                
+                // 前三名显示特殊图标
+                if (startIndex + index < 3) {
+                    const ranks = ['🥇', '🥈', '🥉'];
+                    rankCell.innerHTML = `<div class="font-bold text-xl">${ranks[startIndex + index]}</div>`;
+                } else {
+                    rankCell.innerHTML = `<div class="text-gray-400">${startIndex + index + 1}</div>`;
+                }
+                
+                row.appendChild(rankCell);
+                
+                // 玩家
+                const playerCell = document.createElement('td');
+                playerCell.innerHTML = `<div class="font-medium">${record.player}</div>`;
+                row.appendChild(playerCell);
+                
+                // 主C
+                const maincCell = document.createElement('td');
+                const maincColor = getCharacterColor(record.mainc);
+                maincCell.innerHTML = `
+                    <div class="flex items-center">
+                        <div class="relative">
+                            <img src="${getCharacterAvatarUrl(record.mainc)}" alt="${record.mainc}" class="avatar-sm mr-2">
+                        </div>
+                        <span style="color: ${maincColor}">${record.mainc}</span>
+                    </div>
+                `;
+                row.appendChild(maincCell);
+                
+                // 队伍配置
+                const teamCell = document.createElement('td');
+                const teamAvatars = record.team.map(char => {
+                    // 获取命座数字（处理可能缺失的属性）
+                    const constellationNum = char.constellation !== undefined ? char.constellation : 0;
+                    // 获取武器精炼等级（处理可能缺失的属性）
+                    const weaponLevel = char.weapon !== undefined ? char.weapon : 0;
+                    // 如果命座为0，不显示命座数字
+                    const constellationBadge = constellationNum > 0 ? 
+                        `<div class="absolute bottom-0 right-0 bg-genshin-yellow text-dark text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center">${constellationNum}</div>` : '';
+                    // 如果武器精炼等级大于0，显示武器图标和精炼等级
+                    const weaponBadge = weaponLevel > 0 ? 
+                        `<div class="absolute top-0 right-0 bg-genshin-blue text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center">${weaponLevel}</div>` : '';
+                    
+                    const charColor = getCharacterColor(char.character);
+                    const elementIndicator = '';
+                    
+                    return `
+                        <div class="relative">
+                            <img src="${getCharacterAvatarUrl(char.character)}" alt="${char.character}" class="avatar-sm" title="${char.character} (${constellationNum}命, 精${weaponLevel})">
+                            ${elementIndicator}
+                            ${constellationBadge}
+                            ${weaponBadge}
+                        </div>
+                    `;
+                }).join('');
+                
+                teamCell.innerHTML = `
+                    <div class="team-avatars">
+                        ${teamAvatars}
+                    </div>
+                `;
+                row.appendChild(teamCell);
+                
+                // 五星数
+                const goldCell = document.createElement('td');
+                goldCell.innerHTML = `<div class="badge badge-gold">${record.gold}金</div>`;
+                row.appendChild(goldCell);
+                
+                // 常驻金
+                const constgoldCell = document.createElement('td');
+                constgoldCell.innerHTML = `<div class="badge badge-gold">${record.constgold || 0}金</div>`;
+                row.appendChild(constgoldCell);
+                
+                // 通关时间
+                const timeCell = document.createElement('td');
+                let timeClass = 'badge-time';
+                if (record.time < 100) {
+                    timeClass = 'badge-fast';
+                } else if (record.time > 115) {
+                    timeClass = 'badge-slow';
+                }
+                
+                timeCell.innerHTML = `<div class="badge ${timeClass}">${record.time}秒</div>`;
+                row.appendChild(timeCell);
+                
+                // BOSS
+                const bossCell = document.createElement('td');
+                bossCell.innerHTML = `
+                    <div class="flex items-center">
+                        <img src="${getBossAvatarUrl(record.boss)}" alt="${record.boss}" class="avatar-md">
+                    </div>
+                `;
+                row.appendChild(bossCell);
+                
+                // 备注
+                const notesCell = document.createElement('td');
+                if (record.notes) {
+                    // 如果备注较长，显示前20个字符并添加省略号
+                    const displayNotes = record.notes.length > 20 ? 
+                        `${record.notes.substring(0, 20)}...` : record.notes;
+                    
+                    notesCell.innerHTML = `
+                        <div class="relative">
+                            <span class="text-gray-300">${displayNotes}</span>
+                            ${record.notes.length > 20 ? 
+                                `<i class="fa fa-ellipsis-h text-gray-500 cursor-help" title="${record.notes}"></i>` : ''}
+                        </div>
+                    `;
+                } else {
+                    notesCell.innerHTML = '<span class="text-gray-500">-</span>';
+                }
+                row.appendChild(notesCell);
+                
+                // 操作
+                const actionCell = document.createElement('td');
+                // 处理视频链接，如果以www.开头则添加https://前缀
+                let videoLink = record.video || '';
+                if (videoLink && videoLink.startsWith('www.')) {
+                    videoLink = 'https://' + videoLink;
+                }
+                actionCell.innerHTML = `
+                    <div class="flex space-x-2">
+                        <a href="${videoLink}" target="_blank" class="text-genshin-blue hover:text-genshin-yellow transition-colors" title="观看视频">
+                            <i class="fa fa-play-circle"></i>
+                        </a>
+                    </div>
+                `;
+                row.appendChild(actionCell);
+                
+                tableBody.appendChild(row);
+            });
+            
+            // 更新分页信息
+            document.getElementById('showing-records').textContent = pageRecords.length;
+            document.getElementById('filtered-records-count').textContent = sortedRecords.length;
+            
+            // 更新分页按钮状态
+            document.getElementById('prev-page').disabled = currentPage === 1;
+            document.getElementById('next-page').disabled = endIndex >= sortedRecords.length;
+            
+            // 更新页码按钮
+            updatePageButtons();
+        }
+        
+        // 更新页码按钮
+        function updatePageButtons() {
+            const pageButtonsContainer = document.getElementById('pagination-buttons');
+            pageButtonsContainer.innerHTML = '';
+            
+            const totalPages = Math.ceil(filteredRecords.length / recordsPerPage);
+            const maxVisiblePages = 5;
+            
+            let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+            
+            if (endPage - startPage + 1 < maxVisiblePages) {
+                startPage = Math.max(1, endPage - maxVisiblePages + 1);
+            }
+            
+            for (let i = startPage; i <= endPage; i++) {
+                const button = document.createElement('button');
+                button.className = `pagination-btn ${i === currentPage ? 'active' : ''}`;
+                button.textContent = i;
+                button.addEventListener('click', function() {
+                    currentPage = i;
+                    updateTable();
+                });
+                pageButtonsContainer.appendChild(button);
+            }
+        }
+        
+        // 排序记录
+        function sortRecords(records) {
+            return records.sort((a, b) => {
+                let valueA, valueB;
+                
+                switch (sortField) {
+                    case 'time':
+                        valueA = a.time;
+                        valueB = b.time;
+                        break;
+                    case 'gold':
+                        // 处理五星数，包括数字和字符串格式
+                        valueA = typeof a.gold === 'number' ? a.gold : 
+                                a.gold.includes('+') ? a.gold.split('+').reduce((sum, part) => sum + parseInt(part.replace(/[^\d]/g, '') || 0), 0) :
+                                parseInt(a.gold.replace(/[^\d]/g, '')) || 0;
+                        
+                        valueB = typeof b.gold === 'number' ? b.gold : 
+                                b.gold.includes('+') ? b.gold.split('+').reduce((sum, part) => sum + parseInt(part.replace(/[^\d]/g, '') || 0), 0) :
+                                parseInt(b.gold.replace(/[^\d]/g, '')) || 0;
+                        break;
+                    case 'constgold':
+                        valueA = a.constgold || 0;
+                        valueB = b.constgold || 0;
+                        break;
+                    case 'date':
+                        // 解析日期
+                        valueA = new Date(a.submitTime);
+                        valueB = new Date(b.submitTime);
+                        break;
+                    case 'player':
+                        valueA = a.player.toLowerCase();
+                        valueB = b.player.toLowerCase();
+                        break;
+                    case 'mainc':
+                        valueA = a.mainc.toLowerCase();
+                        valueB = b.mainc.toLowerCase();
+                        break;
+                    case 'boss':
+                        valueA = a.boss.toLowerCase();
+                        valueB = b.boss.toLowerCase();
+                        break;
+                    default:
+                        valueA = a[sortField] || '';
+                        valueB = b[sortField] || '';
+                }
+                
+                if (valueA < valueB) {
+                    return sortDirection === 'asc' ? -1 : 1;
+                }
+                if (valueA > valueB) {
+                    return sortDirection === 'asc' ? 1 : -1;
+                }
+                return 0;
+            });
+        }
+        
+        // 初始化图表
+        function initCharts() {
+            // BOSS通关次数分布
+            const bossCtx = document.getElementById('boss-chart').getContext('2d');
+            
+            // 统计每个BOSS的通关次数
+            const bossCounts = {};
+            DataStore.bosses.forEach(boss => {
+                bossCounts[boss.name] = 0;
+            });
+            
+            filteredRecords.forEach(record => {
+                if (bossCounts[record.boss] !== undefined) {
+                    bossCounts[record.boss] = (bossCounts[record.boss] || 0) + 1;
+                }
+            });
+            
+            // 准备图表数据
+            const bossLabels = Object.keys(bossCounts);
+            const bossData = Object.values(bossCounts);
+            const bossColors = bossLabels.map(boss => getBossColor(boss));
+            
+            // 销毁旧图表
+            if (window.bossChart) {
+                window.bossChart.destroy();
+            }
+            
+            // 创建新图表
+            window.bossChart = new Chart(bossCtx, {
+                type: 'bar',
+                data: {
+                    labels: bossLabels,
+                    datasets: [{
+                        label: '通关次数',
+                        data: bossData,
+                        backgroundColor: bossColors.map(color => `${color}33`), // 添加透明度
+                        borderColor: bossColors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                maxRotation: 45,
+                                minRotation: 45
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(18, 18, 18, 0.9)',
+                            titleColor: '#f5f5f5',
+                            bodyColor: '#f5f5f5',
+                            borderColor: 'rgba(255, 255, 255, 0.2)',
+                            borderWidth: 1,
+                            padding: 10,
+                            displayColors: true,
+                            callbacks: {
+                                label: function(context) {
+                                    return `通关次数: ${context.raw}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // 主C使用率
+            const maincCtx = document.getElementById('mainc-chart').getContext('2d');
+            
+            // 统计每个主C的使用次数
+            const maincCounts = {};
+            filteredRecords.forEach(record => {
+                maincCounts[record.mainc] = (maincCounts[record.mainc] || 0) + 1;
+            });
+            
+            // 准备图表数据
+            const maincLabels = Object.keys(maincCounts);
+            const maincData = Object.values(maincCounts);
+            
+            // 生成颜色
+            const maincColors = maincLabels.map((_, index) => {
+                const colors = [
+                    '#7928ca', '#ff0080', '#3b82f6', '#fbbf24', '#10b981', 
+                    '#ef4444', '#6b7280', '#14b8a6', '#ec4899', '#8b5cf6'
+                ];
+                return colors[index % colors.length];
+            });
+            
+            // 销毁旧图表
+            if (window.maincChart) {
+                window.maincChart.destroy();
+            }
+            
+            // 创建新图表
+            window.maincChart = new Chart(maincCtx, {
+                type: 'pie',
+                data: {
+                    labels: maincLabels,
+                    datasets: [{
+                        data: maincData,
+                        backgroundColor: maincColors.map(color => `${color}cc`), // 添加透明度
+                        borderColor: maincColors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                padding: 10,
+                                font: {
+                                    size: 11
+                                }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(18, 18, 18, 0.9)',
+                            titleColor: '#f5f5f5',
+                            bodyColor: '#f5f5f5',
+                            borderColor: 'rgba(255, 255, 255, 0.2)',
+                            borderWidth: 1,
+                            padding: 10,
+                            displayColors: true,
+                            callbacks: {
+                                label: function(context) {
+                                    const total = context.dataset.data.reduce((sum, value) => sum + value, 0);
+                                    const percentage = Math.round((context.raw / total) * 100);
+                                    return `${context.label}: ${context.raw}次 (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // 初始化事件监听
+        function initEventListeners() {
+            // 筛选按钮
+            document.getElementById('apply-filter').addEventListener('click', applyFilters);
+            document.getElementById('reset-filter').addEventListener('click', resetFilters);
+            
+            // 搜索框回车事件
+            document.getElementById('search-input').addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') {
+                    applyFilters();
+                }
+            });
+            
+            // 排序下拉框
+            document.getElementById('sort-select').addEventListener('change', function() {
+                const value = this.value;
+                const [field, direction] = value.split('-');
+                sortField = field;
+                sortDirection = direction;
+                
+                // 更新表头样式
+                document.querySelectorAll('.sortable-header').forEach(h => {
+                    h.classList.remove('asc', 'desc');
+                    if (h.getAttribute('data-sort') === field) {
+                        h.classList.add(direction);
+                    }
+                });
+                
+                updateTable();
+            });
+            
+            // 表头排序点击事件
+            document.querySelectorAll('.sortable-header').forEach(header => {
+                header.addEventListener('click', function() {
+                    const field = this.getAttribute('data-sort');
+                    if (sortField === field) {
+                        sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+                    } else {
+                        sortField = field;
+                        sortDirection = 'asc';
+                    }
+                    
+                    // 更新表头样式
+                    document.querySelectorAll('.sortable-header').forEach(h => {
+                        h.classList.remove('asc', 'desc');
+                    });
+                    this.classList.add(sortDirection);
+                    
+                    // 更新排序下拉框
+                    document.getElementById('sort-select').value = `${field}-${sortDirection}`;
+                    
+                    updateTable();
+                });
+            });
+            
+            // 分页按钮
+            document.getElementById('prev-page').addEventListener('click', function() {
+                if (currentPage > 1) {
+                    currentPage--;
+                    updateTable();
+                }
+            });
+            
+            document.getElementById('next-page').addEventListener('click', function() {
+                const totalPages = Math.ceil(filteredRecords.length / recordsPerPage);
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    updateTable();
+                }
+            });
+            
+            
+        }
+        
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            initEventListeners();
+            initPage();
+        });
+    </script>
+</body>
+</html>

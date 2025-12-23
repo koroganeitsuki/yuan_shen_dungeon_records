@@ -1,0 +1,864 @@
+[2025-12-23T01:59:26.046Z] === 服务器启动信息 ===
+[2025-12-23T01:59:26.048Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T01:59:26.048Z] 监听地址: ::
+[2025-12-23T01:59:26.049Z] 监听地址类型: IPv6
+[2025-12-23T01:59:26.049Z] === API访问地址 ===
+[2025-12-23T01:59:26.049Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T01:59:26.050Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T01:59:26.050Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T01:59:26.050Z] === 网页访问地址 ===
+[2025-12-23T01:59:26.051Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T01:59:26.051Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T01:59:26.052Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T01:59:26.052Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T01:59:26.052Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T01:59:26.053Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T01:59:26.053Z] === 公网访问地址 ===
+[2025-12-23T01:59:26.053Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T01:59:26.053Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T01:59:26.054Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T01:59:26.054Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T01:59:26.054Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T01:59:26.054Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T02:04:42.708Z] 收到新的记录提交请求: 河豚体123 - Azhdaha
+[2025-12-23T02:04:42.708Z] 验证失败: 缺少必要字段 gold
+[2025-12-23T02:04:44.333Z] 收到新的记录提交请求: 河豚体123 - Azhdaha
+[2025-12-23T02:04:44.333Z] 验证失败: 缺少必要字段 gold
+[2025-12-23T02:04:45.933Z] 收到新的记录提交请求: 河豚体123 - Azhdaha
+[2025-12-23T02:04:45.933Z] 验证失败: 缺少必要字段 gold
+[2025-12-23T02:04:47.883Z] 收到新的记录提交请求: 河豚体123 - Azhdaha
+[2025-12-23T02:04:47.884Z] 验证失败: 缺少必要字段 gold
+[2025-12-23T02:04:48.405Z] 收到新的记录提交请求: 河豚体123 - Azhdaha
+[2025-12-23T02:04:48.405Z] 验证失败: 缺少必要字段 gold
+[2025-12-23T02:04:48.908Z] 收到新的记录提交请求: 河豚体123 - Azhdaha
+[2025-12-23T02:04:48.909Z] 验证失败: 缺少必要字段 gold
+[2025-12-23T02:40:56.721Z] === 服务器启动信息 ===
+[2025-12-23T02:40:56.723Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T02:40:56.723Z] 监听地址: ::
+[2025-12-23T02:40:56.724Z] 监听地址类型: IPv6
+[2025-12-23T02:40:56.724Z] === API访问地址 ===
+[2025-12-23T02:40:56.724Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T02:40:56.725Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T02:40:56.725Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T02:40:56.726Z] === 网页访问地址 ===
+[2025-12-23T02:40:56.726Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T02:40:56.726Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T02:40:56.727Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T02:40:56.727Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T02:40:56.727Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T02:40:56.728Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T02:40:56.728Z] === 公网访问地址 ===
+[2025-12-23T02:40:56.728Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T02:40:56.728Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T02:40:56.729Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T02:40:56.729Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T02:40:56.729Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T02:40:56.729Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T02:41:38.317Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T02:41:38.317Z] 验证失败: 缺少必要字段 gold
+[2025-12-23T02:41:38.320Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T02:41:38.321Z] 验证失败: 缺少必要字段 gold
+[2025-12-23T02:41:47.864Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T02:41:47.864Z] 验证失败: 缺少必要字段 gold
+[2025-12-23T02:41:47.866Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T02:41:47.866Z] 验证失败: 缺少必要字段 gold
+[2025-12-23T02:45:48.115Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T02:45:48.116Z] 验证失败: 缺少必要字段 constgold
+[2025-12-23T02:45:48.117Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T02:45:48.117Z] 验证失败: 缺少必要字段 constgold
+[2025-12-23T02:46:02.463Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T02:46:02.464Z] 验证失败: 缺少必要字段 constgold
+[2025-12-23T02:46:02.464Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T02:46:02.465Z] 验证失败: 缺少必要字段 constgold
+[2025-12-23T02:54:00.690Z] === 服务器启动信息 ===
+[2025-12-23T02:54:00.692Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T02:54:00.693Z] 监听地址: ::
+[2025-12-23T02:54:00.693Z] 监听地址类型: IPv6
+[2025-12-23T02:54:00.693Z] === API访问地址 ===
+[2025-12-23T02:54:00.694Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T02:54:00.694Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T02:54:00.694Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T02:54:00.695Z] === 网页访问地址 ===
+[2025-12-23T02:54:00.695Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T02:54:00.695Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T02:54:00.696Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T02:54:00.696Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T02:54:00.696Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T02:54:00.697Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T02:54:00.697Z] === 公网访问地址 ===
+[2025-12-23T02:54:00.697Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T02:54:00.698Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T02:54:00.698Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T02:54:00.698Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T02:54:00.698Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T02:54:00.699Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T02:56:48.779Z] 收到新的记录提交请求: epcdiy - 深罪浸礼者 · 肃烈狂音
+[2025-12-23T02:56:48.780Z] 验证失败: 角色数据无效
+[2025-12-23T02:56:48.781Z] 收到新的记录提交请求: epcdiy - 深罪浸礼者 · 肃烈狂音
+[2025-12-23T02:56:48.781Z] 验证失败: 角色数据无效
+[2025-12-23T02:57:18.654Z] 收到新的记录提交请求: epcdiy - 深罪浸礼者 · 肃烈狂音
+[2025-12-23T02:57:18.656Z] 解析records数组失败: Unexpected token '/', "[// 深邃摹结株 ·"... is not valid JSON
+[2025-12-23T02:57:18.656Z] 问题字符串: [// 深邃摹结株 · 虚暗幻变
+        {
+            id: 1,
+            player: "眞過分",
+            mainc: "玛薇卡",
+            team: [
+                { character: "玛薇卡", constellation: 0, weapon: 0 },
+              ...
+[2025-12-23T02:57:18.656Z] 添加记录到数据文件失败: Unexpected token '/', "[// 深邃摹结株 ·"... is not valid JSON
+[2025-12-23T02:57:18.657Z] 处理提交请求时发生错误: Unexpected token '/', "[// 深邃摹结株 ·"... is not valid JSON
+[2025-12-23T02:57:18.657Z] 收到新的记录提交请求: epcdiy - 深罪浸礼者 · 肃烈狂音
+[2025-12-23T02:57:18.658Z] 解析records数组失败: Unexpected token '/', "[// 深邃摹结株 ·"... is not valid JSON
+[2025-12-23T02:57:18.659Z] 问题字符串: [// 深邃摹结株 · 虚暗幻变
+        {
+            id: 1,
+            player: "眞過分",
+            mainc: "玛薇卡",
+            team: [
+                { character: "玛薇卡", constellation: 0, weapon: 0 },
+              ...
+[2025-12-23T02:57:18.659Z] 添加记录到数据文件失败: Unexpected token '/', "[// 深邃摹结株 ·"... is not valid JSON
+[2025-12-23T02:57:18.659Z] 处理提交请求时发生错误: Unexpected token '/', "[// 深邃摹结株 ·"... is not valid JSON
+[2025-12-23T03:03:03.110Z] === 服务器启动信息 ===
+[2025-12-23T03:03:03.112Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T03:03:03.113Z] 监听地址: ::
+[2025-12-23T03:03:03.113Z] 监听地址类型: IPv6
+[2025-12-23T03:03:03.114Z] === API访问地址 ===
+[2025-12-23T03:03:03.114Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T03:03:03.114Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T03:03:03.115Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T03:03:03.115Z] === 网页访问地址 ===
+[2025-12-23T03:03:03.116Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T03:03:03.116Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T03:03:03.116Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T03:03:03.117Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T03:03:03.117Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T03:03:03.117Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T03:03:03.118Z] === 公网访问地址 ===
+[2025-12-23T03:03:03.118Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T03:03:03.118Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T03:03:03.119Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T03:03:03.119Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T03:03:03.120Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T03:03:03.120Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T05:20:58.278Z] === 服务器启动信息 ===
+[2025-12-23T05:20:58.280Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T05:20:58.280Z] 监听地址: ::
+[2025-12-23T05:20:58.281Z] 监听地址类型: IPv6
+[2025-12-23T05:20:58.281Z] === API访问地址 ===
+[2025-12-23T05:20:58.281Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T05:20:58.282Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T05:20:58.282Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T05:20:58.282Z] === 网页访问地址 ===
+[2025-12-23T05:20:58.282Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T05:20:58.283Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T05:20:58.283Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T05:20:58.283Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T05:20:58.284Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T05:20:58.284Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T05:20:58.284Z] === 公网访问地址 ===
+[2025-12-23T05:20:58.284Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T05:20:58.285Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T05:20:58.285Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T05:20:58.285Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T05:20:58.285Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T05:20:58.286Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T05:21:49.434Z] 收到新的记录提交请求: epcdiy - 深罪浸礼者 · 肃烈狂音
+[2025-12-23T05:21:49.434Z] 验证失败: 角色数据无效
+[2025-12-23T05:21:49.436Z] 收到新的记录提交请求: epcdiy - 深罪浸礼者 · 肃烈狂音
+[2025-12-23T05:21:49.436Z] 验证失败: 角色数据无效
+[2025-12-23T05:23:34.808Z] === 服务器启动信息 ===
+[2025-12-23T05:23:34.811Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T05:23:34.812Z] 监听地址: ::
+[2025-12-23T05:23:34.812Z] 监听地址类型: IPv6
+[2025-12-23T05:23:34.812Z] === API访问地址 ===
+[2025-12-23T05:23:34.813Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T05:23:34.813Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T05:23:34.814Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T05:23:34.814Z] === 网页访问地址 ===
+[2025-12-23T05:23:34.814Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T05:23:34.815Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T05:23:34.815Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T05:23:34.815Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T05:23:34.816Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T05:23:34.816Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T05:23:34.816Z] === 公网访问地址 ===
+[2025-12-23T05:23:34.817Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T05:23:34.817Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T05:23:34.817Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T05:23:34.818Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T05:23:34.818Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T05:23:34.818Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T05:25:48.009Z] === 服务器启动信息 ===
+[2025-12-23T05:25:48.010Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T05:25:48.011Z] 监听地址: ::
+[2025-12-23T05:25:48.011Z] 监听地址类型: IPv6
+[2025-12-23T05:25:48.011Z] === API访问地址 ===
+[2025-12-23T05:25:48.012Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T05:25:48.012Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T05:25:48.012Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T05:25:48.013Z] === 网页访问地址 ===
+[2025-12-23T05:25:48.013Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T05:25:48.013Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T05:25:48.014Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T05:25:48.014Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T05:25:48.014Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T05:25:48.014Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T05:25:48.015Z] === 公网访问地址 ===
+[2025-12-23T05:25:48.015Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T05:25:48.015Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T05:25:48.015Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T05:25:48.016Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T05:25:48.016Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T05:25:48.016Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T05:26:10.511Z] 收到新的记录提交请求: epcdiy - 历经百战的执灯人 · 哀恸回响
+[2025-12-23T05:26:10.511Z] 验证失败: 角色数据无效
+[2025-12-23T05:26:10.514Z] 收到新的记录提交请求: epcdiy - 历经百战的执灯人 · 哀恸回响
+[2025-12-23T05:26:10.514Z] 验证失败: 角色数据无效
+[2025-12-23T05:30:12.559Z] === 服务器启动信息 ===
+[2025-12-23T05:30:12.561Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T05:30:12.562Z] 监听地址: ::
+[2025-12-23T05:30:12.562Z] 监听地址类型: IPv6
+[2025-12-23T05:30:12.562Z] === API访问地址 ===
+[2025-12-23T05:30:12.563Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T05:30:12.563Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T05:30:12.563Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T05:30:12.563Z] === 网页访问地址 ===
+[2025-12-23T05:30:12.564Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T05:30:12.564Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T05:30:12.564Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T05:30:12.564Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T05:30:12.565Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T05:30:12.565Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T05:30:12.565Z] === 公网访问地址 ===
+[2025-12-23T05:30:12.565Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T05:30:12.566Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T05:30:12.566Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T05:30:12.566Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T05:30:12.566Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T05:30:12.567Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T05:30:32.734Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T05:30:32.734Z] 验证失败: 角色数据无效 - {"character":null,"constellation":0,"weapon":0}
+[2025-12-23T05:30:32.735Z] [object Object]
+[2025-12-23T05:30:32.735Z] 验证失败: 角色数据无效
+[2025-12-23T05:30:32.737Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T05:30:32.737Z] 验证失败: 角色数据无效 - {"character":null,"constellation":0,"weapon":0}
+[2025-12-23T05:30:32.737Z] [object Object]
+[2025-12-23T05:30:32.738Z] 验证失败: 角色数据无效
+[2025-12-23T05:31:00.284Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T05:31:00.286Z] 解析records数组失败: Expected ',' or '}' after property value in JSON at position 403 (line 10 column 73)
+[2025-12-23T05:31:00.286Z] 问题字符串: [// 深邃摹结株 · 虚暗幻变
+        {
+            id: 1,
+            player: "眞過分",
+            mainc: "玛薇卡",
+            team: [
+                { character: "玛薇卡", constellation: 0, weapon: 0 },
+              ...
+[2025-12-23T05:31:00.286Z] 添加记录到数据文件失败: Expected ',' or '}' after property value in JSON at position 403 (line 10 column 73)
+[2025-12-23T05:31:00.287Z] 处理提交请求时发生错误: Expected ',' or '}' after property value in JSON at position 403 (line 10 column 73)
+[2025-12-23T05:31:00.287Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T05:31:00.288Z] 解析records数组失败: Expected ',' or '}' after property value in JSON at position 403 (line 10 column 73)
+[2025-12-23T05:31:00.289Z] 问题字符串: [// 深邃摹结株 · 虚暗幻变
+        {
+            id: 1,
+            player: "眞過分",
+            mainc: "玛薇卡",
+            team: [
+                { character: "玛薇卡", constellation: 0, weapon: 0 },
+              ...
+[2025-12-23T05:31:00.289Z] 添加记录到数据文件失败: Expected ',' or '}' after property value in JSON at position 403 (line 10 column 73)
+[2025-12-23T05:31:00.289Z] 处理提交请求时发生错误: Expected ',' or '}' after property value in JSON at position 403 (line 10 column 73)
+[2025-12-23T05:40:03.000Z] === 服务器启动信息 ===
+[2025-12-23T05:40:03.002Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T05:40:03.002Z] 监听地址: ::
+[2025-12-23T05:40:03.003Z] 监听地址类型: IPv6
+[2025-12-23T05:40:03.003Z] === API访问地址 ===
+[2025-12-23T05:40:03.003Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T05:40:03.004Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T05:40:03.004Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T05:40:03.004Z] === 网页访问地址 ===
+[2025-12-23T05:40:03.005Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T05:40:03.005Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T05:40:03.005Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T05:40:03.005Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T05:40:03.006Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T05:40:03.006Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T05:40:03.006Z] === 公网访问地址 ===
+[2025-12-23T05:40:03.007Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T05:40:03.007Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T05:40:03.008Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T05:40:03.008Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T05:40:03.008Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T05:40:03.008Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T05:40:41.647Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T05:40:41.649Z] 解析records数组失败: Expected ',' or '}' after property value in JSON at position 283 (line 1 column 284)
+[2025-12-23T05:40:41.649Z] 问题字符串: [// 深邃摹结株 · 虚暗幻变
+        {
+            id: 1,
+            player: "眞過分",
+            mainc: "玛薇卡",
+            team: [
+                { character: "玛薇卡", constellation: 0, weapon: 0 },
+              ...
+[2025-12-23T05:40:41.650Z] 添加记录到数据文件失败: cleanString is not defined
+[2025-12-23T05:40:41.650Z] 处理提交请求时发生错误: cleanString is not defined
+[2025-12-23T05:40:41.652Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T05:40:41.653Z] 解析records数组失败: Expected ',' or '}' after property value in JSON at position 283 (line 1 column 284)
+[2025-12-23T05:40:41.653Z] 问题字符串: [// 深邃摹结株 · 虚暗幻变
+        {
+            id: 1,
+            player: "眞過分",
+            mainc: "玛薇卡",
+            team: [
+                { character: "玛薇卡", constellation: 0, weapon: 0 },
+              ...
+[2025-12-23T05:40:41.653Z] 添加记录到数据文件失败: cleanString is not defined
+[2025-12-23T05:40:41.654Z] 处理提交请求时发生错误: cleanString is not defined
+[2025-12-23T05:42:09.293Z] === 服务器启动信息 ===
+[2025-12-23T05:42:09.294Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T05:42:09.294Z] 监听地址: ::
+[2025-12-23T05:42:09.295Z] 监听地址类型: IPv6
+[2025-12-23T05:42:09.295Z] === API访问地址 ===
+[2025-12-23T05:42:09.295Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T05:42:09.296Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T05:42:09.296Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T05:42:09.296Z] === 网页访问地址 ===
+[2025-12-23T05:42:09.297Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T05:42:09.297Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T05:42:09.297Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T05:42:09.297Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T05:42:09.298Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T05:42:09.298Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T05:42:09.298Z] === 公网访问地址 ===
+[2025-12-23T05:42:09.299Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T05:42:09.299Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T05:42:09.299Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T05:42:09.300Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T05:42:09.300Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T05:42:09.300Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T05:42:46.728Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T05:42:46.731Z] 解析records数组失败: Expected ',' or '}' after property value in JSON at position 282 (line 1 column 283)
+[2025-12-23T05:42:46.731Z] 问题字符串: // 资源访问路径前缀
+const access = '';
+// const access = 'https://homdgcat.wiki/homdgcat-res/';
+
+// 数据存储模块
+const DataStore = {
+    // 资源访问路径前缀
+    // access: './',
+
+    // 元素属性颜色映射
+    elementColors: {
+      ...
+[2025-12-23T05:42:46.731Z] 清理后字符串: const access = ''; const DataStore = { elementColors: { '物理': '#EEEEEE', '火': '#FF5511', '水': '#33AAFF', '雷': '#CC33FF', '冰': '#99EEFF', '风': '#00FFCC', '岩': '#FFBB55', '草': '#77FF44' }, characters: [...
+[2025-12-23T05:42:46.732Z] 添加记录到数据文件失败: Expected ',' or '}' after property value in JSON at position 282 (line 1 column 283)
+[2025-12-23T05:42:46.732Z] 处理提交请求时发生错误: Expected ',' or '}' after property value in JSON at position 282 (line 1 column 283)
+[2025-12-23T05:42:46.734Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T05:42:46.736Z] 解析records数组失败: Expected ',' or '}' after property value in JSON at position 282 (line 1 column 283)
+[2025-12-23T05:42:46.737Z] 问题字符串: // 资源访问路径前缀
+const access = '';
+// const access = 'https://homdgcat.wiki/homdgcat-res/';
+
+// 数据存储模块
+const DataStore = {
+    // 资源访问路径前缀
+    // access: './',
+
+    // 元素属性颜色映射
+    elementColors: {
+      ...
+[2025-12-23T05:42:46.737Z] 清理后字符串: const access = ''; const DataStore = { elementColors: { '物理': '#EEEEEE', '火': '#FF5511', '水': '#33AAFF', '雷': '#CC33FF', '冰': '#99EEFF', '风': '#00FFCC', '岩': '#FFBB55', '草': '#77FF44' }, characters: [...
+[2025-12-23T05:42:46.737Z] 添加记录到数据文件失败: Expected ',' or '}' after property value in JSON at position 282 (line 1 column 283)
+[2025-12-23T05:42:46.738Z] 处理提交请求时发生错误: Expected ',' or '}' after property value in JSON at position 282 (line 1 column 283)
+[2025-12-23T05:44:12.844Z] === 服务器启动信息 ===
+[2025-12-23T05:44:12.845Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T05:44:12.846Z] 监听地址: ::
+[2025-12-23T05:44:12.846Z] 监听地址类型: IPv6
+[2025-12-23T05:44:12.846Z] === API访问地址 ===
+[2025-12-23T05:44:12.847Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T05:44:12.847Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T05:44:12.847Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T05:44:12.847Z] === 网页访问地址 ===
+[2025-12-23T05:44:12.848Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T05:44:12.848Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T05:44:12.848Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T05:44:12.849Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T05:44:12.849Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T05:44:12.849Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T05:44:12.849Z] === 公网访问地址 ===
+[2025-12-23T05:44:12.850Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T05:44:12.850Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T05:44:12.850Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T05:44:12.851Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T05:44:12.851Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T05:44:12.851Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T05:44:39.922Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T05:44:39.926Z] 解析records数组失败: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+[2025-12-23T05:44:39.926Z] 问题字符串: // 资源访问路径前缀
+const access = '';
+// const access = 'https://homdgcat.wiki/homdgcat-res/';
+
+// 数据存储模块
+const DataStore = {
+    // 资源访问路径前缀
+    // access: './',
+
+    // 元素属性颜色映射
+    elementColors: {
+      ...
+[2025-12-23T05:44:39.927Z] 清理后字符串: const access = ''; const DataStore = { elementColors: { '物理': '#EEEEEE', '火': '#FF5511', '水': '#33AAFF', '雷': '#CC33FF', '冰': '#99EEFF', '风': '#00FFCC', '岩': '#FFBB55', '草': '#77FF44' }, characters: [...
+[2025-12-23T05:44:39.927Z] 添加记录到数据文件失败: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+[2025-12-23T05:44:39.927Z] 处理提交请求时发生错误: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+[2025-12-23T05:44:39.930Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T05:44:39.932Z] 解析records数组失败: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+[2025-12-23T05:44:39.933Z] 问题字符串: // 资源访问路径前缀
+const access = '';
+// const access = 'https://homdgcat.wiki/homdgcat-res/';
+
+// 数据存储模块
+const DataStore = {
+    // 资源访问路径前缀
+    // access: './',
+
+    // 元素属性颜色映射
+    elementColors: {
+      ...
+[2025-12-23T05:44:39.933Z] 清理后字符串: const access = ''; const DataStore = { elementColors: { '物理': '#EEEEEE', '火': '#FF5511', '水': '#33AAFF', '雷': '#CC33FF', '冰': '#99EEFF', '风': '#00FFCC', '岩': '#FFBB55', '草': '#77FF44' }, characters: [...
+[2025-12-23T05:44:39.933Z] 添加记录到数据文件失败: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+[2025-12-23T05:44:39.934Z] 处理提交请求时发生错误: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+[2025-12-23T05:44:47.603Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T05:44:47.605Z] 解析records数组失败: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+[2025-12-23T05:44:47.606Z] 问题字符串: // 资源访问路径前缀
+const access = '';
+// const access = 'https://homdgcat.wiki/homdgcat-res/';
+
+// 数据存储模块
+const DataStore = {
+    // 资源访问路径前缀
+    // access: './',
+
+    // 元素属性颜色映射
+    elementColors: {
+      ...
+[2025-12-23T05:44:47.606Z] 清理后字符串: const access = ''; const DataStore = { elementColors: { '物理': '#EEEEEE', '火': '#FF5511', '水': '#33AAFF', '雷': '#CC33FF', '冰': '#99EEFF', '风': '#00FFCC', '岩': '#FFBB55', '草': '#77FF44' }, characters: [...
+[2025-12-23T05:44:47.606Z] 添加记录到数据文件失败: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+[2025-12-23T05:44:47.607Z] 处理提交请求时发生错误: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+[2025-12-23T05:44:47.607Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T05:44:47.611Z] 解析records数组失败: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+[2025-12-23T05:44:47.611Z] 问题字符串: // 资源访问路径前缀
+const access = '';
+// const access = 'https://homdgcat.wiki/homdgcat-res/';
+
+// 数据存储模块
+const DataStore = {
+    // 资源访问路径前缀
+    // access: './',
+
+    // 元素属性颜色映射
+    elementColors: {
+      ...
+[2025-12-23T05:44:47.612Z] 清理后字符串: const access = ''; const DataStore = { elementColors: { '物理': '#EEEEEE', '火': '#FF5511', '水': '#33AAFF', '雷': '#CC33FF', '冰': '#99EEFF', '风': '#00FFCC', '岩': '#FFBB55', '草': '#77FF44' }, characters: [...
+[2025-12-23T05:44:47.612Z] 添加记录到数据文件失败: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+[2025-12-23T05:44:47.613Z] 处理提交请求时发生错误: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+[2025-12-23T05:47:09.441Z] === 服务器启动信息 ===
+[2025-12-23T05:47:09.443Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T05:47:09.443Z] 监听地址: ::
+[2025-12-23T05:47:09.444Z] 监听地址类型: IPv6
+[2025-12-23T05:47:09.444Z] === API访问地址 ===
+[2025-12-23T05:47:09.444Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T05:47:09.444Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T05:47:09.445Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T05:47:09.445Z] === 网页访问地址 ===
+[2025-12-23T05:47:09.445Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T05:47:09.446Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T05:47:09.446Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T05:47:09.446Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T05:47:09.447Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T05:47:09.447Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T05:47:09.447Z] === 公网访问地址 ===
+[2025-12-23T05:47:09.447Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T05:47:09.448Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T05:47:09.448Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T05:47:09.448Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T05:47:09.449Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T05:47:09.449Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T05:47:33.121Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T05:47:33.125Z] 解析records数组失败: Unexpected token 'a', ...""avatar": access + ""... is not valid JSON
+[2025-12-23T05:47:33.125Z] 问题字符串: // 资源访问路径前缀
+const access = '';
+// const access = 'https://homdgcat.wiki/homdgcat-res/';
+
+// 数据存储模块
+const DataStore = {
+    // 资源访问路径前缀
+    // access: './',
+
+    // 元素属性颜色映射
+    elementColors: {
+      ...
+[2025-12-23T05:47:33.125Z] 清理后字符串:  const DataStore = { elementColors: { '物理': '#EEEEEE', '火': '#FF5511', '水': '#33AAFF', '雷': '#CC33FF', '冰': '#99EEFF', '风': '#00FFCC', '岩': '#FFBB55', '草': '#77FF44' }, characters: [ { id: 'mavika', n...
+[2025-12-23T05:47:33.126Z] 添加记录到数据文件失败: Unexpected token 'a', ...""avatar": access + ""... is not valid JSON
+[2025-12-23T05:47:33.126Z] 处理提交请求时发生错误: Unexpected token 'a', ...""avatar": access + ""... is not valid JSON
+[2025-12-23T05:47:33.129Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T05:47:33.132Z] 解析records数组失败: Unexpected token 'a', ...""avatar": access + ""... is not valid JSON
+[2025-12-23T05:47:33.132Z] 问题字符串: // 资源访问路径前缀
+const access = '';
+// const access = 'https://homdgcat.wiki/homdgcat-res/';
+
+// 数据存储模块
+const DataStore = {
+    // 资源访问路径前缀
+    // access: './',
+
+    // 元素属性颜色映射
+    elementColors: {
+      ...
+[2025-12-23T05:47:33.133Z] 清理后字符串:  const DataStore = { elementColors: { '物理': '#EEEEEE', '火': '#FF5511', '水': '#33AAFF', '雷': '#CC33FF', '冰': '#99EEFF', '风': '#00FFCC', '岩': '#FFBB55', '草': '#77FF44' }, characters: [ { id: 'mavika', n...
+[2025-12-23T05:47:33.133Z] 添加记录到数据文件失败: Unexpected token 'a', ...""avatar": access + ""... is not valid JSON
+[2025-12-23T05:47:33.134Z] 处理提交请求时发生错误: Unexpected token 'a', ...""avatar": access + ""... is not valid JSON
+[2025-12-23T05:49:40.052Z] === 服务器启动信息 ===
+[2025-12-23T05:49:40.053Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T05:49:40.054Z] 监听地址: ::
+[2025-12-23T05:49:40.054Z] 监听地址类型: IPv6
+[2025-12-23T05:49:40.054Z] === API访问地址 ===
+[2025-12-23T05:49:40.055Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T05:49:40.055Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T05:49:40.055Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T05:49:40.056Z] === 网页访问地址 ===
+[2025-12-23T05:49:40.056Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T05:49:40.056Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T05:49:40.057Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T05:49:40.057Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T05:49:40.057Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T05:49:40.058Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T05:49:40.058Z] === 公网访问地址 ===
+[2025-12-23T05:49:40.059Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T05:49:40.059Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T05:49:40.060Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T05:49:40.060Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T05:49:40.060Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T05:49:40.061Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T05:58:57.084Z] === 服务器启动信息 ===
+[2025-12-23T05:58:57.086Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T05:58:57.086Z] 监听地址: ::
+[2025-12-23T05:58:57.087Z] 监听地址类型: IPv6
+[2025-12-23T05:58:57.087Z] === API访问地址 ===
+[2025-12-23T05:58:57.087Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T05:58:57.088Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T05:58:57.088Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T05:58:57.088Z] === 网页访问地址 ===
+[2025-12-23T05:58:57.089Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T05:58:57.089Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T05:58:57.089Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T05:58:57.090Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T05:58:57.090Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T05:58:57.090Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T05:58:57.091Z] === 公网访问地址 ===
+[2025-12-23T05:58:57.091Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T05:58:57.091Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T05:58:57.092Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T05:58:57.092Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T05:58:57.092Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T05:58:57.093Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T05:59:27.793Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T05:59:27.799Z] 添加记录到数据文件失败: member.character.replace is not a function
+[2025-12-23T05:59:27.800Z] 处理提交请求时发生错误: member.character.replace is not a function
+[2025-12-23T05:59:27.803Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T05:59:27.807Z] 添加记录到数据文件失败: member.character.replace is not a function
+[2025-12-23T05:59:27.807Z] 处理提交请求时发生错误: member.character.replace is not a function
+[2025-12-23T06:00:41.456Z] === 服务器启动信息 ===
+[2025-12-23T06:00:41.458Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T06:00:41.458Z] 监听地址: ::
+[2025-12-23T06:00:41.459Z] 监听地址类型: IPv6
+[2025-12-23T06:00:41.459Z] === API访问地址 ===
+[2025-12-23T06:00:41.459Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T06:00:41.460Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T06:00:41.460Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T06:00:41.460Z] === 网页访问地址 ===
+[2025-12-23T06:00:41.461Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T06:00:41.461Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T06:00:41.462Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T06:00:41.462Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T06:00:41.462Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T06:00:41.462Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T06:00:41.463Z] === 公网访问地址 ===
+[2025-12-23T06:00:41.463Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T06:00:41.463Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T06:00:41.464Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T06:00:41.464Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T06:00:41.464Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T06:00:41.465Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T06:00:45.797Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T06:00:45.797Z] 验证失败: 角色数据无效 - {"character":{"id":"mavika","name":"玛薇卡","avatar":"Avatar/UI_AvatarIcon_Mavuika.png","element":"火"},"constellation":0,"weapon":0}
+[2025-12-23T06:00:45.799Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T06:00:45.799Z] 验证失败: 角色数据无效 - {"character":{"id":"mavika","name":"玛薇卡","avatar":"Avatar/UI_AvatarIcon_Mavuika.png","element":"火"},"constellation":0,"weapon":0}
+[2025-12-23T06:03:31.479Z] === 服务器启动信息 ===
+[2025-12-23T06:03:31.481Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T06:03:31.482Z] 监听地址: ::
+[2025-12-23T06:03:31.482Z] 监听地址类型: IPv6
+[2025-12-23T06:03:31.482Z] === API访问地址 ===
+[2025-12-23T06:03:31.483Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T06:03:31.483Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T06:03:31.483Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T06:03:31.483Z] === 网页访问地址 ===
+[2025-12-23T06:03:31.484Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T06:03:31.484Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T06:03:31.485Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T06:03:31.485Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T06:03:31.485Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T06:03:31.485Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T06:03:31.486Z] === 公网访问地址 ===
+[2025-12-23T06:03:31.486Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T06:03:31.486Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T06:03:31.487Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T06:03:31.487Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T06:03:31.487Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T06:03:31.487Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T06:04:01.951Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T06:04:01.955Z] 添加记录到数据文件失败: Cannot read properties of undefined (reading 'replace')
+[2025-12-23T06:04:01.956Z] 处理提交请求时发生错误: Cannot read properties of undefined (reading 'replace')
+[2025-12-23T06:04:01.958Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T06:04:01.961Z] 添加记录到数据文件失败: Cannot read properties of undefined (reading 'replace')
+[2025-12-23T06:04:01.962Z] 处理提交请求时发生错误: Cannot read properties of undefined (reading 'replace')
+[2025-12-23T06:05:30.191Z] === 服务器启动信息 ===
+[2025-12-23T06:05:30.192Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T06:05:30.193Z] 监听地址: ::
+[2025-12-23T06:05:30.193Z] 监听地址类型: IPv6
+[2025-12-23T06:05:30.194Z] === API访问地址 ===
+[2025-12-23T06:05:30.194Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T06:05:30.195Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T06:05:30.195Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T06:05:30.195Z] === 网页访问地址 ===
+[2025-12-23T06:05:30.196Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T06:05:30.196Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T06:05:30.196Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T06:05:30.197Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T06:05:30.197Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T06:05:30.198Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T06:05:30.198Z] === 公网访问地址 ===
+[2025-12-23T06:05:30.199Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T06:05:30.199Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T06:05:30.199Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T06:05:30.200Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T06:05:30.200Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T06:05:30.200Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T06:05:44.549Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T06:05:44.555Z] 数据文件写入成功
+[2025-12-23T06:05:44.555Z] 新记录添加成功，ID: 142
+[2025-12-23T06:05:44.555Z] 记录提交成功，ID: 142
+[2025-12-23T06:05:44.558Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T06:05:44.561Z] 数据文件写入成功
+[2025-12-23T06:05:44.562Z] 新记录添加成功，ID: 143
+[2025-12-23T06:05:44.562Z] 记录提交成功，ID: 143
+[2025-12-23T06:31:59.267Z] 未捕获的异常: listen EADDRINUSE: address already in use :::3000
+[2025-12-23T06:31:59.268Z] Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+[2025-12-23T06:46:40.879Z] === 服务器启动信息 ===
+[2025-12-23T06:46:40.881Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T06:46:40.881Z] 监听地址: ::
+[2025-12-23T06:46:40.882Z] 监听地址类型: IPv6
+[2025-12-23T06:46:40.883Z] === API访问地址 ===
+[2025-12-23T06:46:40.883Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T06:46:40.883Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T06:46:40.884Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T06:46:40.884Z] === 网页访问地址 ===
+[2025-12-23T06:46:40.885Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T06:46:40.885Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T06:46:40.885Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T06:46:40.886Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T06:46:40.886Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T06:46:40.886Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T06:46:40.887Z] === 公网访问地址 ===
+[2025-12-23T06:46:40.887Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T06:46:40.887Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T06:46:40.888Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T06:46:40.888Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T06:46:40.888Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T06:46:40.889Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T06:51:44.801Z] === 服务器启动信息 ===
+[2025-12-23T06:51:44.803Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T06:51:44.803Z] 监听地址: ::
+[2025-12-23T06:51:44.803Z] 监听地址类型: IPv6
+[2025-12-23T06:51:44.804Z] === API访问地址 ===
+[2025-12-23T06:51:44.804Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T06:51:44.804Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T06:51:44.805Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T06:51:44.805Z] === 网页访问地址 ===
+[2025-12-23T06:51:44.806Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T06:51:44.806Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T06:51:44.806Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T06:51:44.807Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T06:51:44.807Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T06:51:44.808Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T06:51:44.808Z] === 公网访问地址 ===
+[2025-12-23T06:51:44.808Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T06:51:44.809Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T06:51:44.809Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T06:51:44.810Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T06:51:44.810Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T06:51:44.810Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T06:54:52.494Z] === 服务器启动信息 ===
+[2025-12-23T06:54:52.495Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T06:54:52.496Z] 监听地址: ::
+[2025-12-23T06:54:52.496Z] 监听地址类型: IPv6
+[2025-12-23T06:54:52.496Z] === API访问地址 ===
+[2025-12-23T06:54:52.497Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T06:54:52.497Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T06:54:52.497Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T06:54:52.498Z] === 网页访问地址 ===
+[2025-12-23T06:54:52.498Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T06:54:52.498Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T06:54:52.499Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T06:54:52.499Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T06:54:52.499Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T06:54:52.499Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T06:54:52.500Z] === 公网访问地址 ===
+[2025-12-23T06:54:52.500Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T06:54:52.500Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T06:54:52.500Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T06:54:52.501Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T06:54:52.501Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T06:54:52.501Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T06:55:08.967Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T06:55:08.970Z] 解析记录文件失败: window is not defined
+[2025-12-23T06:55:08.970Z] 添加记录到记录文件失败: window is not defined
+[2025-12-23T06:55:08.971Z] 处理提交请求时发生错误: window is not defined
+[2025-12-23T06:55:08.972Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T06:55:08.974Z] 解析记录文件失败: window is not defined
+[2025-12-23T06:55:08.974Z] 添加记录到记录文件失败: window is not defined
+[2025-12-23T06:55:08.974Z] 处理提交请求时发生错误: window is not defined
+[2025-12-23T06:57:06.510Z] 未捕获的异常: listen EADDRINUSE: address already in use :::3000
+[2025-12-23T06:57:06.511Z] Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+[2025-12-23T06:57:24.717Z] === 服务器启动信息 ===
+[2025-12-23T06:57:24.719Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T06:57:24.719Z] 监听地址: ::
+[2025-12-23T06:57:24.720Z] 监听地址类型: IPv6
+[2025-12-23T06:57:24.720Z] === API访问地址 ===
+[2025-12-23T06:57:24.720Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T06:57:24.721Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T06:57:24.721Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T06:57:24.721Z] === 网页访问地址 ===
+[2025-12-23T06:57:24.722Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T06:57:24.722Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T06:57:24.722Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T06:57:24.723Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T06:57:24.723Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T06:57:24.723Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T06:57:24.724Z] === 公网访问地址 ===
+[2025-12-23T06:57:24.724Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T06:57:24.725Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T06:57:24.725Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T06:57:24.726Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T06:57:24.727Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T06:57:24.727Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T06:57:32.085Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T06:57:32.088Z] 解析记录文件失败: module is not defined
+[2025-12-23T06:57:32.088Z] 添加记录到记录文件失败: module is not defined
+[2025-12-23T06:57:32.089Z] 处理提交请求时发生错误: module is not defined
+[2025-12-23T06:57:32.091Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T06:57:32.093Z] 解析记录文件失败: module is not defined
+[2025-12-23T06:57:32.094Z] 添加记录到记录文件失败: module is not defined
+[2025-12-23T06:57:32.094Z] 处理提交请求时发生错误: module is not defined
+[2025-12-23T06:58:20.704Z] === 服务器启动信息 ===
+[2025-12-23T06:58:20.705Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T06:58:20.706Z] 监听地址: ::
+[2025-12-23T06:58:20.706Z] 监听地址类型: IPv6
+[2025-12-23T06:58:20.706Z] === API访问地址 ===
+[2025-12-23T06:58:20.707Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T06:58:20.707Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T06:58:20.707Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T06:58:20.708Z] === 网页访问地址 ===
+[2025-12-23T06:58:20.708Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T06:58:20.708Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T06:58:20.709Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T06:58:20.709Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T06:58:20.710Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T06:58:20.710Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T06:58:20.710Z] === 公网访问地址 ===
+[2025-12-23T06:58:20.711Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T06:58:20.711Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T06:58:20.711Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T06:58:20.711Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T06:58:20.712Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T06:58:20.712Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T06:58:29.654Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T06:58:29.657Z] 记录文件写入成功
+[2025-12-23T06:58:29.657Z] 新记录添加成功，ID: 1
+[2025-12-23T06:58:29.658Z] 记录提交成功，ID: 1
+[2025-12-23T06:58:29.661Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T06:58:29.663Z] 记录文件写入成功
+[2025-12-23T06:58:29.664Z] 新记录添加成功，ID: 1
+[2025-12-23T06:58:29.664Z] 记录提交成功，ID: 1
+[2025-12-23T07:01:39.639Z] === 服务器启动信息 ===
+[2025-12-23T07:01:39.641Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T07:01:39.642Z] 监听地址: ::
+[2025-12-23T07:01:39.642Z] 监听地址类型: IPv6
+[2025-12-23T07:01:39.642Z] === API访问地址 ===
+[2025-12-23T07:01:39.643Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T07:01:39.643Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T07:01:39.643Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T07:01:39.644Z] === 网页访问地址 ===
+[2025-12-23T07:01:39.644Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T07:01:39.645Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T07:01:39.645Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T07:01:39.645Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T07:01:39.646Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T07:01:39.646Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T07:01:39.646Z] === 公网访问地址 ===
+[2025-12-23T07:01:39.647Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T07:01:39.647Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T07:01:39.647Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T07:01:39.648Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T07:01:39.648Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T07:01:39.648Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T07:02:08.991Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T07:02:08.996Z] 记录文件写入成功
+[2025-12-23T07:02:08.996Z] 新记录添加成功，ID: 141
+[2025-12-23T07:02:08.997Z] 记录提交成功，ID: 141
+[2025-12-23T07:02:08.999Z] 收到新的记录提交请求: epcdiy - 深邃摹结株 · 虚暗幻变
+[2025-12-23T07:02:09.004Z] 记录文件写入成功
+[2025-12-23T07:02:09.005Z] 新记录添加成功，ID: 142
+[2025-12-23T07:02:09.006Z] 记录提交成功，ID: 142
+[2025-12-23T07:06:26.483Z] 收到新的记录提交请求: epcdiy - 历经百战的执灯人 · 哀恸回响
+[2025-12-23T07:06:26.487Z] 记录文件写入成功
+[2025-12-23T07:06:26.487Z] 新记录添加成功，ID: 143
+[2025-12-23T07:06:26.487Z] 记录提交成功，ID: 143
+[2025-12-23T07:06:26.488Z] 收到新的记录提交请求: epcdiy - 历经百战的执灯人 · 哀恸回响
+[2025-12-23T07:06:26.493Z] 记录文件写入成功
+[2025-12-23T07:06:26.493Z] 新记录添加成功，ID: 144
+[2025-12-23T07:06:26.494Z] 记录提交成功，ID: 144
+[2025-12-23T07:09:48.545Z] === 服务器启动信息 ===
+[2025-12-23T07:09:48.547Z] 服务器启动成功，监听端口: 3000
+[2025-12-23T07:09:48.547Z] 监听地址: ::
+[2025-12-23T07:09:48.547Z] 监听地址类型: IPv6
+[2025-12-23T07:09:48.548Z] === API访问地址 ===
+[2025-12-23T07:09:48.548Z] 健康检查 (IPv4): http://localhost:3000/api/health
+[2025-12-23T07:09:48.548Z] 健康检查 (IPv6): http://[::1]:3000/api/health
+[2025-12-23T07:09:48.549Z] 提交通关记录: POST http://localhost:3000/api/submit-record
+[2025-12-23T07:09:48.549Z] === 网页访问地址 ===
+[2025-12-23T07:09:48.549Z] 首页 (IPv4): http://localhost:3000/index.html
+[2025-12-23T07:09:48.550Z] 上传页 (IPv4): http://localhost:3000/upload.html
+[2025-12-23T07:09:48.550Z] 排行榜 (IPv4): http://localhost:3000/ranking.html
+[2025-12-23T07:09:48.551Z] 首页 (IPv6): http://[::1]:3000/index.html
+[2025-12-23T07:09:48.551Z] 上传页 (IPv6): http://[::1]:3000/upload.html
+[2025-12-23T07:09:48.552Z] 排行榜 (IPv6): http://[::1]:3000/ranking.html
+[2025-12-23T07:09:48.552Z] === 公网访问地址 ===
+[2025-12-23T07:09:48.552Z] 首页: http://[240e:361:aa3d:e010::e5e]:3000/index.html
+[2025-12-23T07:09:48.553Z] 上传页: http://[240e:361:aa3d:e010::e5e]:3000/upload.html
+[2025-12-23T07:09:48.553Z] 排行榜: http://[240e:361:aa3d:e010::e5e]:3000/ranking.html
+[2025-12-23T07:09:48.553Z] 健康检查: http://[240e:361:aa3d:e010::e5e]:3000/api/health
+[2025-12-23T07:09:48.554Z] 提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:3000/api/submit-record
+[2025-12-23T07:09:48.554Z] === 服务器现在支持IPv4和IPv6访问 ===
+[2025-12-23T07:10:06.890Z] 收到新的记录提交请求: epcdiy - 历经百战的霜役人 · 涉血芒锋
+[2025-12-23T07:10:06.895Z] 记录文件写入成功
+[2025-12-23T07:10:06.896Z] 新记录添加成功，ID: 141
+[2025-12-23T07:10:06.896Z] 记录提交成功，ID: 141

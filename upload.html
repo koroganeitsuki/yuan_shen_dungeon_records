@@ -1,0 +1,2253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原神幽境危战 - 上传通关记录</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- DataStore -->
+    <script src="records.js"></script>
+    <script src="data.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark': '#121212',
+                        'dark-lighter': '#1e1e1e',
+                        'genshin-yellow': '#ffdd40',
+                        'genshin-blue': '#3498db',
+                        'genshin-red': '#e74c3c',
+                        'genshin-green': '#2ecc71',
+                        'genshin-purple': '#9b59b6',
+                        'genshin-orange': '#f39c12',
+                        'genshin-teal': '#1abc9c',
+                        'physical': '#B7B8B9',
+                        'pyro': '#FF4D4F',
+                        'hydro': '#4285F4',
+                        'electro': '#8E44AD',
+                        'cryo': '#5DB7DE',
+                        'anemo': '#32CD32',
+                        'geo': '#CD853F',
+                        'dendro': '#7CCD7C'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow-lg {
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            
+            .nav-link {
+                position: relative;
+                color: #f8f9fa;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: #ffdd40;
+                transition: width 0.3s ease;
+            }
+            
+            .nav-link:hover::after {
+                width: 100%;
+            }
+            
+            .nav-link.active::after {
+                width: 100%;
+            }
+            
+            .glass-card {
+                background: rgba(30, 30, 30, 0.8);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 8px;
+            }
+            
+            .form-input {
+                background: rgba(255, 255, 255, 0.15);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                border-radius: 4px;
+                padding: 0.75rem;
+                color: #f8f9fa;
+                transition: all 0.3s ease;
+            }
+            
+            .form-input:focus {
+                outline: none;
+                border-color: #ffdd40;
+                box-shadow: 0 0 0 2px rgba(255, 221, 64, 0.2);
+            }
+            
+            /* 错误字段高亮效果 */
+            .error-highlight {
+                animation: pulse 1s ease-in-out 2;
+                border-color: #e74c3c !important;
+                box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.3) !important;
+            }
+            
+            @keyframes pulse {
+                0% {
+                    opacity: 1;
+                }
+                50% {
+                    opacity: 0.7;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+            
+            /* BOSS下拉选项样式 */
+            #boss.form-input {
+                background: rgba(255, 255, 255, 0.15);
+            }
+            
+            /* BOSS下拉选项列表样式 */
+            #boss.form-input option {
+                background-color: #1a1a1a;
+                color: #f8f9fa;
+            }
+            
+            .form-label {
+                display: block;
+                margin-bottom: 0.5rem;
+                font-weight: 600;
+                color: #f8f9fa;
+                
+            }
+
+            .form-error {
+                display: none;
+                margin-top: 0.25rem;
+                font-size: 0.875rem;
+                color: #e74c3c;
+            }
+            
+            .form-group.error .form-input {
+                border-color: #e74c3c;
+            }
+            
+            .form-group.error .form-error {
+                display: block;
+            }
+            
+            .btn-genshin {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.75rem 1.5rem;
+                font-weight: 500;
+                border-radius: 4px;
+                transition: all 0.3s ease;
+                background-color: #ffdd40;
+                color: #121212;
+                border: none;
+                cursor: pointer;
+            }
+            
+            .btn-genshin:hover {
+                background-color: #ffd700;
+                transform: translateY(-2px);
+            }
+            
+            .btn-secondary {
+                display: inline-flex;
+                align-items: center;
+                padding: 0.5rem 1rem;
+                font-weight: 500;
+                border-radius: 0.375rem;
+                transition: all 0.3s ease;
+                background-color: #374151;
+                color: #e5e7eb;
+                border: none;
+                cursor: pointer;
+            }
+            
+            .btn-secondary:hover {
+                background-color: #4b5563;
+                transform: translateY(-2px);
+            }
+            
+            .element-btn {
+                transition: all 0.3s ease;
+            }
+            
+            .element-btn.selected {
+                transform: scale(1.05);
+            }
+            
+            .element-btn[data-element="all"] {
+                background-color: #374151;
+                color: #e5e7eb;
+            }
+            
+            .element-btn[data-element="物理"] {
+                background-color: #B7B8B9;
+                color: #121212;
+            }
+            
+            .element-btn[data-element="火"] {
+                background-color: #FF4D4F;
+                color: white;
+            }
+            
+            .element-btn[data-element="水"] {
+                background-color: #4285F4;
+                color: white;
+            }
+            
+            .element-btn[data-element="雷"] {
+                background-color: #8E44AD;
+                color: white;
+            }
+            
+            .element-btn[data-element="冰"] {
+                background-color: #5DB7DE;
+                color: #121212;
+            }
+            
+            .element-btn[data-element="风"] {
+                background-color: #32CD32;
+                color: #121212;
+            }
+            
+            .element-btn[data-element="岩"] {
+                background-color: #CD853F;
+                color: white;
+            }
+            
+            .element-btn[data-element="草"] {
+                background-color: #7CCD7C;
+                color: #121212;
+            }
+            
+            .team-slot {
+                width: 100px;
+                height: 100px;
+                border: 2px dashed rgba(255, 255, 255, 0.3);
+                border-radius: 8px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            
+            .team-slot:hover {
+                border-color: #ffdd40;
+                background-color: rgba(255, 221, 64, 0.1);
+            }
+            
+            .team-slot.filled {
+                border-color: rgba(255, 255, 255, 0.5);
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+            
+            .team-character {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .team-constellation {
+                position: absolute;
+                bottom: -5px;
+                right: -5px;
+                width: 24px;
+                height: 24px;
+                background-color: #ffdd40;
+                color: #121212;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 12px;
+                font-weight: bold;
+                display: none;
+            }
+            
+            .team-weapon {
+                position: absolute;
+                top: -5px;
+                right: -5px;
+                width: 24px;
+                height: 24px;
+                background-color: #3498db;
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 12px;
+                font-weight: bold;
+                display: none;
+            }
+            
+            .team-placeholder {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                color: #d1d5db;
+                transition: all 0.3s ease;
+            }
+            
+            .team-placeholder:hover {
+                color: #f8f9fa;
+            }
+            
+            .modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                z-index: 100;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .modal.active {
+                display: flex;
+            }
+            
+            .modal-content {
+                background-color: #1e1e1e;
+                border-radius: 8px;
+                width: 90%;
+                max-width: 600px;
+                max-height: 90vh;
+                overflow-y: auto;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            }
+            
+            .modal-header {
+                padding: 1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .modal-title {
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: #f8f9fa;
+            }
+            
+            .modal-body {
+                padding: 1.5rem;
+            }
+            
+            .modal-close {
+                background: none;
+                border: none;
+                color: #f8f9fa;
+                font-size: 1.5rem;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            
+            .modal-close:hover {
+                color: #ffdd40;
+            }
+            
+            .character-selector {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                gap: 10px;
+                max-height: 350px;
+                overflow-y: auto;
+            }
+            
+            .character-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            
+            .character-item:hover {
+                transform: translateY(-3px);
+            }
+            
+            .character-avatar {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                overflow: hidden;
+                border: 2px solid transparent;
+                transition: all 0.3s ease;
+            }
+            
+            .character-item:hover .character-avatar {
+                border-color: #ffdd40;
+            }
+            
+            .character-info {
+                margin-top: 0.5rem;
+                text-align: center;
+            }
+            
+            .character-name {
+                font-size: 0.875rem;
+                color: #f8f9fa;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 80px;
+            }
+            
+            .constellation-btn, .weapon-btn {
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 5px 5px 0;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                border: none;
+                font-weight: bold;
+            }
+            
+            .constellation-btn {
+                background-color: #374151;
+                color: #e5e7eb;
+            }
+            
+            .constellation-btn.selected {
+                background-color: #ffdd40;
+                color: #121212;
+            }
+            
+            .weapon-btn {
+                background-color: #374151;
+                color: #e5e7eb;
+            }
+            
+            .weapon-btn.selected {
+                background-color: #3498db;
+                color: white;
+            }
+            
+            #data-preview {
+                font-family: 'Consolas', 'Monaco', monospace;
+                color: #e5e7eb;
+                line-height: 1.6;
+            }
+            
+            #data-preview .json-key {
+                color: #ff9580;
+            }
+            
+            #data-preview .json-string {
+                color: #8aff80;
+            }
+            
+            #data-preview .json-number {
+                color: #9580ff;
+            }
+            
+            #data-preview .json-boolean {
+                color: #ffcb80;
+            }
+            
+            #copy-success {
+                transition: opacity 0.3s ease;
+            }
+            
+            /* 响应式调整 */
+            @media (max-width: 768px) {
+                .nav-menu {
+                    position: fixed;
+                    top: 0;
+                    right: -100%;
+                    width: 80%;
+                    height: 100vh;
+                    background: rgba(18, 18, 18, 0.95);
+                    backdrop-filter: blur(10px);
+                    z-index: 50;
+                    transition: right 0.3s ease;
+                    padding: 2rem;
+                }
+                
+                .nav-menu.active {
+                    right: 0;
+                }
+                
+                .mobile-menu-btn {
+                    display: block !important;
+                    z-index: 60;
+                }
+                
+                .team-slots {
+                    flex-wrap: wrap;
+                }
+            }
+        }
+    </style>
+</head>
+<body class="bg-dark text-light min-h-screen">
+    <!-- 导航栏 -->
+    <nav class="bg-dark bg-opacity-80 backdrop-blur-md fixed w-full z-40 border-b border-gray-800">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <img src="https://bbs-static.miyoushe.com/static/2025/06/16/46c0ca54ffaa4664f05efe7932d0bdfb_4298836572782376517.png" alt="Logo" class="w-10 h-10 rounded-full">
+                    <span class="text-xl font-bold text-genshin-yellow">原神幽境危战</span>
+                </div>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-white hover:text-genshin-yellow">首页</a>
+                    <a href="ranking.html" class="nav-link text-white hover:text-genshin-yellow">排行榜</a>
+                    <a href="upload.html" class="nav-link active text-genshin-yellow">上传记录</a>
+                    <a href="login.html" class="nav-link text-white hover:text-genshin-yellow">管理员入口</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white focus:outline-none">
+                        <i class="fa fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div id="mobile-menu" class="nav-menu md:hidden hidden">
+                <div class="flex justify-end mb-8">
+                    <button id="close-menu-btn" class="text-white focus:outline-none">
+                        <i class="fa fa-times text-2xl"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col space-y-6">
+                    <a href="index.html" class="text-white hover:text-genshin-yellow text-xl">首页</a>
+                    <a href="ranking.html" class="text-white hover:text-genshin-yellow text-xl">排行榜</a>
+                    <a href="upload.html" class="text-genshin-yellow text-xl">上传记录</a>
+                    <a href="login.html" class="text-white hover:text-genshin-yellow text-xl">管理员入口</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="pt-24 pb-8">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-5xl font-bold text-center text-shadow-lg text-white">上传通关记录</h1>
+            <p class="text-center text-gray-200 mt-4">分享你的幽境危战难度六通关成果</p>
+        </div>
+    </header>
+
+    <!-- 上传表单 -->
+    <section class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="glass-card max-w-4xl mx-auto">
+                <form id="upload-form" class="space-y-6 p-6">
+                    <!-- 视频链接 -->
+                    <div class="form-group">
+                        <label for="video-link" class="form-label">视频链接 <span class="text-red-500">*</span></label>
+                        <div class="relative">
+                            <input type="text" id="video-link" name="video-link" class="form-input w-full pr-16" placeholder="请输入B站等视频平台的链接（支持www.格式和https://www.格式）" required>
+                            <button type="button" id="fetch-video-info" class="absolute right-2 top-1/2 transform -translate-y-1/2 px-2 py-1 bg-genshin-blue text-white rounded-md text-sm">获取信息</button>
+                        </div>
+                        <div class="form-error">请输入有效的视频链接（支持www.格式和https://www.格式）</div>
+                        <div id="video-info-status" class="mt-2 text-sm hidden"></div>
+                    </div>
+                    
+                    <!-- 玩家昵称 -->
+                    <div class="form-group">
+                        <label for="player-name" class="form-label">玩家昵称 <span class="text-red-500">*</span></label>
+                        <input type="text" id="player-name" name="player-name" class="form-input w-full" placeholder="请输入你的游戏昵称" required>
+                        <div class="form-error">请输入玩家昵称</div>
+                    </div>
+                    
+                    <!-- 通关时间 -->
+                    <div class="form-group">
+                        <label for="clear-time" class="form-label">通关时间（秒） <span class="text-red-500">*</span></label>
+                        <input type="number" id="clear-time" name="clear-time" class="form-input w-full" placeholder="请输入通关时间（秒）" min="1" max="120" required>
+                        <div class="form-error">请输入有效的通关时间（1-120秒）</div>
+                    </div>
+                    
+                    <!-- 上传时间 -->
+                    <div class="form-group">
+                        <label for="submit-time" class="form-label">视频发布时间 <span class="text-red-500">*</span></label>
+                        <input type="datetime-local" id="submit-time" name="submit-time" class="form-input w-full" required>
+                        <div class="form-error">请选择视频发布时间</div>
+                    </div>
+                    
+                    <!-- 挑战BOSS -->
+                    <div class="form-group">
+                        <label for="boss" class="form-label">挑战BOSS <span class="text-red-500">*</span></label>
+                        <select id="boss" name="boss" class="form-input w-full" required>
+                            <option value="" disabled selected>请选择挑战的BOSS</option>
+                            <!-- BOSS选项将通过JavaScript动态生成 -->
+                        </select>
+                        <div class="form-error">请选择挑战的BOSS</div>
+                    </div>
+                    
+                    <!-- 主C选择 -->
+                    <div class="form-group">
+                        <label class="form-label">主C角色 <span class="text-red-500">*</span></label>
+                        
+                        <!-- 元素属性筛选按钮 -->
+                        <div class="flex flex-wrap gap-2 mb-4 hidden" id="mainc-element-filter">
+                            <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="all">全部</button>
+                            <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="物理">物理</button>
+                            <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="火">火</button>
+                            <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="水">水</button>
+                            <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="雷">雷</button>
+                            <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="冰">冰</button>
+                            <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="风">风</button>
+                            <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="岩">岩</button>
+                            <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="草">草</button>
+                        </div>
+                        
+                        <!-- 已选主C显示 -->
+                        <div id="selected-mainc" class="flex items-center mb-4">
+                            <div id="selected-mainc-avatar" class="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-700 mr-3">
+                                <img src="" alt="未选择" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <p id="selected-mainc-name" class="text-gray-400">未选择主C角色</p>
+                                <input type="hidden" id="mainc" name="mainc" required>
+                            </div>
+                        </div>
+                        
+                        <!-- 主C选择按钮 -->
+                        <button type="button" id="open-mainc-modal" class="btn-secondary">
+                            <i class="fa fa-plus mr-2"></i>选择主C角色
+                        </button>
+                        
+                        <div class="form-error">请选择主C角色</div>
+                    </div>
+                    
+                    <!-- 队伍配置 -->
+                    <div class="form-group">
+                        <label class="form-label">队伍配置 <span class="text-red-500">*</span></label>
+                        <p class="text-sm text-gray-400 mb-4">选择4名角色并设置命座</p>
+                        
+                        <!-- 队伍槽位 -->
+                        <div class="flex justify-center space-x-6 team-slots">
+                            <!-- 队伍槽位1 -->
+                            <div class="team-slot" data-slot="0">
+                                <div class="team-character hidden">
+                                    <img src="" alt="" class="w-16 h-16 rounded-full mx-auto">
+                                    <div class="team-constellation">0</div>
+                                    <div class="team-weapon">0</div>
+                                </div>
+                                <div class="team-placeholder">
+                                    <i class="fa fa-plus-circle text-2xl text-gray-400 mb-2"></i>
+                                    <p class="text-sm text-gray-400">选择角色</p>
+                                </div>
+                            </div>
+                            
+                            <!-- 队伍槽位2 -->
+                            <div class="team-slot" data-slot="1">
+                                <div class="team-character hidden">
+                                    <img src="" alt="" class="w-16 h-16 rounded-full mx-auto">
+                                    <div class="team-constellation">0</div>
+                                    <div class="team-weapon">0</div>
+                                </div>
+                                <div class="team-placeholder">
+                                    <i class="fa fa-plus-circle text-2xl text-gray-400 mb-2"></i>
+                                    <p class="text-sm text-gray-400">选择角色</p>
+                                </div>
+                            </div>
+                            
+                            <!-- 队伍槽位3 -->
+                            <div class="team-slot" data-slot="2">
+                                <div class="team-character hidden">
+                                    <img src="" alt="" class="w-16 h-16 rounded-full mx-auto">
+                                    <div class="team-constellation">0</div>
+                                    <div class="team-weapon">0</div>
+                                </div>
+                                <div class="team-placeholder">
+                                    <i class="fa fa-plus-circle text-2xl text-gray-400 mb-2"></i>
+                                    <p class="text-sm text-gray-400">选择角色</p>
+                                </div>
+                            </div>
+                            
+                            <!-- 队伍槽位4 -->
+                            <div class="team-slot" data-slot="3">
+                                <div class="team-character hidden">
+                                    <img src="" alt="" class="w-16 h-16 rounded-full mx-auto">
+                                    <div class="team-constellation">0</div>
+                                    <div class="team-weapon">0</div>
+                                </div>
+                                <div class="team-placeholder">
+                                    <i class="fa fa-plus-circle text-2xl text-gray-400 mb-2"></i>
+                                    <p class="text-sm text-gray-400">选择角色</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-error mt-2">请选择4个角色并设置命座</div>
+                    </div>
+                    
+                    <!-- 限定金数 -->
+                    <div class="form-group">
+                        <label for="gold-count" class="form-label">限定金数 <span class="text-red-500">*</span></label>
+                        <input type="number" id="gold-count" name="gold-count" class="form-input w-full" placeholder="请输入限定金数（0-48）" min="0" max="48" required>
+                        <div class="form-error">请输入有效的限定金数（0-48）</div>
+                    </div>
+                    
+                    <!-- 常驻金数 -->
+                    <div class="form-group">
+                        <label for="constgold-count" class="form-label">常驻金数（95级=1常驻金，100级=3常驻金） <span class="text-red-500">*</span></label>
+                        <input type="number" id="constgold-count" name="constgold-count" class="form-input w-full" placeholder="请输入常驻金数（0-48）" min="0" max="48" required>
+                        <div class="form-error">请输入有效的常驻金数（0-48）</div>
+                    </div>
+                    
+                    
+                    
+                    <!-- 备注 -->
+                    <div class="form-group">
+                        <label for="notes" class="form-label">备注（可选）</label>
+                        <textarea id="notes" name="notes" class="form-input w-full" rows="3" placeholder="请输入备注信息（如武器、圣遗物、操作技巧等）"></textarea>
+                    </div>
+                    
+                    <!-- 数据预览模块 -->
+                    <div class="form-group mt-8">
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="form-label text-lg">生成的数据预览</label>
+                            <div class="text-xs text-gray-400">实时更新</div>
+                        </div>
+                        <div class="bg-dark-lighter rounded-lg p-4 border border-gray-700">
+                            <pre id="data-preview" class="text-sm overflow-x-auto max-h-60">// 填写表单后将显示格式化的数据
+{
+  "id": 1,
+  "player": "",
+  "mainc": "",
+  "team": [
+  ],
+  "time": 0,
+  "boss": "",
+  "gold": 0,
+  "constgold": 0,
+  "notes": "",
+  "video": "",
+  "status": "approved",
+  "submitTime": ""
+}</pre>
+                        </div>
+                        
+                        <!-- 操作按钮 -->
+                        <div class="flex justify-center space-x-4 mt-4">
+                            <button type="button" id="copy-data-btn" class="btn-secondary">
+                                <i class="fa fa-copy mr-2"></i>复制数据
+                            </button>
+                            <button type="button" id="open-bilibili-btn" class="btn-secondary">
+                                <i class="fa fa-external-link mr-2"></i>打开B站私信
+                            </button>
+                        </div>
+                        
+                        <!-- 复制成功提示 -->
+                        <div id="copy-success" class="hidden text-center mt-2 text-green-500">
+                            <i class="fa fa-check-circle mr-1"></i>数据已复制到剪贴板
+                        </div>
+                    </div>
+                    
+                    <!-- 提交按钮 -->
+                    <div class="text-center mt-6">
+                        <button type="submit" class="btn-genshin">
+                            <i class="fa fa-upload mr-2"></i>提交通关记录
+                        </button>
+                        <p class="text-sm text-gray-400 mt-2">提交后需等待管理员审核</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主C角色选择模态框 -->
+    <div id="mainc-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">选择主C角色</h3>
+                <button id="close-mainc-modal" class="modal-close">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- 元素属性筛选按钮 -->
+                <div class="flex flex-wrap gap-2 mb-4" id="mainc-modal-element-filter">
+                    <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="all">全部</button>
+                    <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="物理">物理</button>
+                    <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="火">火</button>
+                    <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="水">水</button>
+                    <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="雷">雷</button>
+                    <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="冰">冰</button>
+                    <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="风">风</button>
+                    <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="岩">岩</button>
+                    <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="草">草</button>
+                </div>
+                
+                <div class="character-selector" id="mainc-selector" style="max-height: 350px; overflow-y: auto;">
+                    <!-- 角色头像将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 角色选择模态框 -->
+    <div id="character-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">选择角色</h3>
+                <button id="close-character-modal" class="modal-close">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- 元素属性筛选按钮 -->
+                <div class="flex flex-wrap gap-2 mb-4" id="element-filter">
+                    <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="all">全部</button>
+                    <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="物理">物理</button>
+                    <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="火">火</button>
+                    <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="水">水</button>
+                    <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="雷">雷</button>
+                    <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="冰">冰</button>
+                    <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="风">风</button>
+                    <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="岩">岩</button>
+                    <button class="element-btn px-3 py-1 rounded-full text-sm font-medium" data-element="草">草</button>
+                </div>
+                
+                <div class="character-selector" id="character-selector" style="max-height: 350px; overflow-y: auto;">
+                    <!-- 角色头像将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 命座选择模态框 -->
+    <div id="constellation-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">选择命座</h3>
+                <button id="close-constellation-modal" class="modal-close">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <div id="constellation-character" class="mb-4">
+                    <img src="" alt="" class="w-24 h-24 rounded-full mx-auto">
+                    <p class="mt-2 font-bold" id="constellation-character-name"></p>
+                </div>
+                <div class="constellation-selector">
+                    <p class="text-sm text-gray-500 mb-2">选择命座</p>
+                    <div class="flex justify-center flex-wrap">
+                        <button class="constellation-btn" data-constellation="0">0</button>
+                        <button class="constellation-btn" data-constellation="1">1</button>
+                        <button class="constellation-btn" data-constellation="2">2</button>
+                        <button class="constellation-btn" data-constellation="3">3</button>
+                        <button class="constellation-btn" data-constellation="4">4</button>
+                        <button class="constellation-btn" data-constellation="5">5</button>
+                        <button class="constellation-btn" data-constellation="6">6</button>
+                    </div>
+                </div>
+                <div class="weapon-selector mt-6">
+                    <p class="text-sm text-gray-500 mb-2">选择五星武器精炼等级（四星武器填0）</p>
+                    <div class="flex justify-center flex-wrap">
+                        <button class="weapon-btn" data-weapon="0">0</button>
+                        <button class="weapon-btn" data-weapon="1">1</button>
+                        <button class="weapon-btn" data-weapon="2">2</button>
+                        <button class="weapon-btn" data-weapon="3">3</button>
+                        <button class="weapon-btn" data-weapon="4">4</button>
+                        <button class="weapon-btn" data-weapon="5">5</button>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <button id="confirm-selection" class="btn-genshin bg-genshin-yellow hover:bg-opacity-90 text-dark font-bold py-2 px-6 rounded-md transition-all">
+                        <i class="fa fa-check mr-2"></i>确认选择
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="py-8 bg-dark border-t border-gray-800 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-400">&copy; 2025 原神幽境危战难度六通关记录. 保留所有权利.</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://space.bilibili.com/435511059" target="_blank" class="text-gray-400 hover:text-genshin-yellow">
+                        <i class="fab fa-bilibili text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-4 text-center text-gray-500 text-sm">
+                <p>本网站仅用于记录和分享游戏通关记录，与miHoYo/HoYoverse无关</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.add('active');
+        });
+        
+        document.getElementById('close-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('active');
+        });
+        
+        // 导航链接点击关闭菜单
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.remove('active');
+            });
+        });
+        
+        // 从DataStore获取角色和BOSS数据
+        const characters = DataStore.getCharacters();
+        const bosses = DataStore.getBosses();
+        
+        // 获取角色头像URL
+        function getCharacterAvatarUrl(characterName) {
+            // 在DataStore中查找角色
+            const character = DataStore.characters.find(char => char.name === characterName);
+            return character ? character.avatar : 'https://via.placeholder.com/40';
+        }
+        
+        // 队伍数据
+        let team = [
+            { character: null, constellation: 0, weapon: 0 },
+            { character: null, constellation: 0, weapon: 0 },
+            { character: null, constellation: 0, weapon: 0 },
+            { character: null, constellation: 0, weapon: 0 }
+        ];
+        
+        // 当前选中的武器精炼等级
+        let selectedWeapon = 0;
+        
+        // 当前选中的命座
+        let selectedConstellation = 0;
+        
+        // 当前选中的队伍槽位
+        let currentSlot = -1;
+        
+        // 当前选中的角色
+        let selectedCharacter = null;
+        
+        // 当前选中的主C角色
+        let selectedMainc = null;
+        
+        // 当前选中的元素属性筛选
+        let selectedElement = 'all';
+        
+        // 当前选中的主C元素属性筛选
+        let selectedMaincElement = 'all';
+        
+        console.log('页面脚本开始加载...');
+        
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('页面DOM加载完成，开始初始化所有功能...');
+            console.log('DataStore是否可用:', typeof DataStore !== 'undefined');
+            
+            // 检查DataStore的方法和属性
+            if (DataStore) {
+                console.log('DataStore方法:', Object.getOwnPropertyNames(DataStore));
+                console.log('是否有getCharacters方法:', typeof DataStore.getCharacters === 'function');
+                console.log('是否有getBosses方法:', typeof DataStore.getBosses === 'function');
+                
+                // 尝试获取角色数据
+                try {
+                    const chars = DataStore.getCharacters();
+                    console.log('通过getCharacters()获取的角色数量:', chars.length);
+                    if (chars.length > 0) {
+                        console.log('第一个角色:', chars[0]);
+                        console.log('第一个角色头像路径:', chars[0].avatar);
+                    }
+                } catch (error) {
+                    console.error('调用getCharacters()出错:', error);
+                }
+                
+                // 直接检查characters属性
+                console.log('直接访问DataStore.characters:', DataStore.characters);
+                if (DataStore.characters && DataStore.characters.length > 0) {
+                    console.log('直接访问的角色数量:', DataStore.characters.length);
+                    console.log('直接访问的第一个角色:', DataStore.characters[0]);
+                }
+            }
+            
+            // 初始化BOSS选择列表
+            console.log('初始化BOSS选择列表...');
+            initBossSelector();
+            
+            // 初始化主C选择器
+            console.log('初始化主C选择器...');
+            initMaincSelector();
+            
+            // 初始化角色选择器
+            console.log('初始化角色选择器...');
+            initCharacterSelector();
+            
+            // 初始化队伍槽位事件
+            console.log('初始化队伍槽位事件...');
+            initTeamSlots();
+            
+            // 初始化模态框事件
+            console.log('初始化模态框事件...');
+            initModalEvents();
+            
+            // 初始化表单事件
+            console.log('初始化表单事件...');
+            initFormEvents();
+            
+            // 设置默认上传时间为当前时间
+            console.log('设置默认上传时间...');
+            setDefaultSubmitTime();
+            
+            console.log('所有功能初始化完成！');
+        });
+        
+
+        
+        // 设置默认上传时间为当前时间
+        function setDefaultSubmitTime() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            
+            const formattedDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+            document.getElementById('submit-time').value = formattedDateTime;
+        }
+        
+        // 初始化BOSS选择列表
+        function initBossSelector() {
+            const bossSelect = document.getElementById('boss');
+            
+            // 清空现有选项
+            bossSelect.innerHTML = '<option value="" disabled selected>请选择挑战的BOSS</option>';
+            
+            // 添加BOSS选项
+            bosses.forEach(boss => {
+                const option = document.createElement('option');
+                option.value = boss.name;
+                option.textContent = boss.name;
+                bossSelect.appendChild(option);
+            });
+        }
+        
+        // 初始化主C选择器
+        function initMaincSelector() {
+            // 初始化元素筛选按钮事件
+            initMaincElementFilter();
+            
+            // 更新主C选择器
+            updateMaincSelector();
+        }
+        
+        // 初始化主C元素筛选按钮
+        function initMaincElementFilter() {
+            const elementBtns = document.querySelectorAll('#mainc-element-filter .element-btn, #mainc-modal-element-filter .element-btn');
+            
+            elementBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    // 阻止按钮的默认行为（防止表单提交）
+                    e.preventDefault();
+                    
+                    // 更新选中状态
+                    const parentElement = this.parentElement;
+                    parentElement.querySelectorAll('.element-btn').forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    
+                    // 更新筛选条件
+                    selectedMaincElement = this.getAttribute('data-element');
+                    
+                    // 更新主C选择器
+                    updateMaincSelector();
+                });
+            });
+            
+            // 默认选中"全部"按钮
+            document.querySelector('#mainc-element-filter .element-btn[data-element="all"]').classList.add('selected');
+            document.querySelector('#mainc-modal-element-filter .element-btn[data-element="all"]').classList.add('selected');
+        }
+        
+        // 更新主C选择器
+        function updateMaincSelector() {
+            const selector = document.getElementById('mainc-selector');
+            selector.innerHTML = '';
+            
+            // 根据筛选条件过滤角色
+            const filteredCharacters = selectedMaincElement === 'all' 
+                ? characters 
+                : characters.filter(character => character.element === selectedMaincElement);
+            
+            filteredCharacters.forEach(character => {
+                const characterItem = document.createElement('div');
+                characterItem.className = 'character-item';
+                
+                const avatar = document.createElement('div');
+                avatar.className = 'character-avatar';
+                if (selectedMainc && selectedMainc.name === character.name) {
+                    avatar.classList.add('selected');
+                }
+                console.log(`渲染角色: ${character.name}, 头像路径: ${getCharacterAvatarUrl(character.name)}`);
+                avatar.innerHTML = `<img src="${getCharacterAvatarUrl(character.name)}" alt="${character.name}" class="w-full h-full object-cover" onerror="console.error('头像加载失败:', this.src)">`;
+                avatar.addEventListener('click', function() {
+                    selectMaincCharacter(character);
+                    document.getElementById('mainc-modal').classList.remove('active');
+                });
+                
+                const info = document.createElement('div');
+                info.className = 'character-info';
+                info.innerHTML = `<div class="character-name">${character.name}</div>`;
+                
+                characterItem.appendChild(avatar);
+                characterItem.appendChild(info);
+                selector.appendChild(characterItem);
+            });
+        }
+        
+        // 选择主C角色
+        function selectMaincCharacter(character) {
+            selectedMainc = character;
+            
+            // 更新隐藏输入框
+            document.getElementById('mainc').value = character.name;
+            
+            // 更新已选主C显示
+            document.getElementById('selected-mainc-avatar').querySelector('img').src = getCharacterAvatarUrl(character.name);
+            const maincNameElement = document.getElementById('selected-mainc-name');
+            maincNameElement.textContent = character.name;
+            maincNameElement.classList.remove('text-gray-400');
+            
+            // 根据角色属性设置名称颜色
+            const elementColors = {
+                '物理': 'text-physical',
+                '火': 'text-pyro',
+                '水': 'text-hydro',
+                '雷': 'text-electro',
+                '冰': 'text-cryo',
+                '风': 'text-anemo',
+                '岩': 'text-geo',
+                '草': 'text-dendro'
+            };
+            
+            // 移除所有元素颜色类
+            Object.values(elementColors).forEach(colorClass => {
+                maincNameElement.classList.remove(colorClass);
+            });
+            
+            // 添加对应元素的颜色类
+            if (elementColors[character.element]) {
+                maincNameElement.classList.add(elementColors[character.element]);
+            }
+            
+            // 更新主C选择器
+            updateMaincSelector();
+            
+            // 隐藏错误提示
+            hideError('mainc');
+            
+            // 隐藏属性选择按钮
+            document.getElementById('mainc-element-filter').classList.add('hidden');
+        }
+        
+        // 初始化角色选择器
+        function initCharacterSelector() {
+            // 初始化元素筛选按钮事件
+            initElementFilter();
+            
+            // 更新角色选择器
+            updateCharacterSelector();
+        }
+        
+        // 初始化元素筛选按钮
+        function initElementFilter() {
+            const elementBtns = document.querySelectorAll('.element-btn');
+            
+            elementBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    // 阻止按钮的默认行为（防止表单提交）
+                    e.preventDefault();
+                    
+                    // 更新选中状态
+                    const parentElement = this.parentElement;
+                    parentElement.querySelectorAll('.element-btn').forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    
+                    // 更新筛选条件
+                    selectedElement = this.getAttribute('data-element');
+                    
+                    // 更新角色选择器
+                    updateCharacterSelector();
+                });
+            });
+            
+            // 默认选中"全部"按钮
+            document.querySelector('.element-btn[data-element="all"]').classList.add('selected');
+        }
+        
+        // 更新角色选择器
+        function updateCharacterSelector() {
+            const selector = document.getElementById('character-selector');
+            selector.innerHTML = '';
+            
+            // 根据筛选条件过滤角色
+            const filteredCharacters = selectedElement === 'all' 
+                ? characters 
+                : characters.filter(character => character.element === selectedElement);
+            
+            filteredCharacters.forEach(character => {
+                const characterItem = document.createElement('div');
+                characterItem.className = 'character-item';
+                
+                const avatar = document.createElement('div');
+                avatar.className = 'character-avatar';
+                avatar.innerHTML = `<img src="${character.avatar}" alt="${character.name}" class="w-full h-full object-cover">`;
+                avatar.addEventListener('click', function() {
+                    selectedCharacter = character;
+                    document.getElementById('character-modal').classList.remove('active');
+                    openConstellationModal();
+                });
+                
+                const info = document.createElement('div');
+                info.className = 'character-info';
+                info.innerHTML = `<div class="character-name">${character.name}</div>`;
+                
+                characterItem.appendChild(avatar);
+                characterItem.appendChild(info);
+                selector.appendChild(characterItem);
+            });
+        }
+        
+        // 初始化队伍槽位事件
+        function initTeamSlots() {
+            const slots = document.querySelectorAll('.team-slot');
+            
+            if (slots.length > 0) {
+                slots.forEach((slot, index) => {
+                    slot.addEventListener('click', function() {
+                        currentSlot = index;
+                        openCharacterModal();
+                    });
+                });
+            } else {
+                console.error('未找到team-slot元素');
+            }
+        }
+        
+        // 初始化模态框事件
+        function initModalEvents() {
+            // 主C选择模态框
+            const openMaincModalBtn = document.getElementById('open-mainc-modal');
+            if (openMaincModalBtn) {
+                openMaincModalBtn.addEventListener('click', function() {
+                    document.getElementById('mainc-modal').classList.add('active');
+                    // 显示属性选择按钮
+                    document.getElementById('mainc-element-filter').classList.remove('hidden');
+                });
+            } else {
+                console.error('未找到open-mainc-modal按钮');
+            }
+            
+            const closeMaincModalBtn = document.getElementById('close-mainc-modal');
+            if (closeMaincModalBtn) {
+                closeMaincModalBtn.addEventListener('click', function() {
+                    document.getElementById('mainc-modal').classList.remove('active');
+                    // 隐藏属性选择按钮
+                    document.getElementById('mainc-element-filter').classList.add('hidden');
+                });
+            } else {
+                console.error('未找到close-mainc-modal按钮');
+            }
+            
+            // 角色选择模态框
+            const closeCharacterModalBtn = document.getElementById('close-character-modal');
+            if (closeCharacterModalBtn) {
+                closeCharacterModalBtn.addEventListener('click', function() {
+                    document.getElementById('character-modal').classList.remove('active');
+                });
+            } else {
+                console.error('未找到close-character-modal按钮');
+            }
+            
+            // 命座选择模态框
+            const closeConstellationModalBtn = document.getElementById('close-constellation-modal');
+            if (closeConstellationModalBtn) {
+                closeConstellationModalBtn.addEventListener('click', function() {
+                    document.getElementById('constellation-modal').classList.remove('active');
+                });
+            } else {
+                console.error('未找到close-constellation-modal按钮');
+            }
+            
+            // 确认选择按钮事件
+            const confirmSelectionBtn = document.getElementById('confirm-selection');
+            if (confirmSelectionBtn) {
+                confirmSelectionBtn.addEventListener('click', function() {
+                    // 获取选中的命座
+                    const selectedConstellationBtn = document.querySelector('.constellation-btn.selected');
+                    if (selectedConstellationBtn) {
+                        const constellation = parseInt(selectedConstellationBtn.getAttribute('data-constellation'));
+                        setCharacterConstellation(constellation, selectedWeapon);
+                    } else {
+                        // 如果没有选中命座，默认使用0命
+                        setCharacterConstellation(0, selectedWeapon);
+                    }
+                });
+            } else {
+                console.error('未找到confirm-selection按钮');
+            }
+            
+            // 命座按钮事件
+            const constellationBtns = document.querySelectorAll('.constellation-btn');
+            constellationBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const constellation = parseInt(this.getAttribute('data-constellation'));
+                    
+                    // 更新选中状态
+                    constellationBtns.forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    
+                    // 更新选中的命座
+                    selectedConstellation = constellation;
+                });
+            });
+            
+            // 武器按钮事件
+            const weaponBtns = document.querySelectorAll('.weapon-btn');
+            weaponBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const weapon = parseInt(this.getAttribute('data-weapon'));
+                    
+                    // 更新选中状态
+                    weaponBtns.forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    
+                    // 更新选中的武器精炼等级
+                    selectedWeapon = weapon;
+                });
+            });
+        }
+        
+        // 打开角色选择模态框
+        function openCharacterModal() {
+            document.getElementById('character-modal').classList.add('active');
+        }
+        
+        // 打开命座选择模态框
+        function openConstellationModal() {
+            if (selectedCharacter) {
+                document.getElementById('constellation-character-name').textContent = selectedCharacter.name;
+                document.getElementById('constellation-character').querySelector('img').src = selectedCharacter.avatar;
+                document.getElementById('constellation-modal').classList.add('active');
+                
+                // 重置命座按钮
+                const constellationBtns = document.querySelectorAll('.constellation-btn');
+                constellationBtns.forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+                
+                // 重置武器按钮
+                const weaponBtns = document.querySelectorAll('.weapon-btn');
+                weaponBtns.forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+                
+                // 设置默认命座和武器
+                constellationBtns[0].classList.add('selected');
+                weaponBtns[0].classList.add('selected');
+                selectedConstellation = 0;
+                selectedWeapon = 0;
+            }
+        }
+        
+        // 设置角色命座和武器精炼等级
+        function setCharacterConstellation(constellation, weapon) {
+            if (currentSlot >= 0 && selectedCharacter) {
+                team[currentSlot] = {
+                    character: selectedCharacter,
+                    constellation: constellation,
+                    weapon: weapon
+                };
+                
+                updateTeamSlot(currentSlot);
+                document.getElementById('constellation-modal').classList.remove('active');
+                
+                // 清除队伍配置的错误提示
+                hideError('team');
+                
+                // 更新数据预览
+                if (typeof updateDataPreview === 'function') {
+                    updateDataPreview();
+                }
+            } else {
+                console.error('无法设置角色命座和武器精炼等级：currentSlot =', currentSlot, 'selectedCharacter =', selectedCharacter);
+            }
+        }
+        
+        // 更新队伍槽位显示
+        function updateTeamSlot(slotIndex) {
+            const slot = document.querySelectorAll('.team-slot')[slotIndex];
+            const character = team[slotIndex].character;
+            
+            if (character) {
+                slot.classList.add('filled');
+                slot.querySelector('.team-placeholder').classList.add('hidden');
+                
+                const characterElement = slot.querySelector('.team-character');
+                characterElement.classList.remove('hidden');
+                characterElement.querySelector('img').src = character.avatar;
+                
+                // 显示命座数字
+                const constellationElement = characterElement.querySelector('.team-constellation');
+                constellationElement.textContent = team[slotIndex].constellation;
+                
+                // 显示武器精炼等级
+                const weaponElement = characterElement.querySelector('.team-weapon');
+                weaponElement.textContent = team[slotIndex].weapon;
+                
+                // 标明命座和武器精炼数字的颜色
+                // 命座数字：黄色背景，黑色文字
+                constellationElement.style.backgroundColor = '#ffdd40';
+                constellationElement.style.color = '#121212';
+                
+                // 武器精炼数字：蓝色背景，白色文字
+                weaponElement.style.backgroundColor = '#3498db';
+                weaponElement.style.color = 'white';
+                
+                // 调整武器精炼等级的位置
+                if (team[slotIndex].constellation > 0 && team[slotIndex].weapon > 0) {
+                    constellationElement.style.bottom = '-5px';
+                    constellationElement.style.right = '12px';
+                    constellationElement.style.display = 'flex';
+                    weaponElement.style.top = '-5px';
+                    weaponElement.style.right = '-5px';
+                    weaponElement.style.display = 'flex';
+                } else if (team[slotIndex].weapon > 0) {
+                    constellationElement.style.display = 'none';
+                    weaponElement.style.top = '-5px';
+                    weaponElement.style.right = '-5px';
+                    weaponElement.style.display = 'flex';
+                } else {
+                    constellationElement.style.bottom = '-5px';
+                    constellationElement.style.right = '-5px';
+                    constellationElement.style.display = team[slotIndex].constellation > 0 ? 'flex' : 'none';
+                    weaponElement.style.display = 'none';
+                }
+            } else {
+                slot.classList.remove('filled');
+                slot.querySelector('.team-placeholder').classList.remove('hidden');
+                slot.querySelector('.team-character').classList.add('hidden');
+            }
+        }
+        
+        // 初始化表单事件
+        function initFormEvents() {
+            console.log('开始初始化表单事件...');
+            const uploadForm = document.getElementById('upload-form');
+            if (uploadForm) {
+                console.log('找到upload-form表单，添加submit事件监听器');
+                uploadForm.addEventListener('submit', function(e) {
+                    console.log('表单提交事件触发！');
+                    e.preventDefault();
+                    
+                    // 验证表单
+                    console.log('开始验证表单...');
+                    if (!validateForm()) {
+                        console.log('表单验证失败');
+                        return;
+                    }
+                    console.log('表单验证通过');
+                    
+                    // 获取表单数据
+                    console.log('开始收集表单数据...');
+                    const formData = collectFormData();
+                    console.log('表单数据收集完成:', formData);
+                    
+                    // 发送数据到服务器
+                    console.log('开始发送数据到服务器...');
+                    submitDataToServer(formData);
+                });
+            } else {
+                console.error('未找到upload-form表单');
+            }
+            
+            // 初始化视频链接获取信息功能
+            initVideoLinkHandler();
+            
+            // 初始化数据预览和操作按钮
+            initDataPreview();
+        }
+        
+        // 初始化视频链接获取信息功能
+        function initVideoLinkHandler() {
+            const videoLinkInput = document.getElementById('video-link');
+            const fetchVideoInfoBtn = document.getElementById('fetch-video-info');
+            const videoInfoStatus = document.getElementById('video-info-status');
+            
+            if (videoLinkInput && fetchVideoInfoBtn && videoInfoStatus) {
+                // 点击获取信息按钮
+                fetchVideoInfoBtn.addEventListener('click', function() {
+                    fetchVideoInfo();
+                });
+                
+                // 输入框失去焦点时也尝试获取信息
+                videoLinkInput.addEventListener('blur', function() {
+                    // 只有当输入框有值且没有显示错误时才尝试获取信息
+                    if (videoLinkInput.value.trim() && !videoLinkInput.parentElement.parentElement.classList.contains('error')) {
+                        fetchVideoInfo();
+                    }
+                });
+            }
+            
+            // 获取视频信息
+            function fetchVideoInfo() {
+                const videoLink = videoLinkInput.value.trim();
+                
+                if (!videoLink) {
+                    showVideoStatus('请输入视频链接', 'error');
+                    return;
+                }
+                
+                // 从链接中提取BV号
+                const bvMatch = videoLink.match(/(BV[0-9a-zA-Z]+)/);
+                if (!bvMatch) {
+                    showVideoStatus('未找到BV号，请输入有效的B站视频链接', 'error');
+                    return;
+                }
+                
+                const bv = bvMatch[1];
+                showVideoStatus('正在获取视频信息...', 'info');
+                
+                // 使用B站API获取视频信息
+                const apiUrl = `https://api.bilibili.com/x/web-interface/view?bvid=${bv}`;
+                
+                // 使用CORS代理绕过跨域限制
+                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`;
+                
+                fetch(proxyUrl)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP错误! 状态码: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(proxyData => {
+                        // 解析代理返回的数据
+                        if (!proxyData || !proxyData.contents) {
+                            throw new Error('代理返回数据格式错误');
+                        }
+                        
+                        const data = JSON.parse(proxyData.contents);
+                        
+                        if (data.code !== 0) {
+                            throw new Error(`API错误: ${data.message || '未知错误'}`);
+                        }
+                        
+                        const videoData = data.data;
+                        
+                        // 自动填充信息（如果用户未填写）
+                        const playerNameInput = document.getElementById('player-name');
+                        const submitTimeInput = document.getElementById('submit-time');
+                        const clearTimeInput = document.getElementById('clear-time');
+                        
+                        // 填充UP主名称（如果玩家昵称未填写）
+                        if (playerNameInput && !playerNameInput.value.trim()) {
+                            playerNameInput.value = videoData.owner.name;
+                        }
+                        
+                        // 填充视频发布时间（覆盖现有值）
+                        if (submitTimeInput && videoData.pubdate) {
+                            const pubDate = new Date(videoData.pubdate * 1000);
+                            const year = pubDate.getFullYear();
+                            const month = String(pubDate.getMonth() + 1).padStart(2, '0');
+                            const day = String(pubDate.getDate()).padStart(2, '0');
+                            const hours = String(pubDate.getHours()).padStart(2, '0');
+                            const minutes = String(pubDate.getMinutes()).padStart(2, '0');
+                            
+                            submitTimeInput.value = `${year}-${month}-${day}T${hours}:${minutes}`;
+                        }
+                        
+                        // 尝试从视频标题中提取通关时间
+                        if (clearTimeInput && !clearTimeInput.value.trim() && videoData.title) {
+                            const timeMatch = videoData.title.match(/(\d+)秒|(\d+)s/);
+                            if (timeMatch) {
+                                const seconds = parseInt(timeMatch[1] || timeMatch[2]);
+                                if (seconds && seconds > 0 && seconds <= 120) {
+                                    clearTimeInput.value = seconds;
+                                }
+                            }
+                        }
+                        
+                        showVideoStatus('视频信息获取成功！已自动填充部分信息', 'success');
+                        
+                        // 更新数据预览
+                        if (typeof updateDataPreview === 'function') {
+                            updateDataPreview();
+                        }
+                    })
+                    .catch(error => {
+                        console.error('获取视频信息失败:', error);
+                        showVideoStatus(`获取视频信息失败: ${error.message}`, 'error');
+                    });
+            }
+            
+            // 显示视频状态信息
+            function showVideoStatus(message, type) {
+                videoInfoStatus.textContent = message;
+                videoInfoStatus.classList.remove('hidden', 'text-green-500', 'text-red-500', 'text-blue-500');
+                
+                switch (type) {
+                    case 'success':
+                        videoInfoStatus.classList.add('text-green-500');
+                        break;
+                    case 'error':
+                        videoInfoStatus.classList.add('text-red-500');
+                        break;
+                    case 'info':
+                    default:
+                        videoInfoStatus.classList.add('text-blue-500');
+                        break;
+                }
+                
+                videoInfoStatus.classList.remove('hidden');
+                
+                // 5秒后自动隐藏信息（除了错误信息）
+                if (type !== 'error') {
+                    setTimeout(() => {
+                        videoInfoStatus.classList.add('hidden');
+                    }, 5000);
+                }
+            }
+        }
+        
+        // 压缩JSON字符串，删除所有换行和引号外的空格，但保留引号内的空格
+        function compactJsonWithQuotedSpaces(json) {
+            let inQuotes = false;
+            let escaped = false;
+            let result = '';
+            
+            for (let i = 0; i < json.length; i++) {
+                const char = json[i];
+                
+                // 处理转义字符
+                if (char === '\\' && !escaped) {
+                    escaped = true;
+                    result += char;
+                    continue;
+                }
+                
+                // 处理引号
+                if (char === '"' && !escaped) {
+                    inQuotes = !inQuotes;
+                    result += char;
+                    continue;
+                }
+                
+                // 如果不在引号内，跳过空格和换行符
+                if (!inQuotes && /\s/.test(char)) {
+                    escaped = false;
+                    continue;
+                }
+                
+                // 其他字符都添加到结果中
+                result += char;
+                escaped = false;
+            }
+            
+            return result;
+        }
+        
+        // 初始化数据预览和操作按钮
+        function initDataPreview() {
+            // 获取表单元素
+            const playerNameInput = document.getElementById('player-name');
+            const clearTimeInput = document.getElementById('clear-time');
+            const submitTimeInput = document.getElementById('submit-time');
+            const bossSelect = document.getElementById('boss');
+            const maincSelect = document.getElementById('mainc');
+            const goldCountInput = document.getElementById('gold-count');
+            const constgoldCountInput = document.getElementById('constgold-count');
+            const notesInput = document.getElementById('notes');
+            const videoLinkInput = document.getElementById('video-link');
+            
+            // 获取操作按钮
+            const copyDataBtn = document.getElementById('copy-data-btn');
+            const openBilibiliBtn = document.getElementById('open-bilibili-btn');
+            const copySuccess = document.getElementById('copy-success');
+            
+            // 实时更新数据预览
+            function updateDataPreview() {
+                // 获取表单数据
+                const playerName = playerNameInput.value.trim() || '';
+                const clearTime = parseInt(clearTimeInput.value) || 0;
+                const submitTime = submitTimeInput.value || '';
+                const boss = bossSelect.value || '';
+                const mainc = maincSelect.value || '';
+                const goldCount = parseInt(goldCountInput.value) || 0;
+                const constgoldCount = parseInt(constgoldCountInput.value) || 0;
+                const notes = notesInput.value.trim() || '';
+                let videoLink = videoLinkInput.value.trim() || '';
+                
+                // 处理视频链接，如果以https://www.开头则移除https://前缀
+                if (videoLink && videoLink.startsWith('https://www.')) {
+                    videoLink = videoLink.replace('https://', '');
+                }
+                
+                // 准备队伍数据
+                const teamData = [];
+                team.forEach((slot, index) => {
+                    if (slot.character) {
+                        teamData.push({
+                            character: slot.character.name,
+                            constellation: slot.constellation,
+                            weapon: slot.weapon
+                        });
+                    }
+                });
+                
+                // 格式化submitTime
+                let formattedSubmitTime = submitTime;
+                if (submitTime) {
+                    const date = new Date(submitTime);
+                    const year = date.getFullYear();
+                    const month = date.getMonth() + 1; // 月份从0开始
+                    const day = date.getDate();
+                    const hours = date.getHours();
+                    const minutes = date.getMinutes();
+                    const seconds = date.getSeconds();
+                    
+                    // 格式化为 "2025/11/4 2:31:00" 格式
+                    formattedSubmitTime = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;
+                }
+                
+                // 创建预览数据
+                const previewData = {
+                    id: DataStore.records.length + 1,
+                    player: playerName,
+                    mainc: mainc,
+                    team: teamData,
+                    time: clearTime,
+                    boss: boss,
+                    gold: goldCount,
+                    constgold: constgoldCount,
+                    notes: notes,
+                    video: videoLink,
+                    status: "approved",
+                    submitTime: formattedSubmitTime
+                };
+                
+                // 转换为格式化的JavaScript对象字符串（不带引号的键）
+                const jsString = formatAsJavaScriptObject(previewData, 4);
+                
+                // 更新数据预览
+                document.getElementById('data-preview').innerHTML = syntaxHighlight(jsString);
+            }
+            
+            // 将JavaScript对象格式化为键不带引号的字符串
+            function formatAsJavaScriptObject(obj, indentLevel = 0) {
+                const indent = ' '.repeat(indentLevel * 4);
+                const nextIndent = ' '.repeat((indentLevel + 1) * 4);
+                
+                if (obj === null) {
+                    return 'null';
+                }
+                
+                if (typeof obj !== 'object') {
+                    if (typeof obj === 'string') {
+                        return `"${obj.replace(/"/g, '\\"')}"`;
+                    }
+                    return String(obj);
+                }
+                
+                if (Array.isArray(obj)) {
+                    if (obj.length === 0) {
+                        return '[]';
+                    }
+                    
+                    // 检查是否是team数组（包含character、constellation、weapon属性的对象）
+                    const isTeamArray = obj.length > 0 && 
+                                       typeof obj[0] === 'object' && 
+                                       obj[0] !== null && 
+                                       'character' in obj[0] && 
+                                       'constellation' in obj[0] && 
+                                       'weapon' in obj[0];
+                    
+                    if (isTeamArray) {
+                        // 紧凑显示team数组，每个对象占一行
+                        const elements = obj.map(element => {
+                            // 直接在一行内显示对象
+                            return `{ character: "${element.character}", constellation: ${element.constellation}, weapon: ${element.weapon} }`;
+                        }).join(',\n' + nextIndent);
+                        
+                        return `[\n${nextIndent}${elements}\n${indent}]`;
+                    } else {
+                        // 普通数组显示
+                        const elements = obj.map(element => {
+                            return formatAsJavaScriptObject(element, indentLevel + 1);
+                        }).join(',\n' + nextIndent);
+                        
+                        return `[\n${nextIndent}${elements}\n${indent}]`;
+                    }
+                }
+                
+                // 对象
+                const keys = Object.keys(obj);
+                if (keys.length === 0) {
+                    return '{}';
+                }
+                
+                const properties = keys.map(key => {
+                    // 对于包含特殊字符的键，仍然需要添加引号
+                    if (/^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(key)) {
+                        return `${key}: ${formatAsJavaScriptObject(obj[key], indentLevel + 1)}`;
+                    } else {
+                        return `"${key}": ${formatAsJavaScriptObject(obj[key], indentLevel + 1)}`;
+                    }
+                }).join(',\n' + nextIndent);
+                
+                return `{\n${nextIndent}${properties}\n${indent}}`;
+            }
+            
+            // JSON语法高亮 - 修改为支持JavaScript对象格式
+            function syntaxHighlight(js) {
+                js = js.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                return js.replace(/([a-zA-Z_$][a-zA-Z0-9_$]*)(?=\s*:)|("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+                    let cls = 'json-number';
+                    if (/^[a-zA-Z_$]/.test(match) && !/true|false|null/.test(match) && !/\d/.test(match.charAt(0))) {
+                        // 不带引号的键
+                        cls = 'json-key';
+                    } else if (/^"/.test(match)) {
+                        if (/:$/.test(match)) {
+                            cls = 'json-key';
+                        } else {
+                            cls = 'json-string';
+                        }
+                    } else if (/true|false/.test(match)) {
+                        cls = 'json-boolean';
+                    } else if (/null/.test(match)) {
+                        cls = 'json-null';
+                    }
+                    return '<span class="' + cls + '">' + match + '</span>';
+                });
+            }
+            
+            // 添加表单元素事件监听器
+            playerNameInput.addEventListener('input', function() {
+                updateDataPreview();
+                hideError('player-name');
+            });
+            clearTimeInput.addEventListener('input', function() {
+                updateDataPreview();
+                hideError('clear-time');
+            });
+            submitTimeInput.addEventListener('change', function() {
+                updateDataPreview();
+                hideError('submit-time');
+            });
+            bossSelect.addEventListener('change', function() {
+                updateDataPreview();
+                hideError('boss');
+            });
+            maincSelect.addEventListener('change', function() {
+                updateDataPreview();
+                hideError('mainc');
+            });
+            goldCountInput.addEventListener('input', function() {
+                updateDataPreview();
+                hideError('gold-count');
+            });
+            constgoldCountInput.addEventListener('input', function() {
+                updateDataPreview();
+                hideError('const-gold-count');
+            });
+            notesInput.addEventListener('input', function() {
+                updateDataPreview();
+                hideError('notes');
+            });
+            videoLinkInput.addEventListener('input', function() {
+                updateDataPreview();
+                hideError('video-link');
+            });
+            
+            // 初始更新数据预览
+            updateDataPreview();
+            
+            // 复制数据按钮点击事件
+            if (copyDataBtn) {
+                copyDataBtn.addEventListener('click', function() {
+                    // 先更新数据预览
+                    updateDataPreview();
+                    
+                    // 获取当前预览数据
+                    const previewElement = document.getElementById('data-preview');
+                    const previewText = previewElement.textContent;
+                    
+                    // 删除所有换行和引号外的空格，但保留引号内的空格
+                    const compactText = compactJsonWithQuotedSpaces(previewText);
+                    
+                    // 创建临时文本区域
+                    const textarea = document.createElement('textarea');
+                    textarea.value = compactText;
+                    document.body.appendChild(textarea);
+                    
+                    // 选择并复制文本
+                    textarea.select();
+                    document.execCommand('copy');
+                    
+                    // 移除临时文本区域
+                    document.body.removeChild(textarea);
+                    
+                    // 显示复制成功提示
+                    copySuccess.classList.remove('hidden');
+                    
+                    // 3秒后隐藏提示
+                    setTimeout(() => {
+                        copySuccess.classList.add('hidden');
+                    }, 3000);
+                });
+            } else {
+                console.error('未找到copy-data-btn按钮');
+            }
+            
+            // 打开B站私信按钮点击事件
+            if (openBilibiliBtn) {
+                openBilibiliBtn.addEventListener('click', function() {
+                    // B站私信页面URL
+                    const bilibiliMessageUrl = 'https://message.bilibili.com/?spm_id_from=333.1387.0.0#/whisper/mid435511059';
+                    
+                    // 在新标签页中打开
+                    window.open(bilibiliMessageUrl, '_blank');
+                });
+            } else {
+                console.error('未找到open-bilibili-btn按钮');
+            }
+        }
+        
+        // 隐藏错误提示
+        function hideError(fieldId) {
+            let field = document.getElementById(fieldId);
+            if (fieldId === 'team') {
+                // 队伍配置错误，需要特殊处理
+                const teamSection = document.querySelector('.team-slot').parentElement.parentElement;
+                const errorElement = teamSection.querySelector('.error-message');
+                if (errorElement) {
+                    errorElement.remove();
+                }
+            } else {
+                // 移除错误信息元素
+                let errorElement = field.nextElementSibling;
+                if (errorElement && errorElement.classList.contains('error-message')) {
+                    errorElement.remove();
+                }
+                // 移除边框红色样式
+                field.classList.remove('border-genshin-red');
+            }
+        }
+        
+        // 验证表单
+        function validateForm() {
+            let isValid = true;
+            let firstErrorField = null;
+            
+            // 验证玩家名称
+            const playerName = document.getElementById('player-name').value.trim();
+            if (!playerName) {
+                showError('player-name', '请输入玩家名称');
+                isValid = false;
+                if (!firstErrorField) firstErrorField = 'player-name';
+            } else {
+                hideError('player-name');
+            }
+            
+            // 验证通关时间
+            const clearTime = parseInt(document.getElementById('clear-time').value);
+            if (isNaN(clearTime) || clearTime <= 0) {
+                showError('clear-time', '请输入有效的通关时间');
+                isValid = false;
+                if (!firstErrorField) firstErrorField = 'clear-time';
+            } else {
+                hideError('clear-time');
+            }
+            
+            // 验证BOSS选择
+            const boss = document.getElementById('boss').value;
+            if (!boss) {
+                showError('boss', '请选择挑战的BOSS');
+                isValid = false;
+                if (!firstErrorField) firstErrorField = 'boss';
+            } else {
+                hideError('boss');
+            }
+            
+            // 验证主C选择
+            const mainc = document.getElementById('mainc').value;
+            if (!mainc) {
+                showError('mainc', '请选择主C角色');
+                isValid = false;
+                if (!firstErrorField) firstErrorField = 'mainc';
+            } else {
+                hideError('mainc');
+            }
+            
+            // 验证限定金数
+            const gold = parseInt(document.getElementById('gold-count').value);
+            if (isNaN(gold) || gold < 0 || gold > 48) {
+                showError('gold-count', '请输入有效的限定金数（0-48）');
+                isValid = false;
+                if (!firstErrorField) firstErrorField = 'gold-count';
+            } else {
+                hideError('gold-count');
+            }
+            
+            // 验证常驻金数
+            const constgold = parseInt(document.getElementById('constgold-count').value);
+            if (isNaN(constgold) || constgold < 0 || constgold > 48) {
+                showError('constgold-count', '请输入有效的常驻金数（0-48）');
+                isValid = false;
+                if (!firstErrorField) firstErrorField = 'constgold-count';
+            } else {
+                hideError('constgold-count');
+            }
+            
+            // 验证队伍配置
+            const hasCharacter = team.some(slot => slot.character !== null);
+            if (!hasCharacter) {
+                showError('team', '请至少选择1个角色');
+                isValid = false;
+                if (!firstErrorField) firstErrorField = 'team';
+            } else {
+                hideError('team');
+            }
+            
+            // 验证视频链接
+            const videoLink = document.getElementById('video-link').value.trim();
+            if (!videoLink) {
+                showError('video-link', '请输入视频链接');
+                isValid = false;
+                if (!firstErrorField) firstErrorField = 'video-link';
+            } else if (!isValidVideoLink(videoLink)) {
+                showError('video-link', '请输入有效的B站视频链接');
+                isValid = false;
+                if (!firstErrorField) firstErrorField = 'video-link';
+            } else {
+                hideError('video-link');
+            }
+            
+            // 如果有错误，滚动到第一个错误字段
+            if (!isValid && firstErrorField) {
+                console.log('滚动到第一个错误字段:', firstErrorField);
+                let element;
+                if (firstErrorField === 'team') {
+                    element = document.querySelector('.team-slot').parentElement.parentElement;
+                } else {
+                    element = document.getElementById(firstErrorField);
+                }
+                
+                if (element) {
+                    element.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                    // 给错误字段添加短暂的高亮效果
+                    element.classList.add('error-highlight');
+                    setTimeout(() => {
+                        element.classList.remove('error-highlight');
+                    }, 2000);
+                }
+            }
+            
+            console.log('表单验证:', isValid);
+            return isValid;
+        }
+        
+        // 验证视频链接
+        function isValidVideoLink(link) {
+            const bilibiliRegex = /^(https?:\/\/)?(www\.)?bilibili\.com\/video\/(av|BV)[a-zA-Z0-9]+/;
+            return bilibiliRegex.test(link);
+        }
+        
+        // 显示错误提示
+        function showError(fieldId, message) {
+            let field = document.getElementById(fieldId);
+            if (fieldId === 'team') {
+                // 队伍配置错误，需要特殊处理
+                const teamSection = document.querySelector('.team-slot').parentElement.parentElement;
+                let errorElement = teamSection.querySelector('.error-message');
+                
+                if (!errorElement) {
+                    errorElement = document.createElement('p');
+                    errorElement.className = 'error-message text-genshin-red text-sm mt-2';
+                    teamSection.appendChild(errorElement);
+                }
+                
+                errorElement.textContent = message;
+                return;
+            }
+            
+            let errorElement = field.nextElementSibling;
+            
+            if (!errorElement || !errorElement.classList.contains('error-message')) {
+                errorElement = document.createElement('p');
+                errorElement.className = 'error-message text-genshin-red text-sm mt-1';
+                field.parentNode.insertBefore(errorElement, field.nextSibling);
+            }
+            
+            errorElement.textContent = message;
+            field.classList.add('border-genshin-red');
+        }
+        
+        // 收集表单数据
+        function collectFormData() {
+            const playerName = document.getElementById('player-name').value.trim();
+            const clearTime = parseInt(document.getElementById('clear-time').value);
+            const boss = document.getElementById('boss').value;
+            const mainc = document.getElementById('mainc').value;
+            const gold = parseInt(document.getElementById('gold-count').value);
+            const constgold = parseInt(document.getElementById('constgold-count').value);
+            const videoLink = document.getElementById('video-link').value.trim();
+            const submitTime = document.getElementById('submit-time').value;
+            
+            // 收集队伍配置（包含角色、命之座和武器信息）
+            // 只返回用户选择的角色（至少1个，最多4个）
+            const teamCharacters = team.filter(slot => slot.character !== null).map(slot => ({
+                character: slot.character.name,
+                constellation: slot.constellation,
+                weapon: slot.weapon
+            }));
+            
+            // 收集命之座信息
+            const constellations = {};
+            team.forEach(slot => {
+                if (slot.character) {
+                    const charConst = document.getElementById(`constellation-${slot.character.name}`);
+                    if (charConst) {
+                        constellations[slot.character.name] = parseInt(charConst.value);
+                    }
+                }
+            });
+            
+            // 收集圣遗物信息
+            const artifacts = {};
+            team.forEach(slot => {
+                if (slot.character) {
+                    const artifactSelect = document.getElementById(`artifact-${slot.character.name}`);
+                    if (artifactSelect) {
+                        artifacts[slot.character.name] = artifactSelect.value;
+                    }
+                }
+            });
+            
+            return {
+                player: playerName,
+                time: clearTime,
+                boss: boss,
+                mainc: mainc,
+                team: teamCharacters,
+                constellation: constellations,
+                artifact: artifacts,
+                gold: gold,
+                constgold: constgold,
+                video: videoLink,
+                submitTime: submitTime
+            };
+        }
+        
+        // 向后端服务器发送数据
+        function submitDataToServer(formData) {
+            // 使用相对路径，Netlify会自动将/api/submit-record路由到functions/submit-record
+            const serverUrl = '/api/submit-record';
+            
+            // 确保submitButton存在
+            const submitButton = document.querySelector('button[type="submit"]');
+            if (!submitButton) {
+                console.error('未找到提交按钮');
+                alert('提交功能异常，请刷新页面重试');
+                return;
+            }
+            
+            // 显示加载状态
+            const originalText = submitButton.innerHTML;
+            submitButton.innerHTML = '<i class="fa fa-spinner fa-spin mr-2"></i>提交中...';
+            submitButton.disabled = true;
+            
+            console.log('准备发送数据到服务器:', serverUrl);
+            console.log('发送的数据:', formData);
+            
+            fetch(serverUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => {
+                console.log('服务器响应状态:', response.status);
+                if (!response.ok) {
+                    throw new Error(`服务器响应错误: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('服务器响应数据:', data);
+                if (data.success) {
+                    // 提交成功
+                    alert('通关记录提交成功！等待管理员审核');
+                    // 重置表单
+                    document.getElementById('upload-form').reset();
+                    // 清空预览数据
+                    const dataPreview = document.getElementById('data-preview');
+                    if (dataPreview) {
+                        dataPreview.textContent = '';
+                    }
+                } else {
+                    // 提交失败
+                    alert(`提交失败: ${data.message || '未知错误'}`);
+                }
+            })
+            .catch(error => {
+                console.error('提交数据失败:', error);
+                // 当无法连接到后端时，显示自定义提示
+                alert('服务暂不可用，可手动复制数据发送b站私信');
+            })
+            .finally(() => {
+                // 恢复按钮状态
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+            });
+        }
+    </script>
+</body>
+</html>

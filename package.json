@@ -1,0 +1,26 @@
+{
+  "name": "genshin-abyss-records-server",
+  "version": "1.0.0",
+  "description": "原神幽境危战难度六通关记录提交服务器",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "genshin",
+    "abyss",
+    "records",
+    "server"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
