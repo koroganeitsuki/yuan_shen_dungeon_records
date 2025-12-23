@@ -1,0 +1,25 @@
+# Render configuration file
+# https://render.com/docs/yaml-spec
+
+# Define the web service
+type: web
+environment: node
+buildCommand: npm install
+startCommand: npm start
+
+# Set the number of instances (free tier allows 1)
+instanceCount: 1
+
+# Set the instance type (free tier)
+instanceType: free
+
+# Specify the root directory (where package.json is located)
+rootDir: .
+
+# Define environment variables (if needed)
+envVars:
+  - key: NODE_ENV
+    value: production
+
+# Configure health check (optional but recommended)
+healthCheckPath: /api/health
