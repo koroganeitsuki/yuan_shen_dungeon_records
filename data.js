@@ -1,6 +1,6 @@
 // 资源访问路径前缀
-const access = '';
-// const access = 'https://homdgcat.wiki/homdgcat-res/';
+// const access = '';
+const access = 'https://homdgcat.wiki/homdgcat-res/';
 
 // 数据存储模块
 const DataStore = {
