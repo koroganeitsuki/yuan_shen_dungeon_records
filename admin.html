@@ -181,7 +181,7 @@
                             <th class="px-4 py-3 text-left text-xs font-medium text-abyss-light uppercase tracking-wider">主C</th>
                             <th class="px-4 py-3 text-left text-xs font-medium text-abyss-light uppercase tracking-wider">Boss</th>
                             <th class="px-4 py-3 text-left text-xs font-medium text-abyss-light uppercase tracking-wider">时间</th>
-                            <th class="px-4 py-3 text-left text-xs font-medium text-abyss-light uppercase tracking-wider">黄金数</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-abyss-light uppercase tracking-wider">限定金数</th>
                             <th class="px-4 py-3 text-left text-xs font-medium text-abyss-light uppercase tracking-wider">状态</th>
                             <th class="px-4 py-3 text-left text-xs font-medium text-abyss-light uppercase tracking-wider">提交时间</th>
                             <th class="px-4 py-3 text-left text-xs font-medium text-abyss-light uppercase tracking-wider">操作</th>
@@ -226,11 +226,11 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
-                        <label for="edit-gold" class="block text-sm font-medium text-abyss-light mb-2">黄金数</label>
+                        <label for="edit-gold" class="block text-sm font-medium text-abyss-light mb-2">限定金数</label>
                         <input type="number" id="edit-gold" class="w-full bg-abyss-dark/80 border border-abyss-primary/30 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-abyss-primary">
                     </div>
                     <div>
-                        <label for="edit-constgold" class="block text-sm font-medium text-abyss-light mb-2">满命黄金数</label>
+                        <label for="edit-constgold" class="block text-sm font-medium text-abyss-light mb-2">常驻金数</label>
                         <input type="number" id="edit-constgold" class="w-full bg-abyss-dark/80 border border-abyss-primary/30 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-abyss-primary">
                     </div>
                 </div>
@@ -248,7 +248,7 @@
                 </div>
                 <div class="mb-4">
                     <label for="edit-video" class="block text-sm font-medium text-abyss-light mb-2">视频链接</label>
-                    <input type="url" id="edit-video" class="w-full bg-abyss-dark/80 border border-abyss-primary/30 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-abyss-primary">
+                    <input type="text" id="edit-video" class="w-full bg-abyss-dark/80 border border-abyss-primary/30 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-abyss-primary">
                 </div>
                 <div class="mb-4">
                     <label for="edit-team" class="block text-sm font-medium text-abyss-light mb-2">队伍配置（JSON格式：[{"name":"角色名","constellation":命座数},{"name":"角色名","constellation":命座数},...]）</label>
@@ -574,7 +574,10 @@
 
             document.querySelectorAll('.delete-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
-                    deleteRecord(parseInt(this.dataset.id));
+                    const recordId = parseInt(this.dataset.id);
+                    if (confirm('确定要删除这条记录吗？此操作不可恢复。')) {
+                        deleteRecord(recordId);
+                    }
                 });
             });
         }
@@ -663,6 +666,11 @@
         // 更新记录
         async function updateRecord() {
             const id = document.getElementById('edit-id').value;
+            let video = document.getElementById('edit-video').value;
+            // 如果视频链接没有协议，添加 https://
+            if (video && !video.startsWith('http')) {
+                video = 'https://' + video;
+            }
             const recordData = {
                 player: document.getElementById('edit-player').value,
                 mainc: document.getElementById('edit-mainc').value,
@@ -673,7 +681,7 @@
                 constgold: parseInt(document.getElementById('edit-constgold').value),
                 status: document.getElementById('edit-status').value,
                 notes: document.getElementById('edit-notes').value,
-                video: document.getElementById('edit-video').value
+                video: video
             };
 
             try {
@@ -711,6 +719,11 @@
 
         // 创建记录
         async function createRecord() {
+            let video = document.getElementById('edit-video').value;
+            // 如果视频链接没有协议，添加 https://
+            if (video && !video.startsWith('http')) {
+                video = 'https://' + video;
+            }
             const recordData = {
                 player: document.getElementById('edit-player').value,
                 mainc: document.getElementById('edit-mainc').value,
@@ -721,7 +734,7 @@
                 constgold: parseInt(document.getElementById('edit-constgold').value),
                 status: document.getElementById('edit-status').value,
                 notes: document.getElementById('edit-notes').value,
-                video: document.getElementById('edit-video').value,
+                video: video,
                 submitTime: new Date().toISOString()
             };
 
@@ -760,9 +773,6 @@
 
         // 删除记录
         async function deleteRecord(id) {
-            if (!confirm('确定要删除这条记录吗？此操作不可恢复。')) {
-                return;
-            }
 
             try {
                 const response = await fetch(`/api/admin/records/${id}`, {
