@@ -1,41 +1,6 @@
 // 通关记录数据
 const Records = [
         {
-            id: 143,
-            player: '测试玩家',
-            mainc: '钟离',
-            team: [
-                {
-                        character: '钟离',
-                        constellation: 6,
-                        weapon: 5
-                    },
-                {
-                        character: '班尼特',
-                        constellation: 6,
-                        weapon: 5
-                    },
-                {
-                        character: '香菱',
-                        constellation: 6,
-                        weapon: 5
-                    },
-                {
-                        character: '行秋',
-                        constellation: 6,
-                        weapon: 5
-                    }
-            ],
-            time: 120,
-            boss: '冰使徒',
-            gold: 1,
-            constgold: 1,
-            notes: '测试记录',
-            video: 'https://example.com/video.mp4',
-            status: 'pending',
-            submitTime: '2025-12-23T07:53:59.614Z'
-        },
-        {
             id: 142,
             player: '测试玩家',
             mainc: '钟离',

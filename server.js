@@ -17,10 +17,44 @@ const PORT = 3000;
 app.use(cors({
     origin: '*', // 允许所有来源访问
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization', 'Admin-Token']
 }));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// 管理员认证中间件
+const adminAuthMiddleware = (req, res, next) => {
+    // 从环境变量或默认值获取管理员密码
+    const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'YSadmin2025';
+    const token = req.headers['admin-token'];
+    
+    // 如果没有提供token，检查查询参数
+    if (!token) {
+        const password = req.query.password;
+        if (password && password === ADMIN_PASSWORD) {
+            return next();
+        }
+    } else {
+        // 简单的token验证（实际项目中应该使用更安全的JWT）
+        if (token === ADMIN_PASSWORD) {
+            return next();
+        }
+    }
+    
+    res.status(401).json({
+        success: false,
+        message: '未授权访问，请提供正确的管理员密码'
+    });
+};
+
+// 健康检查不需要认证
+app.get('/api/health', (req, res) => {
+    res.json({
+        success: true,
+        message: '服务器运行正常',
+        timestamp: new Date().toISOString()
+    });
+});
 
 // 静态文件服务 - 用于提供HTML、CSS、JS等静态文件
 app.use(express.static(__dirname));
@@ -444,8 +478,201 @@ app.get('/api/health', (req, res) => {
     });
 });
 
-// 启动服务器 - 监听所有IPv6地址（同时兼容IPv4）
-const server = app.listen(PORT, '::', () => {
+// 管理员API端点：获取所有记录
+app.get('/api/admin/records', adminAuthMiddleware, (req, res) => {
+    try {
+        const records = parseRecordsFromRecordsFile();
+        res.json({
+            success: true,
+            records: records
+        });
+    } catch (error) {
+        log(`获取记录失败: ${error.message}`);
+        res.status(500).json({
+            success: false,
+            message: `服务器内部错误: ${error.message}`
+        });
+    }
+});
+
+// 管理员API端点：更新记录
+app.put('/api/admin/records/:id', adminAuthMiddleware, (req, res) => {
+    try {
+        const id = parseInt(req.params.id);
+        const updatedRecord = req.body;
+        
+        log(`收到更新记录请求，ID: ${id}`);
+        
+        // 从records.js中解析记录数组
+        let records = parseRecordsFromRecordsFile();
+        
+        // 查找要更新的记录
+        const recordIndex = records.findIndex(record => record.id === id);
+        if (recordIndex === -1) {
+            log(`未找到要更新的记录，ID: ${id}`);
+            return res.status(404).json({
+                success: false,
+                message: '未找到要更新的记录'
+            });
+        }
+        
+        // 更新记录
+        records[recordIndex] = {
+            ...records[recordIndex],
+            ...updatedRecord,
+            id: id // 确保ID不变
+        };
+        
+        // 重新生成records.js文件的内容
+        const recordsJsContent = generateRecordsJsContent(records);
+        
+        // 写入记录文件
+        writeRecordsFile(recordsJsContent);
+        
+        log(`记录更新成功，ID: ${id}`);
+        
+        // 返回成功响应
+        res.json({
+            success: true,
+            message: '记录更新成功',
+            record: records[recordIndex]
+        });
+        
+    } catch (error) {
+        log(`更新记录时发生错误: ${error.message}`);
+        res.status(500).json({
+            success: false,
+            message: `服务器内部错误: ${error.message}`
+        });
+    }
+});
+
+// 管理员API端点：删除记录
+app.delete('/api/admin/records/:id', adminAuthMiddleware, (req, res) => {
+    try {
+        const id = parseInt(req.params.id);
+        
+        log(`收到删除记录请求，ID: ${id}`);
+        
+        // 从records.js中解析记录数组
+        let records = parseRecordsFromRecordsFile();
+        
+        // 查找要删除的记录
+        const recordIndex = records.findIndex(record => record.id === id);
+        if (recordIndex === -1) {
+            log(`未找到要删除的记录，ID: ${id}`);
+            return res.status(404).json({
+                success: false,
+                message: '未找到要删除的记录'
+            });
+        }
+        
+        // 删除记录
+        records.splice(recordIndex, 1);
+        
+        // 重新生成records.js文件的内容
+        const recordsJsContent = generateRecordsJsContent(records);
+        
+        // 写入记录文件
+        writeRecordsFile(recordsJsContent);
+        
+        log(`记录删除成功，ID: ${id}`);
+        
+        // 返回成功响应
+        res.json({
+            success: true,
+            message: '记录删除成功'
+        });
+        
+    } catch (error) {
+        log(`删除记录时发生错误: ${error.message}`);
+        res.status(500).json({
+            success: false,
+            message: `服务器内部错误: ${error.message}`
+        });
+    }
+});
+
+// 管理员API端点：创建新记录
+app.post('/api/admin/records', adminAuthMiddleware, (req, res) => {
+    try {
+        const newRecord = req.body;
+        
+        log(`收到创建新记录请求`);
+        
+        // 验证必要字段
+        const requiredFields = ['player', 'mainc', 'team', 'time', 'boss', 'gold', 'constgold'];
+        for (const field of requiredFields) {
+            if (!newRecord[field]) {
+                log(`验证失败: 缺少必要字段 ${field}`);
+                return res.status(400).json({
+                    success: false,
+                    message: `缺少必要字段: ${field}`
+                });
+            }
+        }
+        
+        // 验证队伍数据
+        if (!Array.isArray(newRecord.team) || newRecord.team.length < 1) {
+            log('验证失败: 队伍数据无效');
+            return res.status(400).json({
+                success: false,
+                message: '队伍数据无效，需要至少1个角色'
+            });
+        }
+        
+        // 验证每个角色的数据
+        for (const member of newRecord.team) {
+            if (!member.character || typeof member.constellation !== 'number' || typeof member.weapon !== 'number') {
+                log(`验证失败: 角色数据无效 - ${JSON.stringify(member)}`);
+                return res.status(400).json({
+                    success: false,
+                    message: '角色数据无效'
+                });
+            }
+        }
+        
+        // 设置默认值
+        newRecord.status = newRecord.status || 'pending';
+        newRecord.submitTime = newRecord.submitTime || new Date().toISOString();
+        
+        // 从records.js中解析记录数组
+        let records = parseRecordsFromRecordsFile();
+        
+        // 生成新ID
+        const newId = generateNewId(records);
+        newRecord.id = newId;
+        
+        // 添加新记录到记录数组
+        records.push(newRecord);
+        
+        // 重新生成records.js文件的内容
+        const recordsJsContent = generateRecordsJsContent(records);
+        
+        // 写入记录文件
+        writeRecordsFile(recordsJsContent);
+        
+        log(`新记录创建成功，ID: ${newId}`);
+        
+        // 返回成功响应
+        res.json({
+            success: true,
+            message: '新记录创建成功',
+            record: newRecord,
+            recordId: newId
+        });
+        
+    } catch (error) {
+        log(`创建新记录时发生错误: ${error.message}`);
+        res.status(500).json({
+            success: false,
+            message: `服务器内部错误: ${error.message}`
+        });
+    }
+});
+
+// 启动服务器 - 监听所有地址（同时兼容IPv4和IPv6）
+const server = app.listen(PORT, '0.0.0.0', () => {
     const address = server.address();
     log(`=== 服务器启动信息 ===`);
     log(`服务器启动成功，监听端口: ${PORT}`);

@@ -4,7 +4,7 @@
 # Define services
 services:
   - type: web
-    name: genshin-abyss-records
+    name: yjwz
     env: node
     buildCommand: npm install
     startCommand: npm start
