@@ -56,6 +56,29 @@ app.get('/api/health', (req, res) => {
     });
 });
 
+// API端点：下载records.js文件（临时使用）
+app.get('/api/download-records', (req, res) => {
+    try {
+        // 读取records.js文件
+        const recordsContent = readRecordsFile();
+        
+        // 设置响应头，让浏览器下载文件
+        res.setHeader('Content-Disposition', 'attachment; filename=records.js');
+        res.setHeader('Content-Type', 'application/javascript');
+        res.setHeader('Content-Length', Buffer.byteLength(recordsContent, 'utf8'));
+        
+        // 返回文件内容
+        res.send(recordsContent);
+        log('records.js文件下载成功');
+    } catch (error) {
+        log(`下载records.js文件失败: ${error.message}`);
+        res.status(500).json({
+            success: false,
+            message: `服务器内部错误: ${error.message}`
+        });
+    }
+});
+
 // 静态文件服务 - 用于提供HTML、CSS、JS等静态文件
 app.use(express.static(__dirname));
 
