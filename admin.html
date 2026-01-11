@@ -577,6 +577,11 @@
                             <button class="edit-btn bg-abyss-primary/20 hover:bg-abyss-primary/30 text-abyss-primary px-3 py-1 rounded-lg transition-all text-sm" data-id="${record.id}">
                                 <i class="fa fa-pencil mr-1"></i> 编辑
                             </button>
+                            ${record.video ? `
+                            <a href="${record.video.startsWith('www.') ? 'https://' + record.video : record.video}" target="_blank" class="bg-abyss-success/20 hover:bg-abyss-success/30 text-abyss-success px-3 py-1 rounded-lg transition-all text-sm">
+                                <i class="fa fa-play-circle mr-1"></i> 观看
+                            </a>
+                            ` : ''}
                             <button class="delete-btn bg-abyss-danger/20 hover:bg-abyss-danger/30 text-abyss-danger px-3 py-1 rounded-lg transition-all text-sm" data-id="${record.id}">
                                 <i class="fa fa-trash mr-1"></i> 删除
                             </button>
@@ -829,9 +834,7 @@
 
         // 辅助函数：格式化时间
         function formatTime(seconds) {
-            const mins = Math.floor(seconds / 60);
-            const secs = seconds % 60;
-            return `${mins}:${secs.toString().padStart(2, '0')}`;
+            return `${seconds}秒`;
         }
 
         // 辅助函数：格式化日期

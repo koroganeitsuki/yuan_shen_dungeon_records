@@ -1259,13 +1259,17 @@
                 if (videoLink && videoLink.startsWith('www.')) {
                     videoLink = 'https://' + videoLink;
                 }
-                actionCell.innerHTML = `
-                    <div class="flex space-x-2">
-                        <a href="${videoLink}" target="_blank" class="text-genshin-blue hover:text-genshin-yellow transition-colors" title="观看视频">
-                            <i class="fa fa-play-circle"></i>
-                        </a>
-                    </div>
-                `;
+                if (videoLink) {
+                    actionCell.innerHTML = `
+                        <div class="flex space-x-2">
+                            <a href="${videoLink}" target="_blank" class="text-genshin-blue hover:text-genshin-yellow transition-colors" title="观看视频">
+                                <i class="fa fa-play-circle"></i>
+                            </a>
+                        </div>
+                    `;
+                } else {
+                    actionCell.innerHTML = '-';
+                }
                 row.appendChild(actionCell);
                 
                 tableBody.appendChild(row);

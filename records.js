@@ -5096,7 +5096,7 @@ const Records = [
                 {
                         character: '丝柯克',
                         constellation: 0,
-                        weapon: 1
+                        weapon: 0
                     },
                 {
                         character: '夏洛蒂',
@@ -5109,7 +5109,7 @@ const Records = [
                         weapon: 0
                     },
                 {
-                        character: '莫娜',
+                        character: '爱可菲',
                         constellation: 0,
                         weapon: 0
                     }
@@ -5117,7 +5117,7 @@ const Records = [
             time: 113,
             boss: '深罪浸礼者 · 肃烈狂音',
             gold: 3,
-            constgold: 1,
+            constgold: 0,
             notes: '',
             video: 'https://www.bilibili.com/video/BV1vciEBwEY3/',
             status: 'approved',
@@ -5266,6 +5266,397 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV13CBQBbEWT/',
             status: 'approved',
             submitTime: '2025-12-25T19:55',
+            cup: '无'
+        },
+        {
+            id: 154,
+            player: '艾鸠_（测试数据）',
+            mainc: '6.2金幻化',
+            team: [
+                {
+                        character: '奈芙尔',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '牛顿',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '瓦蕾莎',
+                        constellation: 0,
+                        weapon: 1
+                    }
+            ],
+            time: 180,
+            boss: '6.2金幻化',
+            gold: 10,
+            constgold: 1,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1fcqkBGEns/',
+            status: 'approved',
+            submitTime: '2025-12-20T20:14',
+            cup: '新月杯'
+        },
+        {
+            id: 155,
+            player: '米酒Yahalo',
+            mainc: '奈芙尔',
+            team: [
+                {
+                        character: '奈芙尔',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '菈乌玛',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '行秋',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '深罪浸礼者 · 肃烈狂音',
+            gold: 2,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1GQmLBSEF2/',
+            status: 'approved',
+            submitTime: '2025-12-12T14:03',
+            cup: '无'
+        },
+        {
+            id: 156,
+            player: '黑の辉',
+            mainc: '丝柯克',
+            team: [
+                {
+                        character: '丝柯克',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '夏洛蒂',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '芙宁娜',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '深罪浸礼者 · 肃烈狂音',
+            gold: 3,
+            constgold: 1,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV13fi1BTE4H/',
+            status: 'approved',
+            submitTime: '2026-01-07T20:34',
+            cup: '无'
+        },
+        {
+            id: 157,
+            player: 'CHiwenKi',
+            mainc: '仆人',
+            team: [
+                {
+                        character: '仆人',
+                        constellation: 3,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 117,
+            boss: '深罪浸礼者 · 肃烈狂音',
+            gold: 4,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1oLvpB5EsL/',
+            status: 'approved',
+            submitTime: '2025-12-29T13:57',
+            cup: '无'
+        },
+        {
+            id: 158,
+            player: 'Nukeyowo',
+            mainc: '仆人',
+            team: [
+                {
+                        character: '仆人',
+                        constellation: 1,
+                        weapon: 1
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 1
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 1
+                    }
+            ],
+            time: 119,
+            boss: '深罪浸礼者 · 肃烈狂音',
+            gold: 4,
+            constgold: 1,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1kfB4B3Em5/',
+            status: 'approved',
+            submitTime: '2025-12-22T21:41',
+            cup: '无'
+        },
+        {
+            id: 159,
+            player: '三年胖50斤',
+            mainc: '仆人',
+            team: [
+                {
+                        character: '仆人',
+                        constellation: 2,
+                        weapon: 1
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 1
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '深罪浸礼者 · 肃烈狂音',
+            gold: 4,
+            constgold: 6,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1U9v2BvEuQ/',
+            status: 'approved',
+            submitTime: '2025-12-29T08:00',
+            cup: '无'
+        },
+        {
+            id: 160,
+            player: '鸽梓-',
+            mainc: '玛拉妮',
+            team: [
+                {
+                        character: '玛拉妮',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '火主',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '提纳里',
+                        constellation: 1,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 2,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '深罪浸礼者 · 肃烈狂音',
+            gold: 3,
+            constgold: 6,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1eTqQBFEoD/',
+            status: 'approved',
+            submitTime: '2025-12-19T00:51',
+            cup: '无'
+        },
+        {
+            id: 161,
+            player: '最ニ网管',
+            mainc: '迪卢克',
+            team: [
+                {
+                        character: '迪卢克',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '行秋',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 112,
+            boss: '实验性场力发生装置 · 极端势能',
+            gold: 0,
+            constgold: 2,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1PXB4BjEm3/',
+            status: 'approved',
+            submitTime: '2025-12-22T22:56',
+            cup: '无'
+        },
+        {
+            id: 162,
+            player: '最ニ网管',
+            mainc: '迪卢克',
+            team: [
+                {
+                        character: '迪卢克',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '凯亚',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 115,
+            boss: '实验性场力发生装置 · 极端势能',
+            gold: 0,
+            constgold: 2,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV13ymRBZEVc/',
+            status: 'approved',
+            submitTime: '2025-12-13T22:43',
+            cup: '无'
+        },
+        {
+            id: 163,
+            player: 'Hamlat',
+            mainc: '迪卢克',
+            team: [
+                {
+                        character: '迪卢克',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '行秋',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 108,
+            boss: '实验性场力发生装置 · 极端势能',
+            gold: 0,
+            constgold: 2,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1QDqmB5EAJ',
+            status: 'approved',
+            submitTime: '2025-12-21T16:16',
+            cup: '无'
+        },
+        {
+            id: 164,
+            player: '怀念个锤子',
+            mainc: '宵宫',
+            team: [
+                {
+                        character: '宵宫',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '久岐忍',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '历经百战的暝视龙 · 霜雪苛念',
+            gold: 1,
+            constgold: 1,
+            notes: '95级霄宫',
+            video: 'https://www.bilibili.com/video/BV16bBgBoESw/',
+            status: 'approved',
+            submitTime: '2025-12-24T08:00',
             cup: '无'
         }
     ];

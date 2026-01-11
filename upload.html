@@ -2275,6 +2275,7 @@
             const mainc = document.getElementById('mainc').value;
             const gold = parseFloat(document.getElementById('gold-count').value);
             const constgold = parseFloat(document.getElementById('constgold-count').value);
+            const notes = document.getElementById('notes').value.trim();
             const videoLink = document.getElementById('video-link').value.trim();
             const submitTime = document.getElementById('submit-time').value;
             const cup = document.getElementById('cup').value;
@@ -2319,6 +2320,7 @@
                 artifact: artifacts,
                 gold: gold,
                 constgold: constgold,
+                notes: notes,
                 video: videoLink,
                 submitTime: submitTime,
                 cup: cup
