@@ -187,7 +187,8 @@ function generateRecordsJsContent(records) {
                         constellation: ${member.constellation},
                         weapon: ${member.weapon}
                     }`
-                ).join(',\n                ')}
+                ).join(',
+                ')}
             ],
             time: ${record.time},
             boss: '${safeString(record.boss)}',
@@ -196,7 +197,8 @@ function generateRecordsJsContent(records) {
             notes: '${safeString(record.notes)}',
             video: '${safeString(record.video)}',
             status: '${safeString(record.status)}',
-            submitTime: '${safeString(record.submitTime)}'
+            submitTime: '${safeString(record.submitTime)}',
+            cup: '${safeString(record.cup || '无')}'
         }`;
     }).join(',\n        ');
     
@@ -391,7 +393,8 @@ function generateRecordsArray(records) {
                         constellation: ${member.constellation},
                         weapon: ${member.weapon}
                     }`
-                ).join(',\n                ')}
+                ).join(',
+                ')}
             ],
             time: ${record.time},
             boss: '${safeString(record.boss)}',
@@ -400,7 +403,8 @@ function generateRecordsArray(records) {
             notes: '${safeString(record.notes)}',
             video: '${safeString(record.video)}',
             status: '${safeString(record.status)}',
-            submitTime: '${safeString(record.submitTime)}'
+            submitTime: '${safeString(record.submitTime)}',
+            cup: '${safeString(record.cup || '无')}'
         }`;
     }).join(',\n        ');
 }

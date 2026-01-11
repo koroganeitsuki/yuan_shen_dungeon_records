@@ -162,9 +162,14 @@ const DataStore = {
         { id: 'fatuus_ice', name: '历经百战的霜役人 · 涉血芒锋', avatar: access + 'monster/UI_MonsterIcon_Fatuus_Escadron_Ice.png', element: '冰' },
       { id: 'Archdeacon', name: '深罪浸礼者 · 肃烈狂音', avatar: access + 'monster/ib.png', element: '雷' },
       { id: 'Shamansaurus', name: '历经百战的暝视龙 · 霜雪苛念', avatar: access + 'monster/UI_MonsterIcon_Natsaurus_Shamansaurus_Normal.png', element: '冰' },
-      { id: 'Gravitas', name: '实验性场力发生装置 · 极端势能', avatar: access + 'monster/UI_MonsterIcon_MachinaIustitia_Gravitas.png', element: '岩' }
+      { id: 'Gravitas', name: '实验性场力发生装置 · 极端势能', avatar: access + 'monster/UI_MonsterIcon_MachinaIustitia_Gravitas.png', element: '岩' },
+      { id: 'Primo', name: '深黯魇语之主 · 袭掠锋刃', avatar: access + 'monster/UI_MonsterIcon_Lloigor_Primo.png', element: '雷' },
+      { id: 'HermitCrab_Primo', name: '铁甲熔火帝皇 · 敕命远征', avatar: access + 'monster/UI_MonsterIcon_HermitCrab_Primo.png', element: '火' }
+
     
     ],
+
+    cups:['无','新月杯'],
     
     // 通关记录数据（从records.js中读取）
     get records() {

@@ -511,6 +511,13 @@
                             <option value="pending">未审核记录</option>
                         </select>
                     </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">圣杯</label>
+                        <select id="cup-filter" class="select-genshin w-full">
+                            <option value="all">全部圣杯</option>
+                        </select>
+                    </div>
                 </div>
                 
                 <div class="mt-6 flex justify-end">
@@ -565,6 +572,7 @@
                                     <th class="sortable-header" data-sort="constgold">常驻金</th>
                                     <th class="sortable-header" data-sort="time">通关时间</th>
                                     <th class="sortable-header" data-sort="boss">BOSS</th>
+                                    <th class="sortable-header" data-sort="cup">圣杯</th>
                                     <th>备注</th>
                                     <th>操作</th>
                                 </tr>
@@ -746,6 +754,9 @@
                 
                 // 动态生成主C筛选选项
                 populateMaincFilter();
+                
+                // 动态生成圣杯筛选选项
+                populateCupFilter();
                 
                 // 检查URL参数是否有BOSS筛选
                 const urlParams = new URLSearchParams(window.location.search);
@@ -943,6 +954,35 @@
             });
         }
         
+        // 动态生成圣杯筛选选项
+        function populateCupFilter() {
+            const cupFilter = document.getElementById('cup-filter');
+            
+            // 清空现有选项（保留"全部圣杯"）
+            while (cupFilter.options.length > 1) {
+                cupFilter.remove(1);
+            }
+            
+            // 添加圣杯选项
+            if (DataStore && DataStore.cups) {
+                DataStore.cups.forEach(cup => {
+                    const option = document.createElement('option');
+                    option.value = cup;
+                    option.textContent = cup;
+                    cupFilter.appendChild(option);
+                });
+            } else {
+                // 如果DataStore.cups不可用，使用默认选项
+                const defaultCups = ['无', '新月杯'];
+                defaultCups.forEach(cup => {
+                    const option = document.createElement('option');
+                    option.value = cup;
+                    option.textContent = cup;
+                    cupFilter.appendChild(option);
+                });
+            }
+        }
+        
         // 应用筛选
         function applyFilters() {
             const bossFilter = document.getElementById('boss-filter').value;
@@ -950,6 +990,8 @@
             const goldFilter = document.getElementById('gold-filter').value;
             const timeFilter = document.getElementById('time-filter').value;
             const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const statusFilter = document.getElementById('status-filter').value;
+            const cupFilter = document.getElementById('cup-filter').value;
             
             filteredRecords = allRecords.filter(record => {
                 // BOSS筛选
@@ -993,6 +1035,18 @@
                     }
                 }
                 
+                // 记录状态筛选
+                if (statusFilter === 'approved' && record.status !== 'approved') {
+                    return false;
+                } else if (statusFilter === 'pending' && record.status !== 'pending') {
+                    return false;
+                }
+                
+                // 圣杯筛选
+                if (cupFilter !== 'all' && (record.cup || '无') !== cupFilter) {
+                    return false;
+                }
+                
                 // 搜索筛选
                 if (searchInput && !(
                     record.player.toLowerCase().includes(searchInput) ||
@@ -1031,6 +1085,7 @@
             document.getElementById('time-filter').value = 'all';
             document.getElementById('search-input').value = '';
             document.getElementById('status-filter').value = 'approved';
+            document.getElementById('cup-filter').value = 'all';
             
             // 重新加载记录
             initPage();
@@ -1156,6 +1211,11 @@
                     </div>
                 `;
                 row.appendChild(bossCell);
+                
+                // 圣杯
+                const cupCell = document.createElement('td');
+                cupCell.innerHTML = `<div class="text-center">${record.cup || '无'}</div>`;
+                row.appendChild(cupCell);
                 
                 // 备注
                 const notesCell = document.createElement('td');

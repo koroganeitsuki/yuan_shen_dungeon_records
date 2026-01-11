@@ -26,14 +26,22 @@
                         'genshin-purple': '#9b59b6',
                         'genshin-orange': '#f39c12',
                         'genshin-teal': '#1abc9c',
-                        'physical': '#B7B8B9',
-                        'pyro': '#FF4D4F',
-                        'hydro': '#4285F4',
-                        'electro': '#8E44AD',
-                        'cryo': '#5DB7DE',
-                        'anemo': '#32CD32',
-                        'geo': '#CD853F',
-                        'dendro': '#7CCD7C'
+                        'physical': '#EEEEEE',
+                        'pyro': '#FF5511',
+                        'hydro': '#33AAFF',
+                        'electro': '#CC33FF',
+                        'cryo': '#99EEFF',
+                        'anemo': '#00FFCC',
+                        'geo': '#FFBB55',
+                        'dendro': '#77FF44',
+                        '物理': '#EEEEEE',
+                        '火': '#FF5511',
+                        '水': '#33AAFF',
+                        '雷': '#CC33FF',
+                        '冰': '#99EEFF',
+                        '风': '#00FFCC',
+                        '岩': '#FFBB55',
+                        '草': '#77FF44'
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif']
@@ -200,42 +208,42 @@
             }
             
             .element-btn[data-element="物理"] {
-                background-color: #B7B8B9;
+                background-color: #EEEEEE;
                 color: #121212;
             }
             
             .element-btn[data-element="火"] {
-                background-color: #FF4D4F;
+                background-color: #FF5511;
                 color: white;
             }
             
             .element-btn[data-element="水"] {
-                background-color: #4285F4;
+                background-color: #33AAFF;
                 color: white;
             }
             
             .element-btn[data-element="雷"] {
-                background-color: #8E44AD;
+                background-color: #CC33FF;
                 color: white;
             }
             
             .element-btn[data-element="冰"] {
-                background-color: #5DB7DE;
+                background-color: #99EEFF;
                 color: #121212;
             }
             
             .element-btn[data-element="风"] {
-                background-color: #32CD32;
+                background-color: #99FF99;
                 color: #121212;
             }
             
             .element-btn[data-element="岩"] {
-                background-color: #CD853F;
+                background-color: #FF9933;
                 color: white;
             }
             
             .element-btn[data-element="草"] {
-                background-color: #7CCD7C;
+                background-color: #77FF44;
                 color: #121212;
             }
             
@@ -633,7 +641,7 @@
                         <!-- 已选主C显示 -->
                         <div id="selected-mainc" class="flex items-center mb-4">
                             <div id="selected-mainc-avatar" class="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-700 mr-3">
-                                <img src="" alt="未选择" class="w-full h-full object-cover">
+                                <img src="./UI/paimon.png" alt="未选择" class="w-full h-full object-cover">
                             </div>
                             <div>
                                 <p id="selected-mainc-name" class="text-gray-400">未选择主C角色</p>
@@ -652,14 +660,14 @@
                     <!-- 队伍配置 -->
                     <div class="form-group">
                         <label class="form-label">队伍配置 <span class="text-red-500">*</span></label>
-                        <p class="text-sm text-gray-400 mb-4">选择4名角色并设置命座</p>
+                        <p class="text-sm text-gray-400 mb-4">选择至少1名角色并设置命座武器</p>
                         
                         <!-- 队伍槽位 -->
                         <div class="flex justify-center space-x-6 team-slots">
                             <!-- 队伍槽位1 -->
                             <div class="team-slot" data-slot="0">
                                 <div class="team-character hidden">
-                                    <img src="" alt="" class="w-16 h-16 rounded-full mx-auto">
+                                    <img src="./UI/paimon.png" alt="" class="w-16 h-16 rounded-full mx-auto">
                                     <div class="team-constellation">0</div>
                                     <div class="team-weapon">0</div>
                                 </div>
@@ -672,7 +680,7 @@
                             <!-- 队伍槽位2 -->
                             <div class="team-slot" data-slot="1">
                                 <div class="team-character hidden">
-                                    <img src="" alt="" class="w-16 h-16 rounded-full mx-auto">
+                                    <img src="./UI/paimon.png" alt="" class="w-16 h-16 rounded-full mx-auto">
                                     <div class="team-constellation">0</div>
                                     <div class="team-weapon">0</div>
                                 </div>
@@ -685,7 +693,7 @@
                             <!-- 队伍槽位3 -->
                             <div class="team-slot" data-slot="2">
                                 <div class="team-character hidden">
-                                    <img src="" alt="" class="w-16 h-16 rounded-full mx-auto">
+                                    <img src="./UI/paimon.png" alt="" class="w-16 h-16 rounded-full mx-auto">
                                     <div class="team-constellation">0</div>
                                     <div class="team-weapon">0</div>
                                 </div>
@@ -698,7 +706,7 @@
                             <!-- 队伍槽位4 -->
                             <div class="team-slot" data-slot="3">
                                 <div class="team-character hidden">
-                                    <img src="" alt="" class="w-16 h-16 rounded-full mx-auto">
+                                    <img src="./UI/paimon.png" alt="" class="w-16 h-16 rounded-full mx-auto">
                                     <div class="team-constellation">0</div>
                                     <div class="team-weapon">0</div>
                                 </div>
@@ -709,24 +717,30 @@
                             </div>
                         </div>
                         
-                        <div class="form-error mt-2">请选择4个角色并设置命座</div>
+                        <div class="form-error mt-2">请选择至少1个角色并设置命座武器</div>
                     </div>
                     
                     <!-- 限定金数 -->
                     <div class="form-group">
                         <label for="gold-count" class="form-label">限定金数 <span class="text-red-500">*</span></label>
-                        <input type="number" id="gold-count" name="gold-count" class="form-input w-full" placeholder="请输入限定金数（0-48）" min="0" max="48" required>
-                        <div class="form-error">请输入有效的限定金数（0-48）</div>
+                        <input type="number" id="gold-count" name="gold-count" class="form-input w-full" placeholder="请输入限定金数（0-48，支持小数如0.25）" min="0" max="48" step="0.01" required>
+                        <div class="form-error">请输入有效的限定金数</div>
                     </div>
                     
                     <!-- 常驻金数 -->
                     <div class="form-group">
-                        <label for="constgold-count" class="form-label">常驻金数（95级=1常驻金，100级=3常驻金） <span class="text-red-500">*</span></label>
-                        <input type="number" id="constgold-count" name="constgold-count" class="form-input w-full" placeholder="请输入常驻金数（0-48）" min="0" max="48" required>
-                        <div class="form-error">请输入有效的常驻金数（0-48）</div>
+                        <label for="constgold-count" class="form-label">常驻金数（95级=1常驻金，100级=3常驻金，参与比赛的记录请按比赛规定填写） <span class="text-red-500">*</span></label>
+                        <input type="number" id="constgold-count" name="constgold-count" class="form-input w-full" placeholder="请输入常驻金数（0-48，支持小数如0.25）" min="0" max="48" step="0.01" required>
+                        <div class="form-error">请输入有效的常驻金数</div>
                     </div>
                     
-                    
+                    <!-- 圣杯选择 -->
+                    <div class="form-group">
+                        <label for="cup" class="form-label">圣杯</label>
+                        <select id="cup" name="cup" class="form-input w-full">
+                            <!-- 圣杯选项将通过JavaScript动态生成 -->
+                        </select>
+                    </div>
                     
                     <!-- 备注 -->
                     <div class="form-group">
@@ -939,7 +953,7 @@
         function getCharacterAvatarUrl(characterName) {
             // 在DataStore中查找角色
             const character = DataStore.characters.find(char => char.name === characterName);
-            return character ? character.avatar : 'https://via.placeholder.com/40';
+            return character ? character.avatar : './UI/paimon.png';
         }
         
         // 队伍数据
@@ -1032,8 +1046,32 @@
             console.log('设置默认上传时间...');
             setDefaultSubmitTime();
             
+            // 初始化圣杯选择器
+            console.log('初始化圣杯选择器...');
+            initCupSelector();
+            
             console.log('所有功能初始化完成！');
         });
+        
+        // 初始化圣杯选择器
+        function initCupSelector() {
+            const cupSelect = document.getElementById('cup');
+            
+            // 清空现有选项
+            cupSelect.innerHTML = '';
+            
+            // 添加圣杯选项
+            if (DataStore && DataStore.cups) {
+                DataStore.cups.forEach(cup => {
+                    const option = document.createElement('option');
+                    option.value = cup;
+                    option.textContent = cup;
+                    cupSelect.appendChild(option);
+                });
+            } else {
+                console.error('DataStore或DataStore.cups不可用');
+            }
+        }
         
 
         
@@ -1789,14 +1827,15 @@
             function updateDataPreview() {
                 // 获取表单数据
                 const playerName = playerNameInput.value.trim() || '';
-                const clearTime = parseInt(clearTimeInput.value) || 0;
-                const submitTime = submitTimeInput.value || '';
-                const boss = bossSelect.value || '';
-                const mainc = maincSelect.value || '';
-                const goldCount = parseInt(goldCountInput.value) || 0;
-                const constgoldCount = parseInt(constgoldCountInput.value) || 0;
-                const notes = notesInput.value.trim() || '';
-                let videoLink = videoLinkInput.value.trim() || '';
+            const clearTime = parseInt(clearTimeInput.value) || 0;
+            const submitTime = submitTimeInput.value || '';
+            const boss = bossSelect.value || '';
+            const mainc = maincSelect.value || '';
+            const goldCount = parseFloat(goldCountInput.value) || 0;
+            const constgoldCount = parseFloat(constgoldCountInput.value) || 0;
+            const notes = notesInput.value.trim() || '';
+            let videoLink = videoLinkInput.value.trim() || '';
+            const cup = document.getElementById('cup').value || '';
                 
                 // 处理视频链接，如果以https://www.开头则移除https://前缀
                 if (videoLink && videoLink.startsWith('https://www.')) {
@@ -1843,7 +1882,8 @@
                     notes: notes,
                     video: videoLink,
                     status: "approved",
-                    submitTime: formattedSubmitTime
+                    submitTime: formattedSubmitTime,
+                    cup: cup
                 };
                 
                 // 转换为格式化的JavaScript对象字符串（不带引号的键）
@@ -2100,9 +2140,9 @@
             }
             
             // 验证限定金数
-            const gold = parseInt(document.getElementById('gold-count').value);
+            const gold = parseFloat(document.getElementById('gold-count').value);
             if (isNaN(gold) || gold < 0 || gold > 48) {
-                showError('gold-count', '请输入有效的限定金数（0-48）');
+                showError('gold-count', '请输入有效的限定金数（0-48，支持小数如0.25）');
                 isValid = false;
                 if (!firstErrorField) firstErrorField = 'gold-count';
             } else {
@@ -2110,9 +2150,9 @@
             }
             
             // 验证常驻金数
-            const constgold = parseInt(document.getElementById('constgold-count').value);
+            const constgold = parseFloat(document.getElementById('constgold-count').value);
             if (isNaN(constgold) || constgold < 0 || constgold > 48) {
-                showError('constgold-count', '请输入有效的常驻金数（0-48）');
+                showError('constgold-count', '请输入有效的常驻金数（0-48，支持小数如0.25）');
                 isValid = false;
                 if (!firstErrorField) firstErrorField = 'constgold-count';
             } else {
@@ -2212,10 +2252,11 @@
             const clearTime = parseInt(document.getElementById('clear-time').value);
             const boss = document.getElementById('boss').value;
             const mainc = document.getElementById('mainc').value;
-            const gold = parseInt(document.getElementById('gold-count').value);
-            const constgold = parseInt(document.getElementById('constgold-count').value);
+            const gold = parseFloat(document.getElementById('gold-count').value);
+            const constgold = parseFloat(document.getElementById('constgold-count').value);
             const videoLink = document.getElementById('video-link').value.trim();
             const submitTime = document.getElementById('submit-time').value;
+            const cup = document.getElementById('cup').value;
             
             // 收集队伍配置（包含角色、命之座和武器信息）
             // 只返回用户选择的角色（至少1个，最多4个）
@@ -2258,7 +2299,8 @@
                 gold: gold,
                 constgold: constgold,
                 video: videoLink,
-                submitTime: submitTime
+                submitTime: submitTime,
+                cup: cup
             };
         }
         
