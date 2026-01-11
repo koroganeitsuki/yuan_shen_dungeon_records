@@ -1,76 +1,6 @@
 // 通关记录数据
 const Records = [
         {
-            id: 144,
-            player: 'JX67',
-            mainc: '温迪',
-            team: [
-                {
-                        character: '温迪',
-                        constellation: 0,
-                        weapon: 0
-                    },
-                {
-                        character: '珐露珊',
-                        constellation: 6,
-                        weapon: 0
-                    },
-                {
-                        character: '班尼特',
-                        constellation: 6,
-                        weapon: 0
-                    },
-                {
-                        character: '菲谢尔',
-                        constellation: 6,
-                        weapon: 0
-                    }
-            ],
-            time: 114,
-            boss: '历经百战的暝视龙 · 霜雪苛念',
-            gold: 1,
-            constgold: 0,
-            notes: '',
-            video: 'https://www.bilibili.com/video/BV1CBqyBREsV/',
-            status: 'approved',
-            submitTime: '2025/12/21 5:26:0'
-        },
-        {
-            id: 142,
-            player: '测试玩家',
-            mainc: '钟离',
-            team: [
-                {
-                        character: '钟离',
-                        constellation: 6,
-                        weapon: 5
-                    },
-                {
-                        character: '班尼特',
-                        constellation: 6,
-                        weapon: 5
-                    },
-                {
-                        character: '香菱',
-                        constellation: 6,
-                        weapon: 5
-                    },
-                {
-                        character: '行秋',
-                        constellation: 6,
-                        weapon: 5
-                    }
-            ],
-            time: 120,
-            boss: '冰使徒',
-            gold: 1,
-            constgold: 1,
-            notes: '测试记录',
-            video: 'https://example.com/video.mp4',
-            status: 'pending',
-            submitTime: '2025-12-23T07:52:28.676Z'
-        },
-        {
             id: 1,
             player: '眞過分',
             mainc: '玛薇卡',
@@ -103,7 +33,8 @@ const Records = [
             notes: '3星武器',
             video: 'https://www.bilibili.com/video/BV1CLhmziEsF',
             status: 'approved',
-            submitTime: '2025/8/28 21:34:00'
+            submitTime: '2025/8/28 21:34:00',
+            cup: '无'
         },
         {
             id: 2,
@@ -138,7 +69,8 @@ const Records = [
             notes: '精5大月卡武器',
             video: 'https://www.bilibili.com/video/BV1YBakzuEsb/',
             status: 'approved',
-            submitTime: '2025/9/4 7:00:00'
+            submitTime: '2025/9/4 7:00:00',
+            cup: '无'
         },
         {
             id: 3,
@@ -173,7 +105,8 @@ const Records = [
             notes: '精3大月卡武器',
             video: 'https://www.bilibili.com/video/BV1qpaSzYE2U/',
             status: 'approved',
-            submitTime: '2025/9/4 23:04:00'
+            submitTime: '2025/9/4 23:04:00',
+            cup: '无'
         },
         {
             id: 4,
@@ -208,7 +141,8 @@ const Records = [
             notes: '精5大月卡武器',
             video: 'https://www.bilibili.com/video/BV15degzsEjy/',
             status: 'approved',
-            submitTime: '2025/8/20 17:31:00'
+            submitTime: '2025/8/20 17:31:00',
+            cup: '无'
         },
         {
             id: 5,
@@ -243,7 +177,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1dPtAzsE1W/',
             status: 'approved',
-            submitTime: '2025/8/6 16:02:00'
+            submitTime: '2025/8/6 16:02:00',
+            cup: '无'
         },
         {
             id: 6,
@@ -278,7 +213,8 @@ const Records = [
             notes: '神乐瓦',
             video: 'https://www.bilibili.com/video/BV1KqtRz9EBa/',
             status: 'approved',
-            submitTime: '2025/8/12 13:25:00'
+            submitTime: '2025/8/12 13:25:00',
+            cup: '无'
         },
         {
             id: 7,
@@ -313,7 +249,8 @@ const Records = [
             notes: '精5螭骨火神',
             video: 'https://www.bilibili.com/video/BV1ophCzLEje/',
             status: 'approved',
-            submitTime: '2025/8/31 14:01:00'
+            submitTime: '2025/8/31 14:01:00',
+            cup: '无'
         },
         {
             id: 8,
@@ -348,7 +285,8 @@ const Records = [
             notes: '精2鸟枪',
             video: 'https://www.bilibili.com/video/BV1Syt6zQEa4/',
             status: 'approved',
-            submitTime: '2025/8/8 2:12:00'
+            submitTime: '2025/8/8 2:12:00',
+            cup: '无'
         },
         {
             id: 9,
@@ -383,7 +321,8 @@ const Records = [
             notes: '精5大月卡武器',
             video: 'https://www.bilibili.com/video/BV1pqtzzBEGc/',
             status: 'approved',
-            submitTime: '2025/8/7 20:15:00'
+            submitTime: '2025/8/7 20:15:00',
+            cup: '无'
         },
         {
             id: 10,
@@ -418,7 +357,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1xVtbz5ERd/',
             status: 'approved',
-            submitTime: '2025/8/9 18:35:00'
+            submitTime: '2025/8/9 18:35:00',
+            cup: '无'
         },
         {
             id: 11,
@@ -453,7 +393,8 @@ const Records = [
             notes: '若水恰',
             video: 'https://www.bilibili.com/video/BV17iewzTEMp/',
             status: 'approved',
-            submitTime: '2025/8/19 20:36:00'
+            submitTime: '2025/8/19 20:36:00',
+            cup: '无'
         },
         {
             id: 12,
@@ -488,7 +429,8 @@ const Records = [
             notes: '2莫等效1命',
             video: 'https://www.bilibili.com/video/BV1rttHzDE6T',
             status: 'approved',
-            submitTime: '2025/8/9 2:01:00'
+            submitTime: '2025/8/9 2:01:00',
+            cup: '无'
         },
         {
             id: 13,
@@ -523,11 +465,12 @@ const Records = [
             notes: '飞雷恰',
             video: 'https://www.bilibili.com/video/BV1NXtBzzEg5/',
             status: 'approved',
-            submitTime: '2025/8/7 21:11:00'
+            submitTime: '2025/8/7 21:11:00',
+            cup: '无'
         },
         {
             id: 14,
-            player: 'くろがねいつき',
+            player: 'くろがねいつき（黑の辉）',
             mainc: '丝柯克',
             team: [
                 {
@@ -558,7 +501,8 @@ const Records = [
             notes: '没有爱可菲',
             video: 'https://www.bilibili.com/video/BV1bPeazzEpW/',
             status: 'approved',
-            submitTime: '2025/8/22 22:44:00'
+            submitTime: '2025/8/22 22:44:00',
+            cup: '无'
         },
         {
             id: 15,
@@ -593,7 +537,8 @@ const Records = [
             notes: '护摩爱',
             video: 'https://www.bilibili.com/video/BV1tzbJzbEk6/',
             status: 'approved',
-            submitTime: '2025/8/15 9:45:00'
+            submitTime: '2025/8/15 9:45:00',
+            cup: '无'
         },
         {
             id: 16,
@@ -628,7 +573,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1GfeyznEvQ/',
             status: 'approved',
-            submitTime: '2025/8/27 13:35:00'
+            submitTime: '2025/8/27 13:35:00',
+            cup: '无'
         },
         {
             id: 17,
@@ -663,7 +609,8 @@ const Records = [
             notes: '精5大月卡武器',
             video: 'https://www.bilibili.com/video/BV1cWtKzuEDX/',
             status: 'approved',
-            submitTime: '2025/8/7 8:40:00'
+            submitTime: '2025/8/7 8:40:00',
+            cup: '无'
         },
         {
             id: 18,
@@ -698,7 +645,8 @@ const Records = [
             notes: '精5大月卡武器',
             video: 'https://www.bilibili.com/video/BV18renzyEKt/',
             status: 'approved',
-            submitTime: '2025/8/24 23:10:00'
+            submitTime: '2025/8/24 23:10:00',
+            cup: '无'
         },
         {
             id: 19,
@@ -733,7 +681,8 @@ const Records = [
             notes: '精5大月卡武器',
             video: 'https://www.bilibili.com/video/BV1sYbnzpENJ/',
             status: 'approved',
-            submitTime: '2025/8/15 16:44:00'
+            submitTime: '2025/8/15 16:44:00',
+            cup: '无'
         },
         {
             id: 20,
@@ -768,7 +717,8 @@ const Records = [
             notes: '精5大月卡武器',
             video: 'https://www.bilibili.com/video/BV1kdYvzqEaZ/',
             status: 'approved',
-            submitTime: '2025/8/16 18:21:00'
+            submitTime: '2025/8/16 18:21:00',
+            cup: '无'
         },
         {
             id: 21,
@@ -803,7 +753,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1cHeCzoEb3/',
             status: 'approved',
-            submitTime: '2025/8/27 9:23:00'
+            submitTime: '2025/8/27 9:23:00',
+            cup: '无'
         },
         {
             id: 22,
@@ -838,7 +789,8 @@ const Records = [
             notes: '精3大月卡武器',
             video: 'https://www.bilibili.com/video/BV12ht8zDE9S/',
             status: 'approved',
-            submitTime: '2025/8/10 0:52:00'
+            submitTime: '2025/8/10 0:52:00',
+            cup: '无'
         },
         {
             id: 23,
@@ -873,7 +825,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1Eftoz7EgC/',
             status: 'approved',
-            submitTime: '2025/8/13 9:55:00'
+            submitTime: '2025/8/13 9:55:00',
+            cup: '无'
         },
         {
             id: 24,
@@ -908,7 +861,8 @@ const Records = [
             notes: '1命塔利雅',
             video: 'https://www.bilibili.com/video/BV1eTYezHEGU/',
             status: 'approved',
-            submitTime: '2025/8/16 13:12:00'
+            submitTime: '2025/8/16 13:12:00',
+            cup: '无'
         },
         {
             id: 25,
@@ -943,7 +897,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1MjbEzxErx/',
             status: 'approved',
-            submitTime: '2025/8/15 9:40:00'
+            submitTime: '2025/8/15 9:40:00',
+            cup: '无'
         },
         {
             id: 26,
@@ -978,11 +933,12 @@ const Records = [
             notes: '波波剑丝',
             video: 'https://www.bilibili.com/video/BV1CBbezxEbb/',
             status: 'approved',
-            submitTime: '2025/8/14 4:18:00'
+            submitTime: '2025/8/14 4:18:00',
+            cup: '无'
         },
         {
             id: 27,
-            player: 'くろがねいつき',
+            player: 'くろがねいつき（黑の辉）',
             mainc: '丝柯克',
             team: [
                 {
@@ -1013,7 +969,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1QdY1z7E6B/',
             status: 'approved',
-            submitTime: '2025/8/17 19:45:00'
+            submitTime: '2025/8/17 19:45:00',
+            cup: '无'
         },
         {
             id: 28,
@@ -1048,7 +1005,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1jMaCzUEZ1/',
             status: 'approved',
-            submitTime: '2025/9/4 4:01:00'
+            submitTime: '2025/9/4 4:01:00',
+            cup: '无'
         },
         {
             id: 29,
@@ -1083,7 +1041,8 @@ const Records = [
             notes: '板砖希',
             video: 'https://www.bilibili.com/video/BV1bGemzJE97/',
             status: 'approved',
-            submitTime: '2025/8/28 0:30:00'
+            submitTime: '2025/8/28 0:30:00',
+            cup: '无'
         },
         {
             id: 30,
@@ -1118,7 +1077,8 @@ const Records = [
             notes: '苍古希',
             video: 'https://www.bilibili.com/video/BV14Tt4z6Eop/',
             status: 'approved',
-            submitTime: '2025/8/9 15:02:00'
+            submitTime: '2025/8/9 15:02:00',
+            cup: '无'
         },
         {
             id: 31,
@@ -1153,7 +1113,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1nGtpzDEtf/',
             status: 'approved',
-            submitTime: '2025/8/8 23:59:00'
+            submitTime: '2025/8/8 23:59:00',
+            cup: '无'
         },
         {
             id: 32,
@@ -1188,7 +1149,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1RttPzoErU/',
             status: 'approved',
-            submitTime: '2025/8/6 19:52:00'
+            submitTime: '2025/8/6 19:52:00',
+            cup: '无'
         },
         {
             id: 33,
@@ -1223,7 +1185,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1GhtpzBECJ/',
             status: 'approved',
-            submitTime: '2025/8/8 22:01:00'
+            submitTime: '2025/8/8 22:01:00',
+            cup: '无'
         },
         {
             id: 34,
@@ -1258,7 +1221,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1V8YYzmEtq/',
             status: 'approved',
-            submitTime: '2025/8/8 23:59:00'
+            submitTime: '2025/8/8 23:59:00',
+            cup: '无'
         },
         {
             id: 35,
@@ -1293,7 +1257,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1AEtKzCEnW/',
             status: 'approved',
-            submitTime: '2025/8/7 0:57:00'
+            submitTime: '2025/8/7 0:57:00',
+            cup: '无'
         },
         {
             id: 36,
@@ -1328,7 +1293,8 @@ const Records = [
             notes: '创作体验服',
             video: 'https://www.bilibili.com/video/BV1cXgpzkExr/',
             status: 'approved',
-            submitTime: '2025/7/23 12:00:00'
+            submitTime: '2025/7/23 12:00:00',
+            cup: '无'
         },
         {
             id: 37,
@@ -1363,7 +1329,8 @@ const Records = [
             notes: '创作体验服',
             video: 'https://www.bilibili.com/video/BV1xwgszsEye/',
             status: 'approved',
-            submitTime: '2025/7/23 12:00:00'
+            submitTime: '2025/7/23 12:00:00',
+            cup: '无'
         },
         {
             id: 38,
@@ -1398,7 +1365,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1qkb8zTENb/',
             status: 'approved',
-            submitTime: '2025/8/13 12:55:00'
+            submitTime: '2025/8/13 12:55:00',
+            cup: '无'
         },
         {
             id: 39,
@@ -1433,7 +1401,8 @@ const Records = [
             notes: '3星武器',
             video: 'https://www.bilibili.com/video/BV1FQYQzLEWu/',
             status: 'approved',
-            submitTime: '2025/8/21 17:38:00'
+            submitTime: '2025/8/21 17:38:00',
+            cup: '无'
         },
         {
             id: 40,
@@ -1468,7 +1437,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1DktPz7EY3/',
             status: 'approved',
-            submitTime: '2025/8/6 20:33:00'
+            submitTime: '2025/8/6 20:33:00',
+            cup: '无'
         },
         {
             id: 41,
@@ -1503,7 +1473,8 @@ const Records = [
             notes: '精5大月卡武器',
             video: 'https://www.bilibili.com/video/BV1BLamz8EV7/',
             status: 'approved',
-            submitTime: '2025/9/4 19:37:00'
+            submitTime: '2025/9/4 19:37:00',
+            cup: '无'
         },
         {
             id: 42,
@@ -1538,7 +1509,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1ixa6zzEzo/',
             status: 'approved',
-            submitTime: '2025/9/4 1:02:00'
+            submitTime: '2025/9/4 1:02:00',
+            cup: '无'
         },
         {
             id: 43,
@@ -1573,7 +1545,8 @@ const Records = [
             notes: '精5决斗，剧诗buff',
             video: 'https://www.bilibili.com/video/BV173a3z4EMp/',
             status: 'approved',
-            submitTime: '2025/9/3 12:38:00'
+            submitTime: '2025/9/3 12:38:00',
+            cup: '无'
         },
         {
             id: 44,
@@ -1608,11 +1581,12 @@ const Records = [
             notes: '金珀',
             video: 'https://www.bilibili.com/video/BV1vFY8z6EgZ/',
             status: 'approved',
-            submitTime: '2025/8/19 7:24:00'
+            submitTime: '2025/8/19 7:24:00',
+            cup: '无'
         },
         {
             id: 45,
-            player: 'くろがねいつき',
+            player: 'くろがねいつき（黑の辉）',
             mainc: '那维莱特',
             team: [
                 {
@@ -1643,7 +1617,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1sNamzTEAc',
             status: 'approved',
-            submitTime: '2025/9/4 18:58:00'
+            submitTime: '2025/9/4 18:58:00',
+            cup: '无'
         },
         {
             id: 46,
@@ -1678,7 +1653,8 @@ const Records = [
             notes: '精5大月卡武器',
             video: 'https://www.bilibili.com/video/BV1aubrzbE4X/',
             status: 'approved',
-            submitTime: '2025/8/14 22:35:00'
+            submitTime: '2025/8/14 22:35:00',
+            cup: '无'
         },
         {
             id: 47,
@@ -1713,7 +1689,8 @@ const Records = [
             notes: '精4大月卡武器',
             video: 'https://www.bilibili.com/video/BV1eXegz4EvH/',
             status: 'approved',
-            submitTime: '2025/8/20 13:06:00'
+            submitTime: '2025/8/20 13:06:00',
+            cup: '无'
         },
         {
             id: 48,
@@ -1748,7 +1725,8 @@ const Records = [
             notes: '精5螭骨剑',
             video: 'https://www.bilibili.com/video/BV1VkWPzCEug/',
             status: 'approved',
-            submitTime: '2025/9/19 7:00:00'
+            submitTime: '2025/9/19 7:00:00',
+            cup: '无'
         },
         {
             id: 49,
@@ -1783,7 +1761,8 @@ const Records = [
             notes: '精5螭骨剑',
             video: 'https://www.bilibili.com/video/BV1daptzyEu9/',
             status: 'approved',
-            submitTime: '2025/9/17 19:44:00'
+            submitTime: '2025/9/17 19:44:00',
+            cup: '无'
         },
         {
             id: 50,
@@ -1818,7 +1797,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1qppWzNEEr/',
             status: 'approved',
-            submitTime: '2025/9/17 12:02:00'
+            submitTime: '2025/9/17 12:02:00',
+            cup: '无'
         },
         {
             id: 51,
@@ -1853,7 +1833,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1bY4qzzEtD/',
             status: 'approved',
-            submitTime: '2025/10/15 17:30:00'
+            submitTime: '2025/10/15 17:30:00',
+            cup: '无'
         },
         {
             id: 52,
@@ -1888,7 +1869,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1ptpezrEeq/',
             status: 'approved',
-            submitTime: '2025/10/15 17:30:00'
+            submitTime: '2025/10/15 17:30:00',
+            cup: '无'
         },
         {
             id: 53,
@@ -1923,7 +1905,8 @@ const Records = [
             notes: '精3夜壶≈冲浪',
             video: 'https://www.bilibili.com/video/BV1UG4LzCERd',
             status: 'approved',
-            submitTime: '2025/10/10 3:16:00'
+            submitTime: '2025/10/10 3:16:00',
+            cup: '无'
         },
         {
             id: 54,
@@ -1958,7 +1941,8 @@ const Records = [
             notes: '1级武器',
             video: 'https://www.bilibili.com/video/BV1hBa6zhExF',
             status: 'approved',
-            submitTime: '2025/9/4 12:00:00'
+            submitTime: '2025/9/4 12:00:00',
+            cup: '无'
         },
         {
             id: 55,
@@ -1993,7 +1977,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1PKpvz1EXJ/',
             status: 'approved',
-            submitTime: '2025/9/18 14:00:00'
+            submitTime: '2025/9/18 14:00:00',
+            cup: '无'
         },
         {
             id: 56,
@@ -2028,7 +2013,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1SDJozVEwK/',
             status: 'approved',
-            submitTime: '2025/9/22 3:38:00'
+            submitTime: '2025/9/22 3:38:00',
+            cup: '无'
         },
         {
             id: 57,
@@ -2063,7 +2049,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1wMxkzTE3F/',
             status: 'approved',
-            submitTime: '2025/10/9 15:15:00'
+            submitTime: '2025/10/9 15:15:00',
+            cup: '无'
         },
         {
             id: 58,
@@ -2098,7 +2085,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1M5x8z1EGF',
             status: 'approved',
-            submitTime: '2025/10/5 7:43:00'
+            submitTime: '2025/10/5 7:43:00',
+            cup: '无'
         },
         {
             id: 59,
@@ -2133,7 +2121,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1TPpqzREaM/',
             status: 'approved',
-            submitTime: '2025/9/18 17:33:00'
+            submitTime: '2025/9/18 17:33:00',
+            cup: '无'
         },
         {
             id: 60,
@@ -2168,7 +2157,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1UC48zUE6y/',
             status: 'approved',
-            submitTime: '2025/10/14 20:39:00'
+            submitTime: '2025/10/14 20:39:00',
+            cup: '无'
         },
         {
             id: 61,
@@ -2203,7 +2193,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1NcWjzcEHH/',
             status: 'approved',
-            submitTime: '2025/9/20 8:28:00'
+            submitTime: '2025/9/20 8:28:00',
+            cup: '无'
         },
         {
             id: 62,
@@ -2238,7 +2229,8 @@ const Records = [
             notes: '95级，精1大月卡',
             video: 'https://www.bilibili.com/video/BV1GAHAzeEE2',
             status: 'approved',
-            submitTime: '2025/10/2 16:46:00'
+            submitTime: '2025/10/2 16:46:00',
+            cup: '无'
         },
         {
             id: 63,
@@ -2273,7 +2265,8 @@ const Records = [
             notes: '3星武器',
             video: 'https://www.bilibili.com/video/BV16U4xzfEmh',
             status: 'approved',
-            submitTime: '2025/10/11 13:44:00'
+            submitTime: '2025/10/11 13:44:00',
+            cup: '无'
         },
         {
             id: 64,
@@ -2308,7 +2301,8 @@ const Records = [
             notes: '精2大月卡武器',
             video: 'https://www.bilibili.com/video/BV1CF4vzWEWD/',
             status: 'approved',
-            submitTime: '2025/10/15 13:18:00'
+            submitTime: '2025/10/15 13:18:00',
+            cup: '无'
         },
         {
             id: 65,
@@ -2343,7 +2337,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1vdHszqE1C/',
             status: 'approved',
-            submitTime: '2025/10/2 0:29:00'
+            submitTime: '2025/10/2 0:29:00',
+            cup: '无'
         },
         {
             id: 66,
@@ -2378,7 +2373,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1J4p8zdEZm/',
             status: 'approved',
-            submitTime: '2025/9/17 22:18:00'
+            submitTime: '2025/9/17 22:18:00',
+            cup: '无'
         },
         {
             id: 67,
@@ -2413,7 +2409,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1TXWVzZEg5/',
             status: 'approved',
-            submitTime: '2025/9/19 19:59:00'
+            submitTime: '2025/9/19 19:59:00',
+            cup: '无'
         },
         {
             id: 68,
@@ -2448,7 +2445,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1KYHpz1EAn/',
             status: 'approved',
-            submitTime: '2025/10/1 22:54:00'
+            submitTime: '2025/10/1 22:54:00',
+            cup: '无'
         },
         {
             id: 69,
@@ -2483,7 +2481,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1yepbzwEWS/',
             status: 'approved',
-            submitTime: '2025/9/18 0:52:00'
+            submitTime: '2025/9/18 0:52:00',
+            cup: '无'
         },
         {
             id: 70,
@@ -2518,7 +2517,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1mXJRzPEfg/',
             status: 'approved',
-            submitTime: '2025/9/22 0:50:00'
+            submitTime: '2025/9/22 0:50:00',
+            cup: '无'
         },
         {
             id: 71,
@@ -2553,7 +2553,8 @@ const Records = [
             notes: '5命伊安珊',
             video: 'https://www.bilibili.com/video/BV1sTnpzzEa5/',
             status: 'approved',
-            submitTime: '2025/9/25 1:25:00'
+            submitTime: '2025/9/25 1:25:00',
+            cup: '无'
         },
         {
             id: 72,
@@ -2588,7 +2589,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1jgn5zvE77/',
             status: 'approved',
-            submitTime: '2025/9/29 14:32:00'
+            submitTime: '2025/9/29 14:32:00',
+            cup: '无'
         },
         {
             id: 73,
@@ -2623,7 +2625,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1QonvzXEze/',
             status: 'approved',
-            submitTime: '2025/9/27 17:43:00'
+            submitTime: '2025/9/27 17:43:00',
+            cup: '无'
         },
         {
             id: 74,
@@ -2658,7 +2661,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1suptz8EbY/',
             status: 'approved',
-            submitTime: '2025/9/17 20:50:00'
+            submitTime: '2025/9/17 20:50:00',
+            cup: '无'
         },
         {
             id: 75,
@@ -2693,7 +2697,8 @@ const Records = [
             notes: '等效0命莫娜',
             video: 'https://www.bilibili.com/video/BV1JindzZE1z/',
             status: 'approved',
-            submitTime: '2025/9/28 20:16:00'
+            submitTime: '2025/9/28 20:16:00',
+            cup: '无'
         },
         {
             id: 76,
@@ -2728,7 +2733,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1XvJDzFEAo/',
             status: 'approved',
-            submitTime: '2025/9/24 12:00:00'
+            submitTime: '2025/9/24 12:00:00',
+            cup: '无'
         },
         {
             id: 77,
@@ -2763,7 +2769,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1L6HtzLEyn/',
             status: 'approved',
-            submitTime: '2025/10/2 10:46:00'
+            submitTime: '2025/10/2 10:46:00',
+            cup: '无'
         },
         {
             id: 78,
@@ -2798,7 +2805,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV18hn8zKE6Q',
             status: 'approved',
-            submitTime: '2025/9/25 17:18:00'
+            submitTime: '2025/9/25 17:18:00',
+            cup: '无'
         },
         {
             id: 79,
@@ -2833,7 +2841,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1aRnGzdEVi/',
             status: 'approved',
-            submitTime: '2025/9/26 20:17:00'
+            submitTime: '2025/9/26 20:17:00',
+            cup: '无'
         },
         {
             id: 80,
@@ -2868,7 +2877,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1WMn3zuEfn/',
             status: 'approved',
-            submitTime: '2025/9/26 17:24:00'
+            submitTime: '2025/9/26 17:24:00',
+            cup: '无'
         },
         {
             id: 81,
@@ -2903,7 +2913,8 @@ const Records = [
             notes: '大月卡武器',
             video: 'https://www.bilibili.com/video/BV1xr2MBnEsP/',
             status: 'approved',
-            submitTime: '2025/11/7 17:24:00'
+            submitTime: '2025/11/7 17:24:00',
+            cup: '无'
         },
         {
             id: 82,
@@ -2938,7 +2949,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV14y1mBoE42/',
             status: 'approved',
-            submitTime: '2025/11/8 11:21:00'
+            submitTime: '2025/11/8 11:21:00',
+            cup: '无'
         },
         {
             id: 83,
@@ -2973,7 +2985,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1RwySBgEHC/',
             status: 'approved',
-            submitTime: '2025/10/29 18:34:00'
+            submitTime: '2025/10/29 18:34:00',
+            cup: '无'
         },
         {
             id: 84,
@@ -3008,7 +3021,8 @@ const Records = [
             notes: '雾切丝',
             video: 'https://www.bilibili.com/video/BV12u17BuErS/',
             status: 'approved',
-            submitTime: '2025/11/1 16:45:00'
+            submitTime: '2025/11/1 16:45:00',
+            cup: '无'
         },
         {
             id: 85,
@@ -3043,7 +3057,8 @@ const Records = [
             notes: '95级',
             video: 'https://www.bilibili.com/video/BV1ig1XBxEXJ/',
             status: 'approved',
-            submitTime: '2025/11/8 16:56:00'
+            submitTime: '2025/11/8 16:56:00',
+            cup: '无'
         },
         {
             id: 86,
@@ -3078,7 +3093,8 @@ const Records = [
             notes: '祭礼龙',
             video: 'https://www.bilibili.com/video/BV1S4kRBrE34/',
             status: 'approved',
-            submitTime: '2025/11/10 0:56:00'
+            submitTime: '2025/11/10 0:56:00',
+            cup: '无'
         },
         {
             id: 87,
@@ -3113,7 +3129,8 @@ const Records = [
             notes: '大月卡武器',
             video: 'https://www.bilibili.com/video/BV1GqkkBjEvZ/',
             status: 'approved',
-            submitTime: '2025/11/11 18:57:00'
+            submitTime: '2025/11/11 18:57:00',
+            cup: '无'
         },
         {
             id: 88,
@@ -3148,7 +3165,8 @@ const Records = [
             notes: '大月卡武器',
             video: 'https://www.bilibili.com/video/BV1Cd16BKEZh/',
             status: 'approved',
-            submitTime: '2025/11/4 8:48:00'
+            submitTime: '2025/11/4 8:48:00',
+            cup: '无'
         },
         {
             id: 89,
@@ -3183,7 +3201,8 @@ const Records = [
             notes: '天空班',
             video: 'https://www.bilibili.com/video/BV1bpyYBQEPi/',
             status: 'approved',
-            submitTime: '2025/10/31 0:30:00'
+            submitTime: '2025/10/31 0:30:00',
+            cup: '无'
         },
         {
             id: 90,
@@ -3218,7 +3237,8 @@ const Records = [
             notes: '大月卡武器*2',
             video: 'https://www.bilibili.com/video/BV1DXySBKEYV/',
             status: 'approved',
-            submitTime: '2025/10/29 16:12:00'
+            submitTime: '2025/10/29 16:12:00',
+            cup: '无'
         },
         {
             id: 91,
@@ -3253,7 +3273,8 @@ const Records = [
             notes: '满命迪卢克等效1命',
             video: 'https://www.bilibili.com/video/BV1ePybBEEmC',
             status: 'approved',
-            submitTime: '2025/10/30 14:02:00'
+            submitTime: '2025/10/30 14:02:00',
+            cup: '无'
         },
         {
             id: 92,
@@ -3288,7 +3309,8 @@ const Records = [
             notes: '伊涅芙无需专武，琴等效1命',
             video: 'https://www.bilibili.com/video/BV1iJ13BMEtu/',
             status: 'approved',
-            submitTime: '2025/11/1 7:45:00'
+            submitTime: '2025/11/1 7:45:00',
+            cup: '无'
         },
         {
             id: 93,
@@ -3323,7 +3345,8 @@ const Records = [
             notes: '大月卡武器*2',
             video: 'https://www.bilibili.com/video/BV1Bx17BtEBD/',
             status: 'approved',
-            submitTime: '2025/11/5 9:32:00'
+            submitTime: '2025/11/5 9:32:00',
+            cup: '无'
         },
         {
             id: 94,
@@ -3358,7 +3381,8 @@ const Records = [
             notes: '大月卡武器',
             video: 'https://www.bilibili.com/video/BV1HDkfBkEid/',
             status: 'approved',
-            submitTime: '2025/11/10 17:09:00'
+            submitTime: '2025/11/10 17:09:00',
+            cup: '无'
         },
         {
             id: 95,
@@ -3378,7 +3402,8 @@ const Records = [
             notes: '1级1星武器，无圣遗物，等效0命',
             video: 'https://www.bilibili.com/video/BV1491HBRE1j/',
             status: 'approved',
-            submitTime: '2025/11/5 6:45:00'
+            submitTime: '2025/11/5 6:45:00',
+            cup: '无'
         },
         {
             id: 96,
@@ -3403,7 +3428,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1141ABhENi/',
             status: 'approved',
-            submitTime: '2025/11/3 8:00:00'
+            submitTime: '2025/11/3 8:00:00',
+            cup: '无'
         },
         {
             id: 97,
@@ -3438,7 +3464,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1c71PB4EGr/',
             status: 'approved',
-            submitTime: '2025/10/31 11:59:00'
+            submitTime: '2025/10/31 11:59:00',
+            cup: '无'
         },
         {
             id: 98,
@@ -3473,7 +3500,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1ZVyxByEFj/',
             status: 'approved',
-            submitTime: '2025/10/31 19:40:00'
+            submitTime: '2025/10/31 19:40:00',
+            cup: '无'
         },
         {
             id: 99,
@@ -3508,7 +3536,8 @@ const Records = [
             notes: '黑樱枪仆人',
             video: 'https://www.bilibili.com/video/BV1X51tB1EgU/',
             status: 'approved',
-            submitTime: '2025/11/6 5:11:00'
+            submitTime: '2025/11/6 5:11:00',
+            cup: '无'
         },
         {
             id: 100,
@@ -3528,7 +3557,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1j51XBXEeA/',
             status: 'approved',
-            submitTime: '2025/11/8 16:58:00'
+            submitTime: '2025/11/8 16:58:00',
+            cup: '无'
         },
         {
             id: 101,
@@ -3563,7 +3593,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1Lp1iBVErU/',
             status: 'approved',
-            submitTime: '2025/11/4 2:31:00'
+            submitTime: '2025/11/4 2:31:00',
+            cup: '无'
         },
         {
             id: 102,
@@ -3598,7 +3629,8 @@ const Records = [
             notes: '测试备注1',
             video: 'https://www.bilibili.com/video/BV1234567890',
             status: 'pending',
-            submitTime: '2025/11/15 10:00:00'
+            submitTime: '2025/11/15 10:00:00',
+            cup: '无'
         },
         {
             id: 103,
@@ -3633,7 +3665,8 @@ const Records = [
             notes: '测试备注2',
             video: 'https://www.bilibili.com/video/BV1234567890',
             status: 'denied',
-            submitTime: '2025/11/15 10:30:00'
+            submitTime: '2025/11/15 10:30:00',
+            cup: '无'
         },
         {
             id: 104,
@@ -3668,7 +3701,8 @@ const Records = [
             notes: '1命爱诺',
             video: 'https://www.bilibili.com/video/BV1G2ymBYE2z/',
             status: 'approved',
-            submitTime: '2025/10/29 12:3:0'
+            submitTime: '2025/10/29 12:3:0',
+            cup: '无'
         },
         {
             id: 105,
@@ -3703,7 +3737,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1Yi14BkEE8/',
             status: 'approved',
-            submitTime: '2025/11/6 14:40:0'
+            submitTime: '2025/11/6 14:40:0',
+            cup: '无'
         },
         {
             id: 140,
@@ -3738,7 +3773,8 @@ const Records = [
             notes: '',
             video: 'www.bilibili.com/video/BV1KjqsBuEUF',
             status: 'approved',
-            submitTime: '2025/12/15 22:57:0'
+            submitTime: '2025/12/15 22:57:0',
+            cup: '无'
         },
         {
             id: 139,
@@ -3773,7 +3809,8 @@ const Records = [
             notes: '',
             video: 'www.bilibili.com/video/BV1EoqtBBEZY/',
             status: 'approved',
-            submitTime: '2025/12/16 6:42:0'
+            submitTime: '2025/12/16 6:42:0',
+            cup: '无'
         },
         {
             id: 138,
@@ -3808,7 +3845,8 @@ const Records = [
             notes: '风鹰班，天空菲谢尔',
             video: 'www.bilibili.com/video/BV12nmiBhEBh',
             status: 'approved',
-            submitTime: '2025/12/14 13:26:0'
+            submitTime: '2025/12/14 13:26:0',
+            cup: '无'
         },
         {
             id: 137,
@@ -3843,7 +3881,8 @@ const Records = [
             notes: '',
             video: 'www.bilibili.com/video/BV1eDmKBbEuy/',
             status: 'approved',
-            submitTime: '2025/12/11 10:40:0'
+            submitTime: '2025/12/11 10:40:0',
+            cup: '无'
         },
         {
             id: 136,
@@ -3878,7 +3917,8 @@ const Records = [
             notes: '',
             video: 'www.bilibili.com/video/BV17smTBKEtc/',
             status: 'approved',
-            submitTime: '2025/12/11 10:30:0'
+            submitTime: '2025/12/11 10:30:0',
+            cup: '无'
         },
         {
             id: 135,
@@ -3913,7 +3953,8 @@ const Records = [
             notes: '70级弹弓温迪，精5狼牙杜林，天空班',
             video: 'www.bilibili.com/video/BV1EdmxBoE2E/',
             status: 'approved',
-            submitTime: '2025/12/10 17:21:0'
+            submitTime: '2025/12/10 17:21:0',
+            cup: '无'
         },
         {
             id: 134,
@@ -3948,7 +3989,8 @@ const Records = [
             notes: '',
             video: 'www.bilibili.com/video/BV1NHmsBwExr/',
             status: 'approved',
-            submitTime: '2025/12/10 11:12:0'
+            submitTime: '2025/12/10 11:12:0',
+            cup: '无'
         },
         {
             id: 133,
@@ -3983,7 +4025,8 @@ const Records = [
             notes: '',
             video: 'www.bilibili.com/video/BV1JZmxBxEWi',
             status: 'approved',
-            submitTime: '2025/12/10 15:48:0'
+            submitTime: '2025/12/10 15:48:0',
+            cup: '无'
         },
         {
             id: 132,
@@ -4008,7 +4051,8 @@ const Records = [
             notes: '',
             video: 'www.bilibili.com/video/BV1dAmsB5EjT/',
             status: 'approved',
-            submitTime: '2025/12/10 12:10:0'
+            submitTime: '2025/12/10 12:10:0',
+            cup: '无'
         },
         {
             id: 131,
@@ -4043,7 +4087,8 @@ const Records = [
             notes: '',
             video: 'www.bilibili.com/video/BV1Pbm4BNEj1/',
             status: 'approved',
-            submitTime: '2025/12/10 14:43:0'
+            submitTime: '2025/12/10 14:43:0',
+            cup: '无'
         },
         {
             id: 130,
@@ -4078,7 +4123,8 @@ const Records = [
             notes: '',
             video: 'www.bilibili.com/video/BV1E6m4BoEbw/',
             status: 'approved',
-            submitTime: '2025/12/10 14:58:0'
+            submitTime: '2025/12/10 14:58:0',
+            cup: '无'
         },
         {
             id: 129,
@@ -4113,7 +4159,8 @@ const Records = [
             notes: '',
             video: 'www.bilibili.com/video/BV1PpmsBhEjR/',
             status: 'approved',
-            submitTime: '2025/12/10 11:36:0'
+            submitTime: '2025/12/10 11:36:0',
+            cup: '无'
         },
         {
             id: 128,
@@ -4148,7 +4195,8 @@ const Records = [
             notes: '雾切丝柯克',
             video: 'www.bilibili.com/video/BV1RrmsB7EC6/',
             status: 'approved',
-            submitTime: '2025/12/10 11:50:0'
+            submitTime: '2025/12/10 11:50:0',
+            cup: '无'
         },
         {
             id: 127,
@@ -4183,7 +4231,8 @@ const Records = [
             notes: '100级迪卢克，精5大月卡，风鹰班',
             video: 'www.bilibili.com/video/BV18YmxBkEnQ/',
             status: 'approved',
-            submitTime: '2025/12/10 16:54:0'
+            submitTime: '2025/12/10 16:54:0',
+            cup: '无'
         },
         {
             id: 126,
@@ -4218,7 +4267,8 @@ const Records = [
             notes: '板砖芙',
             video: 'www.bilibili.com/video/BV1d2mbB8Eon/',
             status: 'approved',
-            submitTime: '2025/12/10 18:40:0'
+            submitTime: '2025/12/10 18:40:0',
+            cup: '无'
         },
         {
             id: 125,
@@ -4247,13 +4297,14 @@ const Records = [
                     }
             ],
             time: 16,
-            boss: '实验性场力发生装置 · 极端势能',
+            boss: '历经百战的暝视龙 · 霜雪苛念',
             gold: 1,
             constgold: 1,
             notes: '',
-            video: 'www.bilibili.com/video/BV1MCmtByEUn/',
+            video: 'https://www.bilibili.com/video/BV1MCmtByEUn/',
             status: 'approved',
-            submitTime: '2025/12/10 20:0:0'
+            submitTime: '2025/12/10 20:0:0',
+            cup: '无'
         },
         {
             id: 124,
@@ -4288,7 +4339,8 @@ const Records = [
             notes: '摔伤325*4=1400w，无需恰',
             video: 'www.bilibili.com/video/BV16WSyBEEAk/',
             status: 'approved',
-            submitTime: '2025/12/1 15:18:0'
+            submitTime: '2025/12/1 15:18:0',
+            cup: '无'
         },
         {
             id: 123,
@@ -4323,7 +4375,8 @@ const Records = [
             notes: '100级断浪雷神，餐叉夏，天空班，天空九条',
             video: 'https:/www.bilibili.com/video/BV1kU2MByEHh/',
             status: 'approved',
-            submitTime: '2025/11/7 15:46:0'
+            submitTime: '2025/11/7 15:46:0',
+            cup: '无'
         },
         {
             id: 122,
@@ -4358,7 +4411,8 @@ const Records = [
             notes: '精5螭骨剑玛，风鹰班',
             video: 'www.bilibili.com/video/BV1PySmBaEkB',
             status: 'approved',
-            submitTime: '2025/12/2 0:37:0'
+            submitTime: '2025/12/2 0:37:0',
+            cup: '无'
         },
         {
             id: 121,
@@ -4393,7 +4447,8 @@ const Records = [
             notes: '',
             video: 'www.bilibili.com/video/BV19ySqBDE4W/',
             status: 'approved',
-            submitTime: '2025/11/30 21:24:0'
+            submitTime: '2025/11/30 21:24:0',
+            cup: '无'
         },
         {
             id: 120,
@@ -4428,7 +4483,8 @@ const Records = [
             notes: '精5决斗仆',
             video: 'www.bilibili.com/video/BV1pQSKB1EHp',
             status: 'approved',
-            submitTime: '2025/11/30 15:1:0'
+            submitTime: '2025/11/30 15:1:0',
+            cup: '无'
         },
         {
             id: 119,
@@ -4458,7 +4514,8 @@ const Records = [
             notes: '',
             video: 'www.bilibili.com/video/BV13eS7BoEEi/',
             status: 'approved',
-            submitTime: '2025/11/28 22:54:0'
+            submitTime: '2025/11/28 22:54:0',
+            cup: '无'
         },
         {
             id: 118,
@@ -4493,7 +4550,8 @@ const Records = [
             notes: '95级胡桃，但是胡桃命座免费',
             video: 'www.bilibili.com/video/BV11HyKBBEL3',
             status: 'approved',
-            submitTime: '2025/11/21 1:27:0'
+            submitTime: '2025/11/21 1:27:0',
+            cup: '无'
         },
         {
             id: 117,
@@ -4528,7 +4586,8 @@ const Records = [
             notes: '',
             video: 'www.bilibili.com/video/BV1ezU6BZESe/',
             status: 'approved',
-            submitTime: '2025/11/24 18:19:0'
+            submitTime: '2025/11/24 18:19:0',
+            cup: '无'
         },
         {
             id: 116,
@@ -4563,7 +4622,8 @@ const Records = [
             notes: '',
             video: 'www.bilibili.com/video/BV1tEUHB8EwW/',
             status: 'approved',
-            submitTime: '2025/11/22 10:30:0'
+            submitTime: '2025/11/22 10:30:0',
+            cup: '无'
         },
         {
             id: 115,
@@ -4598,7 +4658,8 @@ const Records = [
             notes: '',
             video: 'www.bilibili.com/video/BV1hAUSB5EKE/',
             status: 'approved',
-            submitTime: '2025/11/25 17:36:0'
+            submitTime: '2025/11/25 17:36:0',
+            cup: '无'
         },
         {
             id: 114,
@@ -4633,7 +4694,8 @@ const Records = [
             notes: '95级胡桃，班尼特天空换原木刀是能出的，不差这1.6%的伤害，但是号上教官套充能差点意思',
             video: 'www.bilibili.com/video/BV11HyKBBEL3',
             status: 'approved',
-            submitTime: '2025/11/21 1:27:0'
+            submitTime: '2025/11/21 1:27:0',
+            cup: '无'
         },
         {
             id: 113,
@@ -4668,7 +4730,8 @@ const Records = [
             notes: '瑞希未使用',
             video: 'www.bilibili.com/video/BV119yFBHEFH/',
             status: 'approved',
-            submitTime: '2025/11/20 11:58:0'
+            submitTime: '2025/11/20 11:58:0',
+            cup: '无'
         },
         {
             id: 112,
@@ -4698,7 +4761,8 @@ const Records = [
             notes: '',
             video: 'www.bilibili.com/video/BV1qNCfBKEa4/',
             status: 'approved',
-            submitTime: '2025/11/20 9:3:0'
+            submitTime: '2025/11/20 9:3:0',
+            cup: '无'
         },
         {
             id: 111,
@@ -4733,7 +4797,8 @@ const Records = [
             notes: '',
             video: 'www.douyin.com/video/7536436461237144847',
             status: 'approved',
-            submitTime: '2025/8/9 12:22:0'
+            submitTime: '2025/8/9 12:22:0',
+            cup: '无'
         },
         {
             id: 110,
@@ -4768,7 +4833,8 @@ const Records = [
             notes: '琴等效1命',
             video: 'www.bilibili.com/video/BV1EfC2BrESK/',
             status: 'approved',
-            submitTime: '2025/11/15 23:39:0'
+            submitTime: '2025/11/15 23:39:0',
+            cup: '无'
         },
         {
             id: 109,
@@ -4803,7 +4869,8 @@ const Records = [
             notes: '希专提升和100级几乎完全相等直接等效5金100级,有两次没暴击去掉最后一口85秒',
             video: 'www.bilibili.com/video/BV1dJC9BnEwb/',
             status: 'approved',
-            submitTime: '2025/11/16 17:19:0'
+            submitTime: '2025/11/16 17:19:0',
+            cup: '无'
         },
         {
             id: 108,
@@ -4838,7 +4905,8 @@ const Records = [
             notes: '精5大月卡',
             video: 'https://www.bilibili.com/video/BV1NL1kBGEbf/',
             status: 'approved',
-            submitTime: '2025/11/4 14:15:0'
+            submitTime: '2025/11/4 14:15:0',
+            cup: '无'
         },
         {
             id: 107,
@@ -4873,7 +4941,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1P2yDBFEAo/',
             status: 'approved',
-            submitTime: '2025/11/1 23:41:0'
+            submitTime: '2025/11/1 23:41:0',
+            cup: '无'
         },
         {
             id: 106,
@@ -4908,7 +4977,44 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1kFC7BbEGR/',
             status: 'approved',
-            submitTime: '2025/11/12 12:9:0'
+            submitTime: '2025/11/12 12:9:0',
+            cup: '无'
+        },
+        {
+            id: 144,
+            player: 'JX67',
+            mainc: '温迪',
+            team: [
+                {
+                        character: '温迪',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '珐露珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 114,
+            boss: '历经百战的暝视龙 · 霜雪苛念',
+            gold: 1,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1CBqyBREsV/',
+            status: 'approved',
+            submitTime: '2025/12/21 5:26:0',
+            cup: '无'
         },
         {
             id: 147,
@@ -4943,7 +5049,8 @@ const Records = [
             notes: '',
             video: 'https://www.bilibili.com/video/BV1Jxq1BXEnT/',
             status: 'approved',
-            submitTime: '2025-12-21T12:27'
+            submitTime: '2025-12-21T12:27',
+            cup: '无'
         },
         {
             id: 148,
@@ -4976,9 +5083,82 @@ const Records = [
             gold: 2,
             constgold: 1,
             notes: '',
-            video: 'www.bilibili.com/video/BV1FpBbByEfh/',
-            status: 'pending',
-            submitTime: '2025-12-23T03:32'
+            video: 'https://www.bilibili.com/video/BV1FpBbByEfh/',
+            status: 'approved',
+            submitTime: '2025-12-23T03:32',
+            cup: '无'
+        },
+        {
+            id: 149,
+            player: '黑の辉',
+            mainc: '丝柯克',
+            team: [
+                {
+                        character: '丝柯克',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '夏洛蒂',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '芙宁娜',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 113,
+            boss: '深罪浸礼者 · 肃烈狂音',
+            gold: 3,
+            constgold: 1,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1vciEBwEY3/',
+            status: 'approved',
+            submitTime: '2026-01-04T21:36',
+            cup: '无'
+        },
+        {
+            id: 150,
+            player: '很菜的叶子',
+            mainc: '雷电将军',
+            team: [
+                {
+                        character: '雷电将军',
+                        constellation: 3,
+                        weapon: 0
+                    },
+                {
+                        character: '九条裟罗',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 105,
+            boss: '实验性场力发生装置 · 极端势能',
+            gold: 4,
+            constgold: 3,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1dJikBKEDQ/',
+            status: 'approved',
+            submitTime: '2026-01-04T11:34',
+            cup: '无'
         }
     ];
 

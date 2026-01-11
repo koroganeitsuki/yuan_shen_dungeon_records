@@ -134,6 +134,12 @@
                 color: #f8f9fa;
             }
             
+            /* 杯赛下拉选项列表样式 */
+            #cup.form-input option {
+                background-color: #1a1a1a;
+                color: #f8f9fa;
+            }
+            
             .form-label {
                 display: block;
                 margin-bottom: 0.5rem;
@@ -734,11 +740,11 @@
                         <div class="form-error">请输入有效的常驻金数</div>
                     </div>
                     
-                    <!-- 圣杯选择 -->
+                    <!-- 杯赛选择 -->
                     <div class="form-group">
-                        <label for="cup" class="form-label">圣杯</label>
+                        <label for="cup" class="form-label">杯赛</label>
                         <select id="cup" name="cup" class="form-input w-full">
-                            <!-- 圣杯选项将通过JavaScript动态生成 -->
+                            <!-- 杯赛选项将通过JavaScript动态生成 -->
                         </select>
                     </div>
                     
@@ -1046,21 +1052,21 @@
             console.log('设置默认上传时间...');
             setDefaultSubmitTime();
             
-            // 初始化圣杯选择器
-            console.log('初始化圣杯选择器...');
+            // 初始化杯赛选择器
+            console.log('初始化杯赛选择器...');
             initCupSelector();
             
             console.log('所有功能初始化完成！');
         });
         
-        // 初始化圣杯选择器
+        // 初始化杯赛选择器
         function initCupSelector() {
             const cupSelect = document.getElementById('cup');
             
             // 清空现有选项
             cupSelect.innerHTML = '';
             
-            // 添加圣杯选项
+            // 添加杯赛选项
             if (DataStore && DataStore.cups) {
                 DataStore.cups.forEach(cup => {
                     const option = document.createElement('option');

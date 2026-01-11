@@ -187,8 +187,7 @@ function generateRecordsJsContent(records) {
                         constellation: ${member.constellation},
                         weapon: ${member.weapon}
                     }`
-                ).join(',
-                ')}
+                ).join(',\n                ')}
             ],
             time: ${record.time},
             boss: '${safeString(record.boss)}',
@@ -393,8 +392,7 @@ function generateRecordsArray(records) {
                         constellation: ${member.constellation},
                         weapon: ${member.weapon}
                     }`
-                ).join(',
-                ')}
+                ).join(',\n                ')}
             ],
             time: ${record.time},
             boss: '${safeString(record.boss)}',
