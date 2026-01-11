@@ -575,7 +575,6 @@
                                     <th class="sortable-header" data-sort="constgold">常驻金</th>
                                     <th class="sortable-header" data-sort="time">通关时间</th>
                                     <th class="sortable-header" data-sort="boss">BOSS</th>
-                                    <th class="sortable-header" data-sort="cup">杯赛</th>
                                     <th>备注</th>
                                     <th>操作</th>
                                 </tr>
@@ -1233,11 +1232,6 @@
                     </div>
                 `;
                 row.appendChild(bossCell);
-                
-                // 杯赛
-                const cupCell = document.createElement('td');
-                cupCell.innerHTML = `<div class="text-center">${record.cup || '无'}</div>`;
-                row.appendChild(cupCell);
                 
                 // 备注
                 const notesCell = document.createElement('td');
