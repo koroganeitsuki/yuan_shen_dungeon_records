@@ -1108,6 +1108,21 @@
                 option.textContent = boss.name;
                 bossSelect.appendChild(option);
             });
+            
+            // 添加BOSS选择事件监听器
+            bossSelect.addEventListener('change', function() {
+                const bossName = this.value;
+                if (bossName.includes('幻化')) {
+                    // 查找同名的角色
+                    const mainc = DataStore.characters.find(char => char.name === bossName);
+                    if (mainc) {
+                        // 自动选择主C角色
+                        selectMaincCharacter(mainc);
+                        // 提示用户
+                        alert('请在队伍配置中选择三间主C');
+                    }
+                }
+            });
         }
         
         // 初始化主C选择器

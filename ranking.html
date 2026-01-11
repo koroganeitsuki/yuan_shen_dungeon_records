@@ -474,25 +474,20 @@
                     
                     <div>
                         <label class="block text-sm font-medium text-gray-400 mb-1">限定金数</label>
-                        <select id="gold-filter" class="select-genshin w-full">
-                            <option value="all">全部</option>
-                            <option value="0">0金</option>
-                            <option value="1">1金</option>
-                            <option value="2">2金</option>
-                            <option value="3">3金</option>
-                            <option value="4">4金</option>
-                            <option value="5">5金</option>
-                            <option value="6+">6金以上</option>
-                        </select>
+                        <div class="flex items-center space-x-2">
+                            <input type="number" id="gold-min" class="input-genshin w-full" placeholder="最小值" min="0" max="48" value="0">
+                            <span class="text-gray-400">到</span>
+                            <input type="number" id="gold-max" class="input-genshin w-full" placeholder="最大值" min="0" max="48" value="48">
+                        </div>
                     </div>
                     
                     <div>
                         <label class="block text-sm font-medium text-gray-400 mb-1">通关时间</label>
-                        <select id="time-filter" class="select-genshin w-full">
-                            <option value="all">全部时间</option>
-                            <option value="fast">60秒以下</option>
-                            <option value="slow">60秒以上</option>
-                        </select>
+                        <div class="flex items-center space-x-2">
+                            <input type="number" id="time-min" class="input-genshin w-full" placeholder="最小值" min="0" max="360" value="0">
+                            <span class="text-gray-400">到</span>
+                            <input type="number" id="time-max" class="input-genshin w-full" placeholder="最大值" min="0" max="360" value="360">
+                        </div>
                     </div>
                     
                     <div>
@@ -516,6 +511,14 @@
                         <label class="block text-sm font-medium text-gray-400 mb-1">杯赛</label>
                         <select id="cup-filter" class="select-genshin w-full">
                             <option value="all">全部杯赛</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">主C记录</label>
+                        <select id="mainc-record-filter" class="select-genshin w-full">
+                            <option value="all">显示全部记录</option>
+                            <option value="best">每个主C只显示最优记录</option>
                         </select>
                     </div>
                 </div>
@@ -554,7 +557,7 @@
                                 <option value="time-asc">通关时间 (快→慢)</option>
                                 <option value="time-desc">通关时间 (慢→快)</option>
                                 <option value="gold-desc">限定金数 (多→少)</option>
-                                <option value="gold-asc">限定金数 (少→多)</option>
+                                <option value="gold-asc" selected>限定金数 (少→多)</option>
                                 <option value="date-desc">提交时间 (新→旧)</option>
                             </select>
                         </div>
@@ -572,7 +575,7 @@
                                     <th class="sortable-header" data-sort="constgold">常驻金</th>
                                     <th class="sortable-header" data-sort="time">通关时间</th>
                                     <th class="sortable-header" data-sort="boss">BOSS</th>
-                                    <th class="sortable-header" data-sort="cup" style="display: none;">杯赛</th>
+                                    <th class="sortable-header" data-sort="cup">杯赛</th>
                                     <th>备注</th>
                                     <th>操作</th>
                                 </tr>
@@ -678,8 +681,9 @@
         const recordsPerPage = 10;
         let allRecords = [];
         let filteredRecords = [];
-        let sortField = 'time';
+        let sortField = 'gold';
         let sortDirection = 'asc';
+        let maincRecordFilter = 'all';
         
         // 获取角色头像URL
         function getCharacterAvatarUrl(characterName) {
@@ -987,11 +991,14 @@
         function applyFilters() {
             const bossFilter = document.getElementById('boss-filter').value;
             const maincFilter = document.getElementById('mainc-filter').value;
-            const goldFilter = document.getElementById('gold-filter').value;
-            const timeFilter = document.getElementById('time-filter').value;
+            const goldMin = parseInt(document.getElementById('gold-min').value) || 0;
+            const goldMax = parseInt(document.getElementById('gold-max').value) || 48;
+            const timeMin = parseInt(document.getElementById('time-min').value) || 0;
+            const timeMax = parseInt(document.getElementById('time-max').value) || 360;
             const searchInput = document.getElementById('search-input').value.toLowerCase();
             const statusFilter = document.getElementById('status-filter').value;
             const cupFilter = document.getElementById('cup-filter').value;
+            maincRecordFilter = document.getElementById('mainc-record-filter').value;
             
             filteredRecords = allRecords.filter(record => {
                 // BOSS筛选
@@ -1004,35 +1011,27 @@
                     return false;
                 }
                 
-                // 五星数筛选
-                if (goldFilter !== 'all') {
-                    let goldCount = 0;
-                    if (typeof record.gold === 'number') {
-                        goldCount = record.gold;
-                    } else if (record.gold.includes('+')) {
-                        const parts = record.gold.split('+');
-                        goldCount = parts.reduce((sum, part) => {
-                            const num = parseInt(part.replace(/[^\d]/g, '')) || 0;
-                            return sum + num;
-                        }, 0);
-                    } else {
-                        goldCount = parseInt(record.gold.replace(/[^\d]/g, '')) || 0;
-                    }
-                    
-                    if (goldFilter === '6+' && !(goldCount >= 6)) {
-                        return false;
-                    } else if (parseInt(goldFilter) !== goldCount) {
-                        return false;
-                    }
+                // 五星数范围筛选
+                let goldCount = 0;
+                if (typeof record.gold === 'number') {
+                    goldCount = record.gold;
+                } else if (record.gold.includes('+')) {
+                    const parts = record.gold.split('+');
+                    goldCount = parts.reduce((sum, part) => {
+                        const num = parseInt(part.replace(/[^\d]/g, '')) || 0;
+                        return sum + num;
+                    }, 0);
+                } else {
+                    goldCount = parseInt(record.gold.replace(/[^\d]/g, '')) || 0;
                 }
                 
-                // 时间筛选
-                if (timeFilter !== 'all') {
-                    if (timeFilter === 'fast' && !(record.time < 60)) {
-                        return false;
-                    } else if (timeFilter === 'slow' && !(record.time >= 60)) {
-                        return false;
-                    }
+                if (goldCount < goldMin || goldCount > goldMax) {
+                    return false;
+                }
+                
+                // 时间范围筛选
+                if (record.time < timeMin || record.time > timeMax) {
+                    return false;
                 }
                 
                 // 记录状态筛选
@@ -1058,6 +1057,25 @@
                 return true;
             });
             
+            // 应用主C记录筛选
+            if (maincRecordFilter === 'best') {
+                const maincBestRecords = {};
+                
+                // 先对记录进行排序，确保最优记录在前面
+                const sortedRecords = [...filteredRecords];
+                sortRecords(sortedRecords);
+                
+                // 每个主C只保留最优记录
+                sortedRecords.forEach(record => {
+                    const mainc = record.mainc?.toLowerCase() || '';
+                    if (!maincBestRecords[mainc]) {
+                        maincBestRecords[mainc] = record;
+                    }
+                });
+                
+                filteredRecords = Object.values(maincBestRecords);
+            }
+            
             // 重置页码
             currentPage = 1;
             
@@ -1081,11 +1099,15 @@
         function resetFilters() {
             document.getElementById('boss-filter').value = 'all';
             document.getElementById('mainc-filter').value = 'all';
-            document.getElementById('gold-filter').value = 'all';
-            document.getElementById('time-filter').value = 'all';
+            document.getElementById('gold-min').value = '0';
+            document.getElementById('gold-max').value = '48';
+            document.getElementById('time-min').value = '0';
+            document.getElementById('time-max').value = '360';
             document.getElementById('search-input').value = '';
             document.getElementById('status-filter').value = 'approved';
             document.getElementById('cup-filter').value = 'all';
+            document.getElementById('mainc-record-filter').value = 'all';
+            maincRecordFilter = 'all';
             
             // 重新加载记录
             initPage();
@@ -1214,7 +1236,6 @@
                 
                 // 杯赛
                 const cupCell = document.createElement('td');
-                cupCell.style.display = 'none';
                 cupCell.innerHTML = `<div class="text-center">${record.cup || '无'}</div>`;
                 row.appendChild(cupCell);
                 
@@ -1297,6 +1318,71 @@
         
         // 排序记录
         function sortRecords(records) {
+            // 默认排序：同主C放在一起，按限定金数、常驻金数、通关时间从小到大排序
+            if (sortField === 'gold' && sortDirection === 'asc') {
+                // 步骤1：将记录按主C分组
+                const maincGroups = {};
+                records.forEach(record => {
+                    const mainc = record.mainc?.toLowerCase() || '';
+                    if (!maincGroups[mainc]) {
+                        maincGroups[mainc] = [];
+                    }
+                    maincGroups[mainc].push(record);
+                });
+                
+                // 步骤2：对每个主C组内的记录进行内部排序
+                Object.keys(maincGroups).forEach(mainc => {
+                    maincGroups[mainc].sort((a, b) => {
+                        // 限定金数排序
+                        let goldA = typeof a.gold === 'number' ? a.gold : 
+                                   a.gold?.includes('+') ? a.gold.split('+').reduce((sum, part) => sum + parseInt(part.replace(/[^\d]/g, '') || 0), 0) :
+                                   parseInt(a.gold?.replace(/[^\d]/g, '')) || 0;
+                                
+                        let goldB = typeof b.gold === 'number' ? b.gold : 
+                                   b.gold?.includes('+') ? b.gold.split('+').reduce((sum, part) => sum + parseInt(part.replace(/[^\d]/g, '') || 0), 0) :
+                                   parseInt(b.gold?.replace(/[^\d]/g, '')) || 0;
+                        if (goldA !== goldB) return goldA - goldB;
+                        
+                        // 常驻金数排序
+                        let constGoldA = a.constgold || 0;
+                        let constGoldB = b.constgold || 0;
+                        if (constGoldA !== constGoldB) return constGoldA - constGoldB;
+                        
+                        // 通关时间排序
+                        return (a.time || 0) - (b.time || 0);
+                    });
+                });
+                
+                // 步骤3：对主C组进行排序（按照每个主C组中优先级最高的记录）
+                const sortedMaincGroups = Object.values(maincGroups).sort((groupA, groupB) => {
+                    // 取每个组中优先级最高的记录（组内已排序，第一条就是最高优先级）
+                    const recordA = groupA[0];
+                    const recordB = groupB[0];
+                    
+                    // 限定金数排序
+                    let goldA = typeof recordA.gold === 'number' ? recordA.gold : 
+                               recordA.gold?.includes('+') ? recordA.gold.split('+').reduce((sum, part) => sum + parseInt(part.replace(/[^\d]/g, '') || 0), 0) :
+                               parseInt(recordA.gold?.replace(/[^\d]/g, '')) || 0;
+                                
+                    let goldB = typeof recordB.gold === 'number' ? recordB.gold : 
+                               recordB.gold?.includes('+') ? recordB.gold.split('+').reduce((sum, part) => sum + parseInt(part.replace(/[^\d]/g, '') || 0), 0) :
+                               parseInt(recordB.gold?.replace(/[^\d]/g, '')) || 0;
+                    if (goldA !== goldB) return goldA - goldB;
+                    
+                    // 常驻金数排序
+                    let constGoldA = recordA.constgold || 0;
+                    let constGoldB = recordB.constgold || 0;
+                    if (constGoldA !== constGoldB) return constGoldA - constGoldB;
+                    
+                    // 通关时间排序
+                    return (recordA.time || 0) - (recordB.time || 0);
+                });
+                
+                // 步骤4：将排序后的主C组合并
+                return sortedMaincGroups.flat();
+            }
+            
+            // 其他排序方式
             return records.sort((a, b) => {
                 let valueA, valueB;
                 
@@ -1308,12 +1394,12 @@
                     case 'gold':
                         // 处理五星数，包括数字和字符串格式
                         valueA = typeof a.gold === 'number' ? a.gold : 
-                                a.gold.includes('+') ? a.gold.split('+').reduce((sum, part) => sum + parseInt(part.replace(/[^\d]/g, '') || 0), 0) :
-                                parseInt(a.gold.replace(/[^\d]/g, '')) || 0;
+                                a.gold?.includes('+') ? a.gold.split('+').reduce((sum, part) => sum + parseInt(part.replace(/[^\d]/g, '') || 0), 0) :
+                                parseInt(a.gold?.replace(/[^\d]/g, '')) || 0;
                         
                         valueB = typeof b.gold === 'number' ? b.gold : 
-                                b.gold.includes('+') ? b.gold.split('+').reduce((sum, part) => sum + parseInt(part.replace(/[^\d]/g, '') || 0), 0) :
-                                parseInt(b.gold.replace(/[^\d]/g, '')) || 0;
+                                b.gold?.includes('+') ? b.gold.split('+').reduce((sum, part) => sum + parseInt(part.replace(/[^\d]/g, '') || 0), 0) :
+                                parseInt(b.gold?.replace(/[^\d]/g, '')) || 0;
                         break;
                     case 'constgold':
                         valueA = a.constgold || 0;
@@ -1329,8 +1415,8 @@
                         valueB = b.player.toLowerCase();
                         break;
                     case 'mainc':
-                        valueA = a.mainc.toLowerCase();
-                        valueB = b.mainc.toLowerCase();
+                        valueA = a.mainc?.toLowerCase() || '';
+                        valueB = b.mainc?.toLowerCase() || '';
                         break;
                     case 'boss':
                         valueA = a.boss.toLowerCase();

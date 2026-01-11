@@ -5054,7 +5054,7 @@ const Records = [
         },
         {
             id: 148,
-            player: 'iambirb',
+            player: 'SanKuru',
             mainc: '玛薇卡',
             team: [
                 {
@@ -5158,6 +5158,114 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1dJikBKEDQ/',
             status: 'approved',
             submitTime: '2026-01-04T11:34',
+            cup: '无'
+        },
+        {
+            id: 151,
+            player: 'Csw_伟',
+            mainc: '玛薇卡',
+            team: [
+                {
+                        character: '玛薇卡',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '欧洛伦',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '深罪浸礼者 · 肃烈狂音',
+            gold: 1,
+            constgold: 1,
+            notes: '95级火神',
+            video: 'https://www.bilibili.com/video/BV1FgiMBLEwB/',
+            status: 'approved',
+            submitTime: '2026-01-11T19:21',
+            cup: '无'
+        },
+        {
+            id: 152,
+            player: 'kanjzyane',
+            mainc: '玛薇卡',
+            team: [
+                {
+                        character: '玛薇卡',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '欧洛伦',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '深罪浸礼者 · 肃烈狂音',
+            gold: 2,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1UdBYBqEgB/',
+            status: 'approved',
+            submitTime: '2025-12-26T19:19',
+            cup: '无'
+        },
+        {
+            id: 153,
+            player: 'SanKuru',
+            mainc: '玛薇卡',
+            team: [
+                {
+                        character: '玛薇卡',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '欧洛伦',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 118,
+            boss: '深罪浸礼者 · 肃烈狂音',
+            gold: 2,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV13CBQBbEWT/',
+            status: 'approved',
+            submitTime: '2025-12-25T19:55',
             cup: '无'
         }
     ];

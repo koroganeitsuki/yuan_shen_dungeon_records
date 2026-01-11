@@ -16,7 +16,9 @@ const DataStore = {
         '冰': '#99EEFF',
         '风': '#00FFCC',
         '岩': '#FFBB55',
-        '草': '#77FF44'
+        '草': '#77FF44',
+        '金幻化': '#FFD700',
+        '紫幻化': '#800080'
     },
     
     // 角色数据
@@ -146,7 +148,11 @@ const DataStore = {
         { id: 'yanzhu', name: '岩主', avatar: access + 'Avatar/UI_AvatarIcon_PlayerBoy.png', element: '岩' },
         { id: 'caozhu', name: '草主', avatar: access + 'Avatar/UI_AvatarIcon_PlayerBoy.png', element: '草' },
         { id: 'shuizhu', name: '水主', avatar: access + 'Avatar/UI_AvatarIcon_PlayerBoy.png', element: '水' },
-        { id: 'ailei', name: '埃洛伊', avatar: access + 'Avatar/UI_AvatarIcon_Aloy.png', element: '冰' }
+        { id: 'ailei', name: '埃洛伊', avatar: access + 'Avatar/UI_AvatarIcon_Aloy.png', element: '冰' },
+        { id: '6.2N7',name:'6.2金幻化',avatar: 'Avatar/sheshiN7.webp', element: '金幻化' },
+        { id: '6.2N6',name:'6.2紫幻化',avatar: 'Avatar/sheshiN6.webp', element: '紫幻化' },
+        { id: '6.3N7',name:'6.3金幻化',avatar: 'Avatar/sheshiN7.webp', element: '金幻化' },
+        { id: '6.3N6',name:'6.3紫幻化',avatar: 'Avatar/sheshiN6.webp', element: '紫幻化' }
     ],
     
     // BOSS数据
@@ -163,8 +169,13 @@ const DataStore = {
       { id: 'Archdeacon', name: '深罪浸礼者 · 肃烈狂音', avatar: access + 'monster/ib.png', element: '雷' },
       { id: 'Shamansaurus', name: '历经百战的暝视龙 · 霜雪苛念', avatar: access + 'monster/UI_MonsterIcon_Natsaurus_Shamansaurus_Normal.png', element: '冰' },
       { id: 'Gravitas', name: '实验性场力发生装置 · 极端势能', avatar: access + 'monster/UI_MonsterIcon_MachinaIustitia_Gravitas.png', element: '岩' },
+        { id: '6.2N6',name:'6.2紫幻化',avatar: 'Avatar/sheshiN6.webp', element: '紫幻化' },
+        { id: '6.2N7',name:'6.2金幻化',avatar: 'Avatar/sheshiN7.webp', element: '金幻化' },
       { id: 'Primo', name: '深黯魇语之主 · 袭掠锋刃', avatar: access + 'monster/UI_MonsterIcon_Lloigor_Primo.png', element: '雷' },
-      { id: 'HermitCrab_Primo', name: '铁甲熔火帝皇 · 敕命远征', avatar: access + 'monster/UI_MonsterIcon_HermitCrab_Primo.png', element: '火' }
+      { id: 'HermitCrab_Primo', name: '铁甲熔火帝皇 · 敕命远征', avatar: access + 'monster/UI_MonsterIcon_HermitCrab_Primo.png', element: '火' }, 
+      { id: '6.3N6',name:'6.3紫幻化',avatar: 'Avatar/sheshiN6.webp', element: '紫幻化' },
+        { id: '6.3N7',name:'6.3金幻化',avatar: 'Avatar/sheshiN7.webp', element: '金幻化' }
+        
 
     
     ],
