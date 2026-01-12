@@ -1062,10 +1062,13 @@
                 
                 // 先对记录进行排序，确保最优记录在前面
                 const sortedRecords = [...filteredRecords];
-                sortRecords(sortedRecords);
+                // 关键：接收sortRecords的返回值，因为默认排序会返回新数组
+                const sortedResult = sortRecords(sortedRecords);
+                // 如果有返回值就使用返回值，否则使用原始数组
+                const finalSortedRecords = sortedResult || sortedRecords;
                 
                 // 每个主C只保留最优记录
-                sortedRecords.forEach(record => {
+                finalSortedRecords.forEach(record => {  // <-- 使用正确排序后的数组
                     const mainc = record.mainc?.toLowerCase() || '';
                     if (!maincBestRecords[mainc]) {
                         maincBestRecords[mainc] = record;

@@ -5869,6 +5869,202 @@ const Records = [
             status: 'approved',
             submitTime: '2025-12-16T05:49',
             cup: '无'
+        },
+        {
+            id: 171,
+            player: '玲绪玲绪玲lx',
+            mainc: '牛顿',
+            team: [
+                {
+                        character: '岩主',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '安柏',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 73,
+            boss: '历经百战的暝视龙 · 霜雪苛念',
+            gold: 0,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1nqvzBPEM8/',
+            status: 'approved',
+            submitTime: '2025-12-28T10:36',
+            cup: '无'
+        },
+        {
+            id: 172,
+            player: '雾中寻花香',
+            mainc: '牛顿',
+            team: [
+                {
+                        character: '岩主',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '安柏',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 23,
+            boss: '历经百战的暝视龙 · 霜雪苛念',
+            gold: 0,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1SXv2BKEAq',
+            status: 'approved',
+            submitTime: '2025-12-29T03:54',
+            cup: '无'
+        },
+        {
+            id: 173,
+            player: '米酒Yahalo',
+            mainc: '仆人',
+            team: [
+                {
+                        character: '仆人',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 116,
+            boss: '实验性场力发生装置 · 极端势能',
+            gold: 1,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV16MqxBYE6N',
+            status: 'approved',
+            submitTime: '2025-12-16T05:08',
+            cup: '无'
+        },
+        {
+            id: 174,
+            player: 'C云谲',
+            mainc: '牛顿',
+            team: [
+                {
+                        character: '基尼奇',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '安柏',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 111,
+            boss: '历经百战的暝视龙 · 霜雪苛念',
+            gold: 1,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1s5BQBEESX/',
+            status: 'approved',
+            submitTime: '2025-12-25T21:09',
+            cup: '无'
+        },
+        {
+            id: 175,
+            player: '阿源_wuii_',
+            mainc: '牛顿',
+            team: [
+                {
+                        character: '仆人',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '安柏',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 114,
+            boss: '历经百战的暝视龙 · 霜雪苛念',
+            gold: 1,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1PrvpB4EJw/',
+            status: 'approved',
+            submitTime: '2025-12-29T12:45',
+            cup: '无'
+        },
+        {
+            id: 176,
+            player: '白云归空',
+            mainc: '牛顿',
+            team: [
+                {
+                        character: '钟离',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '岩主',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '琴',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '安柏',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 20,
+            boss: '历经百战的暝视龙 · 霜雪苛念',
+            gold: 1,
+            constgold: 0,
+            notes: '琴未使用',
+            video: 'https://www.bilibili.com/video/BV1wwmGB4EfY/',
+            status: 'approved',
+            submitTime: '2025-12-11T22:53',
+            cup: '无'
         }
     ];
 
