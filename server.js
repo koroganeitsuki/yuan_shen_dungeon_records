@@ -11,7 +11,8 @@ const dns = require('dns');
 dns.setDefaultResultOrder('ipv4first');
 
 const app = express();
-const PORT = 3000;
+// 使用Render提供的环境变量PORT，如果不存在则使用默认值3000
+const PORT = process.env.PORT || 3000;
 
 // 中间件
 app.use(cors({
@@ -502,6 +503,43 @@ app.get('/api/health', (req, res) => {
         message: '服务器运行正常',
         timestamp: new Date().toISOString()
     });
+});
+
+// API端点：获取B站视频信息
+app.get('/api/bilibili/video-info', async (req, res) => {
+    try {
+        const { bv } = req.query;
+        
+        if (!bv) {
+            return res.status(400).json({ success: false, message: '缺少必要参数：bv' });
+        }
+        
+        log(`收到获取B站视频信息请求: bv=${bv}`);
+        
+        // 调用B站API获取视频信息
+        const apiUrl = `https://api.bilibili.com/x/web-interface/view?bvid=${bv}`;
+        
+        // 使用node-fetch发起请求（需要先安装：npm install node-fetch）
+        const fetch = (await import('node-fetch')).default;
+        const response = await fetch(apiUrl, {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+            }
+        });
+        
+        if (!response.ok) {
+            log(`B站API返回错误: 状态码=${response.status}`);
+            return res.status(500).json({ success: false, message: `B站API请求失败，状态码: ${response.status}` });
+        }
+        
+        const data = await response.json();
+        log(`B站API请求成功: bv=${bv}, title=${data.data?.title || '未知'}`);
+        
+        res.status(200).json({ success: true, data: data.data });
+    } catch (error) {
+        log(`获取B站视频信息失败: ${error.message}`);
+        res.status(500).json({ success: false, message: `获取视频信息失败: ${error.message}` });
+    }
 });
 
 // 管理员API端点：获取所有记录

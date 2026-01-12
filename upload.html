@@ -1655,11 +1655,8 @@
                 lastRequestTime = Date.now();
                 showVideoStatus('正在获取视频信息...', 'info');
                 
-                // 使用B站API获取视频信息
-                const apiUrl = `https://api.bilibili.com/x/web-interface/view?bvid=${bv}`;
-                
-                // 使用CORS代理绕过跨域限制
-                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`;
+                // 使用我们自己的后端API获取视频信息
+                const apiUrl = `/api/bilibili/video-info?bv=${bv}`;
                 
                 // 最大重试次数和重试延迟
                 const MAX_RETRIES = 3;
@@ -1667,26 +1664,20 @@
                 
                 // 重试函数
                 function fetchWithRetry() {
-                    return fetch(proxyUrl)
+                    return fetch(apiUrl)
                         .then(response => {
                             if (!response.ok) {
                                 throw new Error(`HTTP错误! 状态码: ${response.status}`);
                             }
                             return response.json();
                         })
-                        .then(proxyData => {
-                            // 解析代理返回的数据
-                            if (!proxyData || !proxyData.contents) {
-                                throw new Error('代理返回数据格式错误');
+                        .then(result => {
+                            // 检查后端API返回的状态
+                            if (!result.success) {
+                                throw new Error(`API错误: ${result.message || '未知错误'}`);
                             }
                             
-                            const data = JSON.parse(proxyData.contents);
-                            
-                            if (data.code !== 0) {
-                                throw new Error(`API错误: ${data.message || '未知错误'}`);
-                            }
-                            
-                            return data.data;
+                            return result.data;
                         })
                         .catch(error => {
                             retryCount++;

@@ -5658,6 +5658,217 @@ const Records = [
             status: 'approved',
             submitTime: '2025-12-24T08:00',
             cup: '无'
+        },
+        {
+            id: 165,
+            player: '敏感易碎小女孩',
+            mainc: '魈',
+            team: [
+                {
+                        character: '魈',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '珐露珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '闲云',
+                        constellation: 1,
+                        weapon: 1
+                    },
+                {
+                        character: '芙宁娜',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 105,
+            boss: '实验性场力发生装置 · 极端势能',
+            gold: 4,
+            constgold: 5,
+            notes: '和濮鸢魈天空闲',
+            video: 'https://www.bilibili.com/video/BV1tTmuBxEEJ/',
+            status: 'approved',
+            submitTime: '2025-12-11T12:27',
+            cup: '无'
+        },
+        {
+            id: 166,
+            player: 'Hamlat',
+            mainc: '魈',
+            team: [
+                {
+                        character: '魈',
+                        constellation: 1,
+                        weapon: 1
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 1
+                    },
+                {
+                        character: '茜特菈莉',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '罗莎莉亚',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 97,
+            boss: '实验性场力发生装置 · 极端势能',
+            gold: 4,
+            constgold: 2,
+            notes: '天空魈1命未使用',
+            video: 'https://www.bilibili.com/video/BV1qQBjBKE7Z/',
+            status: 'approved',
+            submitTime: '2025-12-24T19:49',
+            cup: '无'
+        },
+        {
+            id: 167,
+            player: '最ニ网管',
+            mainc: '瓦蕾莎',
+            team: [
+                {
+                        character: '瓦蕾莎',
+                        constellation: 2,
+                        weapon: 1
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '香菱',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 114,
+            boss: '深罪浸礼者 · 肃烈狂音',
+            gold: 2,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1C7B6B2EPb/',
+            status: 'approved',
+            submitTime: '2025-12-27T12:38',
+            cup: '无'
+        },
+        {
+            id: 168,
+            player: '阿源_wuii_',
+            mainc: '菲林斯',
+            team: [
+                {
+                        character: '菲林斯',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '爱诺',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 104,
+            boss: '实验性场力发生装置 · 极端势能',
+            gold: 2,
+            constgold: 3,
+            notes: '100级菲林斯',
+            video: 'https://www.bilibili.com/video/BV1Bz6fBwE7o/',
+            status: 'approved',
+            submitTime: '2026-01-12T10:11',
+            cup: '无'
+        },
+        {
+            id: 169,
+            player: '米酒Yahalo',
+            mainc: '6.2紫幻化',
+            team: [
+                {
+                        character: '奈芙尔',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '牛顿',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '雷泽',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 318,
+            boss: '6.2紫幻化',
+            gold: 2,
+            constgold: 2,
+            notes: '00奈00鹿61班61菲谢尔',
+            video: 'https://www.bilibili.com/video/BV1xHq7BQEmB/',
+            status: 'approved',
+            submitTime: '2025-12-18T09:30',
+            cup: '无'
+        },
+        {
+            id: 170,
+            player: '米酒Yahalo',
+            mainc: '可莉',
+            team: [
+                {
+                        character: '可莉',
+                        constellation: 2,
+                        weapon: 5
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 116,
+            boss: '实验性场力发生装置 · 极端势能',
+            gold: 3,
+            constgold: 5,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1W2qtBLE5s/',
+            status: 'approved',
+            submitTime: '2025-12-16T05:49',
+            cup: '无'
         }
     ];
 
