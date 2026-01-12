@@ -1629,19 +1629,27 @@
                 }
                 
                 // 从链接中提取BV号，支持多种B站链接格式
-                const bvMatch = videoLink.match(/(BV[0-9a-zA-Z]+)/);
-                if (!bvMatch) {
-                    // 尝试从AV号提取
-                    const avMatch = videoLink.match(/(av|AV)(\d+)/);
-                    if (avMatch) {
-                        showVideoStatus('暂不支持AV号链接，请先转换为BV号', 'error');
-                    } else {
-                        showVideoStatus('未找到BV号，请输入有效的B站视频链接', 'error');
+                let bv;
+                // 首先检查是否是b23.tv短链接
+                const b23Match = videoLink.match(/b23\.tv\/([0-9a-zA-Z]+)/);
+                if (b23Match) {
+                    // 如果是短链接，直接使用短链接的标识部分
+                    bv = b23Match[1];
+                } else {
+                    // 否则尝试提取标准BV号
+                    const bvMatch = videoLink.match(/(BV[0-9a-zA-Z]+)/);
+                    if (!bvMatch) {
+                        // 尝试从AV号提取
+                        const avMatch = videoLink.match(/(av|AV)(\d+)/);
+                        if (avMatch) {
+                            showVideoStatus('暂不支持AV号链接，请先转换为BV号', 'error');
+                        } else {
+                            showVideoStatus('未找到BV号，请输入有效的B站视频链接', 'error');
+                        }
+                        return;
                     }
-                    return;
+                    bv = bvMatch[1];
                 }
-                
-                const bv = bvMatch[1];
                 
                 // 所有检查通过后，再更新请求状态和禁用按钮
                 isRequesting = true;
@@ -1726,6 +1734,19 @@
                                 const seconds = parseInt(timeMatch[1] || timeMatch[2]);
                                 if (seconds && seconds > 0 && seconds <= 363) {
                                     clearTimeInput.value = seconds;
+                                }
+                            }
+                        }
+                        
+                        // 尝试从视频标题中提取杯赛信息
+                        const cupInput = document.getElementById('cup');
+                        if (cupInput && videoData.title && window.DataStore && window.DataStore.cups) {
+                            const titleLower = videoData.title.toLowerCase();
+                            // 遍历杯赛列表，查找匹配的杯赛
+                            for (const cup of window.DataStore.cups) {
+                                if (cup !== '无' && titleLower.includes(cup.toLowerCase())) {
+                                    cupInput.value = cup;
+                                    break;
                                 }
                             }
                         }
@@ -2225,7 +2246,8 @@
         // 验证视频链接
         function isValidVideoLink(link) {
             const bilibiliRegex = /^(https?:\/\/)?(www\.)?bilibili\.com\/video\/(av|BV)[a-zA-Z0-9]+/;
-            return bilibiliRegex.test(link);
+            const b23Regex = /^(https?:\/\/)?b23\.tv\/[a-zA-Z0-9]+/;
+            return bilibiliRegex.test(link) || b23Regex.test(link);
         }
         
         // 显示错误提示

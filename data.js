@@ -33,7 +33,7 @@ const DataStore = {
         { id: 'kazina', name: '卡齐娜', avatar: access + 'Avatar/UI_AvatarIcon_Kachina.png', element: '岩' },
         { id: 'malani', name: '玛拉妮', avatar: access + 'Avatar/UI_AvatarIcon_Mualani.png', element: '水' },
         { id: 'ianyishan', name: '伊安珊', avatar: access + 'Avatar/UI_AvatarIcon_Iansan.png', element: '雷' },
-        { id: 'valeisha', name: '瓦蕾莎', avatar: access + 'Avatar/UI_AvatarIcon_Varesa.png', element: '雷' },
+        { id: 'valeisha', name: '瓦雷莎', avatar: access + 'Avatar/UI_AvatarIcon_Varesa.png', element: '雷' },
         { id: 'Citlali', name: '茜特菈莉', avatar: access + 'Avatar/UI_AvatarIcon_Citlali.png', element: '冰' },
         
         // 枫丹角色
@@ -74,6 +74,7 @@ const DataStore = {
         { id: 'sara', name: '九条裟罗', avatar: access + 'Avatar/UI_AvatarIcon_Sara.png', element: '雷' },
         { id: 'shenli linghua', name: '神里绫华', avatar: access + 'Avatar/UI_AvatarIcon_Ayaka.png', element: '冰' },
         { id: 'shenli lingren', name: '神里绫人', avatar: access + 'Avatar/UI_AvatarIcon_Ayato.png', element: '水' },
+        { id: 'Kokomi', name: '珊瑚宫心海', avatar: access + 'Avatar/UI_AvatarIcon_Kokomi.png', element: '水' },
         { id: 'xiangong', name: '宵宫', avatar: access + 'Avatar/UI_AvatarIcon_Yoimiya.png', element: '火' },
         { id: 'wan ye', name: '枫原万叶', avatar: access + 'Avatar/UI_AvatarIcon_Kazuha.png', element: '风' },        
         { id: 'kuki shinobu', name: '久岐忍', avatar: access + 'Avatar/UI_AvatarIcon_Shinobu.png', element: '雷' },
@@ -95,6 +96,7 @@ const DataStore = {
         { id: 'Lanyan', name: '蓝砚', avatar: access + 'Avatar/UI_AvatarIcon_Lanyan.png', element: '风' },
         { id: 'xianyun', name: '闲云', avatar: access + 'Avatar/UI_AvatarIcon_Liuyun.png', element: '风' },
         { id: 'gan yu', name: '甘雨', avatar: access + 'Avatar/UI_AvatarIcon_Ganyu.png', element: '冰' },
+        { id: 'Shenhe', name: '申鹤', avatar: access + 'Avatar/UI_AvatarIcon_Shenhe.png', element: '冰' },
         { id: 'albedo', name: '阿贝多', avatar: access + 'Avatar/UI_AvatarIcon_Albedo.png', element: '岩' },
         { id: 'zhongli', name: '钟离', avatar: access + 'Avatar/UI_AvatarIcon_Zhongli.png', element: '岩' },
         { id: 'keqing', name: '刻晴', avatar: access + 'Avatar/UI_AvatarIcon_Keqing.png', element: '雷' },
@@ -139,7 +141,7 @@ const DataStore = {
       { id: 'Zibai', name: '兹白', avatar: access + 'Avatar/UI_AvatarIcon_Zibai.png', element: '岩' },
       { id: 'Illuga', name: '叶洛亚', avatar: access + 'Avatar/UI_AvatarIcon_Illuga.png', element: '岩' },
       { id: 'Durin', name: '杜林', avatar: access + 'Avatar/UI_AvatarIcon_Durin.png', element: '火' },
-      { id: 'Jahoda', name: '雅柯达', avatar: access + 'Avatar/UI_AvatarIcon_Jahoda.png', element: '风' },
+      { id: 'Jahoda', name: '雅珂达', avatar: access + 'Avatar/UI_AvatarIcon_Jahoda.png', element: '风' },
         { id: 'sikoke', name: '丝柯克', avatar: access + 'Avatar/UI_AvatarIcon_SkirkNew.png', element: '冰' },
         { id: 'newton', name: '牛顿', avatar: 'Avatar/R.png', element: '物理' },
         { id: 'feilinsi', name: '菲林斯', avatar: access + 'Avatar/UI_AvatarIcon_Flins.png', element: '雷' },

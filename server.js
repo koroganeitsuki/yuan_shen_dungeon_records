@@ -516,24 +516,65 @@ app.get('/api/bilibili/video-info', async (req, res) => {
         
         log(`收到获取B站视频信息请求: bv=${bv}`);
         
-        // 调用B站API获取视频信息
-        const apiUrl = `https://api.bilibili.com/x/web-interface/view?bvid=${bv}`;
-        
         // 使用node-fetch发起请求（需要先安装：npm install node-fetch）
         const fetch = (await import('node-fetch')).default;
-        const response = await fetch(apiUrl, {
+        
+        let realBv = bv;
+        
+        // 如果是b23.tv短链接标识，先解析获取真实BV号
+        if (!realBv.startsWith('BV')) {
+            try {
+                const shortLink = `https://b23.tv/${realBv}`;
+                log(`尝试解析b23.tv短链接: ${shortLink}`);
+                
+                // 发送HEAD请求获取真实地址（不下载内容）
+                const response = await fetch(shortLink, {
+                    method: 'HEAD',
+                    redirect: 'follow',
+                    headers: {
+                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+                    }
+                });
+                
+                if (response.ok) {
+                    const realUrl = response.url;
+                    log(`b23.tv短链接解析成功: ${realUrl}`);
+                    
+                    // 从真实URL中提取BV号
+                    const bvMatch = realUrl.match(/(BV[0-9a-zA-Z]+)/);
+                    if (bvMatch) {
+                        realBv = bvMatch[1];
+                        log(`从短链接中提取到真实BV号: ${realBv}`);
+                    } else {
+                        log(`无法从解析后的URL中提取BV号: ${realUrl}`);
+                        return res.status(400).json({ success: false, message: '无法从b23.tv短链接中提取BV号' });
+                    }
+                } else {
+                    log(`解析b23.tv短链接失败: 状态码=${response.status}`);
+                    return res.status(500).json({ success: false, message: `解析b23.tv短链接失败，状态码: ${response.status}` });
+                }
+            } catch (error) {
+                log(`解析b23.tv短链接时发生错误: ${error.message}`);
+                return res.status(500).json({ success: false, message: `解析b23.tv短链接失败: ${error.message}` });
+            }
+        }
+        
+        // 调用B站API获取视频信息
+        const apiUrl = `https://api.bilibili.com/x/web-interface/view?bvid=${realBv}`;
+        
+        const bilibiliResponse = await fetch(apiUrl, {
             headers: {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
             }
         });
         
-        if (!response.ok) {
-            log(`B站API返回错误: 状态码=${response.status}`);
-            return res.status(500).json({ success: false, message: `B站API请求失败，状态码: ${response.status}` });
+        if (!bilibiliResponse.ok) {
+            log(`B站API返回错误: 状态码=${bilibiliResponse.status}`);
+            return res.status(500).json({ success: false, message: `B站API请求失败，状态码: ${bilibiliResponse.status}` });
         }
         
-        const data = await response.json();
-        log(`B站API请求成功: bv=${bv}, title=${data.data?.title || '未知'}`);
+        const data = await bilibiliResponse.json();
+        log(`B站API请求成功: bv=${realBv}, title=${data.data?.title || '未知'}`);
         
         res.status(200).json({ success: true, data: data.data });
     } catch (error) {

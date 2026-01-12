@@ -147,10 +147,10 @@ const Records = [
         {
             id: 5,
             player: '小渣渣花',
-            mainc: '瓦蕾莎',
+            mainc: '瓦雷莎',
             team: [
                 {
-                        character: '瓦蕾莎',
+                        character: '瓦雷莎',
                         constellation: 1,
                         weapon: 0
                     },
@@ -183,10 +183,10 @@ const Records = [
         {
             id: 6,
             player: 'MeiosisQWQ',
-            mainc: '瓦蕾莎',
+            mainc: '瓦雷莎',
             team: [
                 {
-                        character: '瓦蕾莎',
+                        character: '瓦雷莎',
                         constellation: 1,
                         weapon: 0
                     },
@@ -219,10 +219,10 @@ const Records = [
         {
             id: 7,
             player: '情灬惋惜',
-            mainc: '瓦蕾莎',
+            mainc: '瓦雷莎',
             team: [
                 {
-                        character: '瓦蕾莎',
+                        character: '瓦雷莎',
                         constellation: 1,
                         weapon: 0
                     },
@@ -1335,10 +1335,10 @@ const Records = [
         {
             id: 38,
             player: 'MeiosisQWQ',
-            mainc: '瓦蕾莎',
+            mainc: '瓦雷莎',
             team: [
                 {
-                        character: '瓦蕾莎',
+                        character: '瓦雷莎',
                         constellation: 0,
                         weapon: 0
                     },
@@ -1695,10 +1695,10 @@ const Records = [
         {
             id: 48,
             player: '眞过分&CHiwenKi',
-            mainc: '瓦蕾莎',
+            mainc: '瓦雷莎',
             team: [
                 {
-                        character: '瓦蕾莎',
+                        character: '瓦雷莎',
                         constellation: 0,
                         weapon: 0
                     },
@@ -1731,10 +1731,10 @@ const Records = [
         {
             id: 49,
             player: '眞过分',
-            mainc: '瓦蕾莎',
+            mainc: '瓦雷莎',
             team: [
                 {
-                        character: '瓦蕾莎',
+                        character: '瓦雷莎',
                         constellation: 0,
                         weapon: 1
                     },
@@ -1767,10 +1767,10 @@ const Records = [
         {
             id: 50,
             player: '凝度_Du',
-            mainc: '瓦蕾莎',
+            mainc: '瓦雷莎',
             team: [
                 {
-                        character: '瓦蕾莎',
+                        character: '瓦雷莎',
                         constellation: 0,
                         weapon: 1
                     },
@@ -1811,7 +1811,7 @@ const Records = [
                         weapon: 1
                     },
                 {
-                        character: '瓦蕾莎',
+                        character: '瓦雷莎',
                         constellation: 0,
                         weapon: 1
                     },
@@ -1847,7 +1847,7 @@ const Records = [
                         weapon: 1
                     },
                 {
-                        character: '瓦蕾莎',
+                        character: '瓦雷莎',
                         constellation: 0,
                         weapon: 0
                     },
@@ -2343,10 +2343,10 @@ const Records = [
         {
             id: 66,
             player: '秋茶JM',
-            mainc: '瓦蕾莎',
+            mainc: '瓦雷莎',
             team: [
                 {
-                        character: '瓦蕾莎',
+                        character: '瓦雷莎',
                         constellation: 2,
                         weapon: 1
                     },
@@ -2379,10 +2379,10 @@ const Records = [
         {
             id: 67,
             player: '秋茶JM',
-            mainc: '瓦蕾莎',
+            mainc: '瓦雷莎',
             team: [
                 {
-                        character: '瓦蕾莎',
+                        character: '瓦雷莎',
                         constellation: 2,
                         weapon: 0
                     },
@@ -2415,10 +2415,10 @@ const Records = [
         {
             id: 68,
             player: '秋茶JM',
-            mainc: '瓦蕾莎',
+            mainc: '瓦雷莎',
             team: [
                 {
-                        character: '瓦蕾莎',
+                        character: '瓦雷莎',
                         constellation: 2,
                         weapon: 1
                     },
@@ -3171,10 +3171,10 @@ const Records = [
         {
             id: 89,
             player: '小渣渣花',
-            mainc: '瓦蕾莎',
+            mainc: '瓦雷莎',
             team: [
                 {
-                        character: '瓦蕾莎',
+                        character: '瓦雷莎',
                         constellation: 0,
                         weapon: 1
                     },
@@ -3635,10 +3635,10 @@ const Records = [
         {
             id: 103,
             player: '测试玩家2',
-            mainc: '瓦蕾莎',
+            mainc: '瓦雷莎',
             team: [
                 {
-                        character: '瓦蕾莎',
+                        character: '瓦雷莎',
                         constellation: 1,
                         weapon: 0
                     },
@@ -4129,10 +4129,10 @@ const Records = [
         {
             id: 129,
             player: 'MeiosisQWQ',
-            mainc: '瓦蕾莎',
+            mainc: '瓦雷莎',
             team: [
                 {
-                        character: '瓦蕾莎',
+                        character: '瓦雷莎',
                         constellation: 0,
                         weapon: 0
                     },
@@ -5284,7 +5284,7 @@ const Records = [
                         weapon: 0
                     },
                 {
-                        character: '瓦蕾莎',
+                        character: '瓦雷莎',
                         constellation: 0,
                         weapon: 1
                     }
@@ -5734,10 +5734,10 @@ const Records = [
         {
             id: 167,
             player: '最ニ网管',
-            mainc: '瓦蕾莎',
+            mainc: '瓦雷莎',
             team: [
                 {
-                        character: '瓦蕾莎',
+                        character: '瓦雷莎',
                         constellation: 2,
                         weapon: 1
                     },
