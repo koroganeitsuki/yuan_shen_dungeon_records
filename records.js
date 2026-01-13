@@ -5759,7 +5759,7 @@ const Records = [
             ],
             time: 114,
             boss: '深罪浸礼者 · 肃烈狂音',
-            gold: 2,
+            gold: 4,
             constgold: 0,
             notes: '',
             video: 'https://www.bilibili.com/video/BV1C7B6B2EPb/',
@@ -6064,6 +6064,42 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1wwmGB4EfY/',
             status: 'approved',
             submitTime: '2025-12-11T22:53',
+            cup: '无'
+        },
+        {
+            id: 177,
+            player: '艾伦auk',
+            mainc: '久岐忍',
+            team: [
+                {
+                        character: '久岐忍',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '纳西妲',
+                        constellation: 2,
+                        weapon: 1
+                    },
+                {
+                        character: '菈乌玛',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '行秋',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 118,
+            boss: '深罪浸礼者 · 肃烈狂音',
+            gold: 5,
+            constgold: 0,
+            notes: '',
+            video: 'https://b23.tv/mTJuo6G',
+            status: 'pending',
+            submitTime: '2026-01-12T20:53',
             cup: '无'
         }
     ];
