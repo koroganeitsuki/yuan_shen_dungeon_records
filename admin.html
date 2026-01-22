@@ -236,11 +236,11 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                         <label for="edit-gold" class="block text-sm font-medium text-abyss-light mb-2">限定金数</label>
-                        <input type="number" id="edit-gold" class="w-full bg-abyss-dark/80 border border-abyss-primary/30 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-abyss-primary">
+                        <input type="number" id="edit-gold" step="any" inputmode="decimal" class="w-full bg-abyss-dark/80 border border-abyss-primary/30 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-abyss-primary">
                     </div>
                     <div>
                         <label for="edit-constgold" class="block text-sm font-medium text-abyss-light mb-2">常驻金数</label>
-                        <input type="number" id="edit-constgold" class="w-full bg-abyss-dark/80 border border-abyss-primary/30 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-abyss-primary">
+                        <input type="number" id="edit-constgold" step="any" inputmode="decimal" class="w-full bg-abyss-dark/80 border border-abyss-primary/30 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-abyss-primary">
                     </div>
                 </div>
                 <div class="mb-4">
@@ -757,8 +757,8 @@
                 team: getCurrentTeam(),
                 boss: document.getElementById('edit-boss').value,
                 time: parseInt(document.getElementById('edit-time').value),
-                gold: parseInt(document.getElementById('edit-gold').value),
-                constgold: parseInt(document.getElementById('edit-constgold').value),
+                gold: parseFloat(document.getElementById('edit-gold').value),
+                constgold: parseFloat(document.getElementById('edit-constgold').value),
                 status: document.getElementById('edit-status').value,
                 notes: document.getElementById('edit-notes').value,
                 video: video,

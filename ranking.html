@@ -334,8 +334,23 @@
             .charts-grid {
                 grid-template-columns: 1fr;
             }
+            
+            /* 移动端表格列宽设置 */
+            .table-genshin th:nth-child(3), /* 主C列 */
+            .table-genshin td:nth-child(3) {
+                width: 80px;
+                min-width: 80px;
+                max-width: 140px;
+            }
+            
+            .table-genshin th:nth-child(4), /* 队伍配置列 */
+            .table-genshin td:nth-child(4) {
+                width: 160px;
+                min-width: 160px;
+                max-width: 200px;
+            }
         }
-        
+    
         /* 动画效果 */
         .fade-in {
             animation: fadeIn 0.5s ease-in-out;
@@ -475,9 +490,9 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-400 mb-1">限定金数</label>
                         <div class="flex items-center space-x-2">
-                            <input type="number" id="gold-min" class="input-genshin w-full" placeholder="最小值" min="0" max="48" value="0">
+                            <input type="number" id="gold-min" step="any" inputmode="decimal" class="input-genshin w-full" placeholder="最小值" min="0" max="48" value="0">
                             <span class="text-gray-400">到</span>
-                            <input type="number" id="gold-max" class="input-genshin w-full" placeholder="最大值" min="0" max="48" value="48">
+                            <input type="number" id="gold-max" step="any" inputmode="decimal" class="input-genshin w-full" placeholder="最大值" min="0" max="48" value="48">
                         </div>
                     </div>
                     
@@ -990,8 +1005,8 @@
         function applyFilters() {
             const bossFilter = document.getElementById('boss-filter').value;
             const maincFilter = document.getElementById('mainc-filter').value;
-            const goldMin = parseInt(document.getElementById('gold-min').value) || 0;
-            const goldMax = parseInt(document.getElementById('gold-max').value) || 48;
+            const goldMin = parseFloat(document.getElementById('gold-min').value) || 0;
+            const goldMax = parseFloat(document.getElementById('gold-max').value) || 48;
             const timeMin = parseInt(document.getElementById('time-min').value) || 0;
             const timeMax = parseInt(document.getElementById('time-max').value) || 360;
             const searchInput = document.getElementById('search-input').value.toLowerCase();
