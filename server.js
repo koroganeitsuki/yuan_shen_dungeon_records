@@ -171,7 +171,10 @@ function parseRecordsFromRecordsFile() {
 function generateRecordsJsContent(records) {
     const safeString = (str) => {
         if (typeof str === 'string') {
-            return str.replace(/'/g, "\\'");
+            return str
+                .replace(/'/g, "\\'")
+                .replace(/\n/g, "\\n")
+                .replace(/\r/g, "\\r");
         }
         return String(str || '');
     };

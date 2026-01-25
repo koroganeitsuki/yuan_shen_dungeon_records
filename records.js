@@ -5234,7 +5234,7 @@ const Records = [
         },
         {
             id: 154,
-            player: '艾鸠_（测试数据）',
+            player: '艾鸠_',
             mainc: '6.2金幻化',
             team: [
                 {
@@ -5261,7 +5261,7 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1fcqkBGEns/',
             status: 'approved',
             submitTime: '2025-12-20T20:14',
-            cup: '新月杯'
+            cup: '无'
         },
         {
             id: 155,
@@ -6304,8 +6304,224 @@ const Records = [
             constgold: 0,
             notes: '',
             video: 'https://www.bilibili.com/video/BV1Baz5BNEEx',
-            status: 'pending',
+            status: 'approved',
             submitTime: '2026-01-21T13:03',
+            cup: '新月杯'
+        },
+        {
+            id: 185,
+            player: '星座になれたら',
+            mainc: '菲林斯',
+            team: [
+                {
+                        character: '菲林斯',
+                        constellation: 0,
+                        weapon: 3
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '爱诺',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '历经百战的火刃突击队员 · 决死武装',
+            gold: 1,
+            constgold: 3,
+            notes: '',
+            video: 'https://b23.tv/jZA3gwO',
+            status: 'approved',
+            submitTime: '2026-01-22T15:26',
+            cup: '新月杯'
+        },
+        {
+            id: 186,
+            player: '羊套橘子',
+            mainc: '哥伦比娅',
+            team: [
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '伊涅芙',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '历经百战的火刃突击队员 · 决死武装',
+            gold: 2,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1PLzcBzE3a?vd_source=a9b3bee7dd21ef08abda168355b010b6',
+            status: 'approved',
+            submitTime: '2026-01-23T00:47',
+            cup: '无'
+        },
+        {
+            id: 187,
+            player: '羊套橘子',
+            mainc: '牛顿',
+            team: [
+                {
+                        character: '岩主',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '钟离',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '琴',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '早柚',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 23,
+            boss: '历经百战的火刃突击队员 · 决死武装',
+            gold: 1,
+            constgold: 1,
+            notes: '等效0命琴',
+            video: 'https://www.bilibili.com/video/BV1HfzgBcEBb',
+            status: 'approved',
+            submitTime: '2026-01-24T05:31',
+            cup: '无'
+        },
+        {
+            id: 188,
+            player: '八风寻',
+            mainc: '哥伦比娅',
+            team: [
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '伊涅芙',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 117,
+            boss: '历经百战的火刃突击队员 · 决死武装',
+            gold: 2,
+            constgold: 0,
+            notes: '',
+            video: 'https://b23.tv/kV9yadC',
+            status: 'pending',
+            submitTime: '2026-01-24T01:24',
+            cup: '新月杯'
+        },
+        {
+            id: 189,
+            player: 'GrilledFish',
+            mainc: '菲林斯',
+            team: [
+                {
+                        character: '菲林斯',
+                        constellation: 1,
+                        weapon: 1
+                    },
+                {
+                        character: '杜林',
+                        constellation: 1,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 1
+                    },
+                {
+                        character: '爱诺',
+                        constellation: 4,
+                        weapon: 0
+                    }
+            ],
+            time: 110,
+            boss: '历经百战的火刃突击队员 · 决死武装',
+            gold: 5,
+            constgold: 1,
+            notes: '杜林2命但是几乎没提升',
+            video: 'https://www.bilibili.com/video/BV15AzzBwEpY/?pop_share=1&spm_id_from=333.40164.0.0',
+            status: 'pending',
+            submitTime: '2026-01-23T22:00',
+            cup: '新月杯'
+        },
+        {
+            id: 190,
+            player: '影子-ombre',
+            mainc: '菲林斯',
+            team: [
+                {
+                        character: '菲林斯',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '爱诺',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '历经百战的火刃突击队员 · 决死武装',
+            gold: 1,
+            constgold: 1,
+            notes: '1命菲林斯手操模拟0命\n每轮只放两小e两小q\n且第二个小e手操在6s外释放\n具体可看右下角在第二个小e刷新后会额外出现两秒计时器',
+            video: 'https://www.bilibili.com/video/BV14DzyBeETw/',
+            status: 'pending',
+            submitTime: '2026-01-24T22:26',
             cup: '新月杯'
         }
     ];
