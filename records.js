@@ -6448,7 +6448,7 @@ const Records = [
             constgold: 0,
             notes: '',
             video: 'https://b23.tv/kV9yadC',
-            status: 'pending',
+            status: 'approved',
             submitTime: '2026-01-24T01:24',
             cup: '新月杯'
         },
@@ -6482,9 +6482,9 @@ const Records = [
             boss: '历经百战的火刃突击队员 · 决死武装',
             gold: 5,
             constgold: 1,
-            notes: '杜林2命但是几乎没提升',
+            notes: '杜林2命但是几乎没提升\n审核：携带武器幻化并且未正确展示配置',
             video: 'https://www.bilibili.com/video/BV15AzzBwEpY/?pop_share=1&spm_id_from=333.40164.0.0',
-            status: 'pending',
+            status: 'denied',
             submitTime: '2026-01-23T22:00',
             cup: '新月杯'
         },
@@ -6518,10 +6518,118 @@ const Records = [
             boss: '历经百战的火刃突击队员 · 决死武装',
             gold: 1,
             constgold: 1,
-            notes: '1命菲林斯手操模拟0命\n每轮只放两小e两小q\n且第二个小e手操在6s外释放\n具体可看右下角在第二个小e刷新后会额外出现两秒计时器',
+            notes: '1命菲林斯手操模拟0命\n每轮只放两小e两小q\n且第二个小e手操在6s外释放\n具体可看右下角在第二个小e刷新后会额外出现两秒计时器\n审核备注：审核时视频未公开展示，显示为视频不见了',
             video: 'https://www.bilibili.com/video/BV14DzyBeETw/',
-            status: 'pending',
+            status: 'denied',
             submitTime: '2026-01-24T22:26',
+            cup: '新月杯'
+        },
+        {
+            id: 191,
+            player: '阿源_wuii_',
+            mainc: '玛薇卡',
+            team: [
+                {
+                        character: '玛薇卡',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '欧洛伦',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 98,
+            boss: '历经百战的火刃突击队员 · 决死武装',
+            gold: 1,
+            constgold: 0,
+            notes: '凹暴击',
+            video: 'https://b23.tv/eXsICyd',
+            status: 'approved',
+            submitTime: '2026-01-25T18:05',
+            cup: '新月杯'
+        },
+        {
+            id: 192,
+            player: 'MeiosisQWQ',
+            mainc: '瓦雷莎',
+            team: [
+                {
+                        character: '瓦雷莎',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 105,
+            boss: '历经百战的火刃突击队员 · 决死武装',
+            gold: 2,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1KuzGBVED5?vd_source=c416aa380d558540a88006023b9e4fa7&spm_id_from=333.788.videopod.episodes',
+            status: 'pending',
+            submitTime: '2026-01-21T10:50',
+            cup: '新月杯'
+        },
+        {
+            id: 193,
+            player: '刚创的新号',
+            mainc: '玛薇卡',
+            team: [
+                {
+                        character: '玛薇卡',
+                        constellation: 6,
+                        weapon: 1
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '欧洛伦',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 35,
+            boss: '历经百战的火刃突击队员 · 决死武装',
+            gold: 8,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1vFztBeEd3/?spm_id_from=333.1387.homepage.video_card.click&vd_source=31097e861f549191b9b5606a45514499',
+            status: 'pending',
+            submitTime: '2026-01-26T02:50',
             cup: '新月杯'
         }
     ];
