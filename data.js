@@ -209,6 +209,13 @@ const DataStore = {
         return records.filter(record => record.status === 'pending');
     },
     
+    // 获取所有已拒绝的记录
+    getDeniedRecords: function() {
+        // 确保Records存在并且是数组
+        const records = window.Records && Array.isArray(window.Records) ? window.Records : [];
+        return records.filter(record => record.status === 'denied');
+    },
+    
     // 获取所有记录
     getAllRecords: function() {
         // 确保Records存在并且是数组

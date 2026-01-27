@@ -519,6 +519,7 @@
                             <option value="approved">已审核记录</option>
                             <option value="all">全部记录</option>
                             <option value="pending">未审核记录</option>
+                            <option value="denied">已拒绝记录</option>
                         </select>
                     </div>
                     
@@ -739,6 +740,8 @@
                     return DataStore.getAllRecords();
                 case 'pending':
                     return DataStore.getPendingRecords();
+                case 'denied':
+                    return DataStore.getDeniedRecords();
                 case 'approved':
                 default:
                     return DataStore.getApprovedRecords();
@@ -1052,6 +1055,8 @@
                 if (statusFilter === 'approved' && record.status !== 'approved') {
                     return false;
                 } else if (statusFilter === 'pending' && record.status !== 'pending') {
+                    return false;
+                } else if (statusFilter === 'denied' && record.status !== 'denied') {
                     return false;
                 }
                 
