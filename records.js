@@ -6836,10 +6836,10 @@ const Records = [
             time: 174,
             boss: '6.3金幻化',
             gold: 12,
-            constgold: 0,
+            constgold: 7,
             notes: '最低金金皮',
             video: 'https://b23.tv/5ZP8Awa',
-            status: 'pending',
+            status: 'approved',
             submitTime: '2026-01-25T19:00',
             cup: '新月杯'
         },
@@ -7703,9 +7703,184 @@ const Records = [
             constgold: 0,
             notes: '',
             video: 'https://www.bilibili.com/video/BV1CLFkzGEha/?share_source=copy_web&vd_source=3f82456d9b0692bcb0680e514633e52d',
-            status: 'pending',
+            status: 'approved',
             submitTime: '2026-02-06T22:11',
             cup: '无'
+        },
+        {
+            id: 224,
+            player: '阿源_wuii_',
+            mainc: '菲林斯',
+            team: [
+                {
+                        character: '菲林斯',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '伊涅芙',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '深黯魇语之主 · 袭掠锋刃',
+            gold: 3,
+            constgold: 0,
+            notes: '精5大月卡*3',
+            video: 'https://www.bilibili.com/video/BV1w8cuzmEMK',
+            status: 'approved',
+            submitTime: '2026-02-09T22:50',
+            cup: '无'
+        },
+        {
+            id: 225,
+            player: '阿源_wuii_',
+            mainc: '伊涅芙',
+            team: [
+                {
+                        character: '伊涅芙',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '铁甲熔火帝皇 · 敕命远征',
+            gold: 3,
+            constgold: 0,
+            notes: '大月卡少女',
+            video: 'https://www.bilibili.com/video/BV1qFFxzEELh/',
+            status: 'approved',
+            submitTime: '2026-02-08T01:21',
+            cup: '无'
+        },
+        {
+            id: 226,
+            player: '羊套橘子',
+            mainc: '牛顿',
+            team: [
+                {
+                        character: '可莉',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '钟离',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '岩主',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '北斗',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 75,
+            boss: '历经百战的火刃突击队员 · 决死武装',
+            gold: 2,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1StFRzQEfo/',
+            status: 'approved',
+            submitTime: '2026-02-11T04:26',
+            cup: '无'
+        },
+        {
+            id: 227,
+            player: '羊套橘子',
+            mainc: '牛顿',
+            team: [
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '钟离',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '岩主',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 69,
+            boss: '历经百战的火刃突击队员 · 决死武装',
+            gold: 1,
+            constgold: 0,
+            notes: '仅三人',
+            video: 'https://b23.tv/wEDa4CJ',
+            status: 'approved',
+            submitTime: '2026-02-14T16:55',
+            cup: '无'
+        },
+        {
+            id: 228,
+            player: '糖果味',
+            mainc: '兹白',
+            team: [
+                {
+                        character: '兹白',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '叶洛亚',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '诺艾尔',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '深黯魇语之主 · 袭掠锋刃',
+            gold: 2,
+            constgold: 0,
+            notes: '',
+            video: 'https://b23.tv/X6KbfbS',
+            status: 'approved',
+            submitTime: '2026-02-16T19:21',
+            cup: '新月杯'
         }
     ];
 
