@@ -7881,6 +7881,145 @@ const Records = [
             status: 'approved',
             submitTime: '2026-02-16T19:21',
             cup: '新月杯'
+        },
+        {
+            id: 229,
+            player: '糖果味Ooo',
+            mainc: '6.3紫幻化',
+            team: [
+                {
+                        character: '兹白',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '牛顿',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '那维莱特',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 265,
+            boss: '6.3紫幻化',
+            gold: 4,
+            constgold: 1,
+            notes: 'c1龙等效c0龙',
+            video: 'https://www.bilibili.com/video/BV1MefzBzEaS/',
+            status: 'approved',
+            submitTime: '2026-02-23T20:29',
+            cup: '无'
+        },
+        {
+            id: 230,
+            player: '霂枔Official',
+            mainc: '丝柯克',
+            team: [
+                {
+                        character: '丝柯克',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '爱可菲',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '行秋',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 4,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '铁甲熔火帝皇 · 敕命远征',
+            gold: 2,
+            constgold: 5,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1JAfcB7EpP/',
+            status: 'approved',
+            submitTime: '2026-02-22T20:27',
+            cup: '无'
+        },
+        {
+            id: 231,
+            player: '霂枔Official',
+            mainc: '丝柯克',
+            team: [
+                {
+                        character: '丝柯克',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '芙宁娜',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '夏洛蒂',
+                        constellation: 3,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 4,
+                        weapon: 0
+                    }
+            ],
+            time: 117,
+            boss: '铁甲熔火帝皇 · 敕命远征',
+            gold: 3,
+            constgold: 5,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1MwfnBUEKb/',
+            status: 'approved',
+            submitTime: '2026-02-21T20:08',
+            cup: '无'
+        },
+        {
+            id: 232,
+            player: '刚创的新号',
+            mainc: '兹白',
+            team: [
+                {
+                        character: '兹白',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '叶洛亚',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '爱诺',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 116,
+            boss: '铁甲熔火帝皇 · 敕命远征',
+            gold: 2,
+            constgold: 0,
+            notes: '大月卡少',
+            video: 'www.bilibili.com/video/BV1rtfBB9EuJ/',
+            status: 'pending',
+            submitTime: '2026-02-23T22:44',
+            cup: '无'
         }
     ];
 

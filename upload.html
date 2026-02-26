@@ -589,10 +589,10 @@
                     <div class="form-group">
                         <label for="video-link" class="form-label">视频链接 <span class="text-red-500">*</span></label>
                         <div class="relative">
-                            <input type="text" id="video-link" name="video-link" class="form-input w-full pr-16" placeholder="请输入B站等视频平台的链接（支持www.格式和https://www.格式）" required>
+                            <input type="text" id="video-link" name="video-link" class="form-input w-full pr-16" placeholder="请输入视频链接（仅b站链接可自动获取信息）" required>
                             <button type="button" id="fetch-video-info" class="absolute right-2 top-1/2 transform -translate-y-1/2 px-2 py-1 bg-genshin-blue text-white rounded-md text-sm">获取信息</button>
                         </div>
-                        <div class="form-error">请输入有效的视频链接（支持www.格式和https://www.格式）</div>
+                        <div class="form-error">请输入有效的视频链接</div>
                         <div id="video-info-status" class="mt-2 text-sm hidden"></div>
                     </div>
                     
@@ -1624,7 +1624,7 @@
                 
                 // 检查链接是否为B站链接
                 if (!videoLink.includes('bilibili.com') && !videoLink.includes('b23.tv')) {
-                    showVideoStatus('请输入B站视频链接', 'error');
+                    showVideoStatus('非B站链接，跳过信息获取', 'info');
                     return;
                 }
                 
@@ -2209,7 +2209,7 @@
                 isValid = false;
                 if (!firstErrorField) firstErrorField = 'video-link';
             } else if (!isValidVideoLink(videoLink)) {
-                showError('video-link', '请输入有效的B站视频链接');
+                showError('video-link', '请输入有效的视频链接');
                 isValid = false;
                 if (!firstErrorField) firstErrorField = 'video-link';
             } else {
@@ -2245,9 +2245,8 @@
         
         // 验证视频链接
         function isValidVideoLink(link) {
-            const bilibiliRegex = /^(https?:\/\/)?(www\.)?bilibili\.com\/video\/(av|BV)[a-zA-Z0-9]+/;
-            const b23Regex = /^(https?:\/\/)?b23\.tv\/[a-zA-Z0-9]+/;
-            return bilibiliRegex.test(link) || b23Regex.test(link);
+            // 接受任何非空链接
+            return link.trim().length > 0;
         }
         
         // 显示错误提示
