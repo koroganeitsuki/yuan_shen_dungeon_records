@@ -136,6 +136,7 @@ const DataStore = {
         { id: 'tartaglia', name: '达达利亚', avatar: access + 'Avatar/UI_AvatarIcon_Tartaglia.png', element: '水' },
         
         // 其他角色
+      { id: 'Varka', name: '法尔伽', avatar: access + 'Avatar/UI_AvatarIcon_Varka.png', element: '风' },  
       { id: 'Columbina', name: '哥伦比娅', avatar: access + 'Avatar/UI_AvatarIcon_Columbina.png', element: '水' },
       { id: 'Zibai', name: '兹白', avatar: access + 'Avatar/UI_AvatarIcon_Zibai.png', element: '岩' },
       { id: 'Illuga', name: '叶洛亚', avatar: access + 'Avatar/UI_AvatarIcon_Illuga.png', element: '岩' },
@@ -181,10 +182,12 @@ const DataStore = {
       { id: 'Primo', name: '深黯魇语之主 · 袭掠锋刃', avatar: access + 'monster/UI_MonsterIcon_Lloigor_Primo.png', element: '雷' },
       { id: 'HermitCrab_Primo', name: '铁甲熔火帝皇 · 敕命远征', avatar: access + 'monster/UI_MonsterIcon_HermitCrab_Primo.png', element: '火' }, 
       { id: '6.3N6',name:'6.3紫幻化',avatar: 'Avatar/sheshiN6.webp', element: '紫幻化' },
-        { id: '6.3N7',name:'6.3金幻化',avatar: 'Avatar/sheshiN7.webp', element: '金幻化' }
-        
-
-    
+        { id: '6.3N7',name:'6.3金幻化',avatar: 'Avatar/sheshiN7.webp', element: '金幻化' },
+        { id: 'DragonCollar', name: '秘源机兵统御械 · 毁灭武装', avatar: access + 'monster/UI_MonsterIcon_DragonCollar.png', element: '冰' },
+      { id: 'Mandragora_Elite', name: '历经百战的十六倍曼陀草·风滚狂蔓', avatar: access + 'monster/UI_MonsterIcon_Mandragora_Elite.png', element: '草' }, 
+      { id: 'Gastrobot_01', name: '重拳出击鸭·重甲武库', avatar: access + 'monster/UI_MonsterIcon_Gastrobot_01.png', element: '雷' }, 
+      { id: '6.4N6',name:'6.4紫幻化',avatar: 'Avatar/sheshiN6.webp', element: '紫幻化' },
+        { id: '6.4N7',name:'6.4金幻化',avatar: 'Avatar/sheshiN7.webp', element: '金幻化' }
     ],
 
     cups:['无','新月杯'],
