@@ -1,5 +1,6 @@
 // 资源访问路径前缀
-const access = '';
+// const access = '';
+const access = 'https://homdgcatwiki.hasban.cn/homdgcat-res/';
 
 // 数据存储模块
 const DataStore = {
@@ -165,6 +166,9 @@ const DataStore = {
     
     // BOSS数据
     bosses: [
+        { id: 'Narcissusborn', name: '水形幻人 · 极旋湍流', avatar: access + 'monster/UI_MonsterIcon_Narcissusborn_Normal_01.png', element: '水' },
+        { id: 'LavaTitan', name: '熔岩辉龙像 · 炽烈流焰', avatar: access + 'monster/UI_MonsterIcon_LavaTitan.png', element: '火' },
+        { id: 'DragonCollar', name: '秘源机兵统御械 · 毁灭武装', avatar: access + 'monster/UI_MonsterIcon_DragonCollar.png', element: '冰' },
         { id: 'abyss_dendrite', name: '深邃摹结株 · 虚暗幻变', avatar: access + 'monster/UI_MonsterIcon_TheAbyss_Dendrite.png', element: '物理' },
         { id: 'electric_tortoise', name: '历经百战的玳龟 · 坚盾轰霆', avatar: access + 'monster/UI_MonsterIcon_Tortoise_Electric.png', element: '雷' },
         { id: 'tenoyollotzin', name: '历经百战的皮皮潘偶像 · 百诈瞬变', avatar: access + 'monster/UI_MonsterIcon_Tenoyollotzin.png', element: '雷' },
@@ -182,12 +186,11 @@ const DataStore = {
       { id: 'Primo', name: '深黯魇语之主 · 袭掠锋刃', avatar: access + 'monster/UI_MonsterIcon_Lloigor_Primo.png', element: '雷' },
       { id: 'HermitCrab_Primo', name: '铁甲熔火帝皇 · 敕命远征', avatar: access + 'monster/UI_MonsterIcon_HermitCrab_Primo.png', element: '火' }, 
       { id: '6.3N6',name:'6.3紫幻化',avatar: 'Avatar/sheshiN6.webp', element: '紫幻化' },
-        { id: '6.3N7',name:'6.3金幻化',avatar: 'Avatar/sheshiN7.webp', element: '金幻化' },
-        { id: 'DragonCollar', name: '秘源机兵统御械 · 毁灭武装', avatar: access + 'monster/UI_MonsterIcon_DragonCollar.png', element: '冰' },
+        { id: '6.3N7',name:'6.3金幻化',avatar: 'Avatar/sheshiN7.webp', element: '金幻化' },        
       { id: 'Mandragora_Elite', name: '历经百战的十六倍曼陀草·风滚狂蔓', avatar: access + 'monster/UI_MonsterIcon_Mandragora_Elite.png', element: '草' }, 
       { id: 'Gastrobot_01', name: '重拳出击鸭·重甲武库', avatar: access + 'monster/UI_MonsterIcon_Gastrobot_01.png', element: '雷' }, 
-      { id: '6.4N6',name:'6.4紫幻化',avatar: 'Avatar/sheshiN6.webp', element: '紫幻化' },
-        { id: '6.4N7',name:'6.4金幻化',avatar: 'Avatar/sheshiN7.webp', element: '金幻化' }
+    //   { id: '6.4N6',name:'6.4紫幻化',avatar: 'Avatar/sheshiN6.webp', element: '紫幻化' },
+    //     { id: '6.4N7',name:'6.4金幻化',avatar: 'Avatar/sheshiN7.webp', element: '金幻化' }
     ],
 
     cups:['无','新月杯'],
