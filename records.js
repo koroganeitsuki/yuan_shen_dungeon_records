@@ -8992,6 +8992,78 @@ const Records = [
             status: 'approved',
             submitTime: '2026-03-10T02:36',
             cup: '无'
+        },
+        {
+            id: 261,
+            player: '精灵物語',
+            mainc: '丝柯克',
+            team: [
+                {
+                        character: '丝柯克',
+                        constellation: 2,
+                        weapon: 1
+                    },
+                {
+                        character: '爱可菲',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '芙宁娜',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 5,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '重拳出击鸭·重甲武库',
+            gold: 6,
+            constgold: 6,
+            notes: '95级丝柯克',
+            video: 'https://b23.tv/tKNdtrc',
+            status: 'approved',
+            submitTime: '2026-03-11T02:46',
+            cup: '无'
+        },
+        {
+            id: 262,
+            player: 'Nukeyowo',
+            mainc: '仆人',
+            team: [
+                {
+                        character: '仆人',
+                        constellation: 1,
+                        weapon: 1
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '茜特菈莉',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '莱依拉',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 114,
+            boss: '秘源机兵统御械 · 毁灭武装',
+            gold: 4,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1aQcRzFEXT',
+            status: 'approved',
+            submitTime: '2026-03-11T08:35',
+            cup: '无'
         }
     ];
 
