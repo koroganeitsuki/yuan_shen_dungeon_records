@@ -7,7 +7,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- 自定义Tailwind配置 -->
     <script>
         tailwind.config = {
@@ -230,30 +230,6 @@
             padding: 2rem;
         }
         
-        /* 响应式调整 */
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 80%;
-                height: 100vh;
-                background: rgba(18, 18, 18, 0.95);
-                backdrop-filter: blur(10px);
-                z-index: 50;
-                transition: right 0.3s ease;
-                padding: 2rem;
-            }
-            
-            .nav-menu.active {
-                right: 0;
-            }
-            
-            .mobile-menu-btn {
-                display: block !important;
-                z-index: 60;
-            }
-        }
     </style>
 </head>
 <body class="text-light">
@@ -276,24 +252,21 @@
                 
                 <!-- 移动端菜单按钮 -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-white focus:outline-none">
-                        <i class="fa fa-bars text-2xl"></i>
+                    <button id="mobile-menu-btn" class="text-white hover:text-genshin-yellow">
+                        <i class="fa fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
-            
-            <!-- 移动端导航菜单 -->
-            <div id="mobile-menu" class="nav-menu md:hidden hidden">
-                <div class="flex justify-end mb-8">
-                    <button id="close-menu-btn" class="text-white focus:outline-none">
-                        <i class="fa fa-times text-2xl"></i>
-                    </button>
-                </div>
-                <div class="flex flex-col space-y-6">
-                    <a href="index.html" class="text-genshin-yellow text-xl">首页</a>
-                    <a href="ranking.html" class="text-white hover:text-genshin-yellow text-xl">排行榜</a>
-                    <a href="upload.html" class="text-white hover:text-genshin-yellow text-xl">上传记录</a>
-                    <a href="admin.html" class="text-white hover:text-genshin-yellow text-xl">管理员入口</a>
+        </div>
+        
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="md:hidden bg-dark bg-opacity-95 backdrop-blur-md border-b border-gray-800 hidden">
+            <div class="container mx-auto px-4 py-2">
+                <div class="flex flex-col space-y-3 py-3">
+                    <a href="index.html" class="text-genshin-yellow font-medium py-2">首页</a>
+                    <a href="ranking.html" class="text-white hover:text-genshin-yellow transition-colors py-2">排行榜</a>
+                    <a href="upload.html" class="text-white hover:text-genshin-yellow transition-colors py-2">上传记录</a>
+                    <a href="admin.html" class="text-white hover:text-genshin-yellow transition-colors py-2">管理员</a>
                 </div>
             </div>
         </div>
@@ -349,32 +322,6 @@
         </div>
     </section>
 
-    <!-- 热门通关记录 -->
-    <section class="py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-8 text-center section-title">热门通关记录</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="records-container">
-                <!-- 记录卡片将通过JavaScript动态生成 -->
-                <div class="col-span-full text-center py-12" id="records-loading">
-                    <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-genshin-yellow mb-4"></div>
-                    <p class="text-gray-400">正在加载通关记录...</p>
-                </div>
-                <div class="col-span-full text-center py-12 hidden" id="records-empty">
-                    <div class="text-6xl text-gray-600 mb-4">
-                        <i class="fa fa-folder-open"></i>
-                    </div>
-                    <p class="text-xl text-gray-400">暂无通关记录</p>
-                </div>
-            </div>
-            
-            <div class="text-center mt-10">
-                <a href="ranking.html" class="btn-genshin">
-                    <i class="fa fa-list mr-2"></i>查看更多记录
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- 网站统计 -->
     <section class="py-16 bg-dark bg-opacity-70">
         <div class="container mx-auto px-4">
@@ -407,14 +354,11 @@
                     <p class="text-gray-400">&copy; 2025 原神幽境危战难度六通关记录. 保留所有权利.</p>
                 </div>
                 <div class="flex space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-genshin-yellow">
-                        <i class="fa fa-github text-2xl"></i>
+                    <a href="https://github.com/koroganeitsuki/yuan_shen_dungeon_records" target="_blank" class="text-gray-400 hover:text-genshin-yellow">
+                        <i class="fa-brands fa-github text-2xl"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-genshin-yellow">
-                        <i class="fa fa-twitter text-2xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-genshin-yellow">
-                        <i class="fa fa-bilibili text-2xl"></i>
+                    <a href="https://space.bilibili.com/435511059" target="_blank" class="text-gray-400 hover:text-genshin-yellow">
+                        <i class="fa-brands fa-bilibili text-2xl"></i>
                     </a>
                 </div>
             </div>
@@ -458,17 +402,13 @@
         window.addEventListener('load', function() {
             // 移动端菜单
             document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.add('active');
-            });
-            
-            document.getElementById('close-menu-btn').addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.remove('active');
+                document.getElementById('mobile-menu').classList.toggle('hidden');
             });
             
             // 导航链接点击关闭菜单
             document.querySelectorAll('#mobile-menu a').forEach(link => {
                 link.addEventListener('click', function() {
-                    document.getElementById('mobile-menu').classList.remove('active');
+                    document.getElementById('mobile-menu').classList.add('hidden');
                 });
             });
             
@@ -639,34 +579,6 @@
                 `;
             }
             
-            // 渲染通关记录
-            function renderRecords(records) {
-                const container = document.getElementById('records-container');
-                const loading = document.getElementById('records-loading');
-                const empty = document.getElementById('records-empty');
-                
-                // 清空容器
-                container.innerHTML = '';
-                
-                if (records.length === 0) {
-                    // 显示空状态
-                    empty.classList.remove('hidden');
-                    container.appendChild(empty);
-                } else {
-                    // 隐藏空状态
-                    empty.classList.add('hidden');
-                    
-                    // 生成并添加记录卡片
-                    records.forEach(record => {
-                        const cardHtml = generateRecordCard(record);
-                        container.innerHTML += cardHtml;
-                    });
-                }
-                
-                // 隐藏加载状态
-                loading.classList.add('hidden');
-            }
-            
             // 计算统计数据
             function calculateStats(records) {
                 // 计算通关记录总数
@@ -690,39 +602,6 @@
                 };
             }
             
-            // 获取特定BOSS的最低金数记录
-            function getLowestGoldRecords() {
-                // 要查询的BOSS列表
-                const targetBosses = [
-                    '霜夜巡天灵主 · 惊恨憎愤',
-                    '历经百战的执灯人 · 哀恸回响',
-                    '历经百战的霜役人 · 涉血芒锋'
-                ];
-                
-                const result = [];
-                
-                // 为每个目标BOSS查找最低金数记录
-                targetBosses.forEach(bossName => {
-                    // 筛选当前BOSS的所有记录
-                    const bossRecords = recordsData.filter(record => record.boss === bossName);
-                    
-                    if (bossRecords.length > 0) {
-                        // 按金数升序排序，金数相同则按时间升序排序
-                        bossRecords.sort((a, b) => {
-                            if (a.gold !== b.gold) {
-                                return a.gold - b.gold;
-                            }
-                            return a.time - b.time;
-                        });
-                        
-                        // 取最低金数的第一条记录
-                        result.push(bossRecords[0]);
-                    }
-                });
-                
-                return result;
-            }
-            
             // 加载数据
             function loadData() {
                 try {
@@ -740,12 +619,6 @@
                     
                     // 更新加载状态
                     document.getElementById('loading-status').textContent = '数据加载成功，正在渲染页面...';
-                    
-                    // 获取特定BOSS的最低金数记录
-                    const lowestGoldRecords = getLowestGoldRecords();
-                    
-                    // 渲染记录（显示最低金数记录）
-                    renderRecords(lowestGoldRecords);
                     
                     // 渲染BOSS列表
                     renderBosses();

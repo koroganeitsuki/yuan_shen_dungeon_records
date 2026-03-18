@@ -9064,6 +9064,330 @@ const Records = [
             status: 'approved',
             submitTime: '2026-03-11T08:35',
             cup: '无'
+        },
+        {
+            id: 263,
+            player: '霂枔Official',
+            mainc: '奈芙尔',
+            team: [
+                {
+                        character: '奈芙尔',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '菈乌玛',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '重拳出击鸭·重甲武库',
+            gold: 5,
+            constgold: 0,
+            notes: '精5霜辰奈',
+            video: 'https://www.bilibili.com/video/BV1WxwLzBEru',
+            status: 'approved',
+            submitTime: '2026-03-16T16:26',
+            cup: '无'
+        },
+        {
+            id: 264,
+            player: 'kanjzyane',
+            mainc: '菲林斯',
+            team: [
+                {
+                        character: '菲林斯',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '伊涅芙',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '重拳出击鸭·重甲武库',
+            gold: 3,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV17pwTzBETE/',
+            status: 'approved',
+            submitTime: '2026-03-15T15:55',
+            cup: '无'
+        },
+        {
+            id: 265,
+            player: '刚创的新号',
+            mainc: '玛薇卡',
+            team: [
+                {
+                        character: '玛薇卡',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '欧洛伦',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 118,
+            boss: '重拳出击鸭·重甲武库',
+            gold: 3,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1JYwPzPE2i/',
+            status: 'approved',
+            submitTime: '2026-03-12T08:31',
+            cup: '无'
+        },
+        {
+            id: 266,
+            player: '飞行矮矮堇瓜',
+            mainc: '哥伦比娅',
+            team: [
+                {
+                        character: '哥伦比娅',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '伊涅芙',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '重拳出击鸭·重甲武库',
+            gold: 4,
+            constgold: 3,
+            notes: '100级少女',
+            video: 'https://www.bilibili.com/video/BV174Pyz7Ewi/',
+            status: 'approved',
+            submitTime: '2026-03-06T01:11',
+            cup: '无'
+        },
+        {
+            id: 267,
+            player: '热尊',
+            mainc: '兹白',
+            team: [
+                {
+                        character: '兹白',
+                        constellation: 2,
+                        weapon: 1
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '叶洛亚',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '五郎',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '重拳出击鸭·重甲武库',
+            gold: 5,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1bENPzsELh/',
+            status: 'approved',
+            submitTime: '2026-03-08T01:06',
+            cup: '无'
+        },
+        {
+            id: 268,
+            player: 'listener021',
+            mainc: '仆人',
+            team: [
+                {
+                        character: '仆人',
+                        constellation: 2,
+                        weapon: 1
+                    },
+                {
+                        character: '茜特菈莉',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 1
+                    }
+            ],
+            time: 105,
+            boss: '重拳出击鸭·重甲武库',
+            gold: 7,
+            constgold: 2,
+            notes: '95级仆',
+            video: 'https://www.bilibili.com/video/BV1h5PXztEAX/',
+            status: 'approved',
+            submitTime: '2026-03-09T16:59',
+            cup: '无'
+        },
+        {
+            id: 269,
+            player: 'MeiosisQWQ',
+            mainc: '瓦雷莎',
+            team: [
+                {
+                        character: '瓦雷莎',
+                        constellation: 2,
+                        weapon: 1
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '杜林',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '重拳出击鸭·重甲武库',
+            gold: 5,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1PSPkz9Esj/',
+            status: 'approved',
+            submitTime: '2026-03-05T20:48',
+            cup: '无'
+        },
+        {
+            id: 270,
+            player: '精灵物語',
+            mainc: '丝柯克',
+            team: [
+                {
+                        character: '丝柯克',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '爱可菲',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '芙宁娜',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 1,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '历经百战的十六倍曼陀草·风滚狂蔓',
+            gold: 4,
+            constgold: 2,
+            notes: '',
+            video: 'www.bilibili.com/video/BV1cJwuzEESr/',
+            status: 'pending',
+            submitTime: '2026-03-15T20:44',
+            cup: '无'
+        },
+        {
+            id: 271,
+            player: '米酒Yahalo',
+            mainc: '法尔伽',
+            team: [
+                {
+                        character: '法尔伽',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '温迪',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 116,
+            boss: '历经百战的十六倍曼陀草·风滚狂蔓',
+            gold: 2,
+            constgold: 0,
+            notes: '',
+            video: 'www.bilibili.com/video/BV1pAPBzzEvs/',
+            status: 'pending',
+            submitTime: '2026-03-05T08:30',
+            cup: '无'
         }
     ];
 

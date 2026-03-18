@@ -7,7 +7,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
     <!-- 自定义Tailwind配置 -->
@@ -516,8 +516,8 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-400 mb-1">记录状态</label>
                         <select id="status-filter" class="select-genshin w-full">
-                            <option value="approved">已审核记录</option>
                             <option value="all">全部记录</option>
+                            <option value="approved">已审核记录</option>                            
                             <option value="pending">未审核记录</option>
                             <option value="denied">已拒绝记录</option>
                         </select>
@@ -592,7 +592,7 @@
                                     <th class="sortable-header" data-sort="time">通关时间</th>
                                     <th class="sortable-header" data-sort="boss">BOSS</th>
                                     <th>备注</th>
-                                    <th>操作</th>
+                                    <th>视频</th>
                                 </tr>
                             </thead>
                             <tbody id="records-table-body">
@@ -662,8 +662,11 @@
                     <p class="text-gray-400">&copy; 2025 原神幽境危战难度六通关记录. 保留所有权利.</p>
                 </div>
                 <div class="flex space-x-4">
+                    <a href="https://github.com/koroganeitsuki/yuan_shen_dungeon_records" target="_blank" class="text-gray-400 hover:text-genshin-yellow">
+                        <i class="fa-brands fa-github text-2xl"></i>
+                    </a>
                     <a href="https://space.bilibili.com/435511059" target="_blank" class="text-gray-400 hover:text-genshin-yellow">
-                        <i class="fab fa-bilibili text-2xl"></i>
+                        <i class="fa-brands fa-bilibili text-2xl"></i>
                     </a>
                 </div>
             </div>
@@ -1029,20 +1032,7 @@
                 }
                 
                 // 五星数范围筛选
-                let goldCount = 0;
-                if (typeof record.gold === 'number') {
-                    goldCount = record.gold;
-                } else if (record.gold.includes('+')) {
-                    const parts = record.gold.split('+');
-                    goldCount = parts.reduce((sum, part) => {
-                        const num = parseInt(part.replace(/[^\d]/g, '')) || 0;
-                        return sum + num;
-                    }, 0);
-                } else {
-                    goldCount = parseInt(record.gold.replace(/[^\d]/g, '')) || 0;
-                }
-                
-                if (goldCount < goldMin || goldCount > goldMax) {
+                if (record.gold < goldMin || record.gold > goldMax) {
                     return false;
                 }
                 
@@ -1052,14 +1042,17 @@
                 }
                 
                 // 记录状态筛选
-                if (statusFilter === 'approved' && record.status !== 'approved') {
-                    return false;
-                } else if (statusFilter === 'pending' && record.status !== 'pending') {
-                    return false;
-                } else if (statusFilter === 'denied' && record.status !== 'denied') {
+                // if (statusFilter === 'approved' && record.status !== 'approved') {
+                //     return false;
+                // } else if (statusFilter === 'pending' && record.status !== 'pending') {
+                //     return false;
+                // } else if (statusFilter === 'denied' && record.status !== 'denied') {
+                //     return false;
+                // }
+                if (statusFilter !== 'all' && record.status !== statusFilter) {
                     return false;
                 }
-                
+
                 // 杯赛筛选
                 if (cupFilter !== 'all' && (record.cup || '无') !== cupFilter) {
                     return false;
@@ -1126,7 +1119,7 @@
             document.getElementById('time-min').value = '0';
             document.getElementById('time-max').value = '360';
             document.getElementById('search-input').value = '';
-            document.getElementById('status-filter').value = 'approved';
+            document.getElementById('status-filter').value = 'all';
             document.getElementById('cup-filter').value = 'all';
             document.getElementById('mainc-record-filter').value = 'all';
             maincRecordFilter = 'all';
@@ -1232,7 +1225,7 @@
                 
                 // 常驻金
                 const constgoldCell = document.createElement('td');
-                constgoldCell.innerHTML = `<div class="badge badge-gold">${record.constgold || 0}金</div>`;
+                constgoldCell.innerHTML = `<div class="badge badge-gold">${record.constgold}金</div>`;
                 row.appendChild(constgoldCell);
                 
                 // 通关时间
@@ -1275,15 +1268,15 @@
                 }
                 row.appendChild(notesCell);
                 
-                // 操作
-                const actionCell = document.createElement('td');
+                // 视频链接
+                const videoCell = document.createElement('td');
                 // 处理视频链接，如果以www.开头则添加https://前缀
                 let videoLink = record.video || '';
                 if (videoLink && videoLink.startsWith('www.')) {
                     videoLink = 'https://' + videoLink;
                 }
                 if (videoLink) {
-                    actionCell.innerHTML = `
+                    videoCell.innerHTML = `
                         <div class="flex space-x-2">
                             <a href="${videoLink}" target="_blank" class="text-genshin-blue hover:text-genshin-yellow transition-colors" title="观看视频">
                                 <i class="fa fa-play-circle"></i>
@@ -1291,9 +1284,9 @@
                         </div>
                     `;
                 } else {
-                    actionCell.innerHTML = '-';
+                    videoCell.innerHTML = '-';     
                 }
-                row.appendChild(actionCell);
+                row.appendChild(videoCell);
                 
                 tableBody.appendChild(row);
             });
@@ -1354,23 +1347,9 @@
                 // 步骤2：对每个主C组内的记录进行内部排序
                 Object.keys(maincGroups).forEach(mainc => {
                     maincGroups[mainc].sort((a, b) => {
-                        // 限定金数排序
-                        let goldA = typeof a.gold === 'number' ? a.gold : 
-                                   a.gold?.includes('+') ? a.gold.split('+').reduce((sum, part) => sum + parseInt(part.replace(/[^\d]/g, '') || 0), 0) :
-                                   parseInt(a.gold?.replace(/[^\d]/g, '')) || 0;
-                                
-                        let goldB = typeof b.gold === 'number' ? b.gold : 
-                                   b.gold?.includes('+') ? b.gold.split('+').reduce((sum, part) => sum + parseInt(part.replace(/[^\d]/g, '') || 0), 0) :
-                                   parseInt(b.gold?.replace(/[^\d]/g, '')) || 0;
-                        if (goldA !== goldB) return goldA - goldB;
-                        
-                        // 常驻金数排序
-                        let constGoldA = a.constgold || 0;
-                        let constGoldB = b.constgold || 0;
-                        if (constGoldA !== constGoldB) return constGoldA - constGoldB;
-                        
-                        // 通关时间排序
-                        return (a.time || 0) - (b.time || 0);
+                        if (a.gold !== b.gold) return a.gold - b.gold;
+                        if (a.constgold !== b.constgold) return a.constgold - b.constgold;
+                        return a.time - b.time;
                     });
                 });
                 
@@ -1380,23 +1359,9 @@
                     const recordA = groupA[0];
                     const recordB = groupB[0];
                     
-                    // 限定金数排序
-                    let goldA = typeof recordA.gold === 'number' ? recordA.gold : 
-                               recordA.gold?.includes('+') ? recordA.gold.split('+').reduce((sum, part) => sum + parseInt(part.replace(/[^\d]/g, '') || 0), 0) :
-                               parseInt(recordA.gold?.replace(/[^\d]/g, '')) || 0;
-                                
-                    let goldB = typeof recordB.gold === 'number' ? recordB.gold : 
-                               recordB.gold?.includes('+') ? recordB.gold.split('+').reduce((sum, part) => sum + parseInt(part.replace(/[^\d]/g, '') || 0), 0) :
-                               parseInt(recordB.gold?.replace(/[^\d]/g, '')) || 0;
-                    if (goldA !== goldB) return goldA - goldB;
-                    
-                    // 常驻金数排序
-                    let constGoldA = recordA.constgold || 0;
-                    let constGoldB = recordB.constgold || 0;
-                    if (constGoldA !== constGoldB) return constGoldA - constGoldB;
-                    
-                    // 通关时间排序
-                    return (recordA.time || 0) - (recordB.time || 0);
+                    if (recordA.gold !== recordB.gold) return recordA.gold - recordB.gold;
+                    if (recordA.constgold !== recordB.constgold) return recordA.constgold - recordB.constgold;
+                    return recordA.time - recordB.time;
                 });
                 
                 // 步骤4：将排序后的主C组合并
@@ -1413,18 +1378,12 @@
                         valueB = b.time;
                         break;
                     case 'gold':
-                        // 处理五星数，包括数字和字符串格式
-                        valueA = typeof a.gold === 'number' ? a.gold : 
-                                a.gold?.includes('+') ? a.gold.split('+').reduce((sum, part) => sum + parseInt(part.replace(/[^\d]/g, '') || 0), 0) :
-                                parseInt(a.gold?.replace(/[^\d]/g, '')) || 0;
-                        
-                        valueB = typeof b.gold === 'number' ? b.gold : 
-                                b.gold?.includes('+') ? b.gold.split('+').reduce((sum, part) => sum + parseInt(part.replace(/[^\d]/g, '') || 0), 0) :
-                                parseInt(b.gold?.replace(/[^\d]/g, '')) || 0;
+                        valueA = a.gold;
+                        valueB = b.gold;
                         break;
                     case 'constgold':
-                        valueA = a.constgold || 0;
-                        valueB = b.constgold || 0;
+                        valueA = a.constgold;
+                        valueB = b.constgold;
                         break;
                     case 'date':
                         // 解析日期
@@ -1454,6 +1413,9 @@
                 if (valueA > valueB) {
                     return sortDirection === 'asc' ? 1 : -1;
                 }
+                if (a.gold !== b.gold) return a.gold - b.gold;
+                if (a.constgold !== b.constgold) return a.constgold - b.constgold;
+                if (a.time !== b.time) return a.time - b.time;
                 return 0;
             });
         }
