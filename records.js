@@ -8892,7 +8892,7 @@ const Records = [
             team: [
                 {
                         character: '玛薇卡',
-                        constellation: 0,
+                        constellation: 2,
                         weapon: 0
                     },
                 {
@@ -9345,11 +9345,11 @@ const Records = [
             ],
             time: 120,
             boss: '历经百战的十六倍曼陀草·风滚狂蔓',
-            gold: 4,
+            gold: 3,
             constgold: 2,
             notes: '',
-            video: 'www.bilibili.com/video/BV1cJwuzEESr/',
-            status: 'pending',
+            video: 'https://www.bilibili.com/video/BV1cJwuzEESr/',
+            status: 'approved',
             submitTime: '2026-03-15T20:44',
             cup: '无'
         },
@@ -9384,9 +9384,580 @@ const Records = [
             gold: 2,
             constgold: 0,
             notes: '',
-            video: 'www.bilibili.com/video/BV1pAPBzzEvs/',
-            status: 'pending',
+            video: 'https://www.bilibili.com/video/BV1pAPBzzEvs/',
+            status: 'approved',
             submitTime: '2026-03-05T08:30',
+            cup: '无'
+        },
+        {
+            id: 272,
+            player: '孩子伊卡洛斯',
+            mainc: '那维莱特',
+            team: [
+                {
+                        character: '那维莱特',
+                        constellation: 1,
+                        weapon: 1
+                    },
+                {
+                        character: '芙宁娜',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '爱可菲',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '茜特菈莉',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '秘源机兵统御械 · 毁灭武装',
+            gold: 8,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1AUPKzUEL7/?vd_source=e0563779522843abfa6d1eb97e2e08ec',
+            status: 'approved',
+            submitTime: '2026-03-04T13:28',
+            cup: '无'
+        },
+        {
+            id: 273,
+            player: '孩子伊卡洛斯',
+            mainc: '那维莱特',
+            team: [
+                {
+                        character: '那维莱特',
+                        constellation: 1,
+                        weapon: 0
+                    },
+                {
+                        character: '芙宁娜',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '爱可菲',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '茜特菈莉',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '深罪浸礼者 · 肃烈狂音',
+            gold: 7,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1ozm1BgEFh/?vd_source=e0563779522843abfa6d1eb97e2e08ec',
+            status: 'approved',
+            submitTime: '2025-12-15T18:22',
+            cup: '无'
+        },
+        {
+            id: 274,
+            player: 'Karon_Li2',
+            mainc: '玛拉妮',
+            team: [
+                {
+                        character: '玛拉妮',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '火主',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 115,
+            boss: '历经百战的十六倍曼陀草·风滚狂蔓',
+            gold: 1,
+            constgold: 3,
+            notes: '',
+            video: 'https://b23.tv/J28amhh',
+            status: 'approved',
+            submitTime: '2026-03-19T13:59',
+            cup: '无'
+        },
+        {
+            id: 275,
+            player: '羊套橘子',
+            mainc: '仆人',
+            team: [
+                {
+                        character: '仆人',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 118,
+            boss: '历经百战的十六倍曼陀草·风滚狂蔓',
+            gold: 1,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1FSXFBeEZq?vd_source=a9b3bee7dd21ef08abda168355b010b6',
+            status: 'approved',
+            submitTime: '2026-03-24T06:34',
+            cup: '无'
+        },
+        {
+            id: 276,
+            player: '雨落の烟火',
+            mainc: '玛薇卡',
+            team: [
+                {
+                        character: '玛薇卡',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '欧洛伦',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 2,
+                        weapon: 0
+                    }
+            ],
+            time: 109,
+            boss: '水形幻人 · 极旋湍流',
+            gold: 3,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV14KuuzkEqa/',
+            status: 'approved',
+            submitTime: '2025-07-11T14:08',
+            cup: '无'
+        },
+        {
+            id: 277,
+            player: 'MeiosisQWQ',
+            mainc: '瓦雷莎',
+            team: [
+                {
+                        character: '瓦雷莎',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 101,
+            boss: '熔岩辉龙像 · 炽烈流焰',
+            gold: 1,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1fAugzYEMw/',
+            status: 'approved',
+            submitTime: '2025-07-11T19:20',
+            cup: '无'
+        },
+        {
+            id: 278,
+            player: 'C云谲',
+            mainc: '基尼奇',
+            team: [
+                {
+                        character: '基尼奇',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '瑶瑶',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 113,
+            boss: '熔岩辉龙像 · 炽烈流焰',
+            gold: 1,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1pYGKzMEMu',
+            status: 'approved',
+            submitTime: '2025-07-10T06:25',
+            cup: '无'
+        },
+        {
+            id: 279,
+            player: '糖渡',
+            mainc: '仆人',
+            team: [
+                {
+                        character: '仆人',
+                        constellation: 1,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 117,
+            boss: '熔岩辉龙像 · 炽烈流焰',
+            gold: 2,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1QfGJzoEC3',
+            status: 'approved',
+            submitTime: '2025-07-08T16:23',
+            cup: '无'
+        },
+        {
+            id: 280,
+            player: '阿布relax丶',
+            mainc: '玛拉妮',
+            team: [
+                {
+                        character: '玛拉妮',
+                        constellation: 1,
+                        weapon: 0
+                    },
+                {
+                        character: '安柏',
+                        constellation: 1,
+                        weapon: 0
+                    },
+                {
+                        character: '香菱',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '柯莱',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 118,
+            boss: '熔岩辉龙像 · 炽烈流焰',
+            gold: 2,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1z73MzAEcy',
+            status: 'approved',
+            submitTime: '2025-07-03T15:00',
+            cup: '无'
+        },
+        {
+            id: 281,
+            player: '秋茶JM',
+            mainc: '克洛琳德',
+            team: [
+                {
+                        character: '克洛琳德',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '香菱',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '熔岩辉龙像 · 炽烈流焰',
+            gold: 2,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1YruwzvEsC',
+            status: 'approved',
+            submitTime: '2025-07-13T19:04',
+            cup: '无'
+        },
+        {
+            id: 282,
+            player: '最ニ网管',
+            mainc: '嘉明',
+            team: [
+                {
+                        character: '嘉明',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '茜特菈莉',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '爱可菲',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '秘源机兵统御械 · 毁灭武装',
+            gold: 4,
+            constgold: 0,
+            notes: '',
+            video: 'https://b23.tv/QEW3k7R',
+            status: 'approved',
+            submitTime: '2026-03-09T22:01',
+            cup: '无'
+        },
+        {
+            id: 283,
+            player: '最ニ网管',
+            mainc: '烟绯',
+            team: [
+                {
+                        character: '烟绯',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '闲云',
+                        constellation: 2,
+                        weapon: 1
+                    },
+                {
+                        character: '茜特菈莉',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '凯亚',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 107,
+            boss: '秘源机兵统御械 · 毁灭武装',
+            gold: 7,
+            constgold: 0,
+            notes: '',
+            video: 'https://b23.tv/fQp9nKQ',
+            status: 'approved',
+            submitTime: '2026-03-08T11:48',
+            cup: '无'
+        },
+        {
+            id: 284,
+            player: '奕欢_y',
+            mainc: '兹白',
+            team: [
+                {
+                        character: '兹白',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '叶洛亚',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '五郎',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '重拳出击鸭·重甲武库',
+            gold: 4,
+            constgold: 0,
+            notes: '',
+            video: 'https://b23.tv/U6nrXRh',
+            status: 'approved',
+            submitTime: '2026-03-27T23:50',
+            cup: '无'
+        },
+        {
+            id: 285,
+            player: '黑の辉',
+            mainc: '丝柯克',
+            team: [
+                {
+                        character: '丝柯克',
+                        constellation: 2,
+                        weapon: 1
+                    },
+                {
+                        character: '爱可菲',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '芙宁娜',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 4,
+                        weapon: 0
+                    }
+            ],
+            time: 115,
+            boss: '重拳出击鸭·重甲武库',
+            gold: 6,
+            constgold: 5,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1WH9jBDE4c/',
+            status: 'approved',
+            submitTime: '2026-04-01T18:26',
+            cup: '无'
+        },
+        {
+            id: 286,
+            player: '阿源_wuii_',
+            mainc: '6.3紫幻化',
+            team: [
+                {
+                        character: '奈芙尔',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '菲林斯',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '丝柯克',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 351,
+            boss: '6.3紫幻化',
+            gold: 6,
+            constgold: 12,
+            notes: '6.4紫幻化',
+            video: 'https://www.bilibili.com/video/BV1WLXkBoE2K/',
+            status: 'approved',
+            submitTime: '2026-03-31T17:05',
+            cup: '无'
+        },
+        {
+            id: 287,
+            player: '羊套橘子',
+            mainc: '仆人',
+            team: [
+                {
+                        character: '仆人',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 112,
+            boss: '历经百战的十六倍曼陀草·风滚狂蔓',
+            gold: 1,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1Fx9ABrEnu?vd_source=a9b3bee7dd21ef08abda168355b010b6',
+            status: 'pending',
+            submitTime: '2026-04-03T07:13',
             cup: '无'
         }
     ];
