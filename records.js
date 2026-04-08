@@ -9956,8 +9956,116 @@ const Records = [
             constgold: 0,
             notes: '',
             video: 'https://www.bilibili.com/video/BV1Fx9ABrEnu?vd_source=a9b3bee7dd21ef08abda168355b010b6',
-            status: 'pending',
+            status: 'approved',
             submitTime: '2026-04-03T07:13',
+            cup: '无'
+        },
+        {
+            id: 288,
+            player: '也是好上了-',
+            mainc: '奈芙尔',
+            team: [
+                {
+                        character: '奈芙尔',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '爱可菲',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '迪奥娜',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 116,
+            boss: '秘源机兵统御械 · 毁灭武装',
+            gold: 5,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1bgSZBvEHv/',
+            status: 'approved',
+            submitTime: '2026-04-06T15:18',
+            cup: '无'
+        },
+        {
+            id: 289,
+            player: '阿源_wuii_',
+            mainc: '玛薇卡',
+            team: [
+                {
+                        character: '玛薇卡',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 105,
+            boss: '历经百战的十六倍曼陀草·风滚狂蔓',
+            gold: 1,
+            constgold: 0,
+            notes: '',
+            video: 'www.bilibili.com/video/BV1FZSQBuEsx',
+            status: 'pending',
+            submitTime: '2026-04-06T02:36',
+            cup: '无'
+        },
+        {
+            id: 290,
+            player: '心-向往',
+            mainc: '神里绫华',
+            team: [
+                {
+                        character: '神里绫华',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '申鹤',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '爱可菲',
+                        constellation: 1,
+                        weapon: 0
+                    },
+                {
+                        character: '芙宁娜',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 115,
+            boss: '秘源机兵统御械 · 毁灭武装',
+            gold: 5,
+            constgold: 0,
+            notes: '',
+            video: '【5金绫华115秒N6冰锅-哔哩哔哩】 https://b23.tv/n8ZT6UR',
+            status: 'pending',
+            submitTime: '2026-03-20T17:56',
             cup: '无'
         }
     ];
