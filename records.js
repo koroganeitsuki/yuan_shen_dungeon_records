@@ -3597,42 +3597,6 @@ const Records = [
             cup: '无'
         },
         {
-            id: 103,
-            player: '测试玩家2',
-            mainc: '瓦雷莎',
-            team: [
-                {
-                        character: '瓦雷莎',
-                        constellation: 1,
-                        weapon: 0
-                    },
-                {
-                        character: '欧洛伦',
-                        constellation: 0,
-                        weapon: 0
-                    },
-                {
-                        character: '夏沃蕾',
-                        constellation: 0,
-                        weapon: 0
-                    },
-                {
-                        character: '火主',
-                        constellation: 0,
-                        weapon: 0
-                    }
-            ],
-            time: 115,
-            boss: '深邃摹结株 · 虚暗幻变',
-            gold: 2,
-            constgold: 0,
-            notes: '测试备注2',
-            video: 'https://www.bilibili.com/video/BV1234567890',
-            status: 'denied',
-            submitTime: '2025/11/15 10:30:00',
-            cup: '无'
-        },
-        {
             id: 104,
             player: '-泠汐_',
             mainc: '奈芙尔',
@@ -10027,8 +9991,8 @@ const Records = [
             gold: 1,
             constgold: 0,
             notes: '',
-            video: 'www.bilibili.com/video/BV1FZSQBuEsx',
-            status: 'pending',
+            video: 'https://www.bilibili.com/video/BV1FZSQBuEsx',
+            status: 'approved',
             submitTime: '2026-04-06T02:36',
             cup: '无'
         },
@@ -10063,9 +10027,873 @@ const Records = [
             gold: 5,
             constgold: 0,
             notes: '',
-            video: '【5金绫华115秒N6冰锅-哔哩哔哩】 https://b23.tv/n8ZT6UR',
-            status: 'pending',
+            video: 'https://【5金绫华115秒N6冰锅-哔哩哔哩】 https://b23.tv/n8ZT6UR',
+            status: 'approved',
             submitTime: '2026-03-20T17:56',
+            cup: '无'
+        },
+        {
+            id: 291,
+            player: '霂枔Official',
+            mainc: '丝柯克',
+            team: [
+                {
+                        character: '丝柯克',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '爱可菲',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '芙宁娜',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 118,
+            boss: '深邃摹结株 · 虚暗幻变',
+            gold: 3,
+            constgold: 8,
+            notes: '100级丝',
+            video: 'https://b23.tv/dDlQPHL',
+            status: 'approved',
+            submitTime: '2026-04-15T12:43',
+            cup: '无'
+        },
+        {
+            id: 292,
+            player: 'hv铁幕之下',
+            mainc: '玛拉妮',
+            team: [
+                {
+                        character: '玛拉妮',
+                        constellation: 1,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 5,
+                        weapon: 0
+                    },
+                {
+                        character: '火主',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 2,
+                        weapon: 0
+                    }
+            ],
+            time: 117,
+            boss: '深邃摹结株 · 虚暗幻变',
+            gold: 2,
+            constgold: 5,
+            notes: '',
+            video: 'https://b23.tv/ufPVxji',
+            status: 'approved',
+            submitTime: '2026-04-16T04:25',
+            cup: '无'
+        },
+        {
+            id: 293,
+            player: '阿源_wuii_',
+            mainc: '仆人',
+            team: [
+                {
+                        character: '仆人',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '香菱',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '迪奥娜',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '霜夜巡天灵主 · 惊恨憎愤',
+            gold: 1,
+            constgold: 0,
+            notes: '',
+            video: 'https://b23.tv/fbzOGYv',
+            status: 'approved',
+            submitTime: '2026-04-15T13:52',
+            cup: '无'
+        },
+        {
+            id: 294,
+            player: '糖果味Ooo',
+            mainc: '兹白',
+            team: [
+                {
+                        character: '兹白',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '叶洛亚',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '莉奈娅',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 116,
+            boss: '蕴光月守宫·根牙磐错',
+            gold: 3,
+            constgold: 0,
+            notes: '',
+            video: 'https://b23.tv/P2nqH7l',
+            status: 'approved',
+            submitTime: '2026-04-15T10:18',
+            cup: '无'
+        },
+        {
+            id: 295,
+            player: '鸽梓-',
+            mainc: '玛拉妮',
+            team: [
+                {
+                        character: '玛拉妮',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '玛薇卡',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 2,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '蕴光月守宫·根牙磐错',
+            gold: 4,
+            constgold: 6,
+            notes: '100级小玛',
+            video: 'https://www.bilibili.com/video/BV1tDd7BqEAK',
+            status: 'approved',
+            submitTime: '2026-04-18T03:59',
+            cup: '无'
+        },
+        {
+            id: 296,
+            player: '陈述药词',
+            mainc: '神里绫华',
+            team: [
+                {
+                        character: '神里绫华',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '申鹤',
+                        constellation: 1,
+                        weapon: 0
+                    },
+                {
+                        character: '爱可菲',
+                        constellation: 1,
+                        weapon: 1
+                    },
+                {
+                        character: '芙宁娜',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '霜夜巡天灵主 · 惊恨憎愤',
+            gold: 8,
+            constgold: 1,
+            notes: '',
+            video: 'https://b23.tv/IULFn63',
+            status: 'approved',
+            submitTime: '2026-04-17T17:26',
+            cup: '无'
+        },
+        {
+            id: 297,
+            player: '陈述药词',
+            mainc: '神里绫华',
+            team: [
+                {
+                        character: '神里绫华',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '申鹤',
+                        constellation: 1,
+                        weapon: 0
+                    },
+                {
+                        character: '爱可菲',
+                        constellation: 1,
+                        weapon: 1
+                    },
+                {
+                        character: '芙宁娜',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '霜夜巡天灵主 · 惊恨憎愤',
+            gold: 8,
+            constgold: 1,
+            notes: '',
+            video: 'https://b23.tv/IULFn63',
+            status: 'approved',
+            submitTime: '2026-04-17T17:26',
+            cup: '无'
+        },
+        {
+            id: 298,
+            player: '刚创的新号',
+            mainc: '兹白',
+            team: [
+                {
+                        character: '兹白',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '叶洛亚',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '莉奈娅',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '爱诺',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '深邃摹结株 · 虚暗幻变',
+            gold: 2,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1w5dpBBEAn',
+            status: 'approved',
+            submitTime: '2026-04-18T17:45',
+            cup: '无'
+        },
+        {
+            id: 299,
+            player: '稻荷羽祭',
+            mainc: '林尼',
+            team: [
+                {
+                        character: '林尼',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '香菱',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '迪奥娜',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 118,
+            boss: '霜夜巡天灵主 · 惊恨憎愤',
+            gold: 1,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1fRdnBhEJt/',
+            status: 'approved',
+            submitTime: '2026-04-18T12:19',
+            cup: '无'
+        },
+        {
+            id: 300,
+            player: '基本压力1206',
+            mainc: '莉奈娅',
+            team: [
+                {
+                        character: '莉奈娅',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '叶洛亚',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '五郎',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '蕴光月守宫·根牙磐错',
+            gold: 4,
+            constgold: 1,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV17QdzBjEva/',
+            status: 'approved',
+            submitTime: '2026-04-17T13:28',
+            cup: '无'
+        },
+        {
+            id: 301,
+            player: '梦翼yi',
+            mainc: '奈芙尔',
+            team: [
+                {
+                        character: '奈芙尔',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '菈乌玛',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '行秋',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '火主',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 118,
+            boss: '深邃摹结株 · 虚暗幻变',
+            gold: 2,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1gjdvBREs7/',
+            status: 'approved',
+            submitTime: '2026-04-17T00:19',
+            cup: '无'
+        },
+        {
+            id: 302,
+            player: 'サン San',
+            mainc: '瓦雷莎',
+            team: [
+                {
+                        character: '瓦雷莎',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '火主',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 115,
+            boss: '深邃摹结株 · 虚暗幻变',
+            gold: 1,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.youtube.com/watch?v=T3aVlUtNk3s',
+            status: 'approved',
+            submitTime: '2026-04-19T02:00',
+            cup: '无'
+        },
+        {
+            id: 303,
+            player: '黑の辉',
+            mainc: '丝柯克',
+            team: [
+                {
+                        character: '丝柯克',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '爱可菲',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '坎蒂丝',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '塔利雅',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 117,
+            boss: '霜夜巡天灵主 · 惊恨憎愤',
+            gold: 2,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV17GowBGERe/',
+            status: 'approved',
+            submitTime: '2026-04-20T00:27',
+            cup: '无'
+        },
+        {
+            id: 304,
+            player: 'kanjzyane',
+            mainc: '兹白',
+            team: [
+                {
+                        character: '兹白',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '叶洛亚',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '五郎',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '爱诺',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 108,
+            boss: '霜夜巡天灵主 · 惊恨憎愤',
+            gold: 1,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1nyQ5BgEZ6/',
+            status: 'approved',
+            submitTime: '2026-04-15T10:33',
+            cup: '无'
+        },
+        {
+            id: 305,
+            player: '风蒲之舞',
+            mainc: '伊涅芙',
+            team: [
+                {
+                        character: '伊涅芙',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 115,
+            boss: '霜夜巡天灵主 · 惊恨憎愤',
+            gold: 2,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV14CQEB4E8J/',
+            status: 'approved',
+            submitTime: '2026-04-15T17:41',
+            cup: '无'
+        },
+        {
+            id: 306,
+            player: 'XTD111',
+            mainc: '玛薇卡',
+            team: [
+                {
+                        character: '玛薇卡',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '迪奥娜',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 97,
+            boss: '霜夜巡天灵主 · 惊恨憎愤',
+            gold: 1,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1ZQdtB2EYy?vd_source=8f95d06b986154a1d54fc34c9fdf8a63',
+            status: 'approved',
+            submitTime: '2026-04-16T13:49',
+            cup: '无'
+        },
+        {
+            id: 307,
+            player: '沫陌膜墨',
+            mainc: '丝柯克',
+            team: [
+                {
+                        character: '丝柯克',
+                        constellation: 2,
+                        weapon: 1
+                    },
+                {
+                        character: '爱可菲',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '行秋',
+                        constellation: 3,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '深邃摹结株 · 虚暗幻变',
+            gold: 5,
+            constgold: 1,
+            notes: '无解帧',
+            video: 'https://b23.tv/nE5K8t5',
+            status: 'approved',
+            submitTime: '2026-04-15T17:29',
+            cup: '无'
+        },
+        {
+            id: 308,
+            player: '梦翼yi',
+            mainc: '奈芙尔',
+            team: [
+                {
+                        character: '奈芙尔',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '爱诺',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '霜夜巡天灵主 · 惊恨憎愤',
+            gold: 1,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1kAdrBoE38/',
+            status: 'approved',
+            submitTime: '2026-04-20T20:05',
+            cup: '无'
+        },
+        {
+            id: 309,
+            player: '糖醋の排骨',
+            mainc: '玛拉妮',
+            team: [
+                {
+                        character: '玛拉妮',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '玛薇卡',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '蕴光月守宫·根牙磐错',
+            gold: 4,
+            constgold: 5,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1fGdrBDEJW/',
+            status: 'approved',
+            submitTime: '2026-04-20T20:00',
+            cup: '无'
+        },
+        {
+            id: 310,
+            player: '派蒙今晚吃什么',
+            mainc: '玛薇卡',
+            team: [
+                {
+                        character: '玛薇卡',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '欧洛伦',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 107,
+            boss: '蕴光月守宫·根牙磐错',
+            gold: 3,
+            constgold: 1,
+            notes: '95级火神',
+            video: 'https://www.bilibili.com/video/BV1egdvBfE4F/',
+            status: 'approved',
+            submitTime: '2026-04-17T00:34',
+            cup: '无'
+        },
+        {
+            id: 311,
+            player: '-泠汐_',
+            mainc: '菈乌玛',
+            team: [
+                {
+                        character: '菈乌玛',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '爱诺',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '久岐忍',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '霜夜巡天灵主 · 惊恨憎愤',
+            gold: 2,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1YTQ7BAE1z/',
+            status: 'approved',
+            submitTime: '2026-04-15T13:20',
+            cup: '无'
+        },
+        {
+            id: 312,
+            player: '-木yu-',
+            mainc: '仆人',
+            team: [
+                {
+                        character: '仆人',
+                        constellation: 1,
+                        weapon: 0
+                    },
+                {
+                        character: '火主',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '深邃摹结株 · 虚暗幻变',
+            gold: 2,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV16ndfBuEAv/',
+            status: 'approved',
+            submitTime: '2026-04-19T23:17',
+            cup: '无'
+        },
+        {
+            id: 313,
+            player: '黑の辉',
+            mainc: '丝柯克',
+            team: [
+                {
+                        character: '丝柯克',
+                        constellation: 2,
+                        weapon: 1
+                    },
+                {
+                        character: '爱可菲',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '芙宁娜',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '重云',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '蕴光月守宫·根牙磐错',
+            gold: 6,
+            constgold: 0,
+            notes: '',
+            video: 'www.bilibili.com/video/BV1SBdeBSEnE/',
+            status: 'pending',
+            submitTime: '2026-04-17T00:41',
+            cup: '无'
+        },
+        {
+            id: 314,
+            player: '也是好上了-',
+            mainc: '奈芙尔',
+            team: [
+                {
+                        character: '奈芙尔',
+                        constellation: 1,
+                        weapon: 2
+                    },
+                {
+                        character: '菈乌玛',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '雷泽',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '蕴光月守宫·根牙磐错',
+            gold: 6,
+            constgold: 0,
+            notes: '',
+            video: 'www.bilibili.com/video/BV12toFBpEkF/',
+            status: 'pending',
+            submitTime: '2026-04-19T20:18',
             cup: '无'
         }
     ];
