@@ -4301,7 +4301,7 @@ const Records = [
             gold: 5,
             constgold: 5,
             notes: '100级断浪雷神，餐叉夏，天空班，天空九条',
-            video: 'https:/www.bilibili.com/video/BV1kU2MByEHh/',
+            video: 'https://www.bilibili.com/video/BV1kU2MByEHh',
             status: 'approved',
             submitTime: '2025/11/7 15:46:0',
             cup: '无'
@@ -10855,8 +10855,8 @@ const Records = [
             gold: 6,
             constgold: 0,
             notes: '',
-            video: 'www.bilibili.com/video/BV1SBdeBSEnE/',
-            status: 'pending',
+            video: 'https://www.bilibili.com/video/BV1SBdeBSEnE/',
+            status: 'approved',
             submitTime: '2026-04-17T00:41',
             cup: '无'
         },
@@ -10867,8 +10867,8 @@ const Records = [
             team: [
                 {
                         character: '奈芙尔',
-                        constellation: 1,
-                        weapon: 2
+                        constellation: 2,
+                        weapon: 1
                     },
                 {
                         character: '菈乌玛',
@@ -10891,11 +10891,331 @@ const Records = [
             gold: 6,
             constgold: 0,
             notes: '',
-            video: 'www.bilibili.com/video/BV12toFBpEkF/',
-            status: 'pending',
+            video: 'https://www.bilibili.com/video/BV12toFBpEkF/',
+            status: 'approved',
             submitTime: '2026-04-19T20:18',
             cup: '无'
+        },
+        {
+            id: 315,
+            player: '伏昼',
+            mainc: '莉奈娅',
+            team: [
+                {
+                        character: '莉奈娅',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '五郎',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '叶洛亚',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 114,
+            boss: '霜夜巡天灵主 · 惊恨憎愤',
+            gold: 2,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1LfQjBBEkE',
+            status: 'approved',
+            submitTime: '2026-04-15T12:13',
+            cup: '无'
+        },
+        {
+            id: 316,
+            player: '沫陌膜墨沫陌膜墨',
+            mainc: '仆人',
+            team: [
+                {
+                        character: '仆人',
+                        constellation: 1,
+                        weapon: 1
+                    },
+                {
+                        character: '杜林',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 5,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '历经百战的十六倍曼陀草·风滚狂蔓',
+            gold: 4,
+            constgold: 1,
+            notes: '风鹰几乎白板',
+            video: '【【幽境危战n6曼巴草】低练仆杜皇砂，魔导摔门的恩情还不完-哔哩哔哩】 https://b23.tv/6wfCQkK',
+            status: 'pending',
+            submitTime: '2026-03-27T19:41',
+            cup: '无'
+        },
+        {
+            id: 317,
+            player: '奕欢_y',
+            mainc: '玛薇卡',
+            team: [
+                {
+                        character: '玛薇卡',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '欧洛伦',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '蕴光月守宫·根牙磐错',
+            gold: 3,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1JCdzBQEzC/?spm_id_from=333.1387.upload.video_card.click&vd_source=5f5f21c41dd6d3096048a3d13b5c56df',
+            status: 'pending',
+            submitTime: '2026-04-17T15:03',
+            cup: '无'
+        },
+        {
+            id: 318,
+            player: 'softcitlali',
+            mainc: '哥伦比娅',
+            team: [
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '菈乌玛',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '爱诺',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 114,
+            boss: '霜夜巡天灵主 · 惊恨憎愤',
+            gold: 3,
+            constgold: 0,
+            notes: '5命爱诺',
+            video: 'https://www.bilibili.com/video/BV1ERQjB3EAV/?vd_source=8d7a3a71004859437dea79fb20efc428',
+            status: 'pending',
+            submitTime: '2026-04-15T12:44',
+            cup: '无'
+        },
+        {
+            id: 319,
+            player: 'ささくれ',
+            mainc: '莫娜',
+            team: [
+                {
+                        character: '莫娜',
+                        constellation: 6,
+                        weapon: 1
+                    },
+                {
+                        character: '芙宁娜',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 118,
+            boss: '霜夜巡天灵主 · 惊恨憎愤',
+            gold: 2,
+            constgold: 7,
+            notes: '',
+            video: 'www.bilibili.com/video/BV1hbo4BqEiu/',
+            status: 'pending',
+            submitTime: '2026-04-22T22:50',
+            cup: '无'
+        },
+        {
+            id: 320,
+            player: 'ささくれ',
+            mainc: '莫娜',
+            team: [
+                {
+                        character: '莫娜',
+                        constellation: 6,
+                        weapon: 1
+                    },
+                {
+                        character: '行秋',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 1
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '霜夜巡天灵主 · 惊恨憎愤',
+            gold: 1,
+            constgold: 8,
+            notes: '',
+            video: 'https://b23.tv/DSnSpp0',
+            status: 'pending',
+            submitTime: '2026-04-24T10:07',
+            cup: '无'
+        },
+        {
+            id: 321,
+            player: 'ささくれ',
+            mainc: '莫娜',
+            team: [
+                {
+                        character: '莫娜',
+                        constellation: 6,
+                        weapon: 2
+                    },
+                {
+                        character: '行秋',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 1
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '霜夜巡天灵主 · 惊恨憎愤',
+            gold: 0,
+            constgold: 10,
+            notes: '',
+            video: 'https://b23.tv/pJVC0pc',
+            status: 'pending',
+            submitTime: '2026-04-24T14:38',
+            cup: '无'
+        },
+        {
+            id: 322,
+            player: 'Karon_Li2',
+            mainc: '玛薇卡',
+            team: [
+                {
+                        character: '玛薇卡',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '茜特菈莉',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '蕴光月守宫·根牙磐错',
+            gold: 3,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1B5drBJEGt/?spm_id_from=333.1387.homepage.video_card.click&vd_source=e1f6067843df5f3b49f21d8c39d3728d',
+            status: 'pending',
+            submitTime: '2026-04-20T20:49',
+            cup: '无'
+        },
+        {
+            id: 323,
+            player: 'ささくれ',
+            mainc: '莫娜',
+            team: [
+                {
+                        character: '莫娜',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '霜夜巡天灵主 · 惊恨憎愤',
+            gold: 0,
+            constgold: 7,
+            notes: '霜辰莫娜',
+            video: 'www.bilibili.com/video/BV1nq9eBeEDB/',
+            status: 'pending',
+            submitTime: '2026-04-30T22:00',
+            cup: '无'
         }
+
     ];
 
 // 确保Records可以被其他脚本访问
