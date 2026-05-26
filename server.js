@@ -779,8 +779,9 @@ function generateNewId(records) {
 // 将新记录添加到记录文件
 function addRecordToDataFile(newRecord) {
     try {
-        // 从records.js中解析记录数组
+        // 从records.js中解析记录数组和用户数据
         let records = parseRecordsFromRecordsFile();
+        const users = parseUsersFromRecordsFile();
         
         // 生成新ID
         const newId = generateNewId(records);
@@ -789,8 +790,8 @@ function addRecordToDataFile(newRecord) {
         // 添加新记录到记录数组
         records.push(newRecord);
         
-        // 重新生成records.js文件的内容
-        const recordsJsContent = generateRecordsJsContent(records);
+        // 重新生成records.js文件的内容（包含用户数据）
+        const recordsJsContent = generateRecordsJsContentWithUsers(records, users);
         
         // 写入记录文件
         writeRecordsFile(recordsJsContent);
@@ -1273,8 +1274,9 @@ app.put('/api/admin/records/:id', adminAuthMiddleware, (req, res) => {
         
         log(`收到更新记录请求，ID: ${id}`);
         
-        // 从records.js中解析记录数组
+        // 从records.js中解析记录数组和用户数据
         let records = parseRecordsFromRecordsFile();
+        const users = parseUsersFromRecordsFile();
         
         // 查找要更新的记录
         const recordIndex = records.findIndex(record => record.id === id);
@@ -1293,8 +1295,8 @@ app.put('/api/admin/records/:id', adminAuthMiddleware, (req, res) => {
             id: id // 确保ID不变
         };
         
-        // 重新生成records.js文件的内容
-        const recordsJsContent = generateRecordsJsContent(records);
+        // 重新生成records.js文件的内容（包含用户数据）
+        const recordsJsContent = generateRecordsJsContentWithUsers(records, users);
         
         // 写入记录文件
         writeRecordsFile(recordsJsContent);
@@ -1324,8 +1326,9 @@ app.delete('/api/admin/records/:id', adminAuthMiddleware, (req, res) => {
         
         log(`收到删除记录请求，ID: ${id}`);
         
-        // 从records.js中解析记录数组
+        // 从records.js中解析记录数组和用户数据
         let records = parseRecordsFromRecordsFile();
+        const users = parseUsersFromRecordsFile();
         
         // 查找要删除的记录
         const recordIndex = records.findIndex(record => record.id === id);
@@ -1340,8 +1343,8 @@ app.delete('/api/admin/records/:id', adminAuthMiddleware, (req, res) => {
         // 删除记录
         records.splice(recordIndex, 1);
         
-        // 重新生成records.js文件的内容
-        const recordsJsContent = generateRecordsJsContent(records);
+        // 重新生成records.js文件的内容（包含用户数据）
+        const recordsJsContent = generateRecordsJsContentWithUsers(records, users);
         
         // 写入记录文件
         writeRecordsFile(recordsJsContent);
@@ -1406,8 +1409,9 @@ app.post('/api/admin/records', adminAuthMiddleware, (req, res) => {
         newRecord.status = newRecord.status || 'pending';
         newRecord.submitTime = newRecord.submitTime || new Date().toISOString();
         
-        // 从records.js中解析记录数组
+        // 从records.js中解析记录数组和用户数据
         let records = parseRecordsFromRecordsFile();
+        const users = parseUsersFromRecordsFile();
         
         // 生成新ID
         const newId = generateNewId(records);
@@ -1416,8 +1420,8 @@ app.post('/api/admin/records', adminAuthMiddleware, (req, res) => {
         // 添加新记录到记录数组
         records.push(newRecord);
         
-        // 重新生成records.js文件的内容
-        const recordsJsContent = generateRecordsJsContent(records);
+        // 重新生成records.js文件的内容（包含用户数据）
+        const recordsJsContent = generateRecordsJsContentWithUsers(records, users);
         
         // 写入记录文件
         writeRecordsFile(recordsJsContent);
