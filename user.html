@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原神幽境危战 - 用户中心</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark': '#121212',
+                        'genshin-yellow': '#fbbf24',
+                        'genshin-blue': '#3b82f6',
+                        'genshin-pink': '#ff0080',
+                        'genshin-purple': '#7928ca'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #121212;
+            color: #f5f5f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(121, 40, 202, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 0, 128, 0.1) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .card {
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 221, 64, 0.5);
+        }
+
+        .btn-genshin {
+            background: linear-gradient(135deg, #7928ca, #ff0080);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .btn-genshin:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #f5f5f5;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+        }
+
+        .btn-outline:hover {
+            border-color: #fbbf24;
+            color: #fbbf24;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-genshin {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            color: #f5f5f5;
+            transition: all 0.3s ease;
+        }
+
+        .input-genshin:focus {
+            border-color: #fbbf24;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2);
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏容器 -->
+    <div id="navbar-container"></div>
+
+    <!-- 登录/注册弹窗 -->
+    <div id="auth-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
+        <div class="bg-gray-900 rounded-lg w-full max-w-md mx-4 overflow-hidden">
+            <div class="flex justify-between items-center p-4 border-b border-gray-700">
+                <h2 class="text-xl font-bold text-white">用户登录</h2>
+                <button onclick="Auth.closeAuthModal()" class="text-gray-400 hover:text-white">
+                    <i class="fa fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <!-- 登录表单 -->
+                <form id="login-form" class="space-y-4">
+                    <div>
+                        <label class="block text-gray-300 text-sm font-medium mb-2">用户名</label>
+                        <input type="text" id="login-username" class="w-full input-genshin" placeholder="请输入用户名" required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-300 text-sm font-medium mb-2">密码</label>
+                        <input type="password" id="login-password" class="w-full input-genshin" placeholder="请输入密码" required>
+                    </div>
+                    <button type="button" onclick="Auth.login(document.getElementById('login-username').value, document.getElementById('login-password').value).then(result => { if(result.success) { alert('登录成功'); loadUserInfo(); } else alert(result.message); })" class="w-full btn-genshin">
+                        登录
+                    </button>
+                    <p class="text-center text-gray-400 text-sm">
+                        还没有账号？<a href="#" onclick="Auth.switchToRegister(); return false;" class="text-genshin-yellow hover:underline">立即注册</a>
+                    </p>
+                </form>
+                
+                <!-- 注册表单 -->
+                <form id="register-form" class="space-y-4" style="display: none;">
+                    <div>
+                        <label class="block text-gray-300 text-sm font-medium mb-2">用户名</label>
+                        <input type="text" id="register-username" class="w-full input-genshin" placeholder="请输入用户名（3-20字符）" required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-300 text-sm font-medium mb-2">密码</label>
+                        <input type="password" id="register-password" class="w-full input-genshin" placeholder="请输入密码（至少6位）" required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-300 text-sm font-medium mb-2">确认密码</label>
+                        <input type="password" id="register-confirm-password" class="w-full input-genshin" placeholder="请再次输入密码" required>
+                    </div>
+                    <button type="button" onclick="Auth.register(document.getElementById('register-username').value, document.getElementById('register-password').value, document.getElementById('register-confirm-password').value).then(result => { if(result.success) { alert('注册成功，请登录'); Auth.switchToLogin(); } else alert(result.message); })" class="w-full btn-genshin">
+                        注册
+                    </button>
+                    <p class="text-center text-gray-400 text-sm">
+                        已有账号？<a href="#" onclick="Auth.switchToLogin(); return false;" class="text-genshin-yellow hover:underline">立即登录</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- 未登录状态 -->
+        <div id="not-logged-in" class="flex flex-col items-center justify-center py-16">
+            <div class="text-6xl mb-6">🔐</div>
+            <h2 class="text-2xl font-bold text-gray-300 mb-4">请先登录</h2>
+            <p class="text-gray-400 mb-8 text-center max-w-md">查看用户信息需要登录账号</p>
+            <button onclick="Auth.openAuthModal()" class="btn-genshin">登录</button>
+        </div>
+
+        <!-- 用户信息 -->
+        <div id="user-info" class="hidden">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl md:text-4xl font-bold text-genshin-yellow mb-2">用户中心</h1>
+                <p class="text-gray-400">管理您的账号信息</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- 用户基本信息卡片 -->
+                <div class="lg:col-span-2 card p-6">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center">
+                        <i class="fa fa-user-circle mr-2 text-genshin-yellow"></i>
+                        账号信息
+                    </h2>
+                    
+                    <div class="space-y-4">
+                        <div class="stat-item">
+                            <span class="text-gray-400">用户名</span>
+                            <span id="user-username" class="font-medium"></span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="text-gray-400">注册日期</span>
+                            <span id="user-register-date" class="font-medium"></span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="text-gray-400">账号状态</span>
+                            <span id="user-status" class="font-medium"></span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="text-gray-400">剩余有效天数</span>
+                            <span id="user-valid-days" class="font-medium"></span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="text-gray-400">积分</span>
+                            <span id="user-submit-count" class="font-medium"></span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="text-gray-400">B站昵称列表</span>
+                            <span id="user-bilibili-names" class="font-medium"></span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="text-gray-400">是否管理员</span>
+                            <span id="user-is-admin" class="font-medium"></span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="text-gray-400">重置次数</span>
+                            <span id="user-reset-count" class="font-medium"></span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="text-gray-400">最后重置日期</span>
+                            <span id="user-last-reset-date" class="font-medium"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 操作卡片 -->
+                <div class="card p-6">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center">
+                        <i class="fa fa-cog mr-2 text-genshin-yellow"></i>
+                        账号操作
+                    </h2>
+                    
+                    <div class="space-y-4">
+                        <button id="btn-reset" onclick="handleResetAccount()" class="w-full btn-genshin flex items-center justify-center">
+                            <i class="fa fa-refresh mr-2"></i>
+                            重置账号
+                        </button>
+                        <p id="reset-tip" class="text-sm text-gray-500 text-center"></p>
+                        
+                        <div class="h-px bg-gray-700 my-4"></div>
+                        
+                        <button id="btn-delete" onclick="handleDeleteAccount()" class="w-full btn-danger flex items-center justify-center">
+                            <i class="fa fa-trash mr-2"></i>
+                            注销账号
+                        </button>
+                        <p class="text-sm text-gray-500 text-center">此操作不可撤销，请谨慎操作</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="py-8 bg-dark border-t border-gray-800 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-400">&copy; 2025 原神幽境危战难度六通关记录. 保留所有权利.</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://github.com/koroganeitsuki/yuan_shen_dungeon_records" target="_blank" class="text-gray-400 hover:text-genshin-yellow">
+                        <i class="fa-brands fa-github text-2xl"></i>
+                    </a>
+                    <a href="https://space.bilibili.com/435511059" target="_blank" class="text-gray-400 hover:text-genshin-yellow">
+                        <i class="fa-brands fa-bilibili text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-4 text-center text-gray-500 text-sm">
+                <p>本网站仅用于记录和分享游戏通关记录，与miHoYo/HoYoverse无关</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 引用脚本 -->
+    <script src="records.js"></script>
+    <script src="data.js"></script>
+    <script src="auth.js"></script>
+    <script src="nav.js"></script>
+
+    <script>
+        // 加载用户信息
+        async function loadUserInfo() {
+            try {
+                const response = await fetch('/api/user-info', {
+                    headers: {
+                        'Authorization': Auth.authToken || ''
+                    }
+                });
+                const data = await response.json();
+                
+                if (data.success) {
+                    document.getElementById('not-logged-in').style.display = 'none';
+                    document.getElementById('user-info').style.display = 'block';
+                    
+                    // 填充用户信息
+                    document.getElementById('user-username').textContent = data.user.username;
+                    document.getElementById('user-register-date').textContent = data.user.registerDate;
+                    document.getElementById('user-status').textContent = data.valid ? '有效' : '已过期';
+                    document.getElementById('user-status').style.color = data.valid ? '#10b981' : '#ef4444';
+                    document.getElementById('user-valid-days').textContent = data.validDays >= 0 ? `${data.validDays} 天` : '已过期';
+                    document.getElementById('user-submit-count').textContent = data.user.score || 0;
+                    document.getElementById('user-bilibili-names').textContent = (data.user.bilibiliNames || []).join(', ') || '无';
+                    document.getElementById('user-is-admin').textContent = data.user.isAdmin ? '是' : '否';
+                    document.getElementById('user-reset-count').textContent = data.user.resetCount || 0;
+                    document.getElementById('user-last-reset-date').textContent = data.user.lastResetDate || '从未';
+                    
+                    // 更新重置按钮状态和提示
+                    if (data.canReset) {
+                        document.getElementById('btn-reset').disabled = false;
+                        document.getElementById('btn-reset').style.opacity = '1';
+                        document.getElementById('reset-tip').textContent = '注册已满1个月，可以重置账号';
+                    } else {
+                        document.getElementById('btn-reset').disabled = true;
+                        document.getElementById('btn-reset').style.opacity = '0.5';
+                        document.getElementById('reset-tip').textContent = `注册未满1个月，还需等待 ${data.daysUntilReset} 天`;
+                    }
+                    
+                    // 更新导航栏登录状态
+                    Navbar.updateNavbarLoginUI();
+                } else {
+                    alert(data.message || '获取用户信息失败');
+                }
+            } catch (error) {
+                console.error('获取用户信息失败:', error);
+                alert('获取用户信息失败，请稍后重试');
+            }
+        }
+
+        // 处理重置账号
+        async function handleResetAccount() {
+            if (!confirm('确定要重置账号吗？重置后注册日期将更新为当天，提交次数将清零。')) {
+                return;
+            }
+            
+            const result = await Auth.resetAccount();
+            if (result.success) {
+                alert('账号重置成功！请重新登录');
+                Auth.logout();
+                document.getElementById('not-logged-in').style.display = 'flex';
+                document.getElementById('user-info').style.display = 'none';
+            } else {
+                alert(result.message || '重置失败');
+            }
+        }
+
+        // 处理注销账号
+        async function handleDeleteAccount() {
+            if (!confirm('确定要注销账号吗？此操作不可撤销，所有数据将被删除！')) {
+                return;
+            }
+            
+            const password = prompt('请输入您的密码以确认注销：');
+            if (!password) {
+                alert('请输入密码');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/delete-account', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': Auth.authToken || ''
+                    },
+                    body: JSON.stringify({ password })
+                });
+                
+                const data = await response.json();
+                if (data.success) {
+                    alert('账号注销成功！');
+                    Auth.logout();
+                    document.getElementById('not-logged-in').style.display = 'flex';
+                    document.getElementById('user-info').style.display = 'none';
+                } else {
+                    alert(data.message || '注销失败');
+                }
+            } catch (error) {
+                console.error('注销账号失败:', error);
+                alert('注销账号失败，请稍后重试');
+            }
+        }
+
+        // 页面加载时检查登录状态
+        document.addEventListener('DOMContentLoaded', async function() {
+            // 主动检查登录状态，确保从 localStorage 中读取的 authToken 被验证
+            if (Auth && Auth.authToken) {
+                await Auth.checkLoginStatus();
+            }
+            if (Auth && Auth.currentUser) {
+                loadUserInfo();
+            }
+        });
+
+        // 监听登录状态变化
+        window.onLogin = function() {
+            loadUserInfo();
+        };
+    </script>
+</body>
+</html>

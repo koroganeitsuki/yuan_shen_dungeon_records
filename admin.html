@@ -192,6 +192,7 @@
                             <th class="px-4 py-3 text-left text-xs font-medium text-abyss-light uppercase tracking-wider">限定金数</th>
                             <th class="px-4 py-3 text-left text-xs font-medium text-abyss-light uppercase tracking-wider">杯赛</th>
                             <th class="px-4 py-3 text-left text-xs font-medium text-abyss-light uppercase tracking-wider">状态</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-abyss-light uppercase tracking-wider">投票数</th>
                             <th class="px-4 py-3 text-left text-xs font-medium text-abyss-light uppercase tracking-wider">提交时间</th>
                             <th class="px-4 py-3 text-left text-xs font-medium text-abyss-light uppercase tracking-wider">操作</th>
                         </tr>
@@ -205,8 +206,8 @@
     </main>
 
     <!-- 修改记录模态框 -->
-    <div id="edit-modal" class="fixed inset-0 z-50 flex items-center justify-center modal-backdrop hidden">
-        <div class="bg-abyss-dark rounded-xl p-6 max-w-2xl w-full mx-4 card-shadow border border-abyss-primary/20">
+    <div id="edit-modal" class="fixed inset-0 z-50 flex items-start justify-center modal-backdrop hidden overflow-y-auto py-16">
+        <div class="bg-abyss-dark rounded-xl p-6 max-w-6xl w-full mx-4 card-shadow border border-abyss-primary/20">
             <div class="flex justify-between items-center mb-4">
                 <h2 class="text-xl font-bold text-abyss-primary">修改记录</h2>
                 <button id="close-modal" class="text-abyss-light hover:text-white text-2xl">&times;</button>
@@ -269,6 +270,10 @@
                 <div class="mb-4">
                     <label for="edit-team" class="block text-sm font-medium text-abyss-light mb-2">队伍配置（JSON格式：[{"name":"角色名","constellation":命座数},{"name":"角色名","constellation":命座数},...]）</label>
                     <textarea id="edit-team" rows="4" class="w-full bg-abyss-dark/80 border border-abyss-primary/30 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-abyss-primary"></textarea>
+                </div>
+                <div id="vote-info" class="hidden mb-4 p-4 bg-abyss-primary/10 rounded-lg border border-abyss-primary/20">
+                    <h4 class="text-abyss-primary font-medium mb-3"><i class="fa fa-vote-yea mr-2"></i>投票信息</h4>
+                    <div id="vote-details"></div>
                 </div>
                 <div class="flex justify-end space-x-4">
                     <button type="button" id="cancel-edit" class="bg-abyss-primary/20 hover:bg-abyss-primary/30 text-abyss-primary px-6 py-3 rounded-lg transition-all">取消</button>
@@ -553,7 +558,7 @@
             const tableBody = document.getElementById('records-table');
             
             if (filteredRecords.length === 0) {
-                tableBody.innerHTML = `<tr><td colspan="10" class="px-4 py-8 text-center text-abyss-light">没有找到符合条件的记录</td></tr>`;
+                tableBody.innerHTML = `<tr><td colspan="11" class="px-4 py-8 text-center text-abyss-light">没有找到符合条件的记录</td></tr>`;
                 return;
             }
             
@@ -569,6 +574,11 @@
                     <td class="px-4 py-3">
                         <span class="px-2 py-1 rounded-full text-xs font-bold ${getStatusClass(record.status)}">
                             ${getStatusText(record.status)}
+                        </span>
+                    </td>
+                    <td class="px-4 py-3">
+                        <span class="${record.status === 'pending' ? 'text-abyss-warning font-medium' : ''}">
+                            ${record.noErrorUsers?.length || 0}：${record.goldErrorUsers?.length || 0}
                         </span>
                     </td>
                     <td class="px-4 py-3">${formatDate(record.submitTime)}</td>
@@ -610,7 +620,7 @@
         // 打开修改记录模态框
         function openEditModal(recordId) {
             isCreatingNew = false;
-            
+
             // 根据ID查找记录
             const record = records.find(r => r.id === recordId);
             if (!record) {
@@ -618,11 +628,11 @@
                 showNotification('未找到记录', 'danger');
                 return;
             }
-            
+
             document.getElementById('edit-modal').classList.remove('hidden');
             document.querySelector('#edit-modal h2').textContent = '修改记录';
             document.querySelector('#edit-form button[type="submit"]').textContent = '保存修改';
-            
+
             // 填充表单数据
             document.getElementById('edit-id').value = record.id;
             document.getElementById('edit-player').value = record.player;
@@ -636,6 +646,62 @@
             document.getElementById('edit-notes').value = record.notes || '';
             document.getElementById('edit-video').value = record.video || '';
             document.getElementById('edit-team').value = JSON.stringify(record.team || [], null, 2);
+
+            // 显示投票信息
+            displayVoteInfo(record);
+        }
+
+        // 显示投票信息
+        function displayVoteInfo(record) {
+            const voteInfoDiv = document.getElementById('vote-info');
+            const voteDetailsDiv = document.getElementById('vote-details');
+            const goldErrorUsers = record.goldErrorUsers || [];
+            const noErrorUsers = record.noErrorUsers || [];
+            const totalVotes = goldErrorUsers.length + noErrorUsers.length;
+
+            if (totalVotes === 0) {
+                voteInfoDiv.classList.add('hidden');
+                return;
+            }
+
+            voteInfoDiv.classList.remove('hidden');
+
+            let html = `
+                <div class="mb-3">
+                    <span class="text-abyss-light">投票情况：</span>
+                    <span class="text-abyss-primary font-bold">${noErrorUsers.length}：${goldErrorUsers.length}</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 mb-3">
+                    <div class="bg-abyss-dark/50 p-3 rounded-lg">
+                        <p class="text-gray-400 text-xs">不存在错误</p>
+                        <p class="text-abyss-success font-bold">${noErrorUsers.length} 票</p>
+                    </div>
+                    <div class="bg-abyss-dark/50 p-3 rounded-lg">
+                        <p class="text-gray-400 text-xs">存在错误</p>
+                        <p class="text-abyss-danger font-bold">${goldErrorUsers.length} 票</p>
+                    </div>
+                </div>
+                <div class="text-xs text-gray-500">
+                    <p class="font-medium text-gray-400 mb-2">投票详情：</p>
+                    <div class="max-h-32 overflow-y-auto space-y-1">
+            `;
+
+            noErrorUsers.forEach(vote => {
+                const voteTime = new Date(vote.voteTime).toLocaleString('zh-CN');
+                html += `<p class="text-gray-400">${escapeHtml(vote.username)} - ${voteTime} (不存在错误)</p>`;
+            });
+
+            goldErrorUsers.forEach(vote => {
+                const voteTime = new Date(vote.voteTime).toLocaleString('zh-CN');
+                html += `<p class="text-gray-400">${escapeHtml(vote.username)} - ${voteTime} (存在错误)</p>`;
+            });
+
+            html += `
+                    </div>
+                </div>
+            `;
+
+            voteDetailsDiv.innerHTML = html;
         }
 
         // 显示队伍配置
@@ -875,6 +941,14 @@
                 default:
                     return status;
             }
+        }
+
+        // 辅助函数：HTML转义
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
         }
 
         // 辅助函数：显示通知

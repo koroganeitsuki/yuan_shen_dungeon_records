@@ -233,44 +233,8 @@
     </style>
 </head>
 <body class="text-light">
-    <!-- 导航栏 -->
-    <nav class="bg-dark bg-opacity-80 backdrop-blur-md fixed w-full z-40 border-b border-gray-800">
-        <div class="container mx-auto px-4 py-3">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-2">
-                    <img src="https://bbs-static.miyoushe.com/static/2025/06/16/46c0ca54ffaa4664f05efe7932d0bdfb_4298836572782376517.png" alt="Logo" class="w-10 h-10 rounded-full">
-                    <span class="text-xl font-bold text-genshin-yellow">原神幽境危战</span>
-                </div>
-                
-                <!-- 桌面导航 -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="nav-link active text-genshin-yellow">首页</a>
-                    <a href="ranking.html" class="nav-link text-white hover:text-genshin-yellow">排行榜</a>
-                    <a href="upload.html" class="nav-link text-white hover:text-genshin-yellow">上传记录</a>
-                    <a href="admin.html" class="nav-link text-white hover:text-genshin-yellow">管理员入口</a>
-                </div>
-                
-                <!-- 移动端菜单按钮 -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-white hover:text-genshin-yellow">
-                        <i class="fa fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 移动端菜单 -->
-        <div id="mobile-menu" class="md:hidden bg-dark bg-opacity-95 backdrop-blur-md border-b border-gray-800 hidden">
-            <div class="container mx-auto px-4 py-2">
-                <div class="flex flex-col space-y-3 py-3">
-                    <a href="index.html" class="text-genshin-yellow font-medium py-2">首页</a>
-                    <a href="ranking.html" class="text-white hover:text-genshin-yellow transition-colors py-2">排行榜</a>
-                    <a href="upload.html" class="text-white hover:text-genshin-yellow transition-colors py-2">上传记录</a>
-                    <a href="admin.html" class="text-white hover:text-genshin-yellow transition-colors py-2">管理员</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <!-- 导航栏容器 -->
+    <div id="navbar-container"></div>
 
     <!-- 英雄区域 -->
     <header class="pt-24 pb-16 md:pt-32 md:pb-24">
@@ -397,6 +361,8 @@
     <!-- JavaScript -->
     <script src="records.js"></script>
     <script src="data.js"></script>
+    <script src="auth.js"></script>
+    <script src="nav.js"></script>
     <script>
         // 页面加载完成后执行
         window.addEventListener('load', function() {

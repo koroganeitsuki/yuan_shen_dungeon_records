@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原神幽境危战 - 投票审核</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark': '#121212',
+                        'genshin-yellow': '#fbbf24',
+                        'genshin-blue': '#3b82f6',
+                        'genshin-pink': '#ff0080',
+                        'genshin-purple': '#7928ca',
+                        'genshin-green': '#10b981',
+                        'genshin-red': '#ef4444'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #121212;
+            color: #f5f5f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(121, 40, 202, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 0, 128, 0.1) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+        .card {
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            border-color: rgba(255, 221, 64, 0.5);
+        }
+        .btn-genshin {
+            background: linear-gradient(135deg, #7928ca, #ff0080);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-genshin:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .btn-genshin:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .vote-checkbox {
+            width: 1.25rem;
+            height: 1.25rem;
+            accent-color: #ff0080;
+        }
+        .voted-badge {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <div id="auth-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
+        <div class="bg-gray-900 rounded-lg w-full max-w-md mx-4 overflow-hidden">
+            <div class="flex justify-between items-center p-4 border-b border-gray-700">
+                <h2 class="text-xl font-bold text-white">用户登录</h2>
+                <button onclick="Auth.closeAuthModal()" class="text-gray-400 hover:text-white">
+                    <i class="fa fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <form id="login-form" class="space-y-4">
+                    <div>
+                        <label class="block text-gray-300 text-sm font-medium mb-2">用户名</label>
+                        <input type="text" id="login-username" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-genshin-yellow focus:outline-none" placeholder="请输入用户名" required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-300 text-sm font-medium mb-2">密码</label>
+                        <input type="password" id="login-password" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-genshin-yellow focus:outline-none" placeholder="请输入密码" required>
+                    </div>
+                    <button type="button" onclick="Auth.login(document.getElementById('login-username').value, document.getElementById('login-password').value).then(result => { if(result.success) { alert('登录成功'); location.reload(); } else alert(result.message); })" class="w-full btn-genshin">
+                        登录
+                    </button>
+                    <p class="text-center text-gray-400 text-sm">
+                        还没有账号？<a href="#" onclick="Auth.switchToRegister(); return false;" class="text-genshin-yellow hover:underline">立即注册</a>
+                    </p>
+                </form>
+                <form id="register-form" class="space-y-4 hidden">
+                    <div>
+                        <label class="block text-gray-300 text-sm font-medium mb-2">用户名</label>
+                        <input type="text" id="register-username" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-genshin-yellow focus:outline-none" placeholder="请输入用户名（3-20字符）" required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-300 text-sm font-medium mb-2">密码</label>
+                        <input type="password" id="register-password" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-genshin-yellow focus:outline-none" placeholder="请输入密码（至少6位）" required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-300 text-sm font-medium mb-2">确认密码</label>
+                        <input type="password" id="register-confirm-password" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-genshin-yellow focus:outline-none" placeholder="请再次输入密码" required>
+                    </div>
+                    <button type="button" onclick="Auth.register(document.getElementById('register-username').value, document.getElementById('register-password').value, document.getElementById('register-confirm-password').value).then(result => { if(result.success) { alert('注册成功，请登录'); Auth.switchToLogin(); } else alert(result.message); })" class="w-full btn-genshin">
+                        注册
+                    </button>
+                    <p class="text-center text-gray-400 text-sm">
+                        已有账号？<a href="#" onclick="Auth.switchToLogin(); return false;" class="text-genshin-yellow hover:underline">立即登录</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-genshin-yellow mb-2">投票审核</h1>
+            <p class="text-gray-400">对待审核记录进行投票，每次投票可获得2积分</p>
+        </div>
+
+        <div id="not-logged-in" class="flex flex-col items-center justify-center py-16 hidden">
+            <div class="text-6xl mb-6">🔐</div>
+            <h2 class="text-2xl font-bold text-gray-300 mb-4">请先登录</h2>
+            <p class="text-gray-400 mb-8 text-center max-w-md">登录后可以对pending记录进行投票</p>
+            <button onclick="Auth.openAuthModal()" class="btn-genshin">登录</button>
+        </div>
+
+        <div id="loading" class="flex flex-col items-center justify-center py-16">
+            <div class="text-4xl mb-4 animate-spin">⏳</div>
+            <p class="text-gray-400">加载中...</p>
+        </div>
+
+        <div id="empty-state" class="flex flex-col items-center justify-center py-16 hidden">
+            <div class="text-6xl mb-6">✅</div>
+            <h2 class="text-2xl font-bold text-gray-300 mb-4">暂无待审核记录</h2>
+            <p class="text-gray-400 text-center max-w-md">目前没有需要投票的记录</p>
+        </div>
+
+        <div id="pending-records" class="space-y-6">
+        </div>
+    </main>
+
+    <footer class="py-8 border-t border-gray-800 mt-16">
+        <div class="container mx-auto px-4 text-center text-gray-500 text-sm">
+            <p>本网站仅用于记录和分享游戏通关记录，与miHoYo/HoYoverse无关</p>
+        </div>
+    </footer>
+
+    <script src="records.js"></script>
+    <script src="data.js"></script>
+    <script src="auth.js"></script>
+    <script src="nav.js"></script>
+    <script>
+        let pendingRecords = [];
+        let currentUserVotes = new Set();
+
+        function loadPendingRecords() {
+            document.getElementById('loading').classList.remove('hidden');
+            
+            // 使用DataStore获取pending记录
+            pendingRecords = DataStore.getPendingRecords();
+            
+            // 如果用户已登录，获取用户已投票的记录ID
+            if (Auth && Auth.currentUser) {
+                currentUserVotes = new Set();
+                pendingRecords.forEach(record => {
+                    const goldErrorUsers = record.goldErrorUsers || [];
+                    const noErrorUsers = record.noErrorUsers || [];
+                    const hasVoted = goldErrorUsers.some(v => v.username === Auth.currentUser.username) ||
+                                     noErrorUsers.some(v => v.username === Auth.currentUser.username);
+                    if (hasVoted) {
+                        currentUserVotes.add(record.id);
+                    }
+                });
+            }
+            
+            document.getElementById('loading').classList.add('hidden');
+            renderPendingRecords();
+        }
+
+        function renderPendingRecords() {
+            const container = document.getElementById('pending-records');
+            
+            if (pendingRecords.length === 0) {
+                document.getElementById('empty-state').classList.remove('hidden');
+                return;
+            }
+
+            container.innerHTML = '';
+            
+            pendingRecords.forEach(record => {
+                const hasVoted = currentUserVotes.has(record.id);
+                const noErrorCount = record.noErrorUsers ? record.noErrorUsers.length : 0;
+                const goldErrorCount = record.goldErrorUsers ? record.goldErrorUsers.length : 0;
+                
+                // 处理视频链接，添加https前缀
+                let videoLink = record.video || '';
+                if (videoLink && videoLink.startsWith('www.')) {
+                    videoLink = 'https://' + videoLink;
+                }
+                
+                const card = document.createElement('div');
+                card.className = 'card p-6';
+                card.innerHTML = `
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">${escapeHtml(record.player)}</h3>
+                            <p class="text-gray-400 text-sm">提交时间: ${record.submitTime}</p>
+                            ${record.submitter ? `<p class="text-gray-500 text-xs">提交者: ${escapeHtml(record.submitter)}</p>` : ''}
+                        </div>
+                        <div class="mt-2 md:mt-0 flex items-center gap-2">
+                            <span class="text-genshin-yellow text-sm">${noErrorCount}：${goldErrorCount}</span>
+                            ${hasVoted ? '<span class="voted-badge px-3 py-1 rounded-full text-white text-sm font-medium">已投票</span>' : ''}
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                        <div class="bg-gray-800/50 rounded-lg p-3">
+                            <p class="text-gray-500 text-xs mb-1">主C</p>
+                            <p class="text-white font-medium">${escapeHtml(record.mainc)}</p>
+                        </div>
+                        <div class="bg-gray-800/50 rounded-lg p-3">
+                            <p class="text-gray-500 text-xs mb-1">BOSS</p>
+                            <p class="text-white font-medium text-sm">${escapeHtml(record.boss)}</p>
+                        </div>
+                        <div class="bg-gray-800/50 rounded-lg p-3">
+                            <p class="text-gray-500 text-xs mb-1">通关时间</p>
+                            <p class="text-genshin-yellow font-medium">${record.time}秒</p>
+                        </div>
+                        <div class="bg-gray-800/50 rounded-lg p-3">
+                            <p class="text-gray-500 text-xs mb-1">金数</p>
+                            <p class="text-white font-medium">${record.gold}限定金 ${record.constgold}常驻金</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="text-gray-500 text-xs mb-2">队伍配置</p>
+                        <div class="flex flex-wrap gap-2">
+                            ${record.team.map(member => `
+                                <span class="bg-gray-800 px-3 py-1 rounded-full text-sm">
+                                    ${escapeHtml(member.character)} 
+                                    <span class="text-gray-500">${member.constellation}命</span>
+                                    <span class="text-gray-500">${member.weapon}精</span>
+                                </span>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    ${record.notes ? `
+                    <div class="mb-4">
+                        <p class="text-gray-500 text-xs mb-1">备注</p>
+                        <p class="text-gray-300 text-sm">${escapeHtml(record.notes)}</p>
+                    </div>
+                    ` : ''}
+                    
+                    ${videoLink ? `
+                    <div class="mb-4">
+                        <a href="${escapeHtml(videoLink)}" target="_blank" class="text-genshin-blue hover:text-blue-400 text-sm">
+                            <i class="fa fa-video mr-1"></i>查看视频
+                        </a>
+                    </div>
+                    ` : ''}
+                    
+                    ${hasVoted ? `
+                    <div class="border-t border-gray-700 pt-4 mt-4">
+                        <p class="text-genshin-green font-medium mb-2"><i class="fa fa-check-circle mr-1"></i>您已投票</p>
+                    </div>
+                    ` : `
+                    <div class="border-t border-gray-700 pt-4 mt-4">
+                        <p class="text-gray-400 text-sm mb-3">请选择金数是否存在错误：</p>
+                        <div class="flex flex-wrap gap-4 mb-4">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="gold-check-${record.id}" id="gold-error-yes-${record.id}" value="error" class="vote-radio">
+                                <span class="text-gray-300">存在错误</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="gold-check-${record.id}" id="gold-error-no-${record.id}" value="noerror" class="vote-radio">
+                                <span class="text-gray-300">不存在错误</span>
+                            </label>
+                        </div>
+                        <button onclick="submitVote(${record.id})" class="btn-genshin">
+                            <i class="fa fa-vote-yea mr-2"></i>确认投票（+2积分）
+                        </button>
+                    </div>
+                    `}
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        async function submitVote(recordId) {
+            // 获取选中的投票选项
+            const goldErrorRadio = document.querySelector(`input[name="gold-check-${recordId}"]:checked`);
+            
+            // 验证是否选择了选项
+            if (!goldErrorRadio) {
+                alert('请选择金数是否存在错误');
+                return;
+            }
+            
+            const goldError = goldErrorRadio.value === 'error';
+            
+            try {
+                const response = await fetch('/api/vote-record', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': Auth.authToken || ''
+                    },
+                    body: JSON.stringify({ recordId, goldError })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    alert('投票成功！获得2积分');
+                    currentUserVotes.add(recordId);
+                    
+                    // 手动更新window.Records中的对应记录
+                    const recordIndex = window.Records.findIndex(r => r.id === recordId);
+                    if (recordIndex !== -1) {
+                        if (!window.Records[recordIndex].goldErrorUsers) {
+                            window.Records[recordIndex].goldErrorUsers = [];
+                        }
+                        if (!window.Records[recordIndex].noErrorUsers) {
+                            window.Records[recordIndex].noErrorUsers = [];
+                        }
+                        const voteData = {
+                            username: Auth.currentUser.username,
+                            voteTime: new Date().toISOString()
+                        };
+                        if (goldError) {
+                            window.Records[recordIndex].goldErrorUsers.push(voteData);
+                        } else {
+                            window.Records[recordIndex].noErrorUsers.push(voteData);
+                        }
+                    }
+                    
+                    renderPendingRecords();
+                } else {
+                    alert(data.message || '投票失败');
+                }
+            } catch (error) {
+                console.error('投票失败:', error);
+                alert('投票失败，请稍后重试');
+            }
+        }
+
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        document.addEventListener('DOMContentLoaded', async function() {
+            if (Auth && Auth.authToken) {
+                await Auth.checkLoginStatus();
+            }
+            
+            if (Auth && Auth.currentUser) {
+                document.getElementById('not-logged-in').classList.add('hidden');
+                loadPendingRecords();
+            } else {
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('not-logged-in').classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
