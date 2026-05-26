@@ -6,6 +6,7 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const dns = require('dns');
+const crypto = require('crypto');
 
 // 强制使用IPv4优先，避免IPv6连接问题
 dns.setDefaultResultOrder('ipv4first');
@@ -55,6 +56,390 @@ app.get('/api/health', (req, res) => {
         message: '服务器运行正常',
         timestamp: new Date().toISOString()
     });
+});
+
+// API端点：用户注册
+app.post('/api/register', (req, res) => {
+    try {
+        const { username, password, confirmPassword } = req.body;
+        
+        // 验证输入
+        if (!username || !password || !confirmPassword) {
+            return res.status(400).json({ success: false, message: '请填写完整信息' });
+        }
+        
+        if (username.length < 3 || username.length > 20) {
+            return res.status(400).json({ success: false, message: '用户名长度必须在3-20字符之间' });
+        }
+        
+        if (password.length < 6) {
+            return res.status(400).json({ success: false, message: '密码长度至少6位' });
+        }
+        
+        if (password !== confirmPassword) {
+            return res.status(400).json({ success: false, message: '两次输入的密码不一致' });
+        }
+        
+        // 检查用户名是否已存在
+        const users = parseUsersFromRecordsFile();
+        if (users.some(user => user.username === username)) {
+            return res.status(400).json({ success: false, message: '用户名已存在' });
+        }
+        
+        // 创建新用户
+        const newUser = {
+            username: username,
+            passwordHash: hashPassword(password),
+            registerDate: new Date().toISOString().split('T')[0],
+            score: 0,
+            bilibiliNames: [],
+            isAdmin: false,
+            resetCount: 0,
+            lastResetDate: null
+        };
+        
+        // 添加用户到用户数组
+        users.push(newUser);
+        
+        // 读取当前记录
+        const records = parseRecordsFromRecordsFile();
+        
+        // 写入更新后的文件
+        const content = generateRecordsJsContentWithUsers(records, users);
+        writeRecordsFile(content);
+        
+        log(`新用户注册成功: ${username}`);
+        
+        res.json({
+            success: true,
+            message: '注册成功！'
+        });
+        
+    } catch (error) {
+        log(`注册失败: ${error.message}`);
+        res.status(500).json({
+            success: false,
+            message: `服务器内部错误: ${error.message}`
+        });
+    }
+});
+
+// API端点：用户登录
+app.post('/api/login', (req, res) => {
+    try {
+        const { username, password } = req.body;
+        
+        if (!username || !password) {
+            return res.status(400).json({ success: false, message: '请填写用户名和密码' });
+        }
+        
+        const users = parseUsersFromRecordsFile();
+        const user = users.find(u => u.username === username);
+        
+        if (!user) {
+            return res.status(401).json({ success: false, message: '用户名或密码错误' });
+        }
+        
+        if (user.passwordHash !== hashPassword(password)) {
+            return res.status(401).json({ success: false, message: '用户名或密码错误' });
+        }
+        
+        // 生成会话token
+        const token = generateSessionToken();
+        sessions[token] = {
+            username: user.username,
+            isAdmin: user.isAdmin,
+            expiresAt: Date.now() + 24 * 60 * 60 * 1000 // 24小时过期
+        };
+        
+        log(`用户登录成功: ${username}`);
+        
+        res.json({
+            success: true,
+            message: '登录成功！',
+            token: token,
+            username: user.username,
+            isAdmin: user.isAdmin
+        });
+        
+    } catch (error) {
+        log(`登录失败: ${error.message}`);
+        res.status(500).json({
+            success: false,
+            message: `服务器内部错误: ${error.message}`
+        });
+    }
+});
+
+// API端点：用户登出
+app.post('/api/logout', (req, res) => {
+    try {
+        const token = req.headers['authorization'];
+        
+        if (token && sessions[token]) {
+            const username = sessions[token].username;
+            delete sessions[token];
+            log(`用户登出: ${username}`);
+        }
+        
+        res.json({
+            success: true,
+            message: '登出成功！'
+        });
+        
+    } catch (error) {
+        log(`登出失败: ${error.message}`);
+        res.status(500).json({
+            success: false,
+            message: `服务器内部错误: ${error.message}`
+        });
+    }
+});
+
+// API端点：检查登录状态
+app.get('/api/check-login', (req, res) => {
+    try {
+        const token = req.headers['authorization'];
+        
+        if (!token || !sessions[token]) {
+            return res.json({
+                success: true,
+                loggedIn: false,
+                username: null,
+                isAdmin: false
+            });
+        }
+        
+        // 检查token是否过期
+        if (sessions[token].expiresAt < Date.now()) {
+            delete sessions[token];
+            return res.json({
+                success: true,
+                loggedIn: false,
+                username: null,
+                isAdmin: false
+            });
+        }
+        
+        // 延长token有效期
+        sessions[token].expiresAt = Date.now() + 24 * 60 * 60 * 1000;
+        
+        res.json({
+            success: true,
+            loggedIn: true,
+            username: sessions[token].username,
+            isAdmin: sessions[token].isAdmin
+        });
+        
+    } catch (error) {
+        log(`检查登录状态失败: ${error.message}`);
+        res.status(500).json({
+            success: false,
+            message: `服务器内部错误: ${error.message}`
+        });
+    }
+});
+
+// API端点：检查账号有效性（用于排行榜）
+app.get('/api/check-account-validity', (req, res) => {
+    try {
+        const token = req.headers['authorization'];
+        
+        if (!token || !sessions[token]) {
+            return res.json({
+                success: true,
+                loggedIn: false,
+                valid: false,
+                message: '请先登录'
+            });
+        }
+        
+        const username = sessions[token].username;
+        const users = parseUsersFromRecordsFile();
+        const user = users.find(u => u.username === username);
+        
+        if (!user) {
+            return res.json({
+                success: true,
+                loggedIn: true,
+                valid: false,
+                message: '用户不存在'
+            });
+        }
+        
+        const validity = checkAccountValidity(user);
+        
+        res.json({
+            success: true,
+            loggedIn: true,
+            username: user.username,
+            isAdmin: user.isAdmin,
+            valid: validity.valid,
+            canReset: validity.canReset,
+            daysRegistered: validity.daysRegistered,
+            validDays: validity.validDays,
+            message: validity.valid ? '账号有效' : '账号已过期，请提交记录或重置账号'
+        });
+        
+    } catch (error) {
+        log(`检查账号有效性失败: ${error.message}`);
+        res.status(500).json({
+            success: false,
+            message: `服务器内部错误: ${error.message}`
+        });
+    }
+});
+
+// API端点：重置账号
+app.post('/api/reset-account', (req, res) => {
+    try {
+        const token = req.headers['authorization'];
+        
+        if (!token || !sessions[token]) {
+            return res.status(401).json({ success: false, message: '请先登录' });
+        }
+        
+        const username = sessions[token].username;
+        const users = parseUsersFromRecordsFile();
+        const userIndex = users.findIndex(u => u.username === username);
+        
+        if (userIndex === -1) {
+            return res.status(404).json({ success: false, message: '用户不存在' });
+        }
+        
+        const user = users[userIndex];
+        const validity = checkAccountValidity(user);
+        
+        if (!validity.canReset) {
+            return res.status(400).json({ success: false, message: '账号注册未满1个月，无法重置' });
+        }
+        
+        // 更新用户信息
+        users[userIndex] = {
+            ...user,
+            registerDate: new Date().toISOString().split('T')[0],
+            score: 0,
+            resetCount: (user.resetCount || 0) + 1,
+            lastResetDate: new Date().toISOString().split('T')[0]
+        };
+        
+        // 读取当前记录
+        const records = parseRecordsFromRecordsFile();
+        
+        // 写入更新后的文件
+        const content = generateRecordsJsContentWithUsers(records, users);
+        writeRecordsFile(content);
+        
+        log(`账号重置成功: ${username}`);
+        
+        res.json({
+            success: true,
+            message: '账号重置成功！'
+        });
+        
+    } catch (error) {
+        log(`重置账号失败: ${error.message}`);
+        res.status(500).json({
+            success: false,
+            message: `服务器内部错误: ${error.message}`
+        });
+    }
+});
+
+// API端点：获取用户信息
+app.get('/api/user-info', (req, res) => {
+    try {
+        const token = req.headers['authorization'];
+        
+        if (!token || !sessions[token]) {
+            return res.status(401).json({ success: false, message: '请先登录' });
+        }
+        
+        const username = sessions[token].username;
+        const users = parseUsersFromRecordsFile();
+        const user = users.find(u => u.username === username);
+        
+        if (!user) {
+            return res.status(404).json({ success: false, message: '用户不存在' });
+        }
+        
+        const validity = checkAccountValidity(user);
+        
+        res.json({
+            success: true,
+            user: user,
+            valid: validity.valid,
+            validDays: validity.validDays,
+            canReset: validity.canReset,
+            daysUntilReset: validity.daysUntilReset || 0
+        });
+        
+    } catch (error) {
+        log(`获取用户信息失败: ${error.message}`);
+        res.status(500).json({
+            success: false,
+            message: `服务器内部错误: ${error.message}`
+        });
+    }
+});
+
+// API端点：删除账号
+app.post('/api/delete-account', (req, res) => {
+    try {
+        const token = req.headers['authorization'];
+        
+        if (!token || !sessions[token]) {
+            return res.status(401).json({ success: false, message: '请先登录' });
+        }
+        
+        const username = sessions[token].username;
+        const { password } = req.body;
+        
+        if (!password) {
+            return res.status(400).json({ success: false, message: '请输入密码' });
+        }
+        
+        const users = parseUsersFromRecordsFile();
+        const userIndex = users.findIndex(u => u.username === username);
+        
+        if (userIndex === -1) {
+            return res.status(404).json({ success: false, message: '用户不存在' });
+        }
+        
+        const user = users[userIndex];
+        const passwordHash = crypto.createHash('sha256').update(password).digest('hex');
+        
+        if (user.passwordHash !== passwordHash) {
+            return res.status(400).json({ success: false, message: '密码错误' });
+        }
+        
+        // 删除用户
+        users.splice(userIndex, 1);
+        
+        // 读取当前记录
+        const records = parseRecordsFromRecordsFile();
+        
+        // 写入更新后的文件
+        const content = generateRecordsJsContentWithUsers(records, users);
+        writeRecordsFile(content);
+        
+        // 销毁会话
+        delete sessions[token];
+        
+        log(`账号删除成功: ${username}`);
+        
+        res.json({
+            success: true,
+            message: '账号删除成功！'
+        });
+        
+    } catch (error) {
+        log(`删除账号失败: ${error.message}`);
+        res.status(500).json({
+            success: false,
+            message: `服务器内部错误: ${error.message}`
+        });
+    }
 });
 
 // API端点：下载records.js文件（临时使用）
@@ -165,6 +550,130 @@ function parseRecordsFromRecordsFile() {
         log(`解析记录文件失败: ${error.message}`);
         throw error;
     }
+}
+
+// 解析用户数据
+function parseUsersFromRecordsFile() {
+    try {
+        const data = readRecordsFile();
+        
+        const vm = require('vm');
+        const sandbox = { window: {}, module: { exports: {} } };
+        const script = new vm.Script(data + '\nmodule.exports = Users;');
+        const context = new vm.createContext(sandbox);
+        script.runInContext(context);
+        
+        const users = context.module.exports;
+        
+        if (!users || !Array.isArray(users)) {
+            return [];
+        }
+        
+        return users;
+    } catch (error) {
+        log(`解析用户文件失败: ${error.message}`);
+        throw error;
+    }
+}
+
+// 生成包含用户数据的records.js内容
+function generateRecordsJsContentWithUsers(records, users) {
+    const safeString = (str) => {
+        if (typeof str === 'string') {
+            return str
+                .replace(/'/g, "\\'")
+                .replace(/\n/g, "\\n")
+                .replace(/\r/g, "\\r");
+        }
+        return String(str || '');
+    };
+    
+    const usersArray = users.map(user => {
+        return `{
+    username: '${safeString(user.username)}',
+    passwordHash: '${safeString(user.passwordHash)}',
+    registerDate: '${safeString(user.registerDate)}',
+    score: ${user.score || 0},
+    bilibiliNames: ${JSON.stringify(user.bilibiliNames || [])},
+    isAdmin: ${user.isAdmin || false},
+    resetCount: ${user.resetCount || 0},
+    lastResetDate: ${user.lastResetDate ? `'${safeString(user.lastResetDate)}'` : 'null'}
+}`;
+    }).join(',\n    ');
+    
+    const recordsArray = records.map(record => {
+        return `{
+            id: ${record.id},
+            player: '${safeString(record.player)}',
+            mainc: '${safeString(record.mainc)}',
+            team: [
+                ${record.team.map(member => 
+                    `{
+                        character: '${safeString(member.character)}',
+                        constellation: ${member.constellation},
+                        weapon: ${member.weapon}
+                    }`
+                ).join(',\n                ')}
+            ],
+            time: ${record.time},
+            boss: '${safeString(record.boss)}',
+            gold: ${record.gold},
+            constgold: ${record.constgold},
+            notes: '${safeString(record.notes)}',
+            video: '${safeString(record.video)}',
+            status: '${safeString(record.status)}',
+            submitTime: '${safeString(record.submitTime)}',
+            cup: '${safeString(record.cup || '无')}',
+            submitter: ${record.submitter ? `'${safeString(record.submitter)}'` : 'null'},
+            goldErrorUsers: ${JSON.stringify(record.goldErrorUsers || [])},
+            noErrorUsers: ${JSON.stringify(record.noErrorUsers || [])}
+        }`;
+    }).join(',\n        ');
+    
+    return `// 用户数据
+const Users = [
+    ${usersArray}
+];
+
+// 通关记录数据
+const Records = [
+        ${recordsArray}
+    ];
+
+// 确保Records和Users可以被其他脚本访问
+window.Records = Records;
+window.Users = Users;`;
+}
+
+// 密码哈希函数（SHA256）
+function hashPassword(password) {
+    return crypto.createHash('sha256').update(password).digest('hex');
+}
+
+// 生成会话token
+function generateSessionToken() {
+    return crypto.randomBytes(32).toString('hex');
+}
+
+// 会话存储（内存中，服务器重启后会丢失）
+const sessions = {};
+
+// 检查账号是否有效
+function checkAccountValidity(user) {
+    const now = new Date();
+    const registerDate = new Date(user.registerDate);
+    const timeDiff = now - registerDate;
+    const daysRegistered = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+    
+    // 初始有效期7天，每1积分延长1天
+    const validDays = 7 + (user.score || 0);
+    
+    return {
+        valid: daysRegistered <= validDays,
+        daysRegistered: daysRegistered,
+        validDays: validDays,
+        canReset: daysRegistered >= 30 // 注册超过1个月才能重置
+    };
 }
 
 // 生成新的记录文件内容
@@ -416,7 +925,20 @@ app.post('/api/submit-record', (req, res) => {
     try {
         const recordData = req.body;
         
-        log(`收到新的记录提交请求: ${recordData.player} - ${recordData.boss}`);
+        // 检查用户是否登录
+        const token = req.headers['authorization'];
+        let loggedInUsername = null;
+        
+        if (token && sessions[token]) {
+            // 检查token是否过期
+            if (sessions[token].expiresAt >= Date.now()) {
+                loggedInUsername = sessions[token].username;
+                // 延长token有效期
+                sessions[token].expiresAt = Date.now() + 24 * 60 * 60 * 1000;
+            }
+        }
+        
+        log(`收到新的记录提交请求: ${recordData.player} - ${recordData.boss} ${loggedInUsername ? '(登录用户: ' + loggedInUsername + ')' : '(未登录)'}`);
         
         // 验证必要字段
         const requiredFields = ['player', 'mainc', 'team', 'time', 'boss', 'gold', 'constgold', 'video', 'submitTime'];
@@ -459,8 +981,33 @@ app.post('/api/submit-record', (req, res) => {
         // 设置状态为待审核
         recordData.status = 'pending';
         
-        // 添加记录到数据文件
-        const newId = addRecordToDataFile(recordData);
+        // 如果用户登录，添加提交者信息
+        if (loggedInUsername) {
+            recordData.submitter = loggedInUsername;
+        }
+        
+        // 读取当前记录和用户数据
+        const records = parseRecordsFromRecordsFile();
+        const users = parseUsersFromRecordsFile();
+        
+        // 如果用户登录，增加提交次数
+        if (loggedInUsername) {
+            const userIndex = users.findIndex(u => u.username === loggedInUsername);
+            if (userIndex !== -1) {
+                users[userIndex].score = (users[userIndex].score || 0) + 30;
+            }
+        }
+        
+        // 生成新ID
+        const newId = generateNewId(records);
+        recordData.id = newId;
+        
+        // 添加新记录到记录数组
+        records.push(recordData);
+        
+        // 写入更新后的文件（包含用户数据）
+        const content = generateRecordsJsContentWithUsers(records, users);
+        writeRecordsFile(content);
         
         log(`记录提交成功，ID: ${newId}`);
         
@@ -470,9 +1017,109 @@ app.post('/api/submit-record', (req, res) => {
             message: '通关记录提交成功！管理员将尽快审核。',
             recordId: newId
         });
-        
+
     } catch (error) {
         log(`处理提交请求时发生错误: ${error.message}`);
+        res.status(500).json({
+            success: false,
+            message: `服务器内部错误: ${error.message}`
+        });
+    }
+});
+
+// API端点：对记录投票
+app.post('/api/vote-record', (req, res) => {
+    try {
+        const { recordId, goldError } = req.body;
+
+        // 检查用户是否登录
+        const token = req.headers['authorization'];
+        if (!token || !sessions[token]) {
+            return res.status(401).json({ success: false, message: '请先登录' });
+        }
+
+        const username = sessions[token].username;
+
+        // 验证必要字段
+        if (typeof recordId === 'undefined' || recordId === null) {
+            return res.status(400).json({ success: false, message: '缺少记录ID' });
+        }
+
+        // 读取当前记录和用户数据
+        const records = parseRecordsFromRecordsFile();
+        const users = parseUsersFromRecordsFile();
+
+        // 查找记录
+        const recordIndex = records.findIndex(r => r.id === recordId);
+        if (recordIndex === -1) {
+            return res.status(404).json({ success: false, message: '记录不存在' });
+        }
+
+        const record = records[recordIndex];
+
+        // 检查记录是否为pending状态
+        if (record.status !== 'pending') {
+            return res.status(400).json({ success: false, message: '只能对待审核记录进行投票' });
+        }
+
+        // 初始化投票列表
+        if (!record.goldErrorUsers) {
+            record.goldErrorUsers = [];
+        }
+        if (!record.noErrorUsers) {
+            record.noErrorUsers = [];
+        }
+
+        // 检查用户是否已经投过票（检查两个列表）
+        const hasVotedError = record.goldErrorUsers.some(v => v.username === username);
+        const hasVotedNoError = record.noErrorUsers.some(v => v.username === username);
+        if (hasVotedError || hasVotedNoError) {
+            return res.status(400).json({ success: false, message: '您已经对这条记录投过票了' });
+        }
+
+        // 添加投票信息到对应列表
+        const voteData = {
+            username: username,
+            voteTime: new Date().toISOString()
+        };
+        
+        if (goldError) {
+            record.goldErrorUsers.push(voteData);
+        } else {
+            record.noErrorUsers.push(voteData);
+        }
+
+        // 检查是否达到自动通过条件：投票人数达到20人且所有人都认为不存在错误
+        const totalVotes = record.goldErrorUsers.length + record.noErrorUsers.length;
+        if (record.goldErrorUsers.length === 0 && record.noErrorUsers.length >= 20) {
+            record.status = 'approved';
+            log(`记录 ${recordId} 因投票自动通过: ${record.noErrorUsers.length}人投票，均认为不存在错误`);
+        }
+
+        // 更新记录
+        records[recordIndex] = record;
+
+        // 给投票用户增加2积分
+        const userIndex = users.findIndex(u => u.username === username);
+        if (userIndex !== -1) {
+            users[userIndex].score = (users[userIndex].score || 0) + 2;
+        }
+
+        // 写入更新后的文件
+        const content = generateRecordsJsContentWithUsers(records, users);
+        writeRecordsFile(content);
+
+        log(`用户 ${username} 对记录 ${recordId} 投票成功`);
+
+        res.json({
+            success: true,
+            message: '投票成功！获得2积分',
+            noErrorCount: record.noErrorUsers.length,
+            goldErrorCount: record.goldErrorUsers.length
+        });
+
+    } catch (error) {
+        log(`处理投票请求时发生错误: ${error.message}`);
         res.status(500).json({
             success: false,
             message: `服务器内部错误: ${error.message}`
@@ -560,6 +1207,21 @@ app.get('/api/bilibili/video-info', async (req, res) => {
                 log(`解析b23.tv短链接时发生错误: ${error.message}`);
                 return res.status(500).json({ success: false, message: `解析b23.tv短链接失败: ${error.message}` });
             }
+        }
+        
+        // 检查BV号是否已被收录
+        const records = parseRecordsFromRecordsFile();
+        const existingRecord = records.find(r => {
+            const existingBv = r.video?.match(/BV[a-zA-Z0-9]{10,}/);
+            return existingBv && existingBv[0] === realBv;
+        });
+        if (existingRecord) {
+            log(`BV号重复检测失败: ${realBv} 已被收录`);
+            return res.status(400).json({ 
+                success: false, 
+                message: '该视频已被收录',
+                code: 'bv_duplicate'
+            });
         }
         
         // 调用B站API获取视频信息

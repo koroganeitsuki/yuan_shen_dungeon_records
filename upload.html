@@ -11,6 +11,8 @@
     <!-- DataStore -->
     <script src="records.js"></script>
     <script src="data.js"></script>
+    <script src="auth.js"></script>
+    <script src="nav.js"></script>
     
     <script>
         tailwind.config = {
@@ -531,46 +533,8 @@
 </head>
 <body class="bg-dark text-light min-h-screen">
     <!-- 导航栏 -->
-    <nav class="bg-dark bg-opacity-80 backdrop-blur-md fixed w-full z-40 border-b border-gray-800">
-        <div class="container mx-auto px-4 py-3">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-2">
-                    <img src="https://bbs-static.miyoushe.com/static/2025/06/16/46c0ca54ffaa4664f05efe7932d0bdfb_4298836572782376517.png" alt="Logo" class="w-10 h-10 rounded-full">
-                    <span class="text-xl font-bold text-genshin-yellow">原神幽境危战</span>
-                </div>
-                
-                <!-- 桌面导航 -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="nav-link text-white hover:text-genshin-yellow">首页</a>
-                    <a href="ranking.html" class="nav-link text-white hover:text-genshin-yellow">排行榜</a>
-                    <a href="upload.html" class="nav-link active text-genshin-yellow">上传记录</a>
-                    <a href="admin.html" class="nav-link text-white hover:text-genshin-yellow">管理员入口</a>
-                </div>
-                
-                <!-- 移动端菜单按钮 -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-white focus:outline-none">
-                        <i class="fa fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- 移动端导航菜单 -->
-            <div id="mobile-menu" class="nav-menu md:hidden hidden">
-                <div class="flex justify-end mb-8">
-                    <button id="close-menu-btn" class="text-white focus:outline-none">
-                        <i class="fa fa-times text-2xl"></i>
-                    </button>
-                </div>
-                <div class="flex flex-col space-y-6">
-                    <a href="index.html" class="text-white hover:text-genshin-yellow text-xl">首页</a>
-                    <a href="ranking.html" class="text-white hover:text-genshin-yellow text-xl">排行榜</a>
-                    <a href="upload.html" class="text-genshin-yellow text-xl">上传记录</a>
-                    <a href="admin.html" class="text-white hover:text-genshin-yellow text-xl">管理员入口</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <!-- 导航栏容器 -->
+    <div id="navbar-container"></div>
 
     <!-- 页面标题 -->
     <header class="pt-24 pb-8">
@@ -914,6 +878,59 @@
         </div>
     </div>
 
+    <!-- 登录/注册弹窗 -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="auth-modal-title">用户登录</h2>
+                <button class="modal-close" onclick="closeAuthModal()">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- 登录表单 -->
+                <form id="login-form" class="space-y-4">
+                    <div>
+                        <label class="form-label">用户名</label>
+                        <input type="text" id="login-username" class="form-input w-full" placeholder="请输入用户名" required>
+                    </div>
+                    <div>
+                        <label class="form-label">密码</label>
+                        <input type="password" id="login-password" class="form-input w-full" placeholder="请输入密码" required>
+                    </div>
+                    <button type="button" onclick="Auth.login(document.getElementById('login-username').value, document.getElementById('login-password').value).then(result => { if(result.success) alert('登录成功'); else alert(result.message); })" class="btn-genshin w-full">
+                        登录
+                    </button>
+                    <p class="text-center text-gray-400 text-sm">
+                        还没有账号？<a href="#" onclick="Auth.switchToRegister(); return false;" class="text-genshin-yellow hover:underline">立即注册</a>
+                    </p>
+                </form>
+                
+                <!-- 注册表单 -->
+                <form id="register-form" class="space-y-4" style="display: none;">
+                    <div>
+                        <label class="form-label">用户名</label>
+                        <input type="text" id="register-username" class="form-input w-full" placeholder="请输入用户名（3-20字符）" required>
+                    </div>
+                    <div>
+                        <label class="form-label">密码</label>
+                        <input type="password" id="register-password" class="form-input w-full" placeholder="请输入密码（至少6位）" required>
+                    </div>
+                    <div>
+                        <label class="form-label">确认密码</label>
+                        <input type="password" id="register-confirm-password" class="form-input w-full" placeholder="请再次输入密码" required>
+                    </div>
+                    <button type="button" onclick="Auth.register(document.getElementById('register-username').value, document.getElementById('register-password').value, document.getElementById('register-confirm-password').value).then(result => { if(result.success) { alert('注册成功，请登录'); Auth.switchToLogin(); } else alert(result.message); })" class="btn-genshin w-full">
+                        注册
+                    </button>
+                    <p class="text-center text-gray-400 text-sm">
+                        已有账号？<a href="#" onclick="Auth.switchToLogin(); return false;" class="text-genshin-yellow hover:underline">立即登录</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- 页脚 -->
     <footer class="py-8 bg-dark border-t border-gray-800 mt-16">
         <div class="container mx-auto px-4">
@@ -938,22 +955,6 @@
 
     <!-- JavaScript -->
     <script>
-        // 移动端菜单
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.add('active');
-        });
-        
-        document.getElementById('close-menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.remove('active');
-        });
-        
-        // 导航链接点击关闭菜单
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.remove('active');
-            });
-        });
-        
         // 从DataStore获取角色和BOSS数据
         const characters = DataStore.getCharacters();
         const bosses = DataStore.getBosses();
@@ -2363,13 +2364,19 @@
             console.log('准备发送数据到服务器:', serverUrl);
             console.log('发送的数据:', formData);
             
-            fetch(serverUrl, {
-                method: 'POST',
-                headers: {
+            const headers = {
                     'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            })
+                };
+                // 如果用户已登录，添加认证token
+                if (Auth.authToken) {
+                    headers['Authorization'] = Auth.authToken;
+                }
+                
+                fetch(serverUrl, {
+                    method: 'POST',
+                    headers: headers,
+                    body: JSON.stringify(formData),
+                })
             .then(response => {
                 console.log('服务器响应状态:', response.status);
                 if (!response.ok) {
