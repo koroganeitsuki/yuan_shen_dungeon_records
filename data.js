@@ -137,6 +137,9 @@ const DataStore = {
         { id: 'tartaglia', name: '达达利亚', avatar: access + 'Avatar/UI_AvatarIcon_Tartaglia.png', element: '水' },
         
         // 其他角色
+        { id: 'Prune', name: '布伦妮', avatar: access + 'Avatar/Prune_Icon.webp', element: '风' },
+        { id: 'Lohen', name: '洛恩', avatar: access + 'Avatar/Lohen_Icon.webp', element: '冰' },
+        { id: 'Nicole', name: '尼可', avatar: access + 'Avatar/Nicole_Icon.webp', element: '火' },
         { id: 'Linnea', name: '莉奈娅', avatar: access + 'Avatar/UI_AvatarIcon_Linnea.png', element: '岩' },
       { id: 'Varka', name: '法尔伽', avatar: access + 'Avatar/UI_AvatarIcon_Varka.png', element: '风' },  
       { id: 'Columbina', name: '哥伦比娅', avatar: access + 'Avatar/UI_AvatarIcon_Columbina.png', element: '水' },
@@ -190,7 +193,9 @@ const DataStore = {
         { id: '6.3N7',name:'6.3金幻化',avatar: 'Avatar/sheshiN7.webp', element: '金幻化' },        
       { id: 'Mandragora_Elite', name: '历经百战的十六倍曼陀草·风滚狂蔓', avatar: access + 'monster/UI_MonsterIcon_Mandragora_Elite.png', element: '草' }, 
       { id: 'Gastrobot_01', name: '重拳出击鸭·重甲武库', avatar: access + 'monster/UI_MonsterIcon_Gastrobot_01.png', element: '雷' },
-      { id: 'Gecko', name: '蕴光月守宫·根牙磐错', avatar: access + 'monster/UI_MonsterIcon_Magbeast_Gecko.png', element: '岩' }
+      { id: 'Gecko', name: '蕴光月守宫·根牙磐错', avatar: access + 'monster/UI_MonsterIcon_Magbeast_Gecko.png', element: '岩' },
+      { id: 'wolf', name: '历经百战的凛狼', avatar: access + 'monster/lang.png', element: '冰' },
+      { id: 'eye', name: '开眼者', avatar: access + 'monster/eye.png', element: '岩' }
     //   { id: '6.4N6',name:'6.4紫幻化',avatar: 'Avatar/sheshiN6.webp', element: '紫幻化' },
     //     { id: '6.4N7',name:'6.4金幻化',avatar: 'Avatar/sheshiN7.webp', element: '金幻化' }
     ],
