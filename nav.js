@@ -42,7 +42,7 @@
         });
 
         const navbarHTML = `
-            <nav class="bg-dark bg-opacity-80 backdrop-blur-md border-b border-gray-800 sticky top-0 z-50">
+            <nav class="fixed w-full top-0 bg-dark bg-opacity-80 backdrop-blur-md border-b border-gray-800 z-50">
                 <div class="container mx-auto px-4">
                     <div class="flex justify-between items-center py-4">
                         <div class="flex items-center space-x-4">
@@ -152,14 +152,12 @@
 
     // 页面加载时渲染导航栏
     function initNavbar() {
-        // 等待Auth模块加载完成
-        const checkAuthLoaded = setInterval(() => {
-            if (typeof Auth !== 'undefined') {
-                clearInterval(checkAuthLoaded);
-                renderNavbar();
-                updateNavbarLoginUI();
-            }
-        }, 50);
+        // 渲染导航栏（不依赖Auth模块）
+        renderNavbar();
+        // 如果Auth模块存在，更新登录状态
+        if (typeof Auth !== 'undefined') {
+            updateNavbarLoginUI();
+        }
     }
 
     // 暴露到全局

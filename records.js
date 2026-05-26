@@ -19,6 +19,16 @@ const Users = [
     isAdmin: false,
     resetCount: 0,
     lastResetDate: null
+},
+    {
+    username: '黑の辉',
+    passwordHash: '12ced0ec03813e27df453d63214a467698e285ab6f52f4d030205ee1426c2d08',
+    registerDate: '2026-05-26',
+    score: 32,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
 }
 ];
 
@@ -11879,7 +11889,7 @@ const Records = [
         },
         {
             id: 316,
-            player: '沫陌膜墨沫陌膜墨',
+            player: '沫陌膜墨',
             mainc: '仆人',
             team: [
                 {
@@ -11908,8 +11918,8 @@ const Records = [
             gold: 4,
             constgold: 1,
             notes: '风鹰几乎白板',
-            video: '【【幽境危战n6曼巴草】低练仆杜皇砂，魔导摔门的恩情还不完-哔哩哔哩】 https://b23.tv/6wfCQkK',
-            status: 'pending',
+            video: 'https://【【幽境危战n6曼巴草】低练仆杜皇砂，魔导摔门的恩情还不完-哔哩哔哩】 https://b23.tv/6wfCQkK',
+            status: 'approved',
             submitTime: '2026-03-27T19:41',
             cup: '无',
             submitter: null,
@@ -11953,7 +11963,7 @@ const Records = [
             cup: '无',
             submitter: null,
             goldErrorUsers: [],
-            noErrorUsers: [{"username":"123","voteTime":"2026-05-26T11:52:16.905Z"}]
+            noErrorUsers: [{"username":"123","voteTime":"2026-05-26T11:52:16.905Z"},{"username":"黑の辉","voteTime":"2026-05-26T13:58:20.940Z"}]
         },
         {
             id: 318,
@@ -12261,6 +12271,45 @@ const Records = [
             submitter: '123',
             goldErrorUsers: [],
             noErrorUsers: [{"username":"123","voteTime":"2026-05-26T12:31:42.314Z"}]
+        },
+        {
+            id: 326,
+            player: '刚创的新号',
+            mainc: '玛薇卡',
+            team: [
+                {
+                        character: '玛薇卡',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '欧洛伦',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '蕴光月守宫·根牙磐错',
+            gold: 2,
+            constgold: 3,
+            notes: '',
+            video: 'www.bilibili.com/video/BV1RH9QBqEdH',
+            status: 'pending',
+            submitTime: '2026-05-26T21:58',
+            cup: '无',
+            submitter: '黑の辉',
+            goldErrorUsers: [],
+            noErrorUsers: []
         }
     ];
 
