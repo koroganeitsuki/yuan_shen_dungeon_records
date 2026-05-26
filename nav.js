@@ -93,6 +93,8 @@
                     </div>
                 </div>
             </nav>
+            <!-- 导航栏占位元素，防止内容被固定导航栏遮挡 -->
+            <div class="h-16 md:h-20"></div>
         `;
 
         return navbarHTML;
