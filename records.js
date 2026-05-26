@@ -1,3 +1,27 @@
+// 用户数据
+const Users = [
+    {
+    username: 'admin',
+    passwordHash: '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918',
+    registerDate: '2026-01-01',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: true,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '123',
+    passwordHash: '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92',
+    registerDate: '2026-05-26',
+    score: 36,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+}
+];
+
 // 通关记录数据
 const Records = [
         {
@@ -34,7 +58,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1CLhmziEsF',
             status: 'approved',
             submitTime: '2025/8/28 21:34:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 2,
@@ -70,7 +97,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1YBakzuEsb/',
             status: 'approved',
             submitTime: '2025/9/4 7:00:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 3,
@@ -106,7 +136,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1qpaSzYE2U/',
             status: 'approved',
             submitTime: '2025/9/4 23:04:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 4,
@@ -142,7 +175,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV15degzsEjy/',
             status: 'approved',
             submitTime: '2025/8/20 17:31:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 5,
@@ -178,7 +214,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1dPtAzsE1W/',
             status: 'approved',
             submitTime: '2025/8/6 16:02:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 6,
@@ -214,7 +253,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1KqtRz9EBa/',
             status: 'approved',
             submitTime: '2025/8/12 13:25:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 7,
@@ -250,7 +292,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1ophCzLEje/',
             status: 'approved',
             submitTime: '2025/8/31 14:01:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 8,
@@ -286,7 +331,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1Syt6zQEa4/',
             status: 'approved',
             submitTime: '2025/8/8 2:12:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 9,
@@ -322,7 +370,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1pqtzzBEGc/',
             status: 'approved',
             submitTime: '2025/8/7 20:15:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 10,
@@ -358,7 +409,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1xVtbz5ERd/',
             status: 'approved',
             submitTime: '2025/8/9 18:35:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 11,
@@ -394,7 +448,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV17iewzTEMp/',
             status: 'approved',
             submitTime: '2025/8/19 20:36:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 12,
@@ -430,7 +487,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1rttHzDE6T',
             status: 'approved',
             submitTime: '2025/8/9 2:01:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 13,
@@ -466,7 +526,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1NXtBzzEg5/',
             status: 'approved',
             submitTime: '2025/8/7 21:11:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 14,
@@ -502,7 +565,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1bPeazzEpW/',
             status: 'approved',
             submitTime: '2025/8/22 22:44:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 15,
@@ -538,7 +604,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1tzbJzbEk6/',
             status: 'approved',
             submitTime: '2025/8/15 9:45:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 16,
@@ -574,7 +643,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1GfeyznEvQ/',
             status: 'approved',
             submitTime: '2025/8/27 13:35:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 17,
@@ -610,7 +682,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1cWtKzuEDX/',
             status: 'approved',
             submitTime: '2025/8/7 8:40:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 18,
@@ -646,7 +721,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV18renzyEKt/',
             status: 'approved',
             submitTime: '2025/8/24 23:10:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 19,
@@ -682,7 +760,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1sYbnzpENJ/',
             status: 'approved',
             submitTime: '2025/8/15 16:44:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 20,
@@ -718,7 +799,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1kdYvzqEaZ/',
             status: 'approved',
             submitTime: '2025/8/16 18:21:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 21,
@@ -754,7 +838,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1cHeCzoEb3/',
             status: 'approved',
             submitTime: '2025/8/27 9:23:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 22,
@@ -790,7 +877,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV12ht8zDE9S/',
             status: 'approved',
             submitTime: '2025/8/10 0:52:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 23,
@@ -826,7 +916,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1Eftoz7EgC/',
             status: 'approved',
             submitTime: '2025/8/13 9:55:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 24,
@@ -862,7 +955,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1eTYezHEGU/',
             status: 'approved',
             submitTime: '2025/8/16 13:12:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 25,
@@ -898,7 +994,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1MjbEzxErx/',
             status: 'approved',
             submitTime: '2025/8/15 9:40:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 26,
@@ -934,7 +1033,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1CBbezxEbb/',
             status: 'approved',
             submitTime: '2025/8/14 4:18:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 27,
@@ -970,7 +1072,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1QdY1z7E6B/',
             status: 'approved',
             submitTime: '2025/8/17 19:45:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 28,
@@ -1006,7 +1111,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1jMaCzUEZ1/',
             status: 'approved',
             submitTime: '2025/9/4 4:01:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 29,
@@ -1042,7 +1150,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1bGemzJE97/',
             status: 'approved',
             submitTime: '2025/8/28 0:30:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 30,
@@ -1078,7 +1189,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV14Tt4z6Eop/',
             status: 'approved',
             submitTime: '2025/8/9 15:02:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 31,
@@ -1114,7 +1228,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1nGtpzDEtf/',
             status: 'approved',
             submitTime: '2025/8/8 23:59:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 32,
@@ -1150,7 +1267,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1RttPzoErU/',
             status: 'approved',
             submitTime: '2025/8/6 19:52:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 33,
@@ -1186,7 +1306,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1GhtpzBECJ/',
             status: 'approved',
             submitTime: '2025/8/8 22:01:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 34,
@@ -1222,7 +1345,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1V8YYzmEtq/',
             status: 'approved',
             submitTime: '2025/8/8 23:59:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 35,
@@ -1258,7 +1384,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1AEtKzCEnW/',
             status: 'approved',
             submitTime: '2025/8/7 0:57:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 36,
@@ -1294,7 +1423,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1cXgpzkExr/',
             status: 'approved',
             submitTime: '2025/7/23 12:00:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 37,
@@ -1330,7 +1462,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1xwgszsEye/',
             status: 'approved',
             submitTime: '2025/7/23 12:00:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 38,
@@ -1366,7 +1501,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1qkb8zTENb/',
             status: 'approved',
             submitTime: '2025/8/13 12:55:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 39,
@@ -1402,7 +1540,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1FQYQzLEWu/',
             status: 'approved',
             submitTime: '2025/8/21 17:38:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 40,
@@ -1438,7 +1579,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1DktPz7EY3/',
             status: 'approved',
             submitTime: '2025/8/6 20:33:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 41,
@@ -1474,7 +1618,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1BLamz8EV7/',
             status: 'approved',
             submitTime: '2025/9/4 19:37:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 42,
@@ -1510,7 +1657,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1ixa6zzEzo/',
             status: 'approved',
             submitTime: '2025/9/4 1:02:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 43,
@@ -1546,7 +1696,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV173a3z4EMp/',
             status: 'approved',
             submitTime: '2025/9/3 12:38:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 44,
@@ -1582,7 +1735,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1vFY8z6EgZ/',
             status: 'approved',
             submitTime: '2025/8/19 7:24:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 45,
@@ -1618,7 +1774,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1sNamzTEAc',
             status: 'approved',
             submitTime: '2025/9/4 18:58:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 46,
@@ -1654,7 +1813,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1aubrzbE4X/',
             status: 'approved',
             submitTime: '2025/8/14 22:35:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 47,
@@ -1690,7 +1852,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1eXegz4EvH/',
             status: 'approved',
             submitTime: '2025/8/20 13:06:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 48,
@@ -1726,7 +1891,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1VkWPzCEug/',
             status: 'approved',
             submitTime: '2025/9/19 7:00:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 49,
@@ -1762,7 +1930,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1daptzyEu9/',
             status: 'approved',
             submitTime: '2025/9/17 19:44:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 50,
@@ -1798,7 +1969,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1qppWzNEEr/',
             status: 'approved',
             submitTime: '2025/9/17 12:02:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 51,
@@ -1834,7 +2008,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1bY4qzzEtD/',
             status: 'approved',
             submitTime: '2025/10/15 17:30:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 52,
@@ -1870,7 +2047,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1ptpezrEeq/',
             status: 'approved',
             submitTime: '2025/10/15 17:30:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 53,
@@ -1906,7 +2086,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1UG4LzCERd',
             status: 'approved',
             submitTime: '2025/10/10 3:16:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 54,
@@ -1942,7 +2125,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1hBa6zhExF',
             status: 'approved',
             submitTime: '2025/9/4 12:00:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 55,
@@ -1978,7 +2164,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1PKpvz1EXJ/',
             status: 'approved',
             submitTime: '2025/9/18 14:00:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 56,
@@ -2014,7 +2203,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1SDJozVEwK/',
             status: 'approved',
             submitTime: '2025/9/22 3:38:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 57,
@@ -2050,7 +2242,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1wMxkzTE3F/',
             status: 'approved',
             submitTime: '2025/10/9 15:15:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 58,
@@ -2086,7 +2281,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1M5x8z1EGF',
             status: 'approved',
             submitTime: '2025/10/5 7:43:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 59,
@@ -2122,7 +2320,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1TPpqzREaM/',
             status: 'approved',
             submitTime: '2025/9/18 17:33:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 60,
@@ -2158,7 +2359,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1UC48zUE6y/',
             status: 'approved',
             submitTime: '2025/10/14 20:39:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 61,
@@ -2194,7 +2398,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1NcWjzcEHH/',
             status: 'approved',
             submitTime: '2025/9/20 8:28:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 62,
@@ -2230,7 +2437,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1GAHAzeEE2',
             status: 'approved',
             submitTime: '2025/10/2 16:46:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 63,
@@ -2266,7 +2476,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV16U4xzfEmh',
             status: 'approved',
             submitTime: '2025/10/11 13:44:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 64,
@@ -2302,7 +2515,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1CF4vzWEWD/',
             status: 'approved',
             submitTime: '2025/10/15 13:18:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 65,
@@ -2338,7 +2554,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1vdHszqE1C/',
             status: 'approved',
             submitTime: '2025/10/2 0:29:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 66,
@@ -2374,7 +2593,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1J4p8zdEZm/',
             status: 'approved',
             submitTime: '2025/9/17 22:18:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 67,
@@ -2410,7 +2632,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1TXWVzZEg5/',
             status: 'approved',
             submitTime: '2025/9/19 19:59:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 68,
@@ -2446,7 +2671,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1KYHpz1EAn/',
             status: 'approved',
             submitTime: '2025/10/1 22:54:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 69,
@@ -2482,7 +2710,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1yepbzwEWS/',
             status: 'approved',
             submitTime: '2025/9/18 0:52:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 70,
@@ -2518,7 +2749,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1mXJRzPEfg/',
             status: 'approved',
             submitTime: '2025/9/22 0:50:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 71,
@@ -2554,7 +2788,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1sTnpzzEa5/',
             status: 'approved',
             submitTime: '2025/9/25 1:25:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 72,
@@ -2590,7 +2827,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1jgn5zvE77/',
             status: 'approved',
             submitTime: '2025/9/29 14:32:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 73,
@@ -2626,7 +2866,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1QonvzXEze/',
             status: 'approved',
             submitTime: '2025/9/27 17:43:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 74,
@@ -2662,7 +2905,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1suptz8EbY/',
             status: 'approved',
             submitTime: '2025/9/17 20:50:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 75,
@@ -2698,7 +2944,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1JindzZE1z/',
             status: 'approved',
             submitTime: '2025/9/28 20:16:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 76,
@@ -2734,7 +2983,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1XvJDzFEAo/',
             status: 'approved',
             submitTime: '2025/9/24 12:00:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 77,
@@ -2770,7 +3022,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1L6HtzLEyn/',
             status: 'approved',
             submitTime: '2025/10/2 10:46:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 78,
@@ -2806,7 +3061,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV18hn8zKE6Q',
             status: 'approved',
             submitTime: '2025/9/25 17:18:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 79,
@@ -2842,7 +3100,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1aRnGzdEVi/',
             status: 'approved',
             submitTime: '2025/9/26 20:17:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 80,
@@ -2878,7 +3139,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1WMn3zuEfn/',
             status: 'approved',
             submitTime: '2025/9/26 17:24:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 81,
@@ -2914,7 +3178,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1xr2MBnEsP/',
             status: 'approved',
             submitTime: '2025/11/7 17:24:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 82,
@@ -2950,7 +3217,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV14y1mBoE42/',
             status: 'approved',
             submitTime: '2025/11/8 11:21:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 83,
@@ -2986,7 +3256,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1RwySBgEHC/',
             status: 'approved',
             submitTime: '2025/10/29 18:34:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 84,
@@ -3022,7 +3295,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV12u17BuErS/',
             status: 'approved',
             submitTime: '2025/11/1 16:45:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 85,
@@ -3058,7 +3334,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1ig1XBxEXJ/',
             status: 'approved',
             submitTime: '2025/11/8 16:56:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 86,
@@ -3094,7 +3373,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1S4kRBrE34/',
             status: 'approved',
             submitTime: '2025/11/10 0:56:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 87,
@@ -3130,7 +3412,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1GqkkBjEvZ/',
             status: 'approved',
             submitTime: '2025/11/11 18:57:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 88,
@@ -3166,7 +3451,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1Cd16BKEZh/',
             status: 'approved',
             submitTime: '2025/11/4 8:48:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 89,
@@ -3202,7 +3490,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1bpyYBQEPi/',
             status: 'approved',
             submitTime: '2025/10/31 0:30:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 90,
@@ -3238,7 +3529,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1DXySBKEYV/',
             status: 'approved',
             submitTime: '2025/10/29 16:12:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 91,
@@ -3274,7 +3568,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1ePybBEEmC',
             status: 'approved',
             submitTime: '2025/10/30 14:02:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 92,
@@ -3310,7 +3607,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1iJ13BMEtu/',
             status: 'approved',
             submitTime: '2025/11/1 7:45:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 93,
@@ -3346,7 +3646,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1Bx17BtEBD/',
             status: 'approved',
             submitTime: '2025/11/5 9:32:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 94,
@@ -3382,7 +3685,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1HDkfBkEid/',
             status: 'approved',
             submitTime: '2025/11/10 17:09:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 95,
@@ -3403,7 +3709,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1491HBRE1j/',
             status: 'approved',
             submitTime: '2025/11/5 6:45:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 96,
@@ -3429,7 +3738,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1141ABhENi/',
             status: 'approved',
             submitTime: '2025/11/3 8:00:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 97,
@@ -3465,7 +3777,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1c71PB4EGr/',
             status: 'approved',
             submitTime: '2025/10/31 11:59:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 98,
@@ -3501,7 +3816,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1ZVyxByEFj/',
             status: 'approved',
             submitTime: '2025/10/31 19:40:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 99,
@@ -3537,7 +3855,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1X51tB1EgU/',
             status: 'approved',
             submitTime: '2025/11/6 5:11:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 100,
@@ -3558,7 +3879,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1j51XBXEeA/',
             status: 'approved',
             submitTime: '2025/11/8 16:58:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 101,
@@ -3594,7 +3918,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1Lp1iBVErU/',
             status: 'approved',
             submitTime: '2025/11/4 2:31:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 104,
@@ -3630,7 +3957,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1G2ymBYE2z/',
             status: 'approved',
             submitTime: '2025/10/29 12:3:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 105,
@@ -3666,7 +3996,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1Yi14BkEE8/',
             status: 'approved',
             submitTime: '2025/11/6 14:40:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 140,
@@ -3702,7 +4035,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV1KjqsBuEUF',
             status: 'approved',
             submitTime: '2025/12/15 22:57:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 139,
@@ -3738,7 +4074,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV1EoqtBBEZY/',
             status: 'approved',
             submitTime: '2025/12/16 6:42:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 138,
@@ -3774,7 +4113,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV12nmiBhEBh',
             status: 'approved',
             submitTime: '2025/12/14 13:26:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 137,
@@ -3810,7 +4152,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV1eDmKBbEuy/',
             status: 'approved',
             submitTime: '2025/12/11 10:40:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 136,
@@ -3846,7 +4191,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV17smTBKEtc/',
             status: 'approved',
             submitTime: '2025/12/11 10:30:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 135,
@@ -3882,7 +4230,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV1EdmxBoE2E/',
             status: 'approved',
             submitTime: '2025/12/10 17:21:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 134,
@@ -3918,7 +4269,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV1NHmsBwExr/',
             status: 'approved',
             submitTime: '2025/12/10 11:12:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 133,
@@ -3954,7 +4308,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV1JZmxBxEWi',
             status: 'approved',
             submitTime: '2025/12/10 15:48:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 132,
@@ -3980,7 +4337,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV1dAmsB5EjT/',
             status: 'approved',
             submitTime: '2025/12/10 12:10:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 131,
@@ -4016,7 +4376,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV1Pbm4BNEj1/',
             status: 'approved',
             submitTime: '2025/12/10 14:43:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 130,
@@ -4052,7 +4415,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV1E6m4BoEbw/',
             status: 'approved',
             submitTime: '2025/12/10 14:58:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 129,
@@ -4088,7 +4454,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV1PpmsBhEjR/',
             status: 'approved',
             submitTime: '2025/12/10 11:36:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 128,
@@ -4124,7 +4493,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV1RrmsB7EC6/',
             status: 'approved',
             submitTime: '2025/12/10 11:50:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 127,
@@ -4160,7 +4532,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV18YmxBkEnQ/',
             status: 'approved',
             submitTime: '2025/12/10 16:54:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 126,
@@ -4196,7 +4571,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV1d2mbB8Eon/',
             status: 'approved',
             submitTime: '2025/12/10 18:40:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 125,
@@ -4232,7 +4610,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1MCmtByEUn/',
             status: 'approved',
             submitTime: '2025/12/10 20:0:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 124,
@@ -4268,7 +4649,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV16WSyBEEAk/',
             status: 'approved',
             submitTime: '2025/12/1 15:18:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 123,
@@ -4304,7 +4688,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1kU2MByEHh',
             status: 'approved',
             submitTime: '2025/11/7 15:46:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 122,
@@ -4340,7 +4727,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV1PySmBaEkB',
             status: 'approved',
             submitTime: '2025/12/2 0:37:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 121,
@@ -4376,7 +4766,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV19ySqBDE4W/',
             status: 'approved',
             submitTime: '2025/11/30 21:24:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 120,
@@ -4412,7 +4805,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV1pQSKB1EHp',
             status: 'approved',
             submitTime: '2025/11/30 15:1:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 119,
@@ -4443,7 +4839,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV13eS7BoEEi/',
             status: 'approved',
             submitTime: '2025/11/28 22:54:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 118,
@@ -4479,7 +4878,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV11HyKBBEL3',
             status: 'approved',
             submitTime: '2025/11/21 1:27:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 117,
@@ -4515,7 +4917,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV1ezU6BZESe/',
             status: 'approved',
             submitTime: '2025/11/24 18:19:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 116,
@@ -4551,7 +4956,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV1tEUHB8EwW/',
             status: 'approved',
             submitTime: '2025/11/22 10:30:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 115,
@@ -4587,7 +4995,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV1hAUSB5EKE/',
             status: 'approved',
             submitTime: '2025/11/25 17:36:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 114,
@@ -4623,7 +5034,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV11HyKBBEL3',
             status: 'approved',
             submitTime: '2025/11/21 1:27:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 113,
@@ -4659,7 +5073,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV119yFBHEFH/',
             status: 'approved',
             submitTime: '2025/11/20 11:58:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 112,
@@ -4690,7 +5107,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1qNCfBKEa4/',
             status: 'approved',
             submitTime: '2025/11/20 9:3:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 111,
@@ -4726,7 +5146,10 @@ const Records = [
             video: 'www.douyin.com/video/7536436461237144847',
             status: 'approved',
             submitTime: '2025/8/9 12:22:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 110,
@@ -4762,7 +5185,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV1EfC2BrESK/',
             status: 'approved',
             submitTime: '2025/11/15 23:39:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 109,
@@ -4798,7 +5224,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV1dJC9BnEwb/',
             status: 'approved',
             submitTime: '2025/11/16 17:19:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 108,
@@ -4834,7 +5263,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1NL1kBGEbf/',
             status: 'approved',
             submitTime: '2025/11/4 14:15:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 107,
@@ -4870,7 +5302,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1P2yDBFEAo/',
             status: 'approved',
             submitTime: '2025/11/1 23:41:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 106,
@@ -4906,7 +5341,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1kFC7BbEGR/',
             status: 'approved',
             submitTime: '2025/11/12 12:9:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 144,
@@ -4942,7 +5380,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1CBqyBREsV/',
             status: 'approved',
             submitTime: '2025/12/21 5:26:0',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 147,
@@ -4978,7 +5419,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1Jxq1BXEnT/',
             status: 'approved',
             submitTime: '2025-12-21T12:27',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 148,
@@ -5014,7 +5458,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1FpBbByEfh/',
             status: 'approved',
             submitTime: '2025-12-23T03:32',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 149,
@@ -5050,7 +5497,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1vciEBwEY3/',
             status: 'approved',
             submitTime: '2026-01-04T21:36',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 150,
@@ -5086,7 +5536,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1dJikBKEDQ/',
             status: 'approved',
             submitTime: '2026-01-04T11:34',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 151,
@@ -5122,7 +5575,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1FgiMBLEwB/',
             status: 'approved',
             submitTime: '2026-01-11T19:21',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 152,
@@ -5158,7 +5614,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1UdBYBqEgB/',
             status: 'approved',
             submitTime: '2025-12-26T19:19',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 153,
@@ -5194,7 +5653,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV13CBQBbEWT/',
             status: 'approved',
             submitTime: '2025-12-25T19:55',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 154,
@@ -5225,7 +5687,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1fcqkBGEns/',
             status: 'approved',
             submitTime: '2025-12-20T20:14',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 155,
@@ -5261,7 +5726,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1GQmLBSEF2/',
             status: 'approved',
             submitTime: '2025-12-12T14:03',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 156,
@@ -5297,7 +5765,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV13fi1BTE4H/',
             status: 'approved',
             submitTime: '2026-01-07T20:34',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 157,
@@ -5333,7 +5804,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1oLvpB5EsL/',
             status: 'approved',
             submitTime: '2025-12-29T13:57',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 158,
@@ -5369,7 +5843,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1kfB4B3Em5/',
             status: 'approved',
             submitTime: '2025-12-22T21:41',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 159,
@@ -5405,7 +5882,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1U9v2BvEuQ/',
             status: 'approved',
             submitTime: '2025-12-29T08:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 160,
@@ -5441,7 +5921,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1eTqQBFEoD/',
             status: 'approved',
             submitTime: '2025-12-19T00:51',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 161,
@@ -5477,7 +5960,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1PXB4BjEm3/',
             status: 'approved',
             submitTime: '2025-12-22T22:56',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 162,
@@ -5513,7 +5999,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV13ymRBZEVc/',
             status: 'approved',
             submitTime: '2025-12-13T22:43',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 163,
@@ -5549,7 +6038,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1QDqmB5EAJ',
             status: 'approved',
             submitTime: '2025-12-21T16:16',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 164,
@@ -5585,7 +6077,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV16bBgBoESw/',
             status: 'approved',
             submitTime: '2025-12-24T08:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 165,
@@ -5621,7 +6116,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1tTmuBxEEJ/',
             status: 'approved',
             submitTime: '2025-12-11T12:27',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 166,
@@ -5657,7 +6155,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1qQBjBKE7Z/',
             status: 'approved',
             submitTime: '2025-12-24T19:49',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 167,
@@ -5693,7 +6194,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1C7B6B2EPb/',
             status: 'approved',
             submitTime: '2025-12-27T12:38',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 168,
@@ -5729,7 +6233,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1Bz6fBwE7o/',
             status: 'approved',
             submitTime: '2026-01-12T10:11',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 169,
@@ -5760,7 +6267,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1xHq7BQEmB/',
             status: 'approved',
             submitTime: '2025-12-18T09:30',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 170,
@@ -5796,7 +6306,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1W2qtBLE5s/',
             status: 'approved',
             submitTime: '2025-12-16T05:49',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 171,
@@ -5822,7 +6335,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1nqvzBPEM8/',
             status: 'approved',
             submitTime: '2025-12-28T10:36',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 172,
@@ -5848,7 +6364,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1SXv2BKEAq',
             status: 'approved',
             submitTime: '2025-12-29T03:54',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 173,
@@ -5884,7 +6403,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV16MqxBYE6N',
             status: 'approved',
             submitTime: '2025-12-16T05:08',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 174,
@@ -5920,7 +6442,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1s5BQBEESX/',
             status: 'approved',
             submitTime: '2025-12-25T21:09',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 175,
@@ -5956,7 +6481,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1PrvpB4EJw/',
             status: 'approved',
             submitTime: '2025-12-29T12:45',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 176,
@@ -5992,7 +6520,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1wwmGB4EfY/',
             status: 'approved',
             submitTime: '2025-12-11T22:53',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 177,
@@ -6028,7 +6559,10 @@ const Records = [
             video: 'https://b23.tv/mTJuo6G',
             status: 'approved',
             submitTime: '2026-01-12T20:53',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 178,
@@ -6064,7 +6598,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1o7ikBqEhs/',
             status: 'approved',
             submitTime: '2026-01-04T11:29',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 179,
@@ -6100,7 +6637,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1vZmgBgErC/',
             status: 'approved',
             submitTime: '2025-12-12T00:40',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 180,
@@ -6136,7 +6676,10 @@ const Records = [
             video: 'https://b23.tv/qkIZP4Z',
             status: 'approved',
             submitTime: '2025-12-18T05:10',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 181,
@@ -6172,7 +6715,10 @@ const Records = [
             video: 'https://b23.tv/lZGLCuo',
             status: 'approved',
             submitTime: '2026-01-01T09:03',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 182,
@@ -6198,7 +6744,10 @@ const Records = [
             video: 'https://b23.tv/mSVnyeK',
             status: 'approved',
             submitTime: '2025-12-28T13:09',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 183,
@@ -6234,7 +6783,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV17FB2BWECd/',
             status: 'approved',
             submitTime: '2025-12-24T23:30',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 184,
@@ -6270,7 +6822,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1Baz5BNEEx',
             status: 'approved',
             submitTime: '2026-01-21T13:03',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 185,
@@ -6306,7 +6861,10 @@ const Records = [
             video: 'https://b23.tv/jZA3gwO',
             status: 'approved',
             submitTime: '2026-01-22T15:26',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 186,
@@ -6342,7 +6900,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1PLzcBzE3a?vd_source=a9b3bee7dd21ef08abda168355b010b6',
             status: 'approved',
             submitTime: '2026-01-23T00:47',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 187,
@@ -6378,7 +6939,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1HfzgBcEBb',
             status: 'approved',
             submitTime: '2026-01-24T05:31',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 188,
@@ -6414,7 +6978,10 @@ const Records = [
             video: 'https://b23.tv/kV9yadC',
             status: 'approved',
             submitTime: '2026-01-24T01:24',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 189,
@@ -6450,7 +7017,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV15AzzBwEpY/?pop_share=1&spm_id_from=333.40164.0.0',
             status: 'denied',
             submitTime: '2026-01-23T22:00',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 190,
@@ -6486,7 +7056,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV14DzyBeETw/',
             status: 'denied',
             submitTime: '2026-01-24T22:26',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 191,
@@ -6522,7 +7095,10 @@ const Records = [
             video: 'https://b23.tv/eXsICyd',
             status: 'approved',
             submitTime: '2026-01-25T18:05',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 192,
@@ -6558,7 +7134,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1KuzGBVED5?vd_source=c416aa380d558540a88006023b9e4fa7&spm_id_from=333.788.videopod.episodes',
             status: 'approved',
             submitTime: '2026-01-21T10:50',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 193,
@@ -6594,7 +7173,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1vFztBeEd3/?spm_id_from=333.1387.homepage.video_card.click&vd_source=31097e861f549191b9b5606a45514499',
             status: 'approved',
             submitTime: '2026-01-26T02:50',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 194,
@@ -6630,7 +7212,10 @@ const Records = [
             video: 'https://b23.tv/gkTOFtP',
             status: 'approved',
             submitTime: '2026-01-25T18:05',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 195,
@@ -6666,7 +7251,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1ig6KB3Enj/?spm_id_from=333.1365.list.card_archive.click&vd_source=c0be0cf96170ce1a177276b1ed13a1eb',
             status: 'approved',
             submitTime: '2026-01-30T13:00',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 196,
@@ -6702,7 +7290,10 @@ const Records = [
             video: 'https://bilibili.com/video/BV1ZU6JBQE3g/?spm_id_from=333.1387.homepage.video_card.click',
             status: 'approved',
             submitTime: '2026-01-31T23:38',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 197,
@@ -6738,7 +7329,10 @@ const Records = [
             video: 'https://b23.tv/8eqrImR',
             status: 'approved',
             submitTime: '2026-02-01T15:46',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 198,
@@ -6774,7 +7368,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1XQFAz5ETo/?=0178403741a4dcb6eef94f3b7cbeec77',
             status: 'approved',
             submitTime: '2026-02-02T13:45',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 199,
@@ -6805,7 +7402,10 @@ const Records = [
             video: 'https://b23.tv/5ZP8Awa',
             status: 'approved',
             submitTime: '2026-01-25T19:00',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 200,
@@ -6841,7 +7441,10 @@ const Records = [
             video: 'https://b23.tv/7zoxXmA',
             status: 'approved',
             submitTime: '2026-01-21T16:44',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 201,
@@ -6877,7 +7480,10 @@ const Records = [
             video: 'https://b23.tv/Z8AcA0r',
             status: 'approved',
             submitTime: '2026-02-03T16:28',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 202,
@@ -6913,7 +7519,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1AjFMzyEub/?share_source=copy_web&vd_source=3f82456d9b0692bcb0680e514633e52d',
             status: 'approved',
             submitTime: '2026-02-02T19:47',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 203,
@@ -6949,7 +7558,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1YB6EB6EVW?vd_source=392b1cf208fef5f64979d82e271cdaaa',
             status: 'approved',
             submitTime: '2026-01-28T17:18',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 204,
@@ -6985,7 +7597,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1kmfDBbExC',
             status: 'approved',
             submitTime: '2026-02-03T22:15',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 205,
@@ -7021,7 +7636,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1nkzFBwE8P/?vd_source=676b1171881babbd6fa49c5b605c58b7#reply115940461121949',
             status: 'approved',
             submitTime: '2026-01-23T09:15',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 206,
@@ -7057,7 +7675,10 @@ const Records = [
             video: 'https://b23.tv/7oCtw2V',
             status: 'approved',
             submitTime: '2026-02-04T00:05',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 207,
@@ -7093,7 +7714,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/?vd_source=392b1cf208fef5f64979d82e271cdaaa',
             status: 'approved',
             submitTime: '2026-02-04T15:38',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 208,
@@ -7129,7 +7753,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1hCfoB4ELT/?share_source=copy_web&vd_source=f6828a7b0cfe5ebea9f77233b416573d',
             status: 'approved',
             submitTime: '2026-02-04T19:15',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 209,
@@ -7165,7 +7792,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV11afZBXEm8/',
             status: 'approved',
             submitTime: '2026-02-04T16:56',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 210,
@@ -7201,7 +7831,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1sPzbBDEzp/',
             status: 'approved',
             submitTime: '2026-01-26T01:15',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 211,
@@ -7237,7 +7870,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV19pzKBuEfp/',
             status: 'approved',
             submitTime: '2026-01-23T14:59',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 212,
@@ -7273,7 +7909,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1Tiz7BFEDe/',
             status: 'approved',
             submitTime: '2026-01-21T21:39',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 213,
@@ -7309,7 +7948,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1jdzwBcEcC/',
             status: 'approved',
             submitTime: '2026-01-23T05:43',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 214,
@@ -7345,7 +7987,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1EKFuzgEhd/',
             status: 'approved',
             submitTime: '2026-02-03T02:29',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 215,
@@ -7381,7 +8026,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1Bk6BBzEdk/',
             status: 'approved',
             submitTime: '2026-01-31T01:17',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 216,
@@ -7417,7 +8065,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV11SzyBNEiM/',
             status: 'approved',
             submitTime: '2026-01-24T22:34',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 217,
@@ -7453,7 +8104,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV12HzEBtEsd/',
             status: 'approved',
             submitTime: '2026-01-21T20:49',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 218,
@@ -7489,7 +8143,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV11U6qB1EFz/',
             status: 'approved',
             submitTime: '2026-01-30T19:40',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 219,
@@ -7525,7 +8182,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1w2zLByEzL/',
             status: 'approved',
             submitTime: '2026-01-21T18:39',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 220,
@@ -7561,7 +8221,10 @@ const Records = [
             video: 'https://b23.tv/IynDVMc',
             status: 'approved',
             submitTime: '2026-02-04T21:36',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 221,
@@ -7597,7 +8260,10 @@ const Records = [
             video: 'https://b23.tv/gSlVoyR',
             status: 'approved',
             submitTime: '2026-02-04T20:17',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 222,
@@ -7633,7 +8299,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1zBzXByEtn/?spm_id_from=333.1387.homepage.video_card.click',
             status: 'approved',
             submitTime: '2026-01-28T22:48',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 223,
@@ -7669,7 +8338,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1CLFkzGEha/?share_source=copy_web&vd_source=3f82456d9b0692bcb0680e514633e52d',
             status: 'approved',
             submitTime: '2026-02-06T22:11',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 224,
@@ -7705,7 +8377,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1w8cuzmEMK',
             status: 'approved',
             submitTime: '2026-02-09T22:50',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 225,
@@ -7741,7 +8416,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1qFFxzEELh/',
             status: 'approved',
             submitTime: '2026-02-08T01:21',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 226,
@@ -7777,7 +8455,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1StFRzQEfo/',
             status: 'approved',
             submitTime: '2026-02-11T04:26',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 227,
@@ -7808,7 +8489,10 @@ const Records = [
             video: 'https://b23.tv/wEDa4CJ',
             status: 'approved',
             submitTime: '2026-02-14T16:55',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 228,
@@ -7844,7 +8528,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV18NcqzBEWD/',
             status: 'approved',
             submitTime: '2026-02-16T19:21',
-            cup: '新月杯'
+            cup: '新月杯',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 229,
@@ -7875,7 +8562,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1MefzBzEaS/',
             status: 'approved',
             submitTime: '2026-02-23T20:29',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 230,
@@ -7911,7 +8601,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1JAfcB7EpP/',
             status: 'approved',
             submitTime: '2026-02-22T20:27',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 231,
@@ -7947,7 +8640,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1MwfnBUEKb/',
             status: 'approved',
             submitTime: '2026-02-21T20:08',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 232,
@@ -7983,7 +8679,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1rtfBB9EuJ/',
             status: 'approved',
             submitTime: '2026-02-23T22:44',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 233,
@@ -8019,7 +8718,10 @@ const Records = [
             video: 'https://www.youtube.com/watch?v=xCt6Rn8QMR0',
             status: 'approved',
             submitTime: '2026-02-24T00:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 234,
@@ -8055,7 +8757,10 @@ const Records = [
             video: 'https://www.youtube.com/watch?v=L3H71_6a_6g',
             status: 'approved',
             submitTime: '2026-02-16T00:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 235,
@@ -8091,7 +8796,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV12YZJByEnq/',
             status: 'approved',
             submitTime: '2026-02-14T23:06',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 236,
@@ -8127,7 +8835,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV15KZsBBET8/',
             status: 'approved',
             submitTime: '2026-02-15T13:54',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 237,
@@ -8163,7 +8874,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1x6ZWBxEhx/',
             status: 'approved',
             submitTime: '2026-02-15T14:57',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 238,
@@ -8199,7 +8913,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1x2zkBbETc',
             status: 'approved',
             submitTime: '2026-01-24T19:05',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 239,
@@ -8235,7 +8952,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1DaPKz8EkH/',
             status: 'approved',
             submitTime: '2026-03-04T15:19',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 240,
@@ -8271,7 +8991,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1a9PrzwEHc/',
             status: 'approved',
             submitTime: '2026-03-05T14:03',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 241,
@@ -8307,7 +9030,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1PSPkz9Esj/',
             status: 'approved',
             submitTime: '2026-03-05T20:48',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 242,
@@ -8343,7 +9069,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1U3Pqz5EsW/',
             status: 'approved',
             submitTime: '2026-03-04T22:42',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 243,
@@ -8379,7 +9108,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1JoPKzVETh/',
             status: 'approved',
             submitTime: '2026-03-04T14:08',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 244,
@@ -8415,7 +9147,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1XAPNz8EQx',
             status: 'approved',
             submitTime: '2026-03-04T10:44',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 245,
@@ -8451,7 +9186,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1D1PvzVEJQ/',
             status: 'approved',
             submitTime: '2026-03-04T18:55',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 246,
@@ -8487,7 +9225,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV11eP1zhEsj/',
             status: 'approved',
             submitTime: '2026-03-05T22:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 247,
@@ -8523,7 +9264,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1j9PPzqEXk/',
             status: 'approved',
             submitTime: '2026-03-04T10:46',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 248,
@@ -8559,7 +9303,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV18hPPzpEBL/',
             status: 'approved',
             submitTime: '2026-03-04T12:07',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 249,
@@ -8595,7 +9342,10 @@ const Records = [
             video: 'https://b23.tv/nPEQIBb',
             status: 'approved',
             submitTime: '2026-03-05T22:51',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 251,
@@ -8631,7 +9381,10 @@ const Records = [
             video: 'https://b23.tv/BFbJPOz',
             status: 'approved',
             submitTime: '2026-03-06T22:07',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 252,
@@ -8667,7 +9420,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1f3P4zeECu/',
             status: 'approved',
             submitTime: '2026-03-06T22:08',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 253,
@@ -8703,7 +9459,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV19JPsznEWk/',
             status: 'approved',
             submitTime: '2026-03-06T16:46',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 254,
@@ -8739,7 +9498,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1JRNczAEjm/?share_source=copy_web&vd_source=805e56e13cbe6e209c77896e029d49e0',
             status: 'approved',
             submitTime: '2026-03-07T21:17',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 255,
@@ -8775,7 +9537,10 @@ const Records = [
             video: 'https://b23.tv/x9oUUle',
             status: 'approved',
             submitTime: '2026-03-08T03:47',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 256,
@@ -8811,7 +9576,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV15cNFznEaG/',
             status: 'approved',
             submitTime: '2026-03-10T18:31',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 257,
@@ -8847,7 +9615,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1y7Nuz8EHs/',
             status: 'approved',
             submitTime: '2026-03-08T13:22',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 258,
@@ -8883,7 +9654,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1qXPfzdEEp/',
             status: 'approved',
             submitTime: '2026-03-10T18:51',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 259,
@@ -8919,7 +9693,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1HyPfzwE23/',
             status: 'approved',
             submitTime: '2026-03-10T10:59',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 260,
@@ -8955,7 +9732,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1Y9PRzzEiR/',
             status: 'approved',
             submitTime: '2026-03-10T02:36',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 261,
@@ -8991,7 +9771,10 @@ const Records = [
             video: 'https://b23.tv/tKNdtrc',
             status: 'approved',
             submitTime: '2026-03-11T02:46',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 262,
@@ -9027,7 +9810,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1aQcRzFEXT',
             status: 'approved',
             submitTime: '2026-03-11T08:35',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 263,
@@ -9063,7 +9849,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1WxwLzBEru',
             status: 'approved',
             submitTime: '2026-03-16T16:26',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 264,
@@ -9099,7 +9888,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV17pwTzBETE/',
             status: 'approved',
             submitTime: '2026-03-15T15:55',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 265,
@@ -9135,7 +9927,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1JYwPzPE2i/',
             status: 'approved',
             submitTime: '2026-03-12T08:31',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 266,
@@ -9171,7 +9966,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV174Pyz7Ewi/',
             status: 'approved',
             submitTime: '2026-03-06T01:11',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 267,
@@ -9207,7 +10005,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1bENPzsELh/',
             status: 'approved',
             submitTime: '2026-03-08T01:06',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 268,
@@ -9243,7 +10044,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1h5PXztEAX/',
             status: 'approved',
             submitTime: '2026-03-09T16:59',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 269,
@@ -9279,7 +10083,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1PSPkz9Esj/',
             status: 'approved',
             submitTime: '2026-03-05T20:48',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 270,
@@ -9315,7 +10122,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1cJwuzEESr/',
             status: 'approved',
             submitTime: '2026-03-15T20:44',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 271,
@@ -9351,7 +10161,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1pAPBzzEvs/',
             status: 'approved',
             submitTime: '2026-03-05T08:30',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 272,
@@ -9387,7 +10200,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1AUPKzUEL7/?vd_source=e0563779522843abfa6d1eb97e2e08ec',
             status: 'approved',
             submitTime: '2026-03-04T13:28',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 273,
@@ -9423,7 +10239,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1ozm1BgEFh/?vd_source=e0563779522843abfa6d1eb97e2e08ec',
             status: 'approved',
             submitTime: '2025-12-15T18:22',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 274,
@@ -9459,7 +10278,10 @@ const Records = [
             video: 'https://b23.tv/J28amhh',
             status: 'approved',
             submitTime: '2026-03-19T13:59',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 275,
@@ -9495,7 +10317,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1FSXFBeEZq?vd_source=a9b3bee7dd21ef08abda168355b010b6',
             status: 'approved',
             submitTime: '2026-03-24T06:34',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 276,
@@ -9531,7 +10356,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV14KuuzkEqa/',
             status: 'approved',
             submitTime: '2025-07-11T14:08',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 277,
@@ -9567,7 +10395,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1fAugzYEMw/',
             status: 'approved',
             submitTime: '2025-07-11T19:20',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 278,
@@ -9603,7 +10434,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1pYGKzMEMu',
             status: 'approved',
             submitTime: '2025-07-10T06:25',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 279,
@@ -9639,7 +10473,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1QfGJzoEC3',
             status: 'approved',
             submitTime: '2025-07-08T16:23',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 280,
@@ -9675,7 +10512,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1z73MzAEcy',
             status: 'approved',
             submitTime: '2025-07-03T15:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 281,
@@ -9711,7 +10551,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1YruwzvEsC',
             status: 'approved',
             submitTime: '2025-07-13T19:04',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 282,
@@ -9747,7 +10590,10 @@ const Records = [
             video: 'https://b23.tv/QEW3k7R',
             status: 'approved',
             submitTime: '2026-03-09T22:01',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 283,
@@ -9783,7 +10629,10 @@ const Records = [
             video: 'https://b23.tv/fQp9nKQ',
             status: 'approved',
             submitTime: '2026-03-08T11:48',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 284,
@@ -9819,7 +10668,10 @@ const Records = [
             video: 'https://b23.tv/U6nrXRh',
             status: 'approved',
             submitTime: '2026-03-27T23:50',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 285,
@@ -9855,7 +10707,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1WH9jBDE4c/',
             status: 'approved',
             submitTime: '2026-04-01T18:26',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 286,
@@ -9886,7 +10741,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1WLXkBoE2K/',
             status: 'approved',
             submitTime: '2026-03-31T17:05',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 287,
@@ -9922,7 +10780,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1Fx9ABrEnu?vd_source=a9b3bee7dd21ef08abda168355b010b6',
             status: 'approved',
             submitTime: '2026-04-03T07:13',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 288,
@@ -9958,7 +10819,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1bgSZBvEHv/',
             status: 'approved',
             submitTime: '2026-04-06T15:18',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 289,
@@ -9994,7 +10858,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1FZSQBuEsx',
             status: 'approved',
             submitTime: '2026-04-06T02:36',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 290,
@@ -10030,7 +10897,10 @@ const Records = [
             video: 'https://【5金绫华115秒N6冰锅-哔哩哔哩】 https://b23.tv/n8ZT6UR',
             status: 'approved',
             submitTime: '2026-03-20T17:56',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 291,
@@ -10066,7 +10936,10 @@ const Records = [
             video: 'https://b23.tv/dDlQPHL',
             status: 'approved',
             submitTime: '2026-04-15T12:43',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 292,
@@ -10102,7 +10975,10 @@ const Records = [
             video: 'https://b23.tv/ufPVxji',
             status: 'approved',
             submitTime: '2026-04-16T04:25',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 293,
@@ -10138,7 +11014,10 @@ const Records = [
             video: 'https://b23.tv/fbzOGYv',
             status: 'approved',
             submitTime: '2026-04-15T13:52',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 294,
@@ -10174,7 +11053,10 @@ const Records = [
             video: 'https://b23.tv/P2nqH7l',
             status: 'approved',
             submitTime: '2026-04-15T10:18',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 295,
@@ -10210,7 +11092,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1tDd7BqEAK',
             status: 'approved',
             submitTime: '2026-04-18T03:59',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 296,
@@ -10246,7 +11131,10 @@ const Records = [
             video: 'https://b23.tv/IULFn63',
             status: 'approved',
             submitTime: '2026-04-17T17:26',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 297,
@@ -10282,7 +11170,10 @@ const Records = [
             video: 'https://b23.tv/IULFn63',
             status: 'approved',
             submitTime: '2026-04-17T17:26',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 298,
@@ -10318,7 +11209,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1w5dpBBEAn',
             status: 'approved',
             submitTime: '2026-04-18T17:45',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 299,
@@ -10354,7 +11248,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1fRdnBhEJt/',
             status: 'approved',
             submitTime: '2026-04-18T12:19',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 300,
@@ -10390,7 +11287,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV17QdzBjEva/',
             status: 'approved',
             submitTime: '2026-04-17T13:28',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 301,
@@ -10426,7 +11326,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1gjdvBREs7/',
             status: 'approved',
             submitTime: '2026-04-17T00:19',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 302,
@@ -10462,7 +11365,10 @@ const Records = [
             video: 'https://www.youtube.com/watch?v=T3aVlUtNk3s',
             status: 'approved',
             submitTime: '2026-04-19T02:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 303,
@@ -10498,7 +11404,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV17GowBGERe/',
             status: 'approved',
             submitTime: '2026-04-20T00:27',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 304,
@@ -10534,7 +11443,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1nyQ5BgEZ6/',
             status: 'approved',
             submitTime: '2026-04-15T10:33',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 305,
@@ -10570,7 +11482,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV14CQEB4E8J/',
             status: 'approved',
             submitTime: '2026-04-15T17:41',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 306,
@@ -10606,7 +11521,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1ZQdtB2EYy?vd_source=8f95d06b986154a1d54fc34c9fdf8a63',
             status: 'approved',
             submitTime: '2026-04-16T13:49',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 307,
@@ -10642,7 +11560,10 @@ const Records = [
             video: 'https://b23.tv/nE5K8t5',
             status: 'approved',
             submitTime: '2026-04-15T17:29',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 308,
@@ -10678,7 +11599,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1kAdrBoE38/',
             status: 'approved',
             submitTime: '2026-04-20T20:05',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 309,
@@ -10714,7 +11638,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1fGdrBDEJW/',
             status: 'approved',
             submitTime: '2026-04-20T20:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 310,
@@ -10750,7 +11677,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1egdvBfE4F/',
             status: 'approved',
             submitTime: '2026-04-17T00:34',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 311,
@@ -10786,7 +11716,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1YTQ7BAE1z/',
             status: 'approved',
             submitTime: '2026-04-15T13:20',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 312,
@@ -10822,7 +11755,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV16ndfBuEAv/',
             status: 'approved',
             submitTime: '2026-04-19T23:17',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 313,
@@ -10858,7 +11794,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1SBdeBSEnE/',
             status: 'approved',
             submitTime: '2026-04-17T00:41',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 314,
@@ -10894,7 +11833,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV12toFBpEkF/',
             status: 'approved',
             submitTime: '2026-04-19T20:18',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 315,
@@ -10930,7 +11872,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1LfQjBBEkE',
             status: 'approved',
             submitTime: '2026-04-15T12:13',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 316,
@@ -10966,7 +11911,10 @@ const Records = [
             video: '【【幽境危战n6曼巴草】低练仆杜皇砂，魔导摔门的恩情还不完-哔哩哔哩】 https://b23.tv/6wfCQkK',
             status: 'pending',
             submitTime: '2026-03-27T19:41',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: [{"username":"123","voteTime":"2026-05-26T11:52:04.313Z"}]
         },
         {
             id: 317,
@@ -11002,7 +11950,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1JCdzBQEzC/?spm_id_from=333.1387.upload.video_card.click&vd_source=5f5f21c41dd6d3096048a3d13b5c56df',
             status: 'pending',
             submitTime: '2026-04-17T15:03',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: [{"username":"123","voteTime":"2026-05-26T11:52:16.905Z"}]
         },
         {
             id: 318,
@@ -11038,7 +11989,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1ERQjB3EAV/?vd_source=8d7a3a71004859437dea79fb20efc428',
             status: 'pending',
             submitTime: '2026-04-15T12:44',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 319,
@@ -11074,7 +12028,10 @@ const Records = [
             video: 'www.bilibili.com/video/BV1hbo4BqEiu/',
             status: 'pending',
             submitTime: '2026-04-22T22:50',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 320,
@@ -11110,7 +12067,10 @@ const Records = [
             video: 'https://b23.tv/DSnSpp0',
             status: 'pending',
             submitTime: '2026-04-24T10:07',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 321,
@@ -11146,7 +12106,10 @@ const Records = [
             video: 'https://b23.tv/pJVC0pc',
             status: 'pending',
             submitTime: '2026-04-24T14:38',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 322,
@@ -11182,7 +12145,10 @@ const Records = [
             video: 'https://www.bilibili.com/video/BV1B5drBJEGt/?spm_id_from=333.1387.homepage.video_card.click&vd_source=e1f6067843df5f3b49f21d8c39d3728d',
             status: 'pending',
             submitTime: '2026-04-20T20:49',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
         },
         {
             id: 323,
@@ -11213,10 +12179,91 @@ const Records = [
             video: 'www.bilibili.com/video/BV1nq9eBeEDB/',
             status: 'pending',
             submitTime: '2026-04-30T22:00',
-            cup: '无'
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 324,
+            player: '超绝可爱希罗娜',
+            mainc: '奈芙尔',
+            team: [
+                {
+                        character: '奈芙尔',
+                        constellation: 2,
+                        weapon: 1
+                    },
+                {
+                        character: '菈乌玛',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '爱诺',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '蕴光月守宫·根牙磐错',
+            gold: 5,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1g9RsBdEja/?vd_source=8dfec1daf286869ab73fa4e7f1de39ff',
+            status: 'pending',
+            submitTime: '2026-05-06T12:47',
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 325,
+            player: '刚创的新号',
+            mainc: '玛薇卡',
+            team: [
+                {
+                        character: '玛薇卡',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '欧洛伦',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '蕴光月守宫·根牙磐错',
+            gold: 2,
+            constgold: 3,
+            notes: '',
+            video: 'www.bilibili.com/video/BV1RH9QBqEdH',
+            status: 'pending',
+            submitTime: '2026-04-29T17:18',
+            cup: '无',
+            submitter: '123',
+            goldErrorUsers: [],
+            noErrorUsers: [{"username":"123","voteTime":"2026-05-26T12:31:42.314Z"}]
         }
-
     ];
 
-// 确保Records可以被其他脚本访问
+// 确保Records和Users可以被其他脚本访问
 window.Records = Records;
+window.Users = Users;
