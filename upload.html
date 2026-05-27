@@ -1627,8 +1627,17 @@
                     return;
                 }
                 
+                // 清理链接前的汉字和其他字符（有些链接前会有【xxx】之类的字符）
+                const cleanLink = videoLink.replace(/^[^htsp]*https?:\/\//i, (match) => {
+                    if (match.includes('http')) {
+                        const httpMatch = match.match(/(https?:\/\/)/i);
+                        return httpMatch ? httpMatch[1] : '';
+                    }
+                    return '';
+                });
+
                 // 检查链接是否为B站链接
-                if (!videoLink.includes('bilibili.com') && !videoLink.includes('b23.tv')) {
+                if (!cleanLink.includes('bilibili.com') && !cleanLink.includes('b23.tv')) {
                     showVideoStatus('非B站链接，跳过信息获取', 'info');
                     return;
                 }
@@ -1636,13 +1645,13 @@
                 // 从链接中提取BV号，支持多种B站链接格式
                 let bv;
                 // 首先检查是否是b23.tv短链接
-                const b23Match = videoLink.match(/b23\.tv\/([0-9a-zA-Z]+)/);
+                const b23Match = cleanLink.match(/b23\.tv\/([0-9a-zA-Z]+)/);
                 if (b23Match) {
                     // 如果是短链接，直接使用短链接的标识部分
                     bv = b23Match[1];
                 } else {
                     // 否则尝试提取标准BV号
-                    const bvMatch = videoLink.match(/(BV[0-9a-zA-Z]+)/);
+                    const bvMatch = cleanLink.match(/(BV[0-9a-zA-Z]+)/);
                     if (!bvMatch) {
                         // 尝试从AV号提取
                         const avMatch = videoLink.match(/(av|AV)(\d+)/);
@@ -1678,21 +1687,34 @@
                 // 重试函数
                 function fetchWithRetry() {
                     return fetch(apiUrl)
-                        .then(response => {
+                        .then(async response => {
+                            const result = await response.json();
+                            // 检查是否是bv_duplicate错误，如果是则不重试
+                            if (!result.success && result.code === 'bv_duplicate') {
+                                throw new Error('bv_duplicate_stop');
+                            }
                             if (!response.ok) {
                                 throw new Error(`HTTP错误! 状态码: ${response.status}`);
                             }
-                            return response.json();
+                            return result;
                         })
                         .then(result => {
                             // 检查后端API返回的状态
                             if (!result.success) {
                                 throw new Error(`API错误: ${result.message || '未知错误'}`);
                             }
-                            
+
+                            // 将清理后的链接写回输入框
+                            videoLinkInput.value = cleanLink;
+
                             return result.data;
                         })
                         .catch(error => {
+                            // 如果是bv_duplicate错误，不重试，直接显示错误
+                            if (error.message === 'bv_duplicate_stop') {
+                                showVideoStatus('该视频已被收录', 'error');
+                                return Promise.reject('stop_retry');
+                            }
                             retryCount++;
                             if (retryCount <= MAX_RETRIES) {
                                 // 显示重试信息
@@ -1764,6 +1786,10 @@
                         }
                     })
                     .catch(error => {
+                        // 如果是bv_duplicate错误已经在上面处理了，不需要再次显示错误
+                        if (error === 'stop_retry') {
+                            return;
+                        }
                         console.error('获取视频信息失败:', error);
                         showVideoStatus(`获取视频信息失败: ${error.message} (已重试${MAX_RETRIES}次)`, 'error');
                     })
@@ -1874,12 +1900,15 @@
             const notes = notesInput.value.trim() || '';
             let videoLink = videoLinkInput.value.trim() || '';
             const cup = document.getElementById('cup').value || '';
-                
-                // 处理视频链接，如果以https://www.开头则移除https://前缀
-                if (videoLink && videoLink.startsWith('https://www.')) {
-                    videoLink = videoLink.replace('https://', '');
+
+                // 处理视频链接，删除http/https之前的所有字符（包括汉字等）
+                if (videoLink) {
+                    videoLink = videoLink.replace(/^[^htsp]*https?:\/\//i, (match) => {
+                        const httpMatch = match.match(/(https?:\/\/)/i);
+                        return httpMatch ? httpMatch[1] : '';
+                    });
                 }
-                
+
                 // 准备队伍数据
                 const teamData = [];
                 team.forEach((slot, index) => {

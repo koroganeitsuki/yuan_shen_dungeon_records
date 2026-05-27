@@ -24,7 +24,7 @@ const Users = [
     username: '黑の辉',
     passwordHash: '12ced0ec03813e27df453d63214a467698e285ab6f52f4d030205ee1426c2d08',
     registerDate: '2026-05-26',
-    score: 32,
+    score: 0,
     bilibiliNames: [],
     isAdmin: false,
     resetCount: 0,
