@@ -209,6 +209,86 @@ const Users = [
     isAdmin: false,
     resetCount: 0,
     lastResetDate: null
+},
+    {
+    username: '132',
+    passwordHash: '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92',
+    registerDate: '2026-05-26',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'kamira64',
+    passwordHash: '83c5c6b5c4d84415db0907f795c12eeb0c5a476398d13b157e9515d0978e4a9d',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'ruirui1729',
+    passwordHash: '1a945c5d41f67d2c9cf88b8b8e472d93522bf14d4906064713535aa1a5356b29',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'sui',
+    passwordHash: 'f9c95c193f8c8f60b4cb497c2c3bf74ccd8a7994e5b69d66ee665c5a71010887',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'jun',
+    passwordHash: 'd75f0386cee3ad8fdb6544ab6699b11b1ce44ef34679986042274aa028749d16',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'ささくれ',
+    passwordHash: 'a96d8c8f09e32bf09eea108d4198a2741e008ce26b54d387e3b9861b0c9d4fb0',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'たそー',
+    passwordHash: 'd4178d583027a8e0392191be71cd02c5576196f5e7bbb4ea58340ab8e6890aeb',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'yyjyyj',
+    passwordHash: '56c977f4811e64aa5bb88c14d2e5b3433ff2f9fd24355de6d569833e39b3dc2f',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
 }
 ];
 
