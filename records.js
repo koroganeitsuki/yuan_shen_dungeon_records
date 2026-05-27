@@ -24,6 +24,186 @@ const Users = [
     username: '黑の辉',
     passwordHash: '12ced0ec03813e27df453d63214a467698e285ab6f52f4d030205ee1426c2d08',
     registerDate: '2026-05-26',
+    score: 62,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Athrun',
+    passwordHash: 'b8e1736a8ee520bae9b04563bd7931347b3089bc1853a673b57b01eba5451864',
+    registerDate: '2026-05-26',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'qwert',
+    passwordHash: 'cf0b854f5a17fdad773d462438d4d7328722b817d40a74ecb8d9ad79f98aa251',
+    registerDate: '2026-05-26',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Redamancy',
+    passwordHash: '9d5447b027868815764a5a8f1d665e8d65000dbc915933bb463dd50ab6f5d26e',
+    registerDate: '2026-05-26',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'zxxx',
+    passwordHash: 'cb704cd2f1dd5971474de688ca7bd1cc13a4788b4450569d14e86e529a3517e3',
+    registerDate: '2026-05-26',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '四倍体植物',
+    passwordHash: 'b991ecc4b6aaf9ebdc50af46a288e333f372863c7363702b478fc78890990565',
+    registerDate: '2026-05-26',
+    score: 196,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '阿吸吸',
+    passwordHash: '8eb6e0d05bb0c748545dd20f46bc0c6c2a9966d1c337e8ed72d11416ac317d94',
+    registerDate: '2026-05-26',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'xdd',
+    passwordHash: 'cc2e018aa6eb9612ccd027bbdcdc9b8c8d351789f14cae4d688a876c18938235',
+    registerDate: '2026-05-26',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'laurel',
+    passwordHash: 'efdf873df854dedc3f342dde8c8c244cd4d0920ff935de30c4d836e1e577c1dc',
+    registerDate: '2026-05-26',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'ab138644945',
+    passwordHash: '7d139b37660cb6ac4f1e08470bc7f2261e466edc89ce0ac9a35f0db2ef091e7d',
+    registerDate: '2026-05-26',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '超绝可爱希罗娜',
+    passwordHash: '8bb8da95870c38c136565ecb5609a76e61165280084b4f510a93b1bd4bb7e271',
+    registerDate: '2026-05-26',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'fxdss',
+    passwordHash: 'e7a3490c8a3d5519ca0f49330734c4f7ac8f84fab325fd2767ccc0a8716b369b',
+    registerDate: '2026-05-26',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '242622832',
+    passwordHash: '2a783f04d8a93db475187f67ad00d96f2b65e074b89d394e3300a628ee7e8829',
+    registerDate: '2026-05-26',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'ほたる',
+    passwordHash: 'f61f06834d5d5909591c5304177bc0e55c0bcfafef702e2e609311cca360ffee',
+    registerDate: '2026-05-26',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'chenwei',
+    passwordHash: '62dafd9e9b3d43edc00c42a9ca354f339a923eb0971156b968bf60a30b938ee5',
+    registerDate: '2026-05-26',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Ryuna1',
+    passwordHash: '529c8cb8a3eadd86f0cb52e11315f069d315f929804ff01ce2afdae5334b3e1d',
+    registerDate: '2026-05-26',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Ruiri',
+    passwordHash: '54dbb124e96f06344f7e6a5b6cd9b44f0cafebb8ed099ab6d1cd877b7c66542d',
+    registerDate: '2026-05-26',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'yice',
+    passwordHash: '0434a4014dc65966ba29fc9d5cbe7ba847ccaa35449dc64a534192d6dcb212f4',
+    registerDate: '2026-05-26',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'JOKER',
+    passwordHash: '336725ca117fddc24a155ba8d38222f4253e0fe2836ef1d9ebbd3abf51c76316',
+    registerDate: '2026-05-26',
     score: 0,
     bilibiliNames: [],
     isAdmin: false,
@@ -11957,8 +12137,8 @@ const Records = [
             gold: 3,
             constgold: 0,
             notes: '',
-            video: 'https://www.bilibili.com/video/BV1JCdzBQEzC/?spm_id_from=333.1387.upload.video_card.click&vd_source=5f5f21c41dd6d3096048a3d13b5c56df',
-            status: 'pending',
+            video: 'https://www.bilibili.com/video/BV1JCdzBQEzC/',
+            status: 'approved',
             submitTime: '2026-04-17T15:03',
             cup: '无',
             submitter: null,
@@ -12002,7 +12182,7 @@ const Records = [
             cup: '无',
             submitter: null,
             goldErrorUsers: [],
-            noErrorUsers: []
+            noErrorUsers: [{"username":"四倍体植物","voteTime":"2026-05-26T16:16:55.011Z"}]
         },
         {
             id: 319,
@@ -12040,7 +12220,7 @@ const Records = [
             submitTime: '2026-04-22T22:50',
             cup: '无',
             submitter: null,
-            goldErrorUsers: [],
+            goldErrorUsers: [{"username":"四倍体植物","voteTime":"2026-05-26T16:18:12.200Z"}],
             noErrorUsers: []
         },
         {
@@ -12264,7 +12444,7 @@ const Records = [
             gold: 2,
             constgold: 3,
             notes: '',
-            video: 'www.bilibili.com/video/BV1RH9QBqEdH',
+            video: 'https://www.bilibili.com/video/BV1RH9QBqEdH',
             status: 'pending',
             submitTime: '2026-04-29T17:18',
             cup: '无',
@@ -12274,6 +12454,45 @@ const Records = [
         },
         {
             id: 326,
+            player: '荷欢欢',
+            mainc: '奈芙尔',
+            team: [
+                {
+                        character: '奈芙尔',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '菈乌玛',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '雷泽',
+                        constellation: 3,
+                        weapon: 0
+                    }
+            ],
+            time: 118,
+            boss: '蕴光月守宫·根牙磐错',
+            gold: 5,
+            constgold: 0,
+            notes: '',
+            video: 'https://b23.tv/d6MWLUj',
+            status: 'pending',
+            submitTime: '2026-05-15T08:26',
+            cup: '无',
+            submitter: '四倍体植物',
+            goldErrorUsers: [],
+            noErrorUsers: [{"username":"四倍体植物","voteTime":"2026-05-26T16:18:46.599Z"}]
+        },
+        {
+            id: 327,
             player: '刚创的新号',
             mainc: '玛薇卡',
             team: [
@@ -12288,7 +12507,80 @@ const Records = [
                         weapon: 0
                     },
                 {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
                         character: '欧洛伦',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '蕴光月守宫·根牙磐错',
+            gold: 2,
+            constgold: 3,
+            notes: '',
+            video: 'https://b23.tv/fJimGy9',
+            status: 'pending',
+            submitTime: '2026-05-10T09:08',
+            cup: '无',
+            submitter: '四倍体植物',
+            goldErrorUsers: [],
+            noErrorUsers: [{"username":"四倍体植物","voteTime":"2026-05-26T16:18:55.311Z"}]
+        },
+        {
+            id: 328,
+            player: '热尊',
+            mainc: '奈芙尔',
+            team: [
+                {
+                        character: '奈芙尔',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '菈乌玛',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '爱诺',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '蕴光月守宫·根牙磐错',
+            gold: 5,
+            constgold: 0,
+            notes: '',
+            video: 'https://b23.tv/oNgNKBE',
+            status: 'pending',
+            submitTime: '2026-05-02T23:58',
+            cup: '无',
+            submitter: '四倍体植物',
+            goldErrorUsers: [],
+            noErrorUsers: [{"username":"四倍体植物","voteTime":"2026-05-26T16:19:00.094Z"}]
+        },
+        {
+            id: 329,
+            player: '珊瑚一心',
+            mainc: '玛薇卡',
+            team: [
+                {
+                        character: '玛薇卡',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '夏沃蕾',
                         constellation: 6,
                         weapon: 0
                     },
@@ -12296,16 +12588,138 @@ const Records = [
                         character: '伊安珊',
                         constellation: 6,
                         weapon: 0
+                    },
+                {
+                        character: '欧洛伦',
+                        constellation: 6,
+                        weapon: 0
                     }
             ],
-            time: 119,
+            time: 120,
             boss: '蕴光月守宫·根牙磐错',
             gold: 2,
             constgold: 3,
             notes: '',
-            video: 'www.bilibili.com/video/BV1RH9QBqEdH',
+            video: 'https://b23.tv/fICkuCv',
             status: 'pending',
-            submitTime: '2026-05-26T21:58',
+            submitTime: '2026-05-02T10:32',
+            cup: '无',
+            submitter: '四倍体植物',
+            goldErrorUsers: [],
+            noErrorUsers: [{"username":"四倍体植物","voteTime":"2026-05-26T16:19:05.092Z"}]
+        },
+        {
+            id: 330,
+            player: '梦翼yi',
+            mainc: '奈芙尔',
+            team: [
+                {
+                        character: '奈芙尔',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '爱诺',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '霜夜巡天灵主 · 惊恨憎愤',
+            gold: 1,
+            constgold: 0,
+            notes: '',
+            video: 'https://b23.tv/HEwsE4X',
+            status: 'pending',
+            submitTime: '2026-05-27T00:04',
+            cup: '无',
+            submitter: '四倍体植物',
+            goldErrorUsers: [],
+            noErrorUsers: [{"username":"四倍体植物","voteTime":"2026-05-26T16:19:12.091Z"}]
+        },
+        {
+            id: 331,
+            player: '米酒Yahalo',
+            mainc: '莫娜',
+            team: [
+                {
+                        character: '莫娜',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '行秋',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 80,
+            boss: '霜夜巡天灵主 · 惊恨憎愤',
+            gold: 0,
+            constgold: 10,
+            notes: '',
+            video: 'https://b23.tv/PLcqcxV',
+            status: 'pending',
+            submitTime: '2026-04-28T14:52',
+            cup: '无',
+            submitter: '四倍体植物',
+            goldErrorUsers: [],
+            noErrorUsers: [{"username":"四倍体植物","voteTime":"2026-05-26T16:19:18.518Z"}]
+        },
+        {
+            id: 332,
+            player: 'Corolla-S',
+            mainc: '玛薇卡',
+            team: [
+                {
+                        character: '玛薇卡',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '茜特菈莉',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '蕴光月守宫·根牙磐错',
+            gold: 3,
+            constgold: 0,
+            notes: '',
+            video: 'www.bilibili.com/video/BV1y15f62Ek2/',
+            status: 'pending',
+            submitTime: '2026-05-18T06:37',
             cup: '无',
             submitter: '黑の辉',
             goldErrorUsers: [],
