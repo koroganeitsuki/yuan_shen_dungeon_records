@@ -289,6 +289,978 @@ const Users = [
     isAdmin: false,
     resetCount: 0,
     lastResetDate: null
+},
+    {
+    username: 'cocoa',
+    passwordHash: '365baf48d649d2bd4a2f1f1be437ad4d9389e91735e03288414c6d7cd725c132',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'ゆうせい',
+    passwordHash: '566812d29a984f11c5eca05266c911e5ed706912f4fb77f139ccc812619cfb88',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'bili_59125816',
+    passwordHash: '3c37de7cd5b431d20e7b4f1e089ba0ab67d316f41b6ced71735325e19a454ea7',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'newuer',
+    passwordHash: 'db40711ed31bce714eee3729269e28480e419b861ebb13d29580bd3f8f93bbb8',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '祖安水稻公主',
+    passwordHash: '95b6d69b38993d127e0a30e49ab12a83bc94cc3cf2330a282021c4d0c573fe19',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'dratos',
+    passwordHash: 'cbb9ffa28ef1f6aa371a8afee297216d766772af376e8552b0e47caa26315982',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'kami_asdf',
+    passwordHash: '636f4a9e5cbc4fbc969ddab80f2f86b47e8cb5fc1d1d585342a5ead7fb917408',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Mizu_upper',
+    passwordHash: 'd40be69c5ca575e2862d1baf3a0ca9ab90d0ffc7eb9f23803399d9c47e52a0ee',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'juri',
+    passwordHash: '3086d1a39ad7c7d49cbf2eb3d538572c0b8836bd764dc22544d931e2e42cdd25',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'swd',
+    passwordHash: 'cec43b4f69a821adc56ebc2f964db9b35b129910e718aa931b980937c83895c8',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '空客连夜堆山',
+    passwordHash: '7eee64ff7a6a83df1509c2e07e09bee99131e41e4b0c53718cec80b05ff40565',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'da4ja',
+    passwordHash: '0f98c542a2ade535703a6115bdcd966a24c451002ad14ff70c94e8a8199a798f',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '心柜子',
+    passwordHash: '9dc43a433e5ae49db6704848f068ebbb5de29b94c4c786d1fb9eebc7dfde1f63',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Ray',
+    passwordHash: '2bf388d33c84c6a50ac99cb4a719c044299c4f447e4e04550784bb6d9771df61',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'muusama',
+    passwordHash: '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'hookane_gensin',
+    passwordHash: '6387b30dedef51a5835377114c73e4367f5db8b1c3d8b1c229b029055ab5597d',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'minato',
+    passwordHash: '906150b4fbf04256c14fdc8c68e95ade790bcd9204f47a90f0addd15d261fc04',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'glotto',
+    passwordHash: '25c7ca60af22b13f6b1648a3df86b2961b5656c3c9b5e62a7b8086802ae2a337',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'kosesimasita',
+    passwordHash: 'e736525f052bc0103b9510173260284fe92a79f9993a2c5f2d01bc675831affe',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'winzero',
+    passwordHash: '7df2b7c91ea67e354060282e43c1bfeb42102e0b4453b6104c61aa53ee044097',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'fox',
+    passwordHash: '21cd2a3c3131f5e4d3bcdbc3c90a4deade8b1a846fb07212e0ca490255ce92a5',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'てんぷら',
+    passwordHash: 'db16894d573bd023b4aa61ffdc35deb6bf8074322b0ce7147ac372bf677d65df',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'マラニー',
+    passwordHash: 'e42bb8878250cbabc741a708b368d32547405016a70f80b7e13bc316d5a3071e',
+    registerDate: '2026-05-27',
+    score: 30,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'tetete',
+    passwordHash: 'bd8223613a5f7c2d09a7a90aa8fb3ae534842543863377e21337e146eaca895e',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '1264566655',
+    passwordHash: '497bd11e17e97cb928564f73e9794ea802efe185c354827ec27fd53051d03919',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '风与叶相随',
+    passwordHash: 'c921b709074339fd841a28b8c0465761e8aa690093ba5e414cf4b46932395d98',
+    registerDate: '2026-05-27',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Lego102Lego',
+    passwordHash: '3b96d3d0829a11e0cc72d1872057663417bf61fb8dfdbe146e8fa629e4fda14d',
+    registerDate: '2026-05-28',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'xianshiyishi',
+    passwordHash: '4e747b3171d83372c01822958208a532830ac7e0f07b72db56c496fc1c8394d5',
+    registerDate: '2026-05-28',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'takeshi',
+    passwordHash: '9d20aa860a2ae9e0edf986308261620eb08166531988ab19fb4b1d6987c13b84',
+    registerDate: '2026-05-28',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '珍惜.',
+    passwordHash: '72d81f03f9ccafd3fcb01c7467da4a82569737c12240b3650ff38cb931d23f06',
+    registerDate: '2026-05-28',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'ssssss',
+    passwordHash: '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92',
+    registerDate: '2026-05-28',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'xmwang',
+    passwordHash: 'aeae080fc27ea50e69501885d40ddfef2a6e837c8c96fbb8b7bfbf2b26a01b91',
+    registerDate: '2026-05-28',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '黑松露海苔卷',
+    passwordHash: 'c0c4a69b17a7955ac230bfc8db4a123eaa956ccf3c0022e68b8d4e2f5b699d1f',
+    registerDate: '2026-05-28',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'atwelle',
+    passwordHash: '7353f3d01b5e59b961a4548b80a9ee754c59b58aba1b58a9b25df0cc4cb8e9d2',
+    registerDate: '2026-05-28',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '水亦寒',
+    passwordHash: '80765b0cb02843b181592bda2db28ccf4fd22c5784559c6310208f04a786ea5f',
+    registerDate: '2026-05-28',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '17320105',
+    passwordHash: 'e6ef25ee9f77cf002d311c0f735225c57fe1f5ae2ced8b344aa36e183382b5be',
+    registerDate: '2026-05-28',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '一介平民02',
+    passwordHash: '81dfc9dff4698dee99f34816f8d88634f708dbec8b579a5c9020c13dd1d46905',
+    registerDate: '2026-05-28',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'chiemimimi',
+    passwordHash: '98f4adb5cc1029327f0371339cf60703845dd71c9ceeaa875805ed83079ae172',
+    registerDate: '2026-05-28',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'murphy',
+    passwordHash: 'c1ddb9476181eefddecb3b763ca404f3d0b4d6a7420f67e3e53bc9fe187a3081',
+    registerDate: '2026-05-28',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'rks热开水？',
+    passwordHash: '280ba56da58c335c2fbd0683345203c8e64beb8197650476e86f4c68dc289c3a',
+    registerDate: '2026-05-28',
+    score: 30,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'sy2356',
+    passwordHash: 'bc6d941a4a7ce16315bc1ac9ebb29eb0d147f76fb856021a38c8dcecd04ff984',
+    registerDate: '2026-05-28',
+    score: 30,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'david214467',
+    passwordHash: 'd7477832d0ece103f9804efbd939b7b02d4c119657dc65f2b138094a6c69ef2e',
+    registerDate: '2026-05-28',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'neonrider',
+    passwordHash: '7f0457660b261323eec2caeecdec8f382b3cae6ad84793dd589b584e36972ff4',
+    registerDate: '2026-05-28',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'SmileyZoe',
+    passwordHash: '70f49b7e12a42e2b6d9ef589b87766f651d410b052f306da39e99b59d75afa4d',
+    registerDate: '2026-05-28',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '503406',
+    passwordHash: 'e42e1a479e0c226c010c25f46bba9abe9758ec05780add0c6e424ed5a70e7d8d',
+    registerDate: '2026-05-28',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Sevio_柒言',
+    passwordHash: '4a08fefca932cd3d51a514b7aa5caa99c85e8b1c5670d8f6e8b3c5fd522f9cd6',
+    registerDate: '2026-05-28',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Psywe',
+    passwordHash: '132c8b95c86f64da216b6cef6b0c7830a4b6246b0118b3edaeb117c363e9b19e',
+    registerDate: '2026-05-28',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '2462242',
+    passwordHash: '3043dc0a24bb511f9fce01d7ce0e3004523a07fcadb330acaf57b6065252c4c5',
+    registerDate: '2026-05-29',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'yawnkat',
+    passwordHash: '8f973d0964544763ed23b666b40327646183ede3e9c0f59fe0a42d35573cb1fb',
+    registerDate: '2026-05-29',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Karon',
+    passwordHash: '81167c127c482bad9ce41c8f2e5baedbceb89ae34bf536321cee3f066a17443b',
+    registerDate: '2026-05-29',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'loveeee',
+    passwordHash: '1a7b1a8cfcf64659cd09bc4a1c98d822e73c8e6c54053c9066deeb89d9d73dbb',
+    registerDate: '2026-05-29',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+
+    {
+    username: 'LTZLF',
+    passwordHash: '48e4fe32be1bcfacf1db28cf6f12caf5f6998647a6413ef24598e2624c9213b5',
+    registerDate: '2026-05-29',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+
+    {
+    username: 'hana_6979',
+    passwordHash: 'f0fad89582471effd3c20356cc30995134ca9460f922b15a13979e5aab3ec7eb',
+    registerDate: '2026-05-29',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'azz',
+    passwordHash: '22af88fa58535dbfa6768b7ca0340fc8512d4bd3574ef373243b320c5dafff28',
+    registerDate: '2026-05-29',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '10969atk@gmail.com',
+    passwordHash: '3398db0fe362116929d4c70525fb0fa35e16a4d5dcba4a861487dde9422a39a4',
+    registerDate: '2026-05-29',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'yumo',
+    passwordHash: 'eefe99ec6e1283453cf630498f90db3abdf420afc30643c83078f95e4682ea81',
+    registerDate: '2026-05-29',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'zzz',
+    passwordHash: '6534b55301adea092e05d884f0fba71ed9dbee59d863e93851fb12de15a75021',
+    registerDate: '2026-05-29',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'oudon',
+    passwordHash: '81933f8654c82d208709d1076ce03ba2571a227558740b931eb81ed701beaef4',
+    registerDate: '2026-05-29',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'lly',
+    passwordHash: '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92',
+    registerDate: '2026-05-30',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'maka',
+    passwordHash: '17053e28c867da31d284d966d9fa507e591d000fe20445a5d6b41f6843ebac4f',
+    registerDate: '2026-05-30',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'BANANA genshin',
+    passwordHash: '7fda8fc9e10cd8740fd7568852b20c9ec65220c5f6860b22da396f997f7ba8d5',
+    registerDate: '2026-05-30',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'bbvv999',
+    passwordHash: '53a4ba08b174f0747ca97dfdb656504e92bf269f3fd15f6dc5bc70b8d4871b1e',
+    registerDate: '2026-05-30',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'hehenin',
+    passwordHash: '0b6592bb4c7237748a1eac14d2d64d1d6ce1165dfcdac98d7103276ef61fb5c5',
+    registerDate: '2026-05-30',
+    score: 30,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'sa3aegis@gmail.com',
+    passwordHash: 'aa8ea67305f231e7f3fbe637ada57bd2af5267b0fb79774f31b51088e3daaa2d',
+    registerDate: '2026-05-31',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'dhyj',
+    passwordHash: '05ba47d5369f728937533eb78904d3502c6f27599b542a268a0a4d5b2afc6fa2',
+    registerDate: '2026-05-31',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'kevinhan',
+    passwordHash: 'c90298ddb472db14e9329987b773819186753866fdf9d6bbdb295a7a27158e47',
+    registerDate: '2026-05-31',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '杉云ys',
+    passwordHash: '46c349203bbb726dd346181915039e20f048299ee790dc60d5ba0b77bc1e8d9c',
+    registerDate: '2026-05-31',
+    score: 30,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'ゆうせい0925',
+    passwordHash: '2556aa4881d4309ca7837ca623003916a1ad3a1f257192e5da2a12495956c4f5',
+    registerDate: '2026-05-31',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '。。。',
+    passwordHash: '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92',
+    registerDate: '2026-05-31',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '也是好上了--',
+    passwordHash: '059a00192592d5444bc0caad7203f98b506332e2cf7abb35d684ea9bf7c18f08',
+    registerDate: '2026-05-31',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'xxx',
+    passwordHash: '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92',
+    registerDate: '2026-05-31',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'えっっ',
+    passwordHash: 'c93d58631f042b3c6be29a443663961260af3cc08bf6449ddb3b227fab288162',
+    registerDate: '2026-05-31',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'みやけん',
+    passwordHash: '6d367b9019b39ed097da1380d0d96b9c9d01ac51edd765c1f2a19eb1e31ef9eb',
+    registerDate: '2026-05-31',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'midra',
+    passwordHash: 'd99f6af8ba2040cabaa49c6a9e793b4319fae5b2cd179e6d14f47a3eeb80c63e',
+    registerDate: '2026-05-31',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'o.O',
+    passwordHash: 'b97d70fd9f21401ad41dd53335ba914c19eea7f32ff731f4d4928efe4a6d6a79',
+    registerDate: '2026-05-31',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '大哥大',
+    passwordHash: 'ab48a17a59644eacdc315f427db6875b3df01a15eb00c61920dc8beaf3a60038',
+    registerDate: '2026-05-31',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Sin',
+    passwordHash: '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92',
+    registerDate: '2026-06-01',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'baerar',
+    passwordHash: '371f8d2f66ca10fcc4651e2f86fd70f1ca3014f8f519e69a2f26f1a4dc7c7441',
+    registerDate: '2026-06-01',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '墨清zhf',
+    passwordHash: 'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f',
+    registerDate: '2026-06-02',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'suumo',
+    passwordHash: 'd4aa96afe32234e5a9e6e25f3dc03a6d69a028aff7ab017933209d91a8f71be3',
+    registerDate: '2026-06-02',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'machamocha',
+    passwordHash: 'a7411a3704a56d0f9319ab779f26e6b14ab739435ecfa99f4b7c8dafb649b7d8',
+    registerDate: '2026-06-02',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '布偶家的花花',
+    passwordHash: 'be058902cc4bc34329f5a1b768b3e77174badd25aa251f3488ec32c2147394f3',
+    registerDate: '2026-06-02',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Giocorso7',
+    passwordHash: '2face4656ef0a0053989b9c278e217e44616edc710809e680bb21a477f92f384',
+    registerDate: '2026-06-03',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Achille20',
+    passwordHash: 'ffe881b7db18c2b2a9a376fa5b7fdfd608aedcb648e78bb7554cc211ae70966d',
+    registerDate: '2026-06-03',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'starhurt',
+    passwordHash: 'cb920d892dd5796b3fe7f6407dd4a5268e4563192477e00124629b77bc5fcbb1',
+    registerDate: '2026-06-03',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'ーたそ',
+    passwordHash: 'd4178d583027a8e0392191be71cd02c5576196f5e7bbb4ea58340ab8e6890aeb',
+    registerDate: '2026-06-04',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'dino123',
+    passwordHash: '8f03b101fd6b6acee02753ff39836dc01120cd0a3e859ecb6e17801862fa54d4',
+    registerDate: '2026-06-04',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'kabukibu',
+    passwordHash: '1932cb91dc59c3416a6790104a450385f8f047166de42d97ffd45161dd06f231',
+    registerDate: '2026-06-04',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'mao',
+    passwordHash: 'a01366fb923818a750c72628dbfe344c4c438f9557f71a61f40a411fc9381b86',
+    registerDate: '2026-06-04',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'arry',
+    passwordHash: 'b09bb5a2615a037eb60d2564866645b7669876c2b7fa5b97a21546ec97988ea5',
+    registerDate: '2026-06-04',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'kuku',
+    passwordHash: 'c549d021ca546832fe6dfe4bd4e59e30317c6911c6499cf121e686eec2d1ee77',
+    registerDate: '2026-06-05',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'ihuber',
+    passwordHash: 'b00eb5d774f0833f8dedbb4bae1a443027ea280639145889aef4715f2d410691',
+    registerDate: '2026-06-05',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'midra',
+    passwordHash: 'd99f6af8ba2040cabaa49c6a9e793b4319fae5b2cd179e6d14f47a3eeb80c63e',
+    registerDate: '2026-06-05',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'laijian',
+    passwordHash: '0517f83de3de2d34cc1c14026cb2da9ca8413f575de5b8d14943bb6b0d3c7303',
+    registerDate: '2026-06-05',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'ipcd1596',
+    passwordHash: 'acfa9cd33e8a1a209f1d935bd40e8f445a5e0490cb3704c6cd7059e0673eaa78',
+    registerDate: '2026-06-05',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '5685',
+    passwordHash: '93f9ab4d9b863322e68249d3c0ad5d05097c4bc399d4a20cf8be59cc0f770db2',
+    registerDate: '2026-06-05',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'PYWBKTDA',
+    passwordHash: '35a1ad8cecbc9bf4c28c75ee682d79330be52d91088415482aa847f641e36462',
+    registerDate: '2026-06-06',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
 }
 ];
 
@@ -12720,7 +13692,7 @@ const Records = [
             constgold: 0,
             notes: '',
             video: 'https://b23.tv/HEwsE4X',
-            status: 'pending',
+            status: 'approved',
             submitTime: '2026-05-27T00:04',
             cup: '无',
             submitter: '四倍体植物',
@@ -12797,11 +13769,323 @@ const Records = [
             gold: 3,
             constgold: 0,
             notes: '',
-            video: 'www.bilibili.com/video/BV1y15f62Ek2/',
-            status: 'pending',
+            video: 'https://www.bilibili.com/video/BV1y15f62Ek2/',
+            status: 'approved',
             submitTime: '2026-05-18T06:37',
             cup: '无',
             submitter: '黑の辉',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 333,
+            player: '空客连夜堆山',
+            mainc: '菈乌玛',
+            team: [
+                {
+                        character: '菈乌玛',
+                        constellation: 6,
+                        weapon: 1
+                    },
+                {
+                        character: '爱诺',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '烟绯',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 97,
+            boss: '开眼者',
+            gold: 8,
+            constgold: 0,
+            notes: '砂糖需要草套减抗，注意烟绯套盾防止被烧死',
+            video: 'https://b23.tv/CvxAFZt',
+            status: 'pending',
+            submitTime: '2026-05-27T18:39',
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 334,
+            player: 'マラニー',
+            mainc: '玛拉妮',
+            team: [
+                {
+                        character: '玛拉妮',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '火主',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '历经百战的凛狼',
+            gold: 3,
+            constgold: 3,
+            notes: '精5月卡武器',
+            video: 'https://b23.tv/Idd51pu',
+            status: 'pending',
+            submitTime: '2026-05-27T21:07',
+            cup: '无',
+            submitter: 'マラニー',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 335,
+            player: 'rks热开水1',
+            mainc: '奈芙尔',
+            team: [
+                {
+                        character: '奈芙尔',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '菈乌玛',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 118,
+            boss: '水形幻人 · 极旋湍流',
+            gold: 2,
+            constgold: 0,
+            notes: '锻造武器，非绿玩，217f，取消大招动画，奈圣遗物255分',
+            video: 'https://www.bilibili.com/video/BV13FVp6SEJe/?share_source=copy_web&vd_source=02713b2a67ba2927452e1a69478d61a3',
+            status: 'pending',
+            submitTime: '2026-05-28T18:30',
+            cup: '无',
+            submitter: 'rks热开水？',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 336,
+            player: 'churnj',
+            mainc: '仆人',
+            team: [
+                {
+                        character: '仆人',
+                        constellation: 3,
+                        weapon: 1
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 1
+                    },
+                {
+                        character: '茜特菈莉',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '蓝砚',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 38,
+            boss: '霜夜巡天灵主 · 惊恨憎愤',
+            gold: 8,
+            constgold: 1,
+            notes: '',
+            video: 'https://b23.tv/Urh7gns',
+            status: 'pending',
+            submitTime: '2026-05-01T22:41',
+            cup: '无',
+            submitter: 'sy2356',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 337,
+            player: '呵呵nin',
+            mainc: '菲林斯',
+            team: [
+                {
+                        character: '菲林斯',
+                        constellation: 1,
+                        weapon: 0
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '伊涅芙',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '开眼者',
+            gold: 6,
+            constgold: 0,
+            notes: '此面板为水星星先爆炸后火星星爆炸的最低面板练度（大概？应该是吧）',
+            video: 'https://www.bilibili.com/video/BV1dMVG6aE2C/?spm_id_from=333.999.0.0&vd_source=eaf7b94db5e54fb4f80ccc4c0df77c6a',
+            status: 'pending',
+            submitTime: '2026-05-30T16:00',
+            cup: '无',
+            submitter: 'hehenin',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 338,
+            player: '稻荷习习祭',
+            mainc: '林尼',
+            team: [
+                {
+                        character: '林尼',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '尼可',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 110,
+            boss: '水形幻人 · 极旋湍流',
+            gold: 2,
+            constgold: 0,
+            notes: '110s成绩放在视频p2',
+            video: '【【6.6幽境危战】心气拏云欲问巅，严格2金林尼N6水人110s-哔哩哔哩】 https://b23.tv/nEpn6Kj',
+            status: 'pending',
+            submitTime: '2026-05-27T16:15',
+            cup: '无',
+            submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 339,
+            player: '杉云ys',
+            mainc: '奈芙尔',
+            team: [
+                {
+                        character: '奈芙尔',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 114,
+            boss: '历经百战的凛狼',
+            gold: 4,
+            constgold: 0,
+            notes: '',
+            video: '【行至山巅！真4金魔导奈芙尔114s击杀N6冰狼！手机60帧绿玩！绽放小c的上限究竟在哪里！-哔哩哔哩】 https://b23.tv/wmiLXxM',
+            status: 'pending',
+            submitTime: '2026-05-30T23:05',
+            cup: '无',
+            submitter: '杉云ys',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 340,
+            player: 'Karon',
+            mainc: '玛薇卡',
+            team: [
+                {
+                        character: '玛薇卡',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '茜特菈莉',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 3,
+                        weapon: 0
+                    }
+            ],
+            time: 113,
+            boss: '历经百战的凛狼',
+            gold: 2,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.youtube.com/watch?v=ZfSP8ROkC5k',
+            status: 'pending',
+            submitTime: '2026-06-05T19:03',
+            cup: '无',
+            submitter: null,
             goldErrorUsers: [],
             noErrorUsers: []
         }
