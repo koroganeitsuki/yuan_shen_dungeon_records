@@ -224,7 +224,7 @@ const Users = [
     username: 'kamira64',
     passwordHash: '83c5c6b5c4d84415db0907f795c12eeb0c5a476398d13b157e9515d0978e4a9d',
     registerDate: '2026-05-27',
-    score: 0,
+    score: 30,
     bilibiliNames: [],
     isAdmin: false,
     resetCount: 0,
@@ -234,7 +234,7 @@ const Users = [
     username: 'ruirui1729',
     passwordHash: '1a945c5d41f67d2c9cf88b8b8e472d93522bf14d4906064713535aa1a5356b29',
     registerDate: '2026-05-27',
-    score: 0,
+    score: 30,
     bilibiliNames: [],
     isAdmin: false,
     resetCount: 0,
@@ -361,16 +361,6 @@ const Users = [
     lastResetDate: null
 },
     {
-    username: 'Mizu_upper',
-    passwordHash: 'd40be69c5ca575e2862d1baf3a0ca9ab90d0ffc7eb9f23803399d9c47e52a0ee',
-    registerDate: '2026-05-27',
-    score: 0,
-    bilibiliNames: [],
-    isAdmin: false,
-    resetCount: 0,
-    lastResetDate: null
-},
-    {
     username: 'juri',
     passwordHash: '3086d1a39ad7c7d49cbf2eb3d538572c0b8836bd764dc22544d931e2e42cdd25',
     registerDate: '2026-05-27',
@@ -384,7 +374,7 @@ const Users = [
     username: 'swd',
     passwordHash: 'cec43b4f69a821adc56ebc2f964db9b35b129910e718aa931b980937c83895c8',
     registerDate: '2026-05-27',
-    score: 0,
+    score: 32,
     bilibiliNames: [],
     isAdmin: false,
     resetCount: 0,
@@ -704,7 +694,7 @@ const Users = [
     username: 'david214467',
     passwordHash: 'd7477832d0ece103f9804efbd939b7b02d4c119657dc65f2b138094a6c69ef2e',
     registerDate: '2026-05-28',
-    score: 0,
+    score: 632,
     bilibiliNames: [],
     isAdmin: false,
     resetCount: 0,
@@ -800,7 +790,6 @@ const Users = [
     resetCount: 0,
     lastResetDate: null
 },
-
     {
     username: 'LTZLF',
     passwordHash: '48e4fe32be1bcfacf1db28cf6f12caf5f6998647a6413ef24598e2624c9213b5',
@@ -811,7 +800,6 @@ const Users = [
     resetCount: 0,
     lastResetDate: null
 },
-
     {
     username: 'hana_6979',
     passwordHash: 'f0fad89582471effd3c20356cc30995134ca9460f922b15a13979e5aab3ec7eb',
@@ -1196,7 +1184,7 @@ const Users = [
     username: 'kuku',
     passwordHash: 'c549d021ca546832fe6dfe4bd4e59e30317c6911c6499cf121e686eec2d1ee77',
     registerDate: '2026-06-05',
-    score: 0,
+    score: 2,
     bilibiliNames: [],
     isAdmin: false,
     resetCount: 0,
@@ -1256,6 +1244,586 @@ const Users = [
     username: 'PYWBKTDA',
     passwordHash: '35a1ad8cecbc9bf4c28c75ee682d79330be52d91088415482aa847f641e36462',
     registerDate: '2026-06-06',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'zoushuhong2001',
+    passwordHash: 'b25eff9585d6748c3efbc7f9382188364c2ae8712346b544102c124b40c8d0d0',
+    registerDate: '2026-06-06',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'iona',
+    passwordHash: 'e68aa84c95a5fac5b4dc22033e8a70fc3346968423d9c0499d981defbe3a799d',
+    registerDate: '2026-06-06',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '83uei',
+    passwordHash: 'a27eb332d1d90bd5bf24b3a4928a8737bd50509f2aecd47926841f2ecf36af3c',
+    registerDate: '2026-06-06',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '小氵夕',
+    passwordHash: '819b65cd782445019100960e2178a50a2208513ed51c036927fcc5e0b2507edb',
+    registerDate: '2026-06-06',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '卡玛sei亚',
+    passwordHash: '44a8791805a39e4f223102cfeee5810650cf16d66b31172f802fd812bafe9c95',
+    registerDate: '2026-06-07',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'hajiqian',
+    passwordHash: '20a115fbfc1d85cc1f573e7545d3edee1f7020673c0f23b17e46326a1aa35525',
+    registerDate: '2026-06-07',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'jddjck',
+    passwordHash: 'e9cb035386cb837104cfefad5aa7d052c3e2a343dc09f75451228fe325451e8f',
+    registerDate: '2026-06-08',
+    score: 4,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '3482086657',
+    passwordHash: '59bdf8a7b4eb91dfa31d80a131ea6fd9404a0efcb4eaedb25d931135c2ecfcf3',
+    registerDate: '2026-06-08',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '13717450051',
+    passwordHash: '548e663e6bf3a97aa575ca5776017a6de3fd7270688ec84ccbc145a642bcec12',
+    registerDate: '2026-06-09',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '陈述药词',
+    passwordHash: 'a980c26d9f48c43fc27c5ade9165cdc0aea2d185e6a545e5f496b3f4adcece65',
+    registerDate: '2026-06-09',
+    score: 30,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'hdz',
+    passwordHash: '8cdbdb25a23001b9af9ba3ab58efb74bd573d519cf09a94286d9f017dce9ae91',
+    registerDate: '2026-06-09',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'yannuo',
+    passwordHash: '0027c76a231d4e230cb890ebb0c0e26c050b6cd922d08a2e0cf24aa71eeca2a7',
+    registerDate: '2026-06-09',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Carameldayo',
+    passwordHash: '98ad367c1d1c0f369f81ef3106d591a04c39ede19e32897732ca95fa1f8993ab',
+    registerDate: '2026-06-09',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'kiko',
+    passwordHash: 'fdf969e18270138afd51e5d513774211ede127c628db794348a158e73798ed6b',
+    registerDate: '2026-06-10',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'wuxi',
+    passwordHash: 'c4318372f98f4c46ed3a32c16ee4d7a76c832886d887631c0294b3314f34edf1',
+    registerDate: '2026-06-10',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '1311259792',
+    passwordHash: 'c433834dfc5f8eba9f49be305eabd2fa36ec8c116ebd18bbbd1beb4638be1789',
+    registerDate: '2026-06-10',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'ggg8588556',
+    passwordHash: 'cdb10e222ce5567c18a04e9527a46238bcd20fc09957b96fa20f9d775f0fd0d1',
+    registerDate: '2026-06-10',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '3039549526',
+    passwordHash: 'fdb658f384feaffed8695f9598d528740551c80c7885c5c6eca0f95f8d66fc59',
+    registerDate: '2026-06-11',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'USER',
+    passwordHash: '384fde3636e6e01e0194d2976d8f26410af3e846e573379cb1a09e2f0752d8cc',
+    registerDate: '2026-06-11',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'あきすての',
+    passwordHash: '9f72afaa655fb17a0f6315bdb148f7c2bb9bfa7cb7e130f2cb91250f21ea83c2',
+    registerDate: '2026-06-11',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'asphyxia',
+    passwordHash: 'e72f713f29ec9b6ca6578aa3421729e6264485cf41cfffbca14bcb23b4134e67',
+    registerDate: '2026-06-12',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '2075663310',
+    passwordHash: 'dddd07d6cacead56ec0e2d0d8e9d7dc134f6ae0999a7e3658ca842740ed358b6',
+    registerDate: '2026-06-12',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'あーめ',
+    passwordHash: '4e3fb11f9b0b16e5deca32a5d58b24cca9d8f0fc1e5547416fa6be866edebcb4',
+    registerDate: '2026-06-13',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'oosan424',
+    passwordHash: '2534fea589719cf4bf92f16a0d4095f8b36263a3148fd6fa202bdb24ff66a001',
+    registerDate: '2026-06-15',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Flamberk',
+    passwordHash: '7b56d86c0e93d7ecba367a3eb3eb510b34f31066b170f1f4af777ed4fbd758d7',
+    registerDate: '2026-06-15',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '菲林斯',
+    passwordHash: '3c1bde65e8ef9dedbfc0d2b29ca248e77b1e6a9db1f57e738425c7b9abaf9e8c',
+    registerDate: '2026-06-15',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'sairisan',
+    passwordHash: '87a86c7714a5f5a10c29620b5fe898d04f991f61a05fa0c3c0ac6b89434efe8d',
+    registerDate: '2026-06-15',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Dracent777',
+    passwordHash: '3eae013131a3daa920fd4d2fcffe762d2d4c8ac9c8c3db70280134d0818012fc',
+    registerDate: '2026-06-15',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'test',
+    passwordHash: '3669ffb921cca6ee1edfe0f1e620fc2379771e9a8bd92659904540e984f3209e',
+    registerDate: '2026-06-16',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '豆包AI',
+    passwordHash: '3669ffb921cca6ee1edfe0f1e620fc2379771e9a8bd92659904540e984f3209e',
+    registerDate: '2026-06-16',
+    score: 30,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'aaazo',
+    passwordHash: '28cbebbbbdf9cc55139f35d5e0d5ef466ebb2114431f1ca137f3d1c2baeadf35',
+    registerDate: '2026-06-16',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Richie',
+    passwordHash: '6c595b1084708a3dfb52fb815cdae8da0475ede8beda3ca3e3d1215a0d32e69c',
+    registerDate: '2026-06-16',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'lqwyz',
+    passwordHash: '11819e64d08614c3f550f2d59ebef9391b4dbeeb57f79acfc74fd15c211c0bd6',
+    registerDate: '2026-06-16',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'lumine1',
+    passwordHash: '4d2a101b8d0c1616e868f552f5ee16ad8d4a476e6b8b296eeb418b910df29099',
+    registerDate: '2026-06-17',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'たそーー',
+    passwordHash: 'd4178d583027a8e0392191be71cd02c5576196f5e7bbb4ea58340ab8e6890aeb',
+    registerDate: '2026-06-17',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Mizu_upper',
+    passwordHash: 'd40be69c5ca575e2862d1baf3a0ca9ab90d0ffc7eb9f23803399d9c47e52a0ee',
+    registerDate: '2026-06-17',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'zzzjjjjkkkk',
+    passwordHash: '50ee23f421cc42fff4265277e5a594787e7cceaefe427d976aeca5ce7dbf0a5e',
+    registerDate: '2026-06-17',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '岩永琴子',
+    passwordHash: 'c4cd1d94f47b9d559a3b67a9880938abf419a9b00dbd371e5db14197d2def8ad',
+    registerDate: '2026-06-18',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '淋见钟',
+    passwordHash: 'a87d55e1c5b8960fb1684db8c94e69cf517b97d93f985b42e831114542a8e3e3',
+    registerDate: '2026-06-18',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'ken0yuan',
+    passwordHash: '8659ce659847c98bca17f4943ec527106151c208ca8ddcd796deed6e945e4523',
+    registerDate: '2026-06-18',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'zziw',
+    passwordHash: 'b43830da6444dbb83d0a3b9dc91f92ad51d49a1d7ffca19a5cb948d635d08f67',
+    registerDate: '2026-06-18',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'tyoa_huka@icloud.com',
+    passwordHash: '4e3fb11f9b0b16e5deca32a5d58b24cca9d8f0fc1e5547416fa6be866edebcb4',
+    registerDate: '2026-06-19',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'ゆーあ',
+    passwordHash: '4e3fb11f9b0b16e5deca32a5d58b24cca9d8f0fc1e5547416fa6be866edebcb4',
+    registerDate: '2026-06-19',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'ddddd',
+    passwordHash: '059a00192592d5444bc0caad7203f98b506332e2cf7abb35d684ea9bf7c18f08',
+    registerDate: '2026-06-20',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'qiangu',
+    passwordHash: '3d291b445d399f49d252893b699f94394c2b6fd86561a33c0d5bfcd950c5c8b5',
+    registerDate: '2026-06-20',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '白夜的小猫',
+    passwordHash: '16e9376f01133eea1b075ee6b45012d4c1788fb88ca00b103bf9352be7b8253a',
+    registerDate: '2026-06-21',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'yukinya',
+    passwordHash: 'c73744028a591a8decf33aacc23c6696694ef2f103a6b766ccbaaeada6406f17',
+    registerDate: '2026-06-21',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Luminous',
+    passwordHash: '66c3ad427967286b750079d5a36417999c25d6d4a4f44ead404c8aef6a558ed8',
+    registerDate: '2026-06-22',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'sr.miru.senyou',
+    passwordHash: 'b4f9efba9d9a42d9535b9a4ce8e0c26ebb11541919302a24ebffc18df096b8af',
+    registerDate: '2026-06-22',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '心已烟污',
+    passwordHash: '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92',
+    registerDate: '2026-06-22',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '13958944670',
+    passwordHash: '57a5958c40879acf429bc30ed1aa9cb92636b929adb38aa82bc43a75b38b87f2',
+    registerDate: '2026-06-23',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '天心无忧',
+    passwordHash: '51f2c1a3f6c06eb9a76f98eb88363ae7b56cc2122a5f432bea2772e53bae2fb4',
+    registerDate: '2026-06-23',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'tianyao0522',
+    passwordHash: 'f3e01cd21aee996ad3e3264c19204750624fbb1d20db2209b389b9219cc569ca',
+    registerDate: '2026-06-23',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'sounusmo',
+    passwordHash: 'c24007b6e63659810fd7e2025c3d56bf1b75dd0b8c4cdaa00b0b08abc20df32f',
+    registerDate: '2026-06-23',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Lanthdia',
+    passwordHash: '24e25bedfaffc894d145a598f952175bb6b8853c4e23f347b8aacce7f1c4d110',
+    registerDate: '2026-06-23',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'takeshi1',
+    passwordHash: '9d20aa860a2ae9e0edf986308261620eb08166531988ab19fb4b1d6987c13b84',
+    registerDate: '2026-06-24',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '莱艮芬德',
+    passwordHash: 'f0189a20ee9a1374e9cf8806cb71cb813fdf2c39fd8f5e1fd2101fd2edfc0b34',
+    registerDate: '2026-06-24',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '494851035',
+    passwordHash: '9e0945e83b017e78ad52e0c1e8b809b780c497ca9c15ee34edc8bce25475fb1b',
+    registerDate: '2026-06-24',
     score: 0,
     bilibiliNames: [],
     isAdmin: false,
@@ -13229,12 +13797,12 @@ const Records = [
             constgold: 0,
             notes: '5命爱诺',
             video: 'https://www.bilibili.com/video/BV1ERQjB3EAV/?vd_source=8d7a3a71004859437dea79fb20efc428',
-            status: 'pending',
+            status: 'approved',
             submitTime: '2026-04-15T12:44',
             cup: '无',
             submitter: null,
             goldErrorUsers: [],
-            noErrorUsers: [{"username":"四倍体植物","voteTime":"2026-05-26T16:16:55.011Z"}]
+            noErrorUsers: [{"username":"四倍体植物","voteTime":"2026-05-26T16:16:55.011Z"},{"username":"jddjck","voteTime":"2026-06-09T03:09:22.070Z"},{"username":"kuku","voteTime":"2026-06-21T08:34:27.334Z"}]
         },
         {
             id: 319,
@@ -13265,14 +13833,14 @@ const Records = [
             time: 118,
             boss: '霜夜巡天灵主 · 惊恨憎愤',
             gold: 2,
-            constgold: 7,
+            constgold: 8,
             notes: '',
-            video: 'www.bilibili.com/video/BV1hbo4BqEiu/',
-            status: 'pending',
+            video: 'https://www.bilibili.com/video/BV1hbo4BqEiu/',
+            status: 'approved',
             submitTime: '2026-04-22T22:50',
             cup: '无',
             submitter: null,
-            goldErrorUsers: [{"username":"四倍体植物","voteTime":"2026-05-26T16:18:12.200Z"}],
+            goldErrorUsers: [{"username":"四倍体植物","voteTime":"2026-05-26T16:18:12.200Z"},{"username":"jddjck","voteTime":"2026-06-09T03:10:33.224Z"}],
             noErrorUsers: []
         },
         {
@@ -14086,6 +14654,942 @@ const Records = [
             submitTime: '2026-06-05T19:03',
             cup: '无',
             submitter: null,
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 341,
+            player: '陈述药词',
+            mainc: '神里绫华',
+            team: [
+                {
+                        character: '神里绫华',
+                        constellation: 1,
+                        weapon: 1
+                    },
+                {
+                        character: '申鹤',
+                        constellation: 1,
+                        weapon: 0
+                    },
+                {
+                        character: '爱可菲',
+                        constellation: 1,
+                        weapon: 1
+                    },
+                {
+                        character: '芙宁娜',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '水形幻人 · 极旋湍流',
+            gold: 9,
+            constgold: 0,
+            notes: '',
+            video: '【【幽境危战n6】7q极限斩杀！1神1爱0芙难度6水人119s-哔哩哔哩】 https://b23.tv/zJx3V7X',
+            status: 'pending',
+            submitTime: '2026-06-02T17:30',
+            cup: '无',
+            submitter: '陈述药词',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 342,
+            player: 'kamira64',
+            mainc: '丝柯克',
+            team: [
+                {
+                        character: '丝柯克',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '塔利雅',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '坎蒂丝',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '爱可菲',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '秘源机兵统御械 · 毁灭武装',
+            gold: 2,
+            constgold: 0,
+            notes: '手操60帧',
+            video: 'https://www.bilibili.com/video/BV1Z1XTBJEvF/?spm_id_from=333.1387.homepage.video_card.click&vd_source=e1f6067843df5f3b49f21d8c39d3728d',
+            status: 'pending',
+            submitTime: '2026-03-28T01:11',
+            cup: '无',
+            submitter: 'kamira64',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 343,
+            player: 'るいな',
+            mainc: '丝柯克',
+            team: [
+                {
+                        character: '丝柯克',
+                        constellation: 2,
+                        weapon: 2
+                    },
+                {
+                        character: '爱可菲',
+                        constellation: 1,
+                        weapon: 1
+                    },
+                {
+                        character: '芙宁娜',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 2,
+                        weapon: 0
+                    }
+            ],
+            time: 66,
+            boss: '水形幻人 · 极旋湍流',
+            gold: 9,
+            constgold: 3,
+            notes: '',
+            video: 'https://youtu.be/YkbvVMBtspw?si=xtyHWaJ0ht6Gi6X1',
+            status: 'pending',
+            submitTime: '2026-06-12T20:46',
+            cup: '无',
+            submitter: 'ruirui1729',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 345,
+            player: 'eva935',
+            mainc: '玛薇卡',
+            team: [
+                {
+                        character: '玛薇卡',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 118,
+            boss: '历经百战的凛狼',
+            gold: 1,
+            constgold: 10,
+            notes: '100级莫娜',
+            video: 'https://www.bilibili.com/video/BV1gJEF6NEzK/',
+            status: 'pending',
+            submitTime: '2026-06-04T14:10',
+            cup: '无',
+            submitter: 'david214467',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 346,
+            player: '三年胖50斤-阿周',
+            mainc: '玛薇卡',
+            team: [
+                {
+                        character: '玛薇卡',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '开眼者',
+            gold: 1,
+            constgold: 10,
+            notes: '100级莫娜',
+            video: 'https://www.bilibili.com/video/BV12ejG6xEsL/',
+            status: 'pending',
+            submitTime: '2026-06-17T00:43',
+            cup: '无',
+            submitter: 'david214467',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 347,
+            player: '米酒Yahalo',
+            mainc: '杜林',
+            team: [
+                {
+                        character: '杜林',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '香菱',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 104,
+            boss: '水形幻人 · 极旋湍流',
+            gold: 1,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1CqE16JEWo',
+            status: 'pending',
+            submitTime: '2026-06-12T18:24',
+            cup: '无',
+            submitter: 'david214467',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 348,
+            player: '糖果味Ooo',
+            mainc: '菲林斯',
+            team: [
+                {
+                        character: '菲林斯',
+                        constellation: 0,
+                        weapon: 5
+                    },
+                {
+                        character: '伊涅芙',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '香菱',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 114,
+            boss: '水形幻人 · 极旋湍流',
+            gold: 2,
+            constgold: 5,
+            notes: 'r5鸟枪菲，r5圣祭者机',
+            video: 'https://www.bilibili.com/video/BV12dGX6ZECs',
+            status: 'pending',
+            submitTime: '2026-05-28T15:24',
+            cup: '无',
+            submitter: 'david214467',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 349,
+            player: 'kanjzyane',
+            mainc: '仆人',
+            team: [
+                {
+                        character: '仆人',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '雷泽',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 116,
+            boss: '水形幻人 · 极旋湍流',
+            gold: 1,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1FHVo6aEke',
+            status: 'pending',
+            submitTime: '2026-06-01T12:45',
+            cup: '无',
+            submitter: 'david214467',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 350,
+            player: 'XTD111',
+            mainc: '玛薇卡',
+            team: [
+                {
+                        character: '玛薇卡',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '欧洛伦',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 79,
+            boss: '水形幻人 · 极旋湍流',
+            gold: 1,
+            constgold: 3,
+            notes: '100级火神',
+            video: 'https://www.bilibili.com/video/BV1yXE963EYU',
+            status: 'pending',
+            submitTime: '2026-06-10T16:24',
+            cup: '无',
+            submitter: 'david214467',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 351,
+            player: '黑の辉',
+            mainc: '丝柯克',
+            team: [
+                {
+                        character: '丝柯克',
+                        constellation: 2,
+                        weapon: 1
+                    },
+                {
+                        character: '重云',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '安柏',
+                        constellation: 1,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 5,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '开眼者',
+            gold: 4,
+            constgold: 7,
+            notes: '95级丝柯克，水火星流程',
+            video: 'https://www.bilibili.com/video/BV1tyVu63EJZ/',
+            status: 'pending',
+            submitTime: '2026-05-30T13:40',
+            cup: '无',
+            submitter: 'david214467',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 352,
+            player: '霂枔Official',
+            mainc: '丝柯克',
+            team: [
+                {
+                        character: '丝柯克',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '爱可菲',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '芙宁娜',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 117,
+            boss: '开眼者',
+            gold: 4,
+            constgold: 10,
+            notes: '100级丝柯克，双水星强杀流程',
+            video: 'https://www.bilibili.com/video/BV1CmGy6wEkR',
+            status: 'pending',
+            submitTime: '2026-05-27T16:33',
+            cup: '无',
+            submitter: 'david214467',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 353,
+            player: '最ニ网管',
+            mainc: '嘉明',
+            team: [
+                {
+                        character: '嘉明',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '罗莎莉亚',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '闲云',
+                        constellation: 2,
+                        weapon: 1
+                    }
+            ],
+            time: 118,
+            boss: '历经百战的凛狼',
+            gold: 4,
+            constgold: 0,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1ZWGU6PEAj',
+            status: 'pending',
+            submitTime: '2026-05-27T23:56',
+            cup: '无',
+            submitter: 'david214467',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 354,
+            player: '糖醋の排骨',
+            mainc: '玛拉妮',
+            team: [
+                {
+                        character: '玛拉妮',
+                        constellation: 1,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '火主',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 4,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '历经百战的凛狼',
+            gold: 2,
+            constgold: 3,
+            notes: '',
+            video: 'https://www.bilibili.com/video/BV1z3Gy6oEUV?',
+            status: 'pending',
+            submitTime: '2026-05-27T17:23',
+            cup: '无',
+            submitter: 'david214467',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 355,
+            player: 'listener021',
+            mainc: '仆人',
+            team: [
+                {
+                        character: '仆人',
+                        constellation: 1,
+                        weapon: 1
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 118,
+            boss: '历经百战的凛狼',
+            gold: 2,
+            constgold: 8,
+            notes: 'r1鸟枪仆人',
+            video: 'https://www.bilibili.com/video/BV1ooVz6CEoy',
+            status: 'pending',
+            submitTime: '2026-06-02T15:54',
+            cup: '无',
+            submitter: 'david214467',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 356,
+            player: '羽小然',
+            mainc: '克洛琳德',
+            team: [
+                {
+                        character: '克洛琳德',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 1
+                    },
+                {
+                        character: '杜林',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 114,
+            boss: '水形幻人 · 极旋湍流',
+            gold: 3,
+            constgold: 1,
+            notes: 'r1天空弓皇女，r1狼牙杜林',
+            video: 'https://www.bilibili.com/video/BV1Y9j66jEkG',
+            status: 'pending',
+            submitTime: '2026-06-19T21:14',
+            cup: '无',
+            submitter: 'david214467',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 357,
+            player: '米酒Yahalo',
+            mainc: '丝柯克',
+            team: [
+                {
+                        character: '丝柯克',
+                        constellation: 0,
+                        weapon: 1
+                    },
+                {
+                        character: '爱可菲',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '罗莎莉亚',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '水形幻人 · 极旋湍流',
+            gold: 3,
+            constgold: 5,
+            notes: '100级莫娜，可等效4莫共5常驻金',
+            video: 'https://www.bilibili.com/video/BV1HhjK6PEXh',
+            status: 'approved',
+            submitTime: '2026-06-16T09:14',
+            cup: '无',
+            submitter: 'david214467',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 358,
+            player: '雪地猫ui',
+            mainc: '莉奈娅',
+            team: [
+                {
+                        character: '莉奈娅',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '烟绯',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '五郎',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 113,
+            boss: '开眼者',
+            gold: 4,
+            constgold: 0,
+            notes: 'r5玉珑少女',
+            video: 'https://www.bilibili.com/video/BV1ozG164ED8',
+            status: 'pending',
+            submitTime: '2026-05-27T14:27',
+            cup: '无',
+            submitter: 'david214467',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 359,
+            player: '米酒Yahalo',
+            mainc: '兹白',
+            team: [
+                {
+                        character: '兹白',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '叶洛亚',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '烟绯',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '开眼者',
+            gold: 2,
+            constgold: 0,
+            notes: '双锻造双西风，无大月卡',
+            video: 'https://www.bilibili.com/video/BV1Yv7f6NEKy',
+            status: 'pending',
+            submitTime: '2026-06-04T16:14',
+            cup: '无',
+            submitter: 'david214467',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 360,
+            player: '米酒Yahalo',
+            mainc: '夜兰',
+            team: [
+                {
+                        character: '夜兰',
+                        constellation: 6,
+                        weapon: 5
+                    },
+                {
+                        character: '莫娜',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '砂糖',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '香菱',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '历经百战的凛狼',
+            gold: 12,
+            constgold: 13,
+            notes: '夜莫双100级',
+            video: 'https://www.bilibili.com/video/BV1A57468Edo',
+            status: 'pending',
+            submitTime: '2026-06-25T00:47',
+            cup: '无',
+            submitter: 'david214467',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 361,
+            player: '梦翼yi',
+            mainc: '奈芙尔',
+            team: [
+                {
+                        character: '奈芙尔',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '菈乌玛',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '爱诺',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '开眼者',
+            gold: 2,
+            constgold: 0,
+            notes: 'r5霜辰奈',
+            video: 'https://www.bilibili.com/video/BV1bwGU6JETU',
+            status: 'pending',
+            submitTime: '2026-05-28T01:44',
+            cup: '无',
+            submitter: 'david214467',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 362,
+            player: '一只普通的魈厨',
+            mainc: '基尼奇',
+            team: [
+                {
+                        character: '基尼奇',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '伊安珊',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '迪奥娜',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 118,
+            boss: '开眼者',
+            gold: 3,
+            constgold: 0,
+            notes: 'r5螭骨基',
+            video: 'https://www.bilibili.com/video/BV18bG96KEH4',
+            status: 'pending',
+            submitTime: '2026-05-28T13:54',
+            cup: '无',
+            submitter: 'david214467',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 363,
+            player: '雾夕寒川',
+            mainc: '菲林斯',
+            team: [
+                {
+                        character: '菲林斯',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '伊涅芙',
+                        constellation: 0,
+                        weapon: 0
+                    },
+                {
+                        character: '哥伦比娅',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 120,
+            boss: '开眼者',
+            gold: 3,
+            constgold: 0,
+            notes: '峡湾机，玉珑少',
+            video: 'https://www.bilibili.com/video/BV18KVV6XE7x',
+            status: 'pending',
+            submitTime: '2026-05-30T22:28',
+            cup: '无',
+            submitter: 'david214467',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 364,
+            player: 'Light__Quantum',
+            mainc: '胡桃',
+            team: [
+                {
+                        character: '胡桃',
+                        constellation: 1,
+                        weapon: 0
+                    },
+                {
+                        character: '行秋',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '茜特菈莉',
+                        constellation: 2,
+                        weapon: 0
+                    },
+                {
+                        character: '班尼特',
+                        constellation: 6,
+                        weapon: 0
+                    }
+            ],
+            time: 119,
+            boss: '开眼者',
+            gold: 4,
+            constgold: 3,
+            notes: 'r5峡湾100级胡桃，胡桃1命不计入成本',
+            video: 'https://www.bilibili.com/video/BV1PWEt6KEuy',
+            status: 'pending',
+            submitTime: '2026-06-07T21:38',
+            cup: '无',
+            submitter: 'david214467',
+            goldErrorUsers: [],
+            noErrorUsers: []
+        },
+        {
+            id: 365,
+            player: 'Light__Quantum',
+            mainc: '胡桃',
+            team: [
+                {
+                        character: '胡桃',
+                        constellation: 1,
+                        weapon: 0
+                    },
+                {
+                        character: '菲谢尔',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '夏沃蕾',
+                        constellation: 6,
+                        weapon: 0
+                    },
+                {
+                        character: '尼可',
+                        constellation: 0,
+                        weapon: 0
+                    }
+            ],
+            time: 117,
+            boss: '水形幻人 · 极旋湍流',
+            gold: 2,
+            constgold: 3,
+            notes: '百级r5决斗胡桃，胡桃1命不计入成本',
+            video: 'https://www.bilibili.com/video/BV1jhVV6iESP',
+            status: 'pending',
+            submitTime: '2026-05-30T21:18',
+            cup: '无',
+            submitter: 'david214467',
             goldErrorUsers: [],
             noErrorUsers: []
         }
