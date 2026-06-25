@@ -618,59 +618,6 @@
         </div>
     </main>
 
-    <!-- 登录/注册弹窗 -->
-    <div id="auth-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
-        <div class="bg-gray-900 rounded-lg w-full max-w-md mx-4 overflow-hidden">
-            <div class="flex justify-between items-center p-4 border-b border-gray-700">
-                <h2 class="text-xl font-bold text-white">用户登录</h2>
-                <button onclick="Auth.closeAuthModal()" class="text-gray-400 hover:text-white">
-                    <i class="fa fa-times text-xl"></i>
-                </button>
-            </div>
-            <div class="p-6">
-                <!-- 登录表单 -->
-                <form id="login-form" class="space-y-4">
-                    <div>
-                        <label class="block text-gray-300 text-sm font-medium mb-2">用户名</label>
-                        <input type="text" id="login-username" class="w-full input-genshin" placeholder="请输入用户名" required>
-                    </div>
-                    <div>
-                        <label class="block text-gray-300 text-sm font-medium mb-2">密码</label>
-                        <input type="password" id="login-password" class="w-full input-genshin" placeholder="请输入密码" required>
-                    </div>
-                    <button type="button" onclick="Auth.login(document.getElementById('login-username').value, document.getElementById('login-password').value).then(result => { if(result.success) { alert('登录成功'); Auth.checkAccountValidity().then(valid => { if(valid) loadRecords(); }); } else alert(result.message); })" class="w-full btn-genshin">
-                        登录
-                    </button>
-                    <p class="text-center text-gray-400 text-sm">
-                        还没有账号？<a href="#" onclick="Auth.switchToRegister(); return false;" class="text-genshin-yellow hover:underline">立即注册</a>
-                    </p>
-                </form>
-                
-                <!-- 注册表单 -->
-                <form id="register-form" class="space-y-4" style="display: none;">
-                    <div>
-                        <label class="block text-gray-300 text-sm font-medium mb-2">用户名</label>
-                        <input type="text" id="register-username" class="w-full input-genshin" placeholder="请输入用户名（3-20字符）" required>
-                    </div>
-                    <div>
-                        <label class="block text-gray-300 text-sm font-medium mb-2">密码</label>
-                        <input type="password" id="register-password" class="w-full input-genshin" placeholder="请输入密码（至少6位）" required>
-                    </div>
-                    <div>
-                        <label class="block text-gray-300 text-sm font-medium mb-2">确认密码</label>
-                        <input type="password" id="register-confirm-password" class="w-full input-genshin" placeholder="请再次输入密码" required>
-                    </div>
-                    <button type="button" onclick="Auth.register(document.getElementById('register-username').value, document.getElementById('register-password').value, document.getElementById('register-confirm-password').value).then(result => { if(result.success) { alert('注册成功，请登录'); Auth.switchToLogin(); } else alert(result.message); })" class="w-full btn-genshin">
-                        注册
-                    </button>
-                    <p class="text-center text-gray-400 text-sm">
-                        已有账号？<a href="#" onclick="Auth.switchToLogin(); return false;" class="text-genshin-yellow hover:underline">立即登录</a>
-                    </p>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <!-- 页脚 -->
     <footer class="py-8 bg-dark border-t border-gray-800 mt-16">
         <div class="container mx-auto px-4">

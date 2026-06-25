@@ -2,10 +2,12 @@
 (function() {
     // 导航菜单项配置
     const navItems = [
-        { name: '首页', href: 'index.html' },
+        { name: '首页', href: 'index.html' },        
         { name: '排行榜', href: 'ranking.html' },
         { name: '上传记录', href: 'upload.html' },
         { name: '投票审核', href: 'vote.html' },
+        { name: '讨论区', href: 'discuss.html' },
+        { name: '贡献榜', href: 'contribution.html' },
         { name: '用户中心', href: 'user.html' },
         { name: '管理员', href: 'admin.html' }
     ];
@@ -95,6 +97,57 @@
             </nav>
             <!-- 导航栏占位元素，防止内容被固定导航栏遮挡 -->
             <div class="h-16 md:h-20"></div>
+            
+            <!-- 统一登录/注册弹窗 -->
+            <div id="auth-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
+                <div class="bg-gray-900 rounded-lg w-full max-w-md mx-4 overflow-hidden">
+                    <div class="flex justify-between items-center p-4 border-b border-gray-700">
+                        <h2 class="text-xl font-bold text-white">用户登录</h2>
+                        <button onclick="Auth.closeAuthModal()" class="text-gray-400 hover:text-white">
+                            <i class="fa fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <form id="login-form" class="space-y-4">
+                            <div>
+                                <label class="block text-gray-300 text-sm font-medium mb-2">用户名</label>
+                                <input type="text" id="login-username" class="w-full bg-gray-800 border border-gray-700 rounded-md px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-genshin-yellow" placeholder="请输入用户名" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 text-sm font-medium mb-2">密码</label>
+                                <input type="password" id="login-password" class="w-full bg-gray-800 border border-gray-700 rounded-md px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-genshin-yellow" placeholder="请输入密码" required>
+                            </div>
+                            <button type="button" onclick="Auth.login(document.getElementById('login-username').value, document.getElementById('login-password').value).then(result => { if(result.success) { alert('登录成功'); window.location.reload(); } else alert(result.message); })" class="w-full bg-gradient-to-r from-genshin-yellow to-yellow-400 text-dark font-bold py-2 rounded-md hover:from-yellow-400 hover:to-genshin-yellow transition-all">
+                                登录
+                            </button>
+                            <p class="text-center text-gray-400 text-sm">
+                                还没有账号？<a href="#" onclick="Auth.switchToRegister(); return false;" class="text-genshin-yellow hover:underline">立即注册</a>
+                            </p>
+                        </form>
+                        
+                        <form id="register-form" class="space-y-4" style="display: none;">
+                            <div>
+                                <label class="block text-gray-300 text-sm font-medium mb-2">用户名</label>
+                                <input type="text" id="register-username" class="w-full bg-gray-800 border border-gray-700 rounded-md px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-genshin-yellow" placeholder="请输入用户名（3-20字符）" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 text-sm font-medium mb-2">密码</label>
+                                <input type="password" id="register-password" class="w-full bg-gray-800 border border-gray-700 rounded-md px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-genshin-yellow" placeholder="请输入密码（至少6位）" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 text-sm font-medium mb-2">确认密码</label>
+                                <input type="password" id="register-confirm-password" class="w-full bg-gray-800 border border-gray-700 rounded-md px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-genshin-yellow" placeholder="请再次输入密码" required>
+                            </div>
+                            <button type="button" onclick="Auth.register(document.getElementById('register-username').value, document.getElementById('register-password').value, document.getElementById('register-confirm-password').value).then(result => { if(result.success) { alert('注册成功，请登录'); Auth.switchToLogin(); } else alert(result.message); })" class="w-full bg-gradient-to-r from-genshin-yellow to-yellow-400 text-dark font-bold py-2 rounded-md hover:from-yellow-400 hover:to-genshin-yellow transition-all">
+                                注册
+                            </button>
+                            <p class="text-center text-gray-400 text-sm">
+                                已有账号？<a href="#" onclick="Auth.switchToLogin(); return false;" class="text-genshin-yellow hover:underline">立即登录</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
         `;
 
         return navbarHTML;
@@ -153,11 +206,12 @@
     }
 
     // 页面加载时渲染导航栏
-    function initNavbar() {
+    async function initNavbar() {
         // 渲染导航栏（不依赖Auth模块）
         renderNavbar();
-        // 如果Auth模块存在，更新登录状态
+        // 如果Auth模块存在，等待初始化完成后更新登录状态
         if (typeof Auth !== 'undefined') {
+            await Auth.initAuth();
             updateNavbarLoginUI();
         }
     }

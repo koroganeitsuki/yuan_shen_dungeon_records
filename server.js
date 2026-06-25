@@ -370,6 +370,7 @@ app.get('/api/user-info', (req, res) => {
             user: user,
             valid: validity.valid,
             validDays: validity.validDays,
+            daysRegistered: validity.daysRegistered,
             canReset: validity.canReset,
             daysUntilReset: validity.daysUntilReset || 0
         });
@@ -465,12 +466,156 @@ app.get('/api/download-records', (req, res) => {
     }
 });
 
+// API端点：获取讨论区留言列表
+app.get('/api/discussions', (req, res) => {
+    try {
+        const discussions = parseDiscussionsFromFile();
+        res.json({ success: true, discussions });
+    } catch (error) {
+        log(`获取讨论区失败: ${error.message}`);
+        res.status(500).json({ success: false, message: `服务器内部错误: ${error.message}` });
+    }
+});
+
+// API端点：发表留言
+app.post('/api/discussions', (req, res) => {
+    try {
+        const token = req.headers['authorization'];
+        const username = (token && sessions[token]) ? sessions[token].username : '未登录用户';
+
+        const { content } = req.body;
+        if (!content || content.trim().length === 0) {
+            return res.status(400).json({ success: false, message: '请输入留言内容' });
+        }
+
+        if (content.length > 2000) {
+            return res.status(400).json({ success: false, message: '留言内容不能超过2000字符' });
+        }
+
+        const discussions = parseDiscussionsFromFile();
+        
+        const newDiscussion = {
+            id: discussions.length > 0 ? Math.max(...discussions.map(d => d.id)) + 1 : 1,
+            username: username,
+            content: content.trim(),
+            timestamp: new Date().toLocaleString('zh-CN'),
+            likes: 0,
+            replies: []
+        };
+        
+        discussions.push(newDiscussion);
+        writeDiscussionsFile(discussions);
+        
+        log(`新留言发布: ${username}`);
+        
+        res.json({ success: true, discussion: newDiscussion });
+    } catch (error) {
+        log(`发布留言失败: ${error.message}`);
+        res.status(500).json({ success: false, message: `服务器内部错误: ${error.message}` });
+    }
+});
+
+// API端点：点赞留言
+app.post('/api/discussions/:id/like', (req, res) => {
+    try {
+        const token = req.headers['authorization'];
+        if (!token || !sessions[token]) {
+            return res.status(401).json({ success: false, message: '请先登录' });
+        }
+
+        const { id } = req.params;
+        const discussions = parseDiscussionsFromFile();
+        const discussionIndex = discussions.findIndex(d => d.id === parseInt(id));
+
+        if (discussionIndex === -1) {
+            return res.status(404).json({ success: false, message: '留言不存在' });
+        }
+
+        discussions[discussionIndex].likes += 1;
+        writeDiscussionsFile(discussions);
+        
+        res.json({ success: true, likes: discussions[discussionIndex].likes });
+    } catch (error) {
+        log(`点赞失败: ${error.message}`);
+        res.status(500).json({ success: false, message: `服务器内部错误: ${error.message}` });
+    }
+});
+
+// API端点：回复留言
+app.post('/api/discussions/:id/reply', (req, res) => {
+    try {
+        const token = req.headers['authorization'];
+        const username = (token && sessions[token]) ? sessions[token].username : '未登录用户';
+
+        const { id } = req.params;
+        const { content } = req.body;
+
+        if (!content || content.trim().length === 0) {
+            return res.status(400).json({ success: false, message: '请输入回复内容' });
+        }
+
+        if (content.length > 1000) {
+            return res.status(400).json({ success: false, message: '回复内容不能超过1000字符' });
+        }
+        const discussions = parseDiscussionsFromFile();
+        const discussionIndex = discussions.findIndex(d => d.id === parseInt(id));
+
+        if (discussionIndex === -1) {
+            return res.status(404).json({ success: false, message: '留言不存在' });
+        }
+
+        if (!discussions[discussionIndex].replies) {
+            discussions[discussionIndex].replies = [];
+        }
+
+        const newReply = {
+            username: username,
+            content: content.trim(),
+            timestamp: new Date().toLocaleString('zh-CN')
+        };
+
+        discussions[discussionIndex].replies.push(newReply);
+        writeDiscussionsFile(discussions);
+        
+        log(`新回复: ${username} 回复了留言 ${id}`);
+        
+        res.json({ success: true, reply: newReply });
+    } catch (error) {
+        log(`回复失败: ${error.message}`);
+        res.status(500).json({ success: false, message: `服务器内部错误: ${error.message}` });
+    }
+});
+
+// API端点：删除留言（管理员）
+app.delete('/api/discussions/:id', adminAuthMiddleware, (req, res) => {
+    try {
+        const { id } = req.params;
+        const discussions = parseDiscussionsFromFile();
+        const discussionIndex = discussions.findIndex(d => d.id === parseInt(id));
+
+        if (discussionIndex === -1) {
+            return res.status(404).json({ success: false, message: '留言不存在' });
+        }
+
+        const deleted = discussions.splice(discussionIndex, 1)[0];
+        writeDiscussionsFile(discussions);
+        
+        log(`管理员删除留言: ${deleted.username} 的留言`);
+        
+        res.json({ success: true, message: '删除成功' });
+    } catch (error) {
+        log(`删除留言失败: ${error.message}`);
+        res.status(500).json({ success: false, message: `服务器内部错误: ${error.message}` });
+    }
+});
+
 // 静态文件服务 - 用于提供HTML、CSS、JS等静态文件
 app.use(express.static(__dirname));
 
 // 数据文件路径
 const DATA_FILE = path.join(__dirname, 'data.js');
 const RECORDS_FILE = path.join(__dirname, 'records.js');
+const DISCUSSIONS_FILE = path.join(__dirname, 'discussions.js');
 
 // 日志文件路径
 const LOG_FILE = path.join(__dirname, 'server.log');
@@ -572,6 +717,53 @@ function parseUsersFromRecordsFile() {
         return users;
     } catch (error) {
         log(`解析用户文件失败: ${error.message}`);
+        throw error;
+    }
+}
+
+// 读取讨论区文件
+function readDiscussionsFile() {
+    try {
+        const data = fs.readFileSync(DISCUSSIONS_FILE, 'utf8');
+        return data;
+    } catch (error) {
+        log(`读取讨论区文件失败: ${error.message}`);
+        throw error;
+    }
+}
+
+// 写入讨论区文件
+function writeDiscussionsFile(discussions) {
+    try {
+        const content = `// 讨论区数据文件\n// 存储用户留言和聊天记录\n\nconst Discussions = ${JSON.stringify(discussions, null, 4)};`;
+        fs.writeFileSync(DISCUSSIONS_FILE, content, 'utf8');
+        log('讨论区文件写入成功');
+    } catch (error) {
+        log(`写入讨论区文件失败: ${error.message}`);
+        throw error;
+    }
+}
+
+// 解析讨论区数据
+function parseDiscussionsFromFile() {
+    try {
+        const data = readDiscussionsFile();
+        
+        const vm = require('vm');
+        const sandbox = { window: {}, module: { exports: {} } };
+        const script = new vm.Script(data + '\nmodule.exports = Discussions;');
+        const context = new vm.createContext(sandbox);
+        script.runInContext(context);
+        
+        const discussions = context.module.exports;
+        
+        if (!discussions || !Array.isArray(discussions)) {
+            return [];
+        }
+        
+        return discussions;
+    } catch (error) {
+        log(`解析讨论区文件失败: ${error.message}`);
         throw error;
     }
 }

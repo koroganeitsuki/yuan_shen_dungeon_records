@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原神幽境危战 - 讨论区</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="records.js"></script>
+    <script src="data.js"></script>
+    <script src="auth.js"></script>
+    <script src="nav.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark': '#121212',
+                        'dark-lighter': '#1e1e1e',
+                        'genshin-yellow': '#ffdd40',
+                        'genshin-blue': '#3498db',
+                        'genshin-red': '#e74c3c',
+                        'genshin-green': '#2ecc71',
+                        'genshin-purple': '#9b59b6',
+                        'genshin-orange': '#f39c12',
+                        'genshin-teal': '#1abc9c',
+                        'physical': '#EEEEEE',
+                        'pyro': '#FF5511',
+                        'hydro': '#33AAFF',
+                        'electro': '#CC33FF',
+                        'cryo': '#99EEFF',
+                        'anemo': '#00FFCC',
+                        'geo': '#FFBB55',
+                        'dendro': '#77FF44',
+                        '物理': '#EEEEEE',
+                        '火': '#FF5511',
+                        '水': '#33AAFF',
+                        '雷': '#CC33FF',
+                        '冰': '#99EEFF',
+                        '风': '#00FFCC',
+                        '岩': '#FFBB55',
+                        '草': '#77FF44'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow-lg {
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            
+            .nav-link {
+                position: relative;
+                color: #f8f9fa;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: #ffdd40;
+                transition: width 0.3s ease;
+            }
+            
+            .nav-link:hover::after {
+                width: 100%;
+            }
+            
+            .nav-link.active::after {
+                width: 100%;
+            }
+            
+            .glass-card {
+                background: rgba(30, 30, 30, 0.8);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 8px;
+            }
+            
+            .form-input {
+                background: rgba(255, 255, 255, 0.15);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                border-radius: 4px;
+                padding: 0.75rem;
+                color: #f8f9fa;
+                transition: all 0.3s ease;
+            }
+            
+            .form-input:focus {
+                outline: none;
+                border-color: #ffdd40;
+                background: rgba(255, 255, 255, 0.2);
+            }
+            
+            .btn-primary {
+                background: linear-gradient(135deg, #ffdd40, #ffaa00);
+                color: #121212;
+                font-weight: 600;
+                padding: 0.5rem 1.5rem;
+                border-radius: 4px;
+                transition: all 0.3s ease;
+                border: none;
+            }
+            
+            .btn-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(255, 221, 64, 0.3);
+            }
+            
+            .btn-primary:active {
+                transform: translateY(0);
+            }
+            
+            .btn-secondary {
+                background: rgba(255, 255, 255, 0.1);
+                color: #f8f9fa;
+                padding: 0.5rem 1.5rem;
+                border-radius: 4px;
+                transition: all 0.3s ease;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+            
+            .btn-secondary:hover {
+                background: rgba(255, 255, 255, 0.2);
+            }
+            
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-dark text-light min-h-screen">
+    <div id="navbar-container"></div>
+    
+    <header class="bg-gradient-to-r from-genshin-yellow/20 via-transparent to-genshin-blue/20 py-8">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-genshin-yellow mb-2">讨论区</h1>
+            <p class="text-gray-400">分享通关心得，交流配队思路</p>
+        </div>
+    </header>
+    
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+        <div class="glass-card p-6 mb-6">
+            <h2 class="text-xl font-bold mb-4 flex items-center">
+                <i class="fas fa-comments mr-2 text-genshin-yellow"></i>
+                发表留言
+            </h2>
+            
+            <div id="login-required" class="hidden">
+                <div class="bg-genshin-yellow/20 border border-genshin-yellow/30 rounded-lg p-4 text-center">
+                    <p class="text-genshin-yellow mb-2">请先登录后再发表留言</p>
+                    <button onclick="Auth.openAuthModal()" class="btn-primary">立即登录</button>
+                </div>
+            </div>
+            
+            <div id="comment-form" class="hidden">
+                <textarea 
+                    id="comment-content" 
+                    class="form-input w-full h-32 mb-4 resize-none"
+                    placeholder="分享你的通关心得、配队思路，或者和其他玩家交流..."></textarea>
+                
+                <div class="flex justify-end">
+                    <button id="submit-comment-btn" class="btn-primary">
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        发表留言
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="discussions-list">
+            <div class="text-center py-12 text-gray-500">
+                <i class="fas fa-spinner fa-spin text-4xl mb-4"></i>
+                <p>加载中...</p>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="bg-dark-lighter border-t border-gray-800 py-8 mt-12">
+        <div class="container mx-auto px-4 text-center text-gray-500">
+            <p>原神幽境危战 · 难度六通关记录</p>
+            <p class="text-sm mt-2">非官方网站，仅供玩家交流使用</p>
+        </div>
+    </footer>
+    
+    <script>
+        const API_BASE = window.location.origin;
+        
+        async function loadDiscussions() {
+            try {
+                const response = await fetch(`${API_BASE}/api/discussions`);
+                const data = await response.json();
+                
+                if (data.success && data.discussions) {
+                    renderDiscussions(data.discussions);
+                } else {
+                    document.getElementById('discussions-list').innerHTML = `
+                        <div class="text-center py-12 text-gray-500">
+                            <i class="fas fa-exclamation-circle text-4xl mb-4"></i>
+                            <p>加载失败，请稍后重试</p>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('加载讨论区失败:', error);
+                document.getElementById('discussions-list').innerHTML = `
+                    <div class="text-center py-12 text-gray-500">
+                        <i class="fas fa-exclamation-circle text-4xl mb-4"></i>
+                        <p>网络连接失败，请检查网络</p>
+                    </div>
+                `;
+            }
+        }
+        
+        function renderDiscussions(discussions) {
+            const listContainer = document.getElementById('discussions-list');
+            
+            if (discussions.length === 0) {
+                listContainer.innerHTML = `
+                    <div class="text-center py-12 text-gray-500">
+                        <i class="fas fa-comments text-4xl mb-4"></i>
+                        <p>还没有留言，快来发表第一条吧！</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            const sortedDiscussions = [...discussions].sort((a, b) => 
+                new Date(b.timestamp) - new Date(a.timestamp)
+            );
+            
+            listContainer.innerHTML = sortedDiscussions.map(discussion => `
+                <div class="glass-card p-6 mb-4">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-genshin-yellow/20 flex items-center justify-center mr-3">
+                                <i class="fas fa-user text-genshin-yellow"></i>
+                            </div>
+                            <div>
+                                <span class="font-medium text-white">${discussion.username}</span>
+                                <span class="text-gray-500 text-sm ml-2">${discussion.timestamp}</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button onclick="toggleLike(${discussion.id})" class="text-gray-400 hover:text-genshin-yellow transition-colors" title="点赞">
+                                <i class="fas fa-thumbs-up"></i>
+                                <span class="ml-1">${discussion.likes}</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="text-gray-300 leading-relaxed mb-4 whitespace-pre-wrap">${discussion.content}</div>
+                    
+                    <div class="flex items-center space-x-4 text-sm">
+                        <button onclick="openReply(${discussion.id})" class="text-genshin-blue hover:text-genshin-yellow transition-colors">
+                            <i class="fas fa-reply mr-1"></i>
+                            回复
+                        </button>
+                        ${discussion.replies && discussion.replies.length > 0 ? `
+                            <span class="text-gray-500">${discussion.replies.length} 条回复</span>
+                        ` : ''}
+                    </div>
+                    
+                    ${discussion.replies && discussion.replies.length > 0 ? `
+                        <div class="mt-4 pt-4 border-t border-gray-700">
+                            ${discussion.replies.map(reply => `
+                                <div class="flex items-start mb-3">
+                                    <div class="w-8 h-8 rounded-full bg-genshin-blue/20 flex items-center justify-center mr-2 flex-shrink-0">
+                                        <i class="fas fa-user text-genshin-blue text-sm"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <span class="font-medium text-white text-sm">${reply.username}</span>
+                                        <span class="text-gray-500 text-xs ml-2">${reply.timestamp}</span>
+                                        <p class="text-gray-400 text-sm mt-1">${reply.content}</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    ` : ''}
+                    
+                    <div id="reply-form-${discussion.id}" class="hidden mt-4 pt-4 border-t border-gray-700">
+                        <textarea 
+                            id="reply-content-${discussion.id}" 
+                            class="form-input w-full h-24 mb-3 text-sm resize-none"
+                            placeholder="写下你的回复..."></textarea>
+                        <div class="flex justify-end space-x-2">
+                            <button onclick="closeReply(${discussion.id})" class="btn-secondary text-sm">取消</button>
+                            <button onclick="submitReply(${discussion.id})" class="btn-primary text-sm">
+                                <i class="fas fa-reply mr-1"></i>
+                                回复
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        async function submitComment() {
+            const content = document.getElementById('comment-content').value.trim();
+            if (!content) {
+                alert('请输入留言内容');
+                return;
+            }
+            
+            const submitBtn = document.getElementById('submit-comment-btn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>发布中...';
+            
+            try {
+                const headers = { 'Content-Type': 'application/json' };
+                if (Auth && Auth.authToken) {
+                    headers['Authorization'] = Auth.authToken;
+                }
+                
+                const response = await fetch(`${API_BASE}/api/discussions`, {
+                    method: 'POST',
+                    headers: headers,
+                    body: JSON.stringify({ content })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    document.getElementById('comment-content').value = '';
+                    loadDiscussions();
+                } else {
+                    alert(data.message || '发布失败');
+                }
+            } catch (error) {
+                console.error('发布留言失败:', error);
+                alert('发布失败，请稍后重试');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>发表留言';
+            }
+        }
+        
+        async function toggleLike(id) {
+            if (!Auth || !Auth.currentUser) {
+                alert('请先登录');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${API_BASE}/api/discussions/${id}/like`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': Auth.authToken
+                    }
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    loadDiscussions();
+                }
+            } catch (error) {
+                console.error('点赞失败:', error);
+            }
+        }
+        
+        function openReply(id) {
+            document.getElementById(`reply-form-${id}`).classList.remove('hidden');
+        }
+        
+        function closeReply(id) {
+            document.getElementById(`reply-form-${id}`).classList.add('hidden');
+            document.getElementById(`reply-content-${id}`).value = '';
+        }
+        
+        async function submitReply(id) {
+            const content = document.getElementById(`reply-content-${id}`).value.trim();
+            if (!content) {
+                alert('请输入回复内容');
+                return;
+            }
+            
+            try {
+                const headers = { 'Content-Type': 'application/json' };
+                if (Auth && Auth.authToken) {
+                    headers['Authorization'] = Auth.authToken;
+                }
+                
+                const response = await fetch(`${API_BASE}/api/discussions/${id}/reply`, {
+                    method: 'POST',
+                    headers: headers,
+                    body: JSON.stringify({ content })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    closeReply(id);
+                    loadDiscussions();
+                } else {
+                    alert(data.message || '回复失败');
+                }
+            } catch (error) {
+                console.error('回复失败:', error);
+                alert('回复失败，请稍后重试');
+            }
+        }
+        
+        async function updateLoginUI() {
+            document.getElementById('login-required').classList.add('hidden');
+            document.getElementById('comment-form').classList.remove('hidden');
+        }
+        
+        document.addEventListener('DOMContentLoaded', async () => {
+            if (typeof Auth !== 'undefined') {
+                await Auth.initAuth();
+            }
+            loadDiscussions();
+            updateLoginUI();
+            
+            document.getElementById('submit-comment-btn').addEventListener('click', submitComment);
+        });
+    </script>
+</body>
+</html>

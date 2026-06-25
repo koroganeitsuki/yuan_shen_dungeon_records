@@ -325,7 +325,7 @@
                     document.getElementById('user-register-date').textContent = data.user.registerDate;
                     document.getElementById('user-status').textContent = data.valid ? '有效' : '已过期';
                     document.getElementById('user-status').style.color = data.valid ? '#10b981' : '#ef4444';
-                    document.getElementById('user-valid-days').textContent = data.validDays >= 0 ? `${data.validDays} 天` : '已过期';
+                    document.getElementById('user-valid-days').textContent = data.validDays >= data.daysRegistered ? `${data.validDays-data.daysRegistered} 天` : '已过期';
                     document.getElementById('user-submit-count').textContent = data.user.score || 0;
                     document.getElementById('user-bilibili-names').textContent = (data.user.bilibiliNames || []).join(', ') || '无';
                     document.getElementById('user-is-admin').textContent = data.user.isAdmin ? '是' : '否';

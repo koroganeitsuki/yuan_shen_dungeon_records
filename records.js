@@ -1829,6 +1829,16 @@ const Users = [
     isAdmin: false,
     resetCount: 0,
     lastResetDate: null
+},
+    {
+    username: '31212',
+    passwordHash: '2558a34d4d20964ca1d272ab26ccce9511d880579593cd4c9e01ab91ed00f325',
+    registerDate: '2026-06-25',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
 }
 ];
 

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原神幽境危战难度六 - 贡献榜</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 自定义Tailwind配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7928ca',
+                        secondary: '#ff0080',
+                        accent: '#ffdd40',
+                        dark: '#121212',
+                        light: '#f5f5f5',
+                        'genshin-purple': '#7928ca',
+                        'genshin-blue': '#3b82f6',
+                        'genshin-pink': '#ec4899',
+                        'genshin-yellow': '#fbbf24',
+                        'genshin-green': '#10b981',
+                        'genshin-red': '#ef4444',
+                        'genshin-gray': '#6b7280',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            background-color: #121212;
+            color: #f5f5f5;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(circle at 25% 25%, rgba(121, 40, 202, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 0, 128, 0.1) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .bg-gradient-genshin {
+            background: linear-gradient(135deg, #7928ca, #ff0080);
+        }
+
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .card {
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 221, 64, 0.5);
+        }
+
+        .btn-genshin {
+            background: linear-gradient(135deg, #7928ca, #ff0080);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .btn-genshin:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background: linear-gradient(135deg, #ff0080, #7928ca);
+        }
+
+        .btn-genshin:active {
+            transform: translateY(0);
+        }
+
+        .table-genshin {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .table-genshin th {
+            background: rgba(121, 40, 202, 0.2);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: #f5f5f5;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .table-genshin td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .table-genshin tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .table-genshin tr:last-child td {
+            border-bottom: none;
+        }
+
+        .rank-1 {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(251, 191, 36, 0.05));
+            border-left: 4px solid #fbbf24;
+        }
+
+        .rank-2 {
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.15), rgba(192, 192, 192, 0.03));
+            border-left: 4px solid #c0c0c0;
+        }
+
+        .rank-3 {
+            background: linear-gradient(135deg, rgba(205, 127, 50, 0.15), rgba(205, 127, 50, 0.03));
+            border-left: 4px solid #cd7f32;
+        }
+
+        .rank-badge {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+
+        .rank-badge-1 {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #121212;
+            box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+        }
+
+        .rank-badge-2 {
+            background: linear-gradient(135deg, #e5e7eb, #9ca3af);
+            color: #121212;
+        }
+
+        .rank-badge-3 {
+            background: linear-gradient(135deg, #fdba74, #ea580c);
+            color: #121212;
+        }
+
+        .rank-badge-other {
+            background: rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fbbf24;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .stat-card {
+            background: rgba(18, 18, 18, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 221, 64, 0.3);
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- 导航栏容器 -->
+    <div id="navbar-container"></div>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- 页面标题 -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-genshin-yellow mb-2 text-shadow">
+                <i class="fa fa-trophy mr-2"></i>贡献榜
+            </h1>
+            <p class="text-gray-400 max-w-2xl mx-auto">根据用户累计积分进行排名，积分越高排名越靠前</p>
+        </div>
+
+        <!-- 加载状态 -->
+        <div id="loading-container" class="flex flex-col items-center justify-center py-16">
+            <div class="loading mb-4"></div>
+            <p class="text-lg text-gray-400">正在加载数据...</p>
+        </div>
+
+        <!-- 内容容器 (初始隐藏) -->
+        <div id="content-container" class="hidden">
+            <!-- 统计卡片 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                <div class="stat-card fade-in">
+                    <div class="text-gray-400 text-sm mb-1">上榜用户</div>
+                    <div class="flex items-end">
+                        <span id="total-users" class="text-3xl font-bold text-genshin-yellow">0</span>
+                        <span class="text-gray-400 ml-1 mb-1">人</span>
+                    </div>
+                </div>
+
+                <div class="stat-card fade-in" style="animation-delay: 0.1s;">
+                    <div class="text-gray-400 text-sm mb-1">最高积分</div>
+                    <div class="flex items-end">
+                        <span id="max-score" class="text-3xl font-bold text-genshin-pink">0</span>
+                        <span class="text-gray-400 ml-1 mb-1">分</span>
+                    </div>
+                </div>
+
+                <div class="stat-card fade-in" style="animation-delay: 0.2s;">
+                    <div class="text-gray-400 text-sm mb-1">平均积分</div>
+                    <div class="flex items-end">
+                        <span id="avg-score" class="text-3xl font-bold text-genshin-blue">0</span>
+                        <span class="text-gray-400 ml-1 mb-1">分</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 排行榜表格 -->
+            <div class="card p-6 fade-in" style="animation-delay: 0.3s;">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold">
+                        <i class="fa fa-list-ol mr-2 text-genshin-yellow"></i>积分排行
+                    </h2>
+                    <span class="text-sm text-gray-400">仅显示积分大于0的用户</span>
+                </div>
+
+                <div class="responsive-table overflow-x-auto">
+                    <table class="table-genshin">
+                        <thead>
+                            <tr>
+                                <th class="w-16 text-center">排名</th>
+                                <th>用户名</th>
+                                <th class="text-right">积分</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ranking-table-body">
+                            <!-- 表格内容将通过JavaScript动态生成 -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 空状态 -->
+                <div id="empty-state" class="hidden flex flex-col items-center justify-center py-12">
+                    <div class="text-6xl text-gray-600 mb-4">
+                        <i class="fa fa-inbox"></i>
+                    </div>
+                    <p class="text-xl text-gray-400">暂无积分数据</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="py-8 bg-dark border-t border-gray-800 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-400">&copy; 2025 原神幽境危战难度六通关记录. 保留所有权利.</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://github.com/koroganeitsuki/yuan_shen_dungeon_records" target="_blank" class="text-gray-400 hover:text-genshin-yellow">
+                        <i class="fa-brands fa-github text-2xl"></i>
+                    </a>
+                    <a href="https://space.bilibili.com/435511059" target="_blank" class="text-gray-400 hover:text-genshin-yellow">
+                        <i class="fa-brands fa-bilibili text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-4 text-center text-gray-500 text-sm">
+                <p>本网站仅用于记录和分享游戏通关记录，与miHoYo/HoYoverse无关</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 引用数据文件 -->
+    <script src="records.js"></script>
+    <script src="auth.js"></script>
+    <script src="nav.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取DOM元素
+            const loadingContainer = document.getElementById('loading-container');
+            const contentContainer = document.getElementById('content-container');
+            const tableBody = document.getElementById('ranking-table-body');
+            const emptyState = document.getElementById('empty-state');
+
+            // 获取用户数据
+            function loadUserRanking() {
+                // 检查Users数据是否存在
+                if (typeof Users === 'undefined' || !Array.isArray(Users)) {
+                    console.error('Users数据未找到');
+                    loadingContainer.innerHTML = '<p class="text-red-400">数据加载失败</p>';
+                    return;
+                }
+
+                // 筛选积分大于0的用户，并按积分从高到低排序
+                const rankedUsers = Users
+                    .filter(user => user.score > 0)
+                    .sort((a, b) => b.score - a.score);
+
+                // 隐藏加载状态，显示内容
+                loadingContainer.classList.add('hidden');
+                contentContainer.classList.remove('hidden');
+
+                // 更新统计卡片
+                updateStats(rankedUsers);
+
+                // 渲染表格
+                if (rankedUsers.length === 0) {
+                    emptyState.classList.remove('hidden');
+                } else {
+                    renderRankingTable(rankedUsers);
+                }
+            }
+
+            // 更新统计信息
+            function updateStats(users) {
+                const totalUsers = users.length;
+                const maxScore = totalUsers > 0 ? users[0].score : 0;
+                const avgScore = totalUsers > 0
+                    ? Math.round(users.reduce((sum, u) => sum + u.score, 0) / totalUsers)
+                    : 0;
+
+                document.getElementById('total-users').textContent = totalUsers;
+                document.getElementById('max-score').textContent = maxScore;
+                document.getElementById('avg-score').textContent = avgScore;
+            }
+
+            // 渲染排行榜表格
+            function renderRankingTable(users) {
+                tableBody.innerHTML = '';
+
+                users.forEach((user, index) => {
+                    const rank = index + 1;
+                    const rowClass = rank <= 3 ? `rank-${rank}` : '';
+                    const badgeClass = rank === 1 ? 'rank-badge-1' :
+                                       rank === 2 ? 'rank-badge-2' :
+                                       rank === 3 ? 'rank-badge-3' : 'rank-badge-other';
+
+                    const rankIcon = rank <= 3 ? '<i class="fa fa-crown"></i>' : rank;
+
+                    const row = document.createElement('tr');
+                    row.className = rowClass;
+                    row.innerHTML = `
+                        <td class="text-center">
+                            <div class="rank-badge ${badgeClass} mx-auto">
+                                ${rankIcon}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flex items-center">
+                                <i class="fa fa-user-circle text-gray-400 mr-2"></i>
+                                <span class="font-medium">${escapeHtml(user.username)}</span>
+                            </div>
+                        </td>
+                        <td class="text-right">
+                            <span class="text-genshin-yellow font-bold text-lg">${user.score}</span>
+                        </td>
+                    `;
+
+                    // 添加动画延迟
+                    row.style.animation = `fadeIn 0.3s ease-in-out ${index * 0.05}s both`;
+
+                    tableBody.appendChild(row);
+                });
+            }
+
+            // HTML转义，防止XSS
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            // 加载数据
+            loadUserRanking();
+        });
+    </script>
+</body>
+</html>
