@@ -498,7 +498,8 @@
                         <label class="block text-sm font-medium text-gray-400 mb-1">主C记录</label>
                         <select id="mainc-record-filter" class="select-genshin w-full">
                             <option value="all">显示全部记录</option>
-                            <option value="best">每个主C只显示最优记录</option>
+                            <option value="best">同主C只显示最优记录</option>
+                            <option value="boss-best">同boss同主C只显示最优记录</option>
                         </select>
                     </div>
                 </div>
@@ -1107,6 +1108,25 @@
                 });
                 
                 filteredRecords = Object.values(maincBestRecords);
+            } else if (maincRecordFilter === 'boss-best') {
+                const maincBossBestRecords = {};
+                
+                // 先对记录进行排序，确保最优记录在前面
+                const sortedRecords = [...filteredRecords];
+                const sortedResult = sortRecords(sortedRecords);
+                const finalSortedRecords = sortedResult || sortedRecords;
+                
+                // 每个主C每个Boss只保留最优记录
+                finalSortedRecords.forEach(record => {
+                    const mainc = record.mainc?.toLowerCase() || '';
+                    const boss = record.boss?.toLowerCase() || '';
+                    const key = mainc + '_' + boss;
+                    if (!maincBossBestRecords[key]) {
+                        maincBossBestRecords[key] = record;
+                    }
+                });
+                
+                filteredRecords = Object.values(maincBossBestRecords);
             }
             
             // 重置页码
