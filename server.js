@@ -7,6 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const dns = require('dns');
 const crypto = require('crypto');
+const https = require('https');
 
 // 强制使用IPv4优先，避免IPv6连接问题
 dns.setDefaultResultOrder('ipv4first');
@@ -670,6 +671,66 @@ function writeRecordsFile(data) {
         log(`写入记录文件失败: ${error.message}`);
         throw error;
     }
+}
+
+// 备份恢复URL
+// const BACKUP_URL = 'https://yjwz-backup.yaoye19.workers.dev/latest';
+const BACKUP_URL = 'https://backup.yjwz.de5.net/latest';
+// 从备份URL恢复记录
+async function restoreFromBackup() {
+    return new Promise((resolve, reject) => {
+        log(`正在从备份URL恢复记录: ${BACKUP_URL}`);
+        
+        const request = https.get(BACKUP_URL, {
+            timeout: 30000, // 30秒超时
+            headers: {
+                'User-Agent': 'YJWZ-Server/1.0'
+            }
+        }, (response) => {
+            let data = '';
+            
+            // 检查响应状态
+            if (response.statusCode !== 200) {
+                log(`备份恢复失败: HTTP ${response.statusCode}`);
+                resolve(false);
+                return;
+            }
+            
+            response.on('data', (chunk) => {
+                data += chunk;
+            });
+            
+            response.on('end', () => {
+                try {
+                    // 验证数据格式是否正确（包含 Users 和 Records）
+                    if (!data.includes('const Users') || !data.includes('const Records')) {
+                        log('备份恢复失败: 数据格式不正确');
+                        resolve(false);
+                        return;
+                    }
+                    
+                    // 写入到 records.js
+                    writeRecordsFile(data);
+                    log('备份恢复成功: 记录已从远程恢复');
+                    resolve(true);
+                } catch (error) {
+                    log(`备份恢复失败: ${error.message}`);
+                    resolve(false);
+                }
+            });
+        });
+        
+        request.on('error', (error) => {
+            log(`备份恢复请求失败: ${error.message}`);
+            resolve(false);
+        });
+        
+        request.on('timeout', () => {
+            request.destroy();
+            log('备份恢复超时');
+            resolve(false);
+        });
+    });
 }
 
 // 解析记录文件获取记录数组
@@ -1637,32 +1698,50 @@ app.post('/api/admin/records', adminAuthMiddleware, (req, res) => {
     }
 });
 
-// 启动服务器 - 监听所有地址（同时兼容IPv4和IPv6）
-const server = app.listen(PORT, '0.0.0.0', () => {
-    const address = server.address();
-    log(`=== 服务器启动信息 ===`);
-    log(`服务器启动成功，监听端口: ${PORT}`);
-    log(`监听地址: ${address.address}`);
-    log(`监听地址类型: ${address.family === 'IPv6' ? 'IPv6' : 'IPv4'}`);
-    log(`=== API访问地址 ===`);
-    log(`健康检查 (IPv4): http://localhost:${PORT}/api/health`);
-    log(`健康检查 (IPv6): http://[::1]:${PORT}/api/health`);
-    log(`提交通关记录: POST http://localhost:${PORT}/api/submit-record`);
-    log(`=== 网页访问地址 ===`);
-    log(`首页 (IPv4): http://localhost:${PORT}/index.html`);
-    log(`上传页 (IPv4): http://localhost:${PORT}/upload.html`);
-    log(`排行榜 (IPv4): http://localhost:${PORT}/ranking.html`);
-    log(`首页 (IPv6): http://[::1]:${PORT}/index.html`);
-    log(`上传页 (IPv6): http://[::1]:${PORT}/upload.html`);
-    log(`排行榜 (IPv6): http://[::1]:${PORT}/ranking.html`);
-    log(`=== 公网访问地址 ===`);
-    log(`首页: http://[240e:361:aa3d:e010::e5e]:${PORT}/index.html`);
-    log(`上传页: http://[240e:361:aa3d:e010::e5e]:${PORT}/upload.html`);
-    log(`排行榜: http://[240e:361:aa3d:e010::e5e]:${PORT}/ranking.html`);
-    log(`健康检查: http://[240e:361:aa3d:e010::e5e]:${PORT}/api/health`);
-    log(`提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:${PORT}/api/submit-record`);
-    log(`=== 服务器现在支持IPv4和IPv6访问 ===`);
-});
+// 启动服务器函数 - 先恢复备份再启动
+async function startServer() {
+    // 从备份恢复记录
+    try {
+        const restored = await restoreFromBackup();
+        if (restored) {
+            log('=== 备份恢复成功 ===');
+        } else {
+            log('=== 备份恢复失败，使用本地数据 ===');
+        }
+    } catch (error) {
+        log(`备份恢复出错: ${error.message}`);
+    }
+    
+    // 启动服务器 - 监听所有地址（同时兼容IPv4和IPv6）
+    const server = app.listen(PORT, '0.0.0.0', () => {
+        const address = server.address();
+        log(`=== 服务器启动信息 ===`);
+        log(`服务器启动成功，监听端口: ${PORT}`);
+        log(`监听地址: ${address.address}`);
+        log(`监听地址类型: ${address.family === 'IPv6' ? 'IPv6' : 'IPv4'}`);
+        log(`=== API访问地址 ===`);
+        log(`健康检查 (IPv4): http://localhost:${PORT}/api/health`);
+        log(`健康检查 (IPv6): http://[::1]:${PORT}/api/health`);
+        log(`提交通关记录: POST http://localhost:${PORT}/api/submit-record`);
+        log(`=== 网页访问地址 ===`);
+        log(`首页 (IPv4): http://localhost:${PORT}/index.html`);
+        log(`上传页 (IPv4): http://localhost:${PORT}/upload.html`);
+        log(`排行榜 (IPv4): http://localhost:${PORT}/ranking.html`);
+        log(`首页 (IPv6): http://[::1]:${PORT}/index.html`);
+        log(`上传页 (IPv6): http://[::1]:${PORT}/upload.html`);
+        log(`排行榜 (IPv6): http://[::1]:${PORT}/ranking.html`);
+        log(`=== 公网访问地址 ===`);
+        log(`首页: http://[240e:361:aa3d:e010::e5e]:${PORT}/index.html`);
+        log(`上传页: http://[240e:361:aa3d:e010::e5e]:${PORT}/upload.html`);
+        log(`排行榜: http://[240e:361:aa3d:e010::e5e]:${PORT}/ranking.html`);
+        log(`健康检查: http://[240e:361:aa3d:e010::e5e]:${PORT}/api/health`);
+        log(`提交通关记录: POST http://[240e:361:aa3d:e010::e5e]:${PORT}/api/submit-record`);
+        log(`=== 服务器现在支持IPv4和IPv6访问 ===`);
+    });
+}
+
+// 启动服务器
+startServer();
 
 // 错误处理
 process.on('uncaughtException', (error) => {

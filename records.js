@@ -2009,6 +2009,116 @@ const Users = [
     isAdmin: false,
     resetCount: 0,
     lastResetDate: null
+},
+    {
+    username: '六月.',
+    passwordHash: 'e824b32b41a016340145fc5ff28effda7bcf295a1a529b66eff7a5701d9f4bb4',
+    registerDate: '2026-06-29',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '148244647@qq.com',
+    passwordHash: '4dc067eb9d24df6036d49a87c527ef594f93220265f94ab37d274e55a072b69a',
+    registerDate: '2026-06-29',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Vegeta',
+    passwordHash: 'e6c258f96bde0d19549f7237c2d7f4d68703c79f407f0a1798037560b0ffa9fc',
+    registerDate: '2026-06-29',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '依依依',
+    passwordHash: '792cb40a7917cd9ef8b26f5e112e39ab202d6fb37bb27f5ef228721dedefd64b',
+    registerDate: '2026-06-29',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'youakasakura',
+    passwordHash: '4c7f705cbdd80edf67f1c32576b06f6bef6f1b195df5b1e2c345eb5f6d33fd5f',
+    registerDate: '2026-06-30',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'greatlove',
+    passwordHash: '7b40a394fa8d50e0e2a6302b4dd5cb185b6c0fe5d0e795a873b47dfdbab31413',
+    registerDate: '2026-06-30',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '11111',
+    passwordHash: '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92',
+    registerDate: '2026-06-30',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'wzc1201',
+    passwordHash: 'e1209bc8ab14cbee16aa7ce50214df947965f5bc6be65e58eefca6de31efcf40',
+    registerDate: '2026-06-30',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '玛卡巴卡',
+    passwordHash: '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92',
+    registerDate: '2026-06-30',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: 'Djk',
+    passwordHash: 'c3bce6f80c4f1b24f757376ad88dfde4f9ab86f1f4bec903b80c8ebd8cf97a08',
+    registerDate: '2026-06-30',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
+},
+    {
+    username: '2178',
+    passwordHash: 'dfea915644112bef7072ce34098abe9ac0383205a0ffed22c1f16aac78599866',
+    registerDate: '2026-06-30',
+    score: 0,
+    bilibiliNames: [],
+    isAdmin: false,
+    resetCount: 0,
+    lastResetDate: null
 }
 ];
 
@@ -2172,7 +2282,7 @@ const Records = [
         },
         {
             id: 5,
-            player: '小渣渣花',
+            player: '小渣渣��',
             mainc: '瓦雷莎',
             team: [
                 {
@@ -4063,7 +4173,7 @@ const Records = [
                         weapon: 0
                     },
                 {
-                        character: '砂糖',
+                        character: '���糖',
                         constellation: 0,
                         weapon: 0
                     }
@@ -5940,7 +6050,7 @@ const Records = [
                     }
             ],
             time: 117,
-            boss: '霜夜巡天灵主 · 惊恨憎愤',
+            boss: '霜夜巡天灵主 �� 惊恨憎愤',
             gold: 2,
             constgold: 0,
             notes: '1命爱诺',
@@ -6213,7 +6323,7 @@ const Records = [
                     }
             ],
             time: 111,
-            boss: '历经百战的暝视龙 · 霜雪苛念',
+            boss: '���经百战的暝视龙 · 霜雪苛念',
             gold: 2,
             constgold: 1,
             notes: '70级弹弓温迪，精5狼牙杜林，天空班',
@@ -9015,7 +9125,7 @@ const Records = [
         {
             id: 190,
             player: '影子-ombre',
-            mainc: '菲林斯',
+            mainc: '��林斯',
             team: [
                 {
                         character: '菲林斯',
@@ -9452,7 +9562,7 @@ const Records = [
                         weapon: 0
                     },
                 {
-                        character: '卡齐娜',
+                        character: '���齐娜',
                         constellation: 6,
                         weapon: 0
                     },
@@ -15706,7 +15816,7 @@ const Records = [
                         weapon: 0
                     },
                 {
-                        character: '行秋',
+                        character: '行��',
                         constellation: 6,
                         weapon: 0
                     },
