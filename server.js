@@ -59,6 +59,41 @@ app.get('/api/health', (req, res) => {
     });
 });
 
+// 版本信息代理 - 绕过墙限制
+app.get('/version', (req, res) => {
+    const targetUrl = 'https://autoclick.yjwz.de5.net/version.json';
+    
+    https.get(targetUrl, {
+        timeout: 10000,
+        headers: {
+            'User-Agent': 'YJWZ-Server/1.0'
+        }
+    }, (response) => {
+        let data = '';
+        
+        if (response.statusCode !== 200) {
+            return res.status(500).json({ success: false, message: '获取版本信息失败' });
+        }
+        
+        response.on('data', (chunk) => {
+            data += chunk;
+        });
+        
+        response.on('end', () => {
+            try {
+                const jsonData = JSON.parse(data);
+                res.json(jsonData);
+            } catch (error) {
+                res.status(500).json({ success: false, message: '解析版本信息失败' });
+            }
+        });
+    }).on('error', (error) => {
+        res.status(500).json({ success: false, message: '请求版本信息失败: ' + error.message });
+    }).on('timeout', () => {
+        res.status(504).json({ success: false, message: '获取版本信息超时' });
+    });
+});
+
 // API端点：用户注册
 app.post('/api/register', (req, res) => {
     try {
