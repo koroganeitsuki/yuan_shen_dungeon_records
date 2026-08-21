@@ -175,6 +175,8 @@ const DataStore = {
     
     // BOSS数据
     bosses: [
+        { id: 'Chimera_Manticore', name: '嵌合翼骏狮·摧枯伟力', avatar: access + 'monster/UI_MonsterIcon_Chimera_Manticore.png', element: '雷' },
+        { id: 'Fatuus_Escadron_Wind', name: '历经百战的风役人·诡谲芒锋', avatar: access + 'monster/UI_MonsterIcon_Fatuus_Escadron_Wind.png', element: '风' },
         { id: 'Monitor_02', name: '历经百战的先驱秘源统辖阵列·蜂巢意志', avatar: access + 'monster/UI_MonsterIcon_Monitor_02.png', element: '冰' },
         { id: 'DragonClaw', name: '秘源机兵构型械·裂解剪钳', avatar: access + 'monster/UI_MonsterIcon_DragonClaw.png', element: '岩' },
         { id: 'eye', name: '开眼者', avatar: access + 'monster/eye.png', element: '岩' },
